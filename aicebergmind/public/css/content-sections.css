@@ -193,14 +193,9 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+/* Removed duplicate arrow - keeping only the one in text */
 summary::after {
-  content: '→';
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
-
-details[open] summary::after {
-  transform: rotate(90deg);
+  display: none;
 }
 
 details div {
