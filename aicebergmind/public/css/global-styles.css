@@ -1,0 +1,56 @@
+/*
+ * GLOBAL STYLES - AIceberg Mind
+ * Master CSS file that imports all stylesheets in the correct loading order
+ * This is the only CSS file that should be linked in HTML pages
+ * 
+ * NOTA: main.css è stato consolidato in editorial-design.css per eliminare duplicazioni
+ */
+
+/* ========================================
+   TAILWIND CSS DIRECTIVES
+   ======================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   BASE & FOUNDATION STYLES
+   ======================================== */
+@import url('base.css');
+
+/* ========================================
+   CORE DESIGN SYSTEM
+   ======================================== */
+@import url('variables/editorial-astro.css');
+
+
+/* ========================================
+   COMPONENTS
+   ======================================== */
+@import url('components/hamburger-menu.css');
+@import url('components/sticky-elements.css');
+@import url('components/cookie-banner.css');
+@import url('components/footer.css');
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+@import url('hero-section.css');
+@import url('subhero-section.css');
+@import url('content-sections.css');
+@import url('projects-section.css');
+@import url('ethics-faq.css');
+
+/* ========================================
+   LAYOUTS & VARIABLES
+   ======================================== */
+
+   @import url('variables/gsap-parallax.css');
+
+
+
+
+/* ========================================
+   RESPONSIVE STYLES (always last)
+   ======================================== */
+@import url('responsive/mobile.css');

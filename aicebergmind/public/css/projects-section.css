@@ -1,0 +1,515 @@
+/* =========================================================
+   PROJECTS SECTION CSS - AIceberg Mind
+   CSS per progetti carousel, accordion mobile e cards
+   ========================================================= */
+
+/* =======================
+   1) PROJECTS WRAPPER
+   ======================= */
+.projects-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 4rem 0;
+}
+
+.projects-grid {
+  position: relative;
+  width: 100%;
+}
+
+/* =======================
+   2) HORIZONTAL SCROLL SYSTEM
+   ======================= */
+.horizontal-scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2rem;
+  margin: 0;
+}
+
+.horizontal-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  min-width: max-content;
+}
+
+/* =======================
+   3) PROJECT ROWS
+   ======================= */
+.projects-row-1,
+.projects-row-2 {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.projects-row-1 {
+  animation-name: scrollLeft;
+}
+
+.projects-row-2 {
+  animation-name: scrollRight;
+}
+
+/* Pause animation on hover */
+.projects-wrapper:hover .projects-row-1,
+.projects-wrapper:hover .projects-row-2 {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(-20px); }
+  100% { transform: translateX(20px); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(20px); }
+  100% { transform: translateX(-20px); }
+}
+
+/* =======================
+   4) PROJECT CARDS
+   ======================= */
+.project-card {
+  position: relative;
+  width: 320px;
+  min-width: 320px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated frame borders */
+.frame-border-top,
+.frame-border-right,
+.frame-border-bottom,
+.frame-border-left {
+  position: absolute;
+  background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.project-card:hover .frame-border-top,
+.project-card:hover .frame-border-right,
+.project-card:hover .frame-border-bottom,
+.project-card:hover .frame-border-left {
+  opacity: 1;
+  animation: borderPulse 2s ease-in-out infinite;
+}
+
+.frame-border-top,
+.frame-border-bottom {
+  height: 2px;
+  left: 0;
+  right: 0;
+}
+
+.frame-border-left,
+.frame-border-right {
+  width: 2px;
+  top: 0;
+  bottom: 0;
+}
+
+.frame-border-top { top: 0; }
+.frame-border-right { right: 0; }
+.frame-border-bottom { bottom: 0; }
+.frame-border-left { left: 0; }
+
+@keyframes borderPulse {
+  0%, 100% { opacity: 0.6; filter: blur(0px); }
+  50% { opacity: 1; filter: blur(1px); }
+}
+
+/* =======================
+   5) PROJECT CARD CONTENT
+   ======================= */
+.project-header {
+  margin-bottom: 1.5rem;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.project-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.project-description {
+  margin-bottom: 2rem;
+}
+
+.project-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.feature-tag {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* =======================
+   6) PROJECT PROGRESS
+   ======================= */
+.project-progress {
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
+  border-radius: 3px;
+  transition: width 0.6s ease;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: progressShimmer 2s ease-in-out infinite;
+}
+
+@keyframes progressShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progress-text {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+/* =======================
+   7) PROJECT BUTTONS
+   ======================= */
+.project-btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.project-btn:hover {
+  color: #000;
+  border-color: var(--brand-cyan);
+}
+
+.project-btn:hover::before {
+  left: 0;
+}
+
+/* =======================
+   8) MOBILE ACCORDION
+   ======================= */
+.projects-accordion {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.accordion-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.accordion-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.accordion-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.progress-dots {
+  color: var(--brand-cyan);
+  font-weight: bold;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.accordion-item.open .accordion-content {
+  max-height: 500px;
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =======================
+   9) CHANNELS SECTION
+   ======================= */
+.channels-slider {
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+.channels-track {
+  display: flex;
+  gap: 3rem;
+  animation: channelsScroll 30s linear infinite;
+  width: max-content;
+}
+
+.channel-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 80px;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.channel-logo:hover {
+  color: var(--brand-cyan);
+  transform: translateY(-4px);
+}
+
+.channel-logo svg {
+  width: 40px;
+  height: 40px;
+}
+
+.channel-logo span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+@keyframes channelsScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* =======================
+   10) RESPONSIVE PROJECTS
+   ======================= */
+@media (max-width: 1024px) {
+  .horizontal-scroll-wrapper {
+    display: none;
+  }
+  
+  .projects-accordion {
+    display: flex;
+  }
+  
+  .project-card {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-wrapper {
+    margin: 2rem 0;
+  }
+  
+  .accordion-header {
+    padding: 1rem 1.2rem;
+  }
+  
+  .accordion-title {
+    font-size: 1rem;
+  }
+  
+  .accordion-content {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+  
+  .channels-track {
+    gap: 2rem;
+  }
+  
+  .channel-logo {
+    min-width: 60px;
+  }
+  
+  .channel-logo svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .channel-logo span {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1.5rem;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+  }
+  
+  .project-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .feature-tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+  }
+}
+
+/* =======================
+   11) ACCESSIBILITY
+   ======================= */
+@media (prefers-reduced-motion: reduce) {
+  .projects-row-1,
+  .projects-row-2,
+  .channels-track,
+  .progress-fill::after {
+    animation: none;
+  }
+  
+  .project-card,
+  .accordion-content {
+    transition: none;
+  }
+}
+
+/* Focus states */
+.project-card:focus-visible,
+.accordion-header:focus-visible,
+.project-btn:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 3px;
+}
+
+/* =======================
+   12) PROJECT THEMES
+   ======================= */
+.project-audio {
+  background: linear-gradient(135deg, rgba(94, 228, 195, 0.05), rgba(0, 212, 255, 0.03));
+}
+
+.project-nursery {
+  background: linear-gradient(135deg, rgba(255, 100, 150, 0.05), rgba(94, 228, 195, 0.03));
+}
+
+.project-channels {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(150, 100, 255, 0.03));
+}
+
+.project-birth {
+  background: linear-gradient(135deg, rgba(255, 200, 100, 0.05), rgba(255, 100, 150, 0.03));
+}
+
+.project-finance {
+  background: linear-gradient(135deg, rgba(100, 255, 150, 0.05), rgba(0, 212, 255, 0.03));
+}
+
+.project-app {
+  background: linear-gradient(135deg, rgba(150, 100, 255, 0.05), rgba(255, 100, 150, 0.03));
+}

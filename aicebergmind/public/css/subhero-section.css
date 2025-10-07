@@ -1,0 +1,389 @@
+/* =========================================================
+   SUBHERO SECTION CSS - AIceberg Mind
+   Sezione subhero con video background e layout asimmetrico
+   ========================================================= */
+
+/* =======================
+   1) SUBHERO CONTAINER
+   ======================= */
+.video-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+/* =======================
+   2) VIDEO BACKGROUND
+   ======================= */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container iframe {
+  width: 100vw;
+  height: 56.25vw; /* 16:9 aspect ratio */
+  min-width: 100%;
+  min-height: 100vh;
+  object-fit: cover;
+  border: none;
+  pointer-events: none;
+}
+
+/* Video overlay for darkening */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* =======================
+   3) VIDEO CONTROLS
+   ======================= */
+.video-controls {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.video-control-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.video-control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.video-off-text {
+  display: none;
+}
+
+.video-paused .video-on-text {
+  display: none;
+}
+
+.video-paused .video-off-text {
+  display: inline;
+}
+
+/* =======================
+   4) SUBHERO CONTENT LAYOUT
+   ======================= */
+.subhero-asymmetric {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.subhero-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Section header styling */
+.section-header-editorial {
+  margin-bottom: 2rem;
+}
+
+.section-number {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+}
+
+.editorial-heading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.editorial-body {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 50ch;
+}
+
+/* =======================
+   5) SUBHERO CTA LAYOUT
+   ======================= */
+.subhero-cta-layout {
+  margin-top: 1.5rem;
+}
+
+.text-frame {
+  position: relative;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-frame:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-4px);
+}
+
+/* Animated frame borders */
+.text-frame-border-top,
+.text-frame-border-right,
+.text-frame-border-bottom,
+.text-frame-border-left {
+  position: absolute;
+  background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
+  opacity: 0.8;
+  animation: borderGlow 3s ease-in-out infinite alternate;
+}
+
+.text-frame-border-top,
+.text-frame-border-bottom {
+  height: 1px;
+  left: 0;
+  right: 0;
+}
+
+.text-frame-border-left,
+.text-frame-border-right {
+  width: 1px;
+  top: 0;
+  bottom: 0;
+}
+
+.text-frame-border-top { top: 0; }
+.text-frame-border-right { right: 0; }
+.text-frame-border-bottom { bottom: 0; }
+.text-frame-border-left { left: 0; }
+
+.frame-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+/* =======================
+   6) EDITORIAL BUTTONS
+   ======================= */
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-editorial::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.btn-editorial:hover {
+  color: #000;
+  border-color: var(--brand-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+
+.btn-editorial:hover::before {
+  left: 0;
+}
+
+.btn-editorial-inline {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.8rem;
+}
+
+/* =======================
+   7) ANIMATIONS
+   ======================= */
+@keyframes borderGlow {
+  0% { opacity: 0.6; filter: blur(0px); }
+  50% { opacity: 1; filter: blur(0.5px); }
+  100% { opacity: 0.8; filter: blur(0px); }
+}
+
+/* Text composition animation */
+.text-compose {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textCompose 1s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes textCompose {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =======================
+   8) RESPONSIVE SUBHERO
+   ======================= */
+@media (max-width: 1024px) {
+  .subhero-asymmetric {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .subhero-left-column {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .editorial-body {
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+  
+  .video-controls {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-section {
+    min-height: 80vh;
+  }
+  
+  .subhero-asymmetric {
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  
+  .text-frame {
+    padding: 1.5rem;
+  }
+  
+  .frame-content {
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .video-controls {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .video-control-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .editorial-heading {
+    font-size: clamp(2rem, 7vw, 2.5rem);
+  }
+  
+  .text-frame {
+    padding: 1.2rem;
+  }
+  
+  .btn-editorial {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* =======================
+   9) ACCESSIBILITY
+   ======================= */
+@media (prefers-reduced-motion: reduce) {
+  .text-frame,
+  .btn-editorial,
+  .text-compose {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+  
+  .text-frame-border-top,
+  .text-frame-border-right,
+  .text-frame-border-bottom,
+  .text-frame-border-left {
+    animation: none;
+  }
+}
+
+/* Focus states for accessibility */
+.video-control-btn:focus-visible,
+.btn-editorial:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 3px;
+}
+
+/* =======================
+   10) PERFORMANCE
+   ======================= */
+.video-background *,
+.subhero-asymmetric *,
+.text-frame * {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}

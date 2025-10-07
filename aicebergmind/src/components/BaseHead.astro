@@ -34,6 +34,36 @@ const { title, description, image = FallbackImage } = Astro.props;
 <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
 <link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
 
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AIcebergMind",
+  "description": "Stories, printables, and mindful digital content — crafted with care, powered by AI, for curious learners of all ages.",
+  "url": "https://aicebergmind.com",
+  "sameAs": [],
+  "foundingDate": "2025",
+  "industry": "Digital Content & Learning Experiences",
+  "keywords": ["AI-enhanced content", "education", "printables", "creative learning", "storytelling", "digital culture", "mindful design"],
+  "mainEntity": {
+    "@type": "WebSite",
+    "name": "AIcebergMind",
+    "description": "Digital content for kids, students, and lifelong learners — from stories to tools, powered by science and ethical AI.",
+    "url": "https://aicebergmind.com"
+  }
+}
+</script>
+
+<!-- Additional CSS -->
+<link rel="stylesheet" href="/css/global-styles.css">
+<link rel="stylesheet" href="/css/components/hamburger-menu.css">
+
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 

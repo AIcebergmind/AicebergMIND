@@ -1,0 +1,425 @@
+/* =========================================================
+   CONTENT SECTIONS CSS - AIceberg Mind
+   CSS per About, Projects, Team, Ethics sections
+   ========================================================= */
+
+/* =======================
+   1) PARALLAX SECTIONS BASE
+   ======================= */
+.parallax-section {
+  position: relative;
+  padding: 6rem 0;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.parallax-section:nth-child(even) {
+  background: #0a0a0a;
+}
+
+/* Mobile blur overlay for performance */
+.mobile-blur-overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-blur-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+/* =======================
+   2) SECTION HEADERS
+   ======================= */
+.section-header-editorial {
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.section-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-tertiary);
+  opacity: 0.4;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.editorial-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.editorial-caption {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 50ch;
+}
+
+/* =======================
+   3) CONTENT BLOCKS
+   ======================= */
+.content-block {
+  position: relative;
+  margin-bottom: 4rem;
+  max-width: 70ch;
+}
+
+.content-block-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+}
+
+.content-block-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.content-block-meta {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.editorial-body {
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.8rem;
+  text-wrap: pretty;
+}
+
+/* Drop cap effect */
+.drop-cap::first-letter {
+  font-size: 4em;
+  font-weight: 300;
+  line-height: 0.8;
+  float: left;
+  margin: 0.1em 0.1em 0 0;
+  background: var(--gradient-main);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =======================
+   4) PULLQUOTES
+   ======================= */
+.pullquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin: 3rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.pullquote::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  color: var(--brand-cyan);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* =======================
+   5) COLLAPSIBLE CONTENT
+   ======================= */
+details {
+  margin: 2rem 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+details:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+details[open] {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+summary {
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: '→';
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+details div {
+  padding: 0 2rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  animation: fadeInSlide 0.3s ease-out;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =======================
+   6) TEXT COLLAPSE COMPONENT
+   ======================= */
+.text-collapse {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.collapse-header {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.collapse-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.text-collapse.expanded .collapse-content {
+  max-height: 2000px;
+  transition: max-height 0.7s ease-in;
+}
+
+.line-compose {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.text-collapse.expanded .line-compose {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =======================
+   7) EMAIL LINK STYLING
+   ======================= */
+.email-link {
+  color: var(--brand-cyan);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.email-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--brand-cyan);
+  transition: width 0.3s ease;
+}
+
+.email-link:hover::after {
+  width: 100%;
+}
+
+.email-link:hover {
+  color: var(--text-primary);
+}
+
+/* =======================
+   8) TEXT ANIMATIONS
+   ======================= */
+.text-compose {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textSlideIn 0.8s ease-out forwards;
+}
+
+.no-transforms {
+  transform: none !important;
+}
+
+@keyframes textSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation delays */
+.text-compose:nth-child(1) { animation-delay: 0.1s; }
+.text-compose:nth-child(2) { animation-delay: 0.3s; }
+.text-compose:nth-child(3) { animation-delay: 0.5s; }
+.text-compose:nth-child(4) { animation-delay: 0.7s; }
+
+/* =======================
+   9) RESPONSIVE CONTENT
+   ======================= */
+@media (max-width: 1024px) {
+  .parallax-section {
+    padding: 4rem 0;
+  }
+  
+  .content-block {
+    margin-bottom: 3rem;
+  }
+  
+  .section-header-editorial {
+    margin-bottom: 3rem;
+  }
+  
+  .content-block-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .parallax-section {
+    padding: 3rem 0;
+  }
+  
+  .content-block {
+    margin-bottom: 2.5rem;
+  }
+  
+  .section-header-editorial {
+    margin-bottom: 2rem;
+  }
+  
+  .pullquote {
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+  }
+  
+  .pullquote::before {
+    font-size: 3rem;
+    top: -0.3rem;
+  }
+  
+  details div,
+  summary {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  details div {
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax-section {
+    padding: 2rem 0;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem;
+  }
+  
+  .section-number {
+    font-size: 1.5rem;
+  }
+  
+  .drop-cap::first-letter {
+    font-size: 3em;
+    margin-right: 0.05em;
+  }
+}
+
+/* =======================
+   10) ACCESSIBILITY
+   ======================= */
+@media (prefers-reduced-motion: reduce) {
+  .text-compose,
+  .line-compose,
+  details div {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  
+  .collapse-content {
+    transition: none;
+  }
+}
+
+/* Focus states */
+summary:focus-visible,
+.email-link:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 3px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .content-block {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .pullquote {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}

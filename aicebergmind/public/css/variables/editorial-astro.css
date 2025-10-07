@@ -1,0 +1,308 @@
+/* =========================================================
+   AIceberg Mind — editorialAstro.css
+   Unico Design System per il blog in Astro
+   - Variabili (palette, type, spacing)
+   - Tipografia base
+   - Layout a colonna centrale stretta
+   - Utility leggere (flex/grid/spacing/container/surface)
+   - Accessibilità/focus (il reset resta in base.css)
+   ========================================================= */
+
+/* =======================
+   1) VARIABLES
+   ======================= */
+:root {
+  /* Colors */
+  --bg-primary: #0a0a0a;
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-tertiary: rgba(255, 255, 255, 0.6);
+  --accent-subtle: rgba(255, 255, 255, 0.06);
+  --border-light: rgba(255, 255, 255, 0.10);
+
+  /* Brand */
+  --brand-cyan: #00D4FF;
+  --brand-mint: #5EE4C3;
+
+  /* Typography  */
+  --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Type scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --spacing-xxl: 6rem;
+
+  /* Effects */
+  --gradient-main: linear-gradient(135deg, var(--brand-mint), var(--brand-cyan));
+  --gradient-soft: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(94,228,195,0.03) 50%, rgba(0,212,255,0.05) 100%);
+
+  /* Motion & Z */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+
+  --z-background: -1;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-overlay: 50;
+  --z-modal: 100;
+  --z-tooltip: 1000;
+
+  /* Blog spacing compat (se te servono nelle card) */
+  --blog-header-spacing: 8rem;
+  --blog-section-spacing: 6rem;
+  --blog-card-spacing: 2rem;
+  --blog-title-spacing: 4rem;
+  --blog-filters-spacing: 5rem;
+}
+
+/* =======================
+   2) BASE TYPOGRAPHY
+   ======================= */
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0 0 0.6em 0;
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 100; letter-spacing: -0.02em; line-height: 0.95; }
+h2 { font-size: clamp(1.8rem, 5vw, 3.5rem); font-weight: 200; letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 3.5vw, 2rem);  font-weight: 300; }
+
+p {
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.005em;
+  margin: 0 0 1.6em 0;
+  max-width: 65ch;
+  text-wrap: pretty;
+}
+
+strong {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: var(--gradient-main);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a { color: var(--brand-cyan); text-decoration: none; transition: color var(--transition-base); }
+a:hover { color: #fff; }
+
+/* Selezione testo */
+::selection { background: rgba(0, 212, 255, 0.25); color: #fff; }
+
+/* Focus (accessibilità) */
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--brand-cyan); outline-offset: 3px; }
+
+/* Riduzione motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =======================
+   3) EDITORIAL LAYOUT
+   - Colonna centrale stretta
+   - Wrapper sezione editoriale
+   ======================= */
+
+/* Sezioni editoriali (wrapper) */
+.editorial-section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Colonna centrale stretta: 1fr | min(50ch,100%) | 1fr  */
+.editorial-container {
+  display: grid;
+  grid-template-columns: 1fr min(60ch, 100%) 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+.editorial-content { grid-column: 2; }
+.editorial-sidebar { grid-column: 3; }
+
+/* Variante container per singole pagine quando serve più largo */
+.container-wide  { max-width: min(1440px, 96vw); margin-inline: auto; padding-inline: clamp(1rem, 3vw, 2rem); }
+.container       { max-width: 1200px;            margin-inline: auto; padding-inline: clamp(1rem, 3vw, 2rem); }
+.container-narrow{ max-width: 860px;             margin-inline: auto; padding-inline: clamp(1rem, 3vw, 2rem); }
+
+/* =======================
+   4) LIGHT UTILITIES
+   (solo quelle utili al layout: flex/grid/spacing/width)
+   ======================= */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.grid { display: grid; gap: var(--spacing-md); }
+.grid-xs-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-xs-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-xs-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+  .grid-md-1 { grid-template-columns: 1fr !important; }
+  .grid-md-2 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 768px) {
+  .grid-sm-1 { grid-template-columns: 1fr !important; }
+}
+
+.mt-0  { margin-top: 0; }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+
+.mb-0  { margin-bottom: 0; }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+
+.pt-sm { padding-top: var(--spacing-sm); }
+.pt-md { padding-top: var(--spacing-md); }
+.pt-lg { padding-top: var(--spacing-lg); }
+.pb-sm { padding-bottom: var(--spacing-sm); }
+.pb-md { padding-bottom: var(--spacing-md); }
+.pb-lg { padding-bottom: var(--spacing-lg); }
+
+.w-full { width: 100%; }
+.max-w-prose { max-width: 70ch; }
+
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+.hidden { display: none !important; }
+
+/* Superficie card coerente (per blog/card/related) */
+.surface {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(10px);
+  transition: border-color var(--transition-base), background var(--transition-base), transform var(--transition-base);
+}
+.surface--hover:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+}
+
+/* Ombre leggere per tema scuro */
+.shadow-sm { box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
+.shadow-md { box-shadow: 0 10px 28px rgba(0,0,0,0.24); }
+
+/* =======================
+   5) EDITORIAL TITLES & META
+   (compat con i tuoi componenti)
+   ======================= */
+.editorial-heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.editorial-subheading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.3;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.editorial-caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(0.875rem, 1.5vw, 0.95rem);
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  letter-spacing: 0.01em;
+}
+
+/* =======================
+   6) HOOKS PER GSAP/PARALLAX
+   (gli stili specifici restano nel tuo gsap-parallax.css)
+   ======================= */
+.parallax-text,
+.parallax-image {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* =======================
+   7) VARIE
+   ======================= */
+.gradient-text {
+  background: var(--gradient-main);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 200;
+}
+/* Wrapper griglia con toggle 3↔1 */
+.cards-grid {
+  display: grid;
+  gap: var(--blog-card-spacing, 2rem);
+}
+
+/* Modalità GRIGLIA: 3 desktop, 2 tablet, 1 mobile */
+.cards-grid[data-grid="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1024px) {
+  .cards-grid[data-grid="3"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .cards-grid[data-grid="3"] { grid-template-columns: 1fr; }
+}
+
+/* Modalità LISTA: sempre 1 colonna */
+.cards-grid[data-grid="1"] { grid-template-columns: 1fr; }
+
+/* micro-animazioni soft sugli item quando cambia layout */
+.cards-grid > * { transition: transform .25s ease, opacity .25s ease; will-change: transform, opacity; }

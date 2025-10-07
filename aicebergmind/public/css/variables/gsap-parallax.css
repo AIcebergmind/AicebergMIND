@@ -1,0 +1,62 @@
+/* 🚀 GSAP PARALLAX SUPPORT STYLES */
+
+/* Ensure smooth transitions for GSAP animated elements */
+.parallax-text,
+.parallax-image {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Better performance for parallax elements */
+.parallax-text.in-view {
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+.parallax-image.in-view {
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Enhanced About section parallax styles */
+#about .parallax-text {
+  transition: none; /* Let GSAP handle all transitions */
+}
+
+#about .parallax-image {
+  transition: none; /* Let GSAP handle all transitions */
+}
+
+/* Smooth scroll behavior for better GSAP integration */
+html {
+  scroll-behavior: auto; /* Let GSAP handle smooth scrolling */
+}
+
+/* Prevent layout shifts during GSAP animations */
+.parallax-section {
+  contain: layout style;
+}
+
+/* Optimize rendering for moving elements */
+.card-scroll,
+.ethics-card,
+.project-card {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Mobile optimizations for GSAP */
+@media (max-width: 768px) {
+  .parallax-text,
+  .parallax-image {
+    will-change: auto; /* Reduce GPU usage on mobile */
+  }
+}
+
+/* Debug mode for development */
+.gsap-debug .parallax-text {
+  outline: 1px solid rgba(94, 228, 195, 0.3);
+}
+
+.gsap-debug .parallax-image {
+  outline: 1px solid rgba(0, 212, 255, 0.3);
+}

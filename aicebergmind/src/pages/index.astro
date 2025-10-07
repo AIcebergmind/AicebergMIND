@@ -11,39 +11,1026 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
+		<canvas id="particles-background"></canvas>
+
+
+<!-- Placeholder per il menu mobile generato da JS hybrid -->
+<div id="hamburger-menu-placeholder"></div>
+
+<!-- Breadcrumb Navigation Placeholder -->
+<div id="breadcrumb-placeholder"></div>
+
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
+
+  <section class="hero hero-editorial" id="hero">
+    <div class="hero-content-editorial">
+      <canvas id="iceberg" class="hero-canvas"></canvas>
+  <img src="/logo/AIceberg_mind_logo_gray.svg" alt="AIceberg Mind Logo" class="AicebergMindLogo hero-logo-scroll">
+      <p class="editorial-caption">※</p>
+      <h1 class="hero-title-editorial"><strong>AI</strong>CEBERG<br>MIND</h1>
+  <p class="hero-subtitle-editorial text-compose">Depth is not a feature.<br class="subtitle-break">It is our nature</p>
+    </div>
+
+  <div class="horizon-line"></div>
+  <svg class="scroll-down-arrow" viewBox="0 0 24 24">
+    <path d="M12 5v14M12 19l-6-6M12 19l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+    
+  </section>
+
+
+
+<!-- SubHero Section -->
+<section class="parallax-section editorial-section video-section" id="subhero">
+
+  <!-- Video Background -->
+  <div class="video-background">
+    <div class="video-container">
+      <iframe id="heroVideo" 
+              title="AIceberg Mind Introduction Video"
+              src="https://www.youtube.com/embed/CHuR-hwqrRc?autoplay=1&mute=1&loop=1&playlist=CHuR-hwqrRc&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen>
+      </iframe>
+    </div>
+    
+    <!-- Video Overlay -->
+    <div class="video-overlay"></div>
+    
+    <!-- VideoControls -->
+    <div class="video-controls">
+      <button class="video-control-btn" id="videoToggle" aria-label="Toggle video">
+        <span class="video-on-text">PAUSE</span>
+        <span class="video-off-text">PLAY</span>
+      </button>
+    </div>
+  </div>
+
+
+
+
+  <div class="editorial-container">
+    <div class="editorial-content subhero-asymmetric">
+      <div class="subhero-left-column">
+        <div class="section-header-editorial">
+          <div class="section-number">※</div>
+          <h2 class="editorial-heading">Empowering <br>Humans</h2>
+          <p class="editorial-body">Through <strong>playful education</strong> and science-crafted AI. We explore what lies beneath the <strong>surface of thinking</strong>.</p>
+        </div>
+        
+        <div class="content-block subhero-cta-layout">
+          <div class="text-frame" id="subheroFrame">
+            <div class="text-frame-border-top"></div>
+            <div class="text-frame-border-right"></div>
+            <div class="text-frame-border-bottom"></div>
+            <div class="text-frame-border-left"></div>
+            
+            <div class="frame-content">
+              <p class="editorial-body">What lies beneath the surface of <strong>your thinking</strong>?</p>
+              <a href="#about" class="btn-editorial btn-editorial-inline" style="text-align: center; min-width: 140px;">JOIN US →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section class="parallax-section editorial-section" id="about">
+  <!-- MOBILE BLUR OVERLAY (solo dopo la subsection) -->
+<div class="mobile-blur-overlay"> </div>
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="section-header-editorial">
+        <div class="section-number">※</div>
+        <h2 class="editorial-heading ">Behind the <br>Surface</h2>
+        <p class="editorial-caption">Where digital tools meet human depth</p>
+      </div>
+
+      <div class="content-block">
+        <div class="content-block-header">
+          <h3 class="content-block-title">Our Story</h3>
+          <span class="content-block-meta">About</span>
+        </div>
+        <p class="editorial-body"><span class="drop-cap">A</span>Iceberg Mind is a deep dive into the <strong>joy of discovery</strong> and the <strong>beauty of thinking</strong>, from the earliest spark to the lifelong wonder of the mind.</p>
+      </div>
+
+      <div class="content-block" style="position: relative;">
+        <p class="pullquote">It's a space where <strong>science meets imagination</strong>, where <strong>learning becomes play</strong>, and where artificial intelligence helps reveal what lies beneath the surface — not by teaching what to think, but by opening <strong>paths to think differently</strong>.</p>
+        <div class="hotspot hotspot-adjacent-right" style="right: -2rem; top: 75%;">
+          <div class="hotspot-dot"></div>
+          <span class="hotspot-label">AI Thinking</span>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <div class="content-block-header">
+          <h3 class="content-block-title">Manifesto</h3>
+          <span class="content-block-meta">Philosophy</span>
+        </div>
+        <p class="editorial-body">AIceberg Mind was born from a simple belief: that intelligence is not a race to the top, but a <strong>journey below the surface</strong>. In a world flooded with fast content and noisy knowledge, we wanted to create something different.</p>
+        
+        
+        <!-- Hotspot Demo -->
+        <div class="hotspot hotspot-right" 
+             data-image="/images/image_placeholder_about.png" 
+             data-caption="Digital Objects Preview">
+          <div class="hotspot-dot"></div>
+          <div class="hotspot-label">ASK THE <br>PENGUIN</div>
+        </div>
+        
+        <details>
+          <summary class="btn-editorial">Read our full manifesto →</summary>
+          <div style="margin-top: 0.85rem;">
+
+            <p class="editorial-body">We don't claim expertise in psychology or nervous system science. What we claim is <strong>curiosity</strong> in <strong>subconscious rewiring</strong>, craftsmanship, and care.</p>
+
+            <p class="editorial-body">We see content not as a product, but as a <strong>living experience</strong> — one that can play, teach, surprise, and empower. We create <strong>digital objects</strong>: some playful, some poetic, some purely practical.</p>
+
+            <p class="editorial-body">We are designers, makers, researchers, and parents — trying to shape tools that <strong>spark ideas</strong>, facilitate creation, or gently <strong>awaken minds</strong>.</p>
+
+            <p class="editorial-body">Some of our content is designed for children. Some for adults. Some for both. But all of it is guided by the same principle: <strong>explore below the surface</strong>. Education is not always the goal — but it's often the side effect. And so is <strong>joy</strong>.</p>
+
+            <p class="editorial-body">Inspired by the iceberg, our craft is layered: <strong>playful on the surface</strong>, <strong>rooted in research below</strong>. We use AI to enhance form and interaction, but never to replace thought.</p>
+
+            <p class="editorial-body">Our vision begins in <strong>early childhood</strong>, where so much is silently shaped — but it doesn't end there. It reaches the child within us all, the parents who guide, the educators who nurture, and the minds that still wonder.</p>
+
+            <p class="editorial-body"><em>AIceberg Mind is not an answer. It's a question: what kind of world do we create when we shape content from the depth of human potential?</em></p>
+          </div>
+        </details>
+      </div>
+        <div class="content-block">
+        <div class="content-block-header">
+          <div class="text-frame">
+            <div class="text-frame-border-top"></div>
+            <div class="text-frame-border-right"></div>
+            <div class="text-frame-border-bottom"></div>
+            <div class="text-frame-border-left"></div>
+            
+            <h3 class="content-block-title">Who Is AIceberg Mind For?</h3>
+          </div>
+          <span class="content-block-meta">Audience</span>
+        </div>
+        
+        
+        
+        <div class="text-collapse">
+          <div class="collapse-header">
+            <p class="editorial-body">We build for <strong>the curious</strong>, <strong>the bold</strong>, <strong>the thoughtful</strong>.</p>
+          </div>
+          <div class="collapse-content line-compose">
+            <p class="editorial-body">For those who listen beneath the noise. For those who <strong>shape minds</strong>, and for those who still <strong>wonder</strong>.</p>
+            
+            <p class="editorial-body">For parents and educators seeking <strong>depth beyond tips and trends</strong>.</p>
+            <p class="editorial-body">For researchers, creatives, and wanderers exploring new ways to <strong>learn, teach, and connect</strong>.</p>
+            <p class="editorial-body">For <strong>builders of meaning</strong> — whether you're designing a lesson, a tool, a ritual, or a future.</p>
+            <p class="editorial-body">For all who believe intelligence is not just speed or code, but <strong>resonance</strong>, <strong>intention</strong>, and <strong>imagination</strong>.</p>
+            <p class="editorial-body">We don't segment humans. We speak across ages, across roles, across disciplines.</p>
+            <p class="editorial-body">We create for those who sense that something is shifting — and want to <strong>move with purpose</strong>.</p>
+            <p class="editorial-body">For those who wish to be <strong>free in their mind</strong>, in their heart, and in their life.</p>
+          </div>
+                       </div>     
+            <p class="pullquote">If you <strong>ask questions</strong>, you <strong>belong</strong> here.</p>
+
+
+        <div class="text-frame">
+          <div class="text-frame-border-top"></div>
+          <div class="text-frame-border-right"></div>
+          <div class="text-frame-border-bottom"></div>
+          <div class="text-frame-border-left"></div>
+          
+          <p class="editorial-body">And if you'd like to share your voice, your vision, or simply say hello, you're welcome to reach out: <strong><a href="mailto:hello@aicebergmind.com" class="email-link">hello@aicebergmind.com</a></strong></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+ 
+</section>
+
+
+
+
+  <!-- PROJECTS DESKTOP GRID/CAROUSEL -->
+<!-- PROJECTS -->
+<section class="parallax-section editorial-section" id="projects">
+  <!-- MOBILE BLUR OVERLAY (solo dopo la subsection) -->
+<div class="mobile-blur-overlay"></div>
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="section-header-editorial">
+        <div class="section-number">※</div>
+        <h2 class="editorial-heading">Our Living <br>Projects</h2>
+                  <h3 class="content-block-title">...work in progress</h3><br>
+      </div>
+    </div>
+  </div>
+    <!--  PROJECTS CAROUSEL - Two scrolling files -->
+    <div class="horizontal-scroll-wrapper projects-wrapper">
+      <div class="horizontal-scroll-content projects-grid">
+        
+        <!--  FIRST ROW - Scrolls left to right -->
+        <div class="projects-row-1">
+          <!-- Project Card 1: Audio Rituals -->
+          <div class="project-card project-audio">
+            <!--  Animated frame borders -->
+            <div class="frame-border-top"></div>
+            <div class="frame-border-right"></div>
+            <div class="frame-border-bottom"></div>
+            <div class="frame-border-left"></div>
+            
+            <div class="project-header">
+              <h3 class="project-title">Audio Rituals</h3>
+              <p class="project-subtitle">Evening hypnosis for deep rest</p>
+            </div>
+            <div class="project-description">
+              <p>""</p>
+              <div class="project-features">
+                <span class="feature-tag">Sleep Stories</span>
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">Family Bonding</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 60%"></div>
+              </div>
+              <span class="progress-text">60% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+          
+          <!-- Project Card 2: Nursery Rhymes -->
+          <div class="project-card project-nursery">
+            <!--  Animated frame borders -->
+            <div class="frame-border-top"></div>
+            <div class="frame-border-right"></div>
+            <div class="frame-border-bottom"></div>
+            <div class="frame-border-left"></div>
+            
+            <div class="project-header">
+              <h3 class="project-title">Nursery Rhymes</h3>
+              <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
+            </div>
+            <div class="project-description">
+            <p>""</p>
+              <div class="project-features">
+                <span class="feature-tag">Interactive Music</span>
+                <span class="feature-tag">AI Characters</span>
+                <span class="feature-tag">Language Learning</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%"></div>
+              </div>
+              <span class="progress-text">50% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+          
+          <!-- Project Card 3: Specialized Channels -->
+          <div class="project-card project-channels">
+            <!--  Animated frame borders -->
+            <div class="frame-border-top"></div>
+            <div class="frame-border-right"></div>
+            <div class="frame-border-bottom"></div>
+            <div class="frame-border-left"></div>
+            
+            <div class="project-header">
+              <h3 class="project-title">Specialized Channels</h3>
+              <p class="project-subtitle">Mindfulness, history & subconscious</p>
+            </div>
+            <div class="project-description">
+              <p>""</p>
+              <div class="project-features">
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">History</span>
+                <span class="feature-tag">Neuroscience</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%"></div>
+              </div>
+              <span class="progress-text">90% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+        </div>
+        
+        <!--  SECOND ROW - Scrolls right to left -->
+        <div class="projects-row-2">
+          <!-- Project Card 4: Birth Prep Program -->
+          <div class="project-card project-birth">
+            <!--  Animated frame borders -->
+            <div class="frame-border-top"></div>
+            <div class="frame-border-right"></div>
+            <div class="frame-border-bottom"></div>
+            <div class="frame-border-left"></div>
+            
+            <div class="project-header">
+              <h3 class="project-title">Birth Prep Program</h3>
+              <p class="project-subtitle">Holistic care for expectant families</p>
+            </div>
+            <div class="project-description">
+            <p>""</p>
+              <div class="project-features">
+                <span class="feature-tag">Prenatal Care</span>
+                <span class="feature-tag">Mindful Parenting</span>
+                <span class="feature-tag">Family Wellness</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%"></div>
+              </div>
+              <span class="progress-text">50% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+          
+          <!-- Project Card 5: Family Finance Ed -->
+          <div class="project-card project-finance">
+            <!-- Animated frame borders -->
+            <div class="frame-border-top"></div>
+            <div class="frame-border-right"></div>
+            <div class="frame-border-bottom"></div>
+            <div class="frame-border-left"></div>
+            
+            <div class="project-header">
+              <h3 class="project-title">Family Finance Ed.</h3>
+              <p class="project-subtitle">Playful tools for conscious money</p>
+            </div>
+            <div class="project-description">
+            <p>""</p>
+              <div class="project-features">
+                <span class="feature-tag">Financial Literacy</span>
+                <span class="feature-tag">Interactive Games</span>
+                <span class="feature-tag">Family Learning</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+              </div>
+              <span class="progress-text">75% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+          
+          <!-- Project Card 6: Parent 360 App -->
+          <div class="project-card project-app">
+            <!-- Animated frame borders -->
+            <div class="frame-border-top"></div>
+            <div class="frame-border-right"></div>
+            <div class="frame-border-bottom"></div>
+            <div class="frame-border-left"></div>
+            
+            <div class="project-header">
+              <h3 class="project-title">Parent 360 App</h3>
+              <p class="project-subtitle">All-in-one parenting toolkit</p>
+            </div>
+            <div class="project-description">
+            <p>""</p>
+              <div class="project-features">
+                <span class="feature-tag">Mobile App</span>
+                <span class="feature-tag">Integrated Tools</span>
+                <span class="feature-tag">Growth Tracking</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 30%"></div>
+              </div>
+              <span class="progress-text">30% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  <!-- PROJECTS ACCORDION MOBILE -->
+  <div class="projects-accordion">
+    <!-- Audio Rituals -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+  <span class="accordion-title">Audio Rituals</span>
+  <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>60%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-header">
+          <h3 class="project-title">Audio Rituals</h3>
+          <p class="project-subtitle">Evening hypnosis for deep rest</p>
+        </div>
+        <div class="project-description">
+          <div class="project-features">
+            <span class="feature-tag">Sleep Stories</span>
+            <span class="feature-tag">Mindfulness</span>
+            <span class="feature-tag">Family Bonding</span>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%"></div>
+          </div>
+          <span class="progress-text">60% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+    <!-- Nursery Rhymes -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+  <span class="accordion-title">Nursery Rhymes</span>
+  <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>50%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-header">
+          <h3 class="project-title">Nursery Rhymes</h3>
+          <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
+        </div>
+        <div class="project-description">
+          <div class="project-features">
+            <span class="feature-tag">Interactive Music</span>
+            <span class="feature-tag">AI Characters</span>
+            <span class="feature-tag">Language Learning</span>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 50%"></div>
+          </div>
+          <span class="progress-text">50% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+    <!-- Specialized Channels -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+  <span class="accordion-title">Specialized Channels</span>
+  <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>90%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-header">
+          <h3 class="project-title">Specialized Channels</h3>
+          <p class="project-subtitle">Mindfulness, history & subconscious</p>
+        </div>
+        <div class="project-description">
+          <div class="project-features">
+            <span class="feature-tag">Mindfulness</span>
+            <span class="feature-tag">History</span>
+            <span class="feature-tag">Neuroscience</span>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 90%"></div>
+          </div>
+          <span class="progress-text">90% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+    <!-- Birth Prep Program -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+  <span class="accordion-title">Birth Prep Program</span>
+  <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>50%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-header">
+          <h3 class="project-title">Birth Prep Program</h3>
+          <p class="project-subtitle">Holistic care for expectant families</p>
+        </div>
+        <div class="project-description">
+          <div class="project-features">
+            <span class="feature-tag">Prenatal Care</span>
+            <span class="feature-tag">Mindful Parenting</span>
+            <span class="feature-tag">Family Wellness</span>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 50%"></div>
+          </div>
+          <span class="progress-text">50% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+    <!-- Family Finance Ed. -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+  <span class="accordion-title">Family Finance Ed.</span>
+  <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>75%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-header">
+          <h3 class="project-title">Family Finance Ed.</h3>
+          <p class="project-subtitle">Playful tools for conscious money</p>
+        </div>
+        <div class="project-description">
+          <div class="project-features">
+            <span class="feature-tag">Financial Literacy</span>
+            <span class="feature-tag">Interactive Games</span>
+            <span class="feature-tag">Family Learning</span>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 75%"></div>
+          </div>
+          <span class="progress-text">75% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+    <!-- Parent 360 App -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+  <span class="accordion-title">Parent 360 App</span>
+  <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>30%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-header">
+          <h3 class="project-title">Parent 360 App</h3>
+          <p class="project-subtitle">All-in-one parenting toolkit</p>
+        </div>
+        <div class="project-description">
+          <div class="project-features">
+            <span class="feature-tag">Mobile App</span>
+            <span class="feature-tag">Integrated Tools</span>
+            <span class="feature-tag">Growth Tracking</span>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 30%"></div>
+          </div>
+          <span class="progress-text">30% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+    </div>
+<script>
+// JS base per accordion mobile progetti
+document.querySelectorAll('.projects-accordion .accordion-header').forEach(header => {
+  header.addEventListener('click', function() {
+    const item = this.parentElement;
+    item.classList.toggle('open');
+    // Chiudi gli altri (opzionale)
+    document.querySelectorAll('.projects-accordion .accordion-item').forEach(other => {
+      if (other !== item) other.classList.remove('open');
+    });
+  });
+});
+
+// Animazione puntini progress
+document.querySelectorAll('.accordion-progress .progress-dots').forEach(dots => {
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % 4;
+    dots.textContent = '.'.repeat(i);
+  }, 500);
+});
+</script>
+    
+   
+  </div>
+
+
+ <!-- CHANNELS -->
+    <div class="editorial-container" id="channels" style="padding: 0 2rem; margin-top: 4rem;">
+        <!-- MOBILE BLUR OVERLAY (solo dopo la subsection) -->
+<div class="mobile-blur-overlay"></div>
+      <div class="editorial-content">
+        <div class="content-block">
+          <div class="content-block-header">
+            <h3 class="content-block-title">Channels</h3>
+            <span class="content-block-meta">Social & more</span>
+          </div>
+          
+          <p class="editorial-body">Find our content across multiple platforms, each crafted for its unique audience and format.</p>
+          
+          <div class="channels-slider">
+            <div class="channels-track">
+              <!-- First set of logos -->
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+                <span>YouTube</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+                <span>Facebook</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                <span>Instagram</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+                </svg>
+                <span>Twitter</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+                <span>LinkedIn</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+                <span>GitHub</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+                <span>TikTok</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polygon points="10,8 16,12 10,16"/>
+                </svg>
+                <span>Spotify</span>
+              </div>
+              <!-- Duplicate for infinite loop -->
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+                <span>YouTube</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+                <span>Facebook</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                <span>Instagram</span>
+              </div>
+              <div class="channel-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+                </svg>
+                <span>Twitter</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- TEAM Section -->
+<section class="parallax-section editorial-section" id="team">
+    <!-- MOBILE BLUR OVERLAY (solo dopo la subsection) -->
+<div class="mobile-blur-overlay"></div>
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="section-header-editorial">
+        <div class="section-number">※</div>
+        <h2 class="editorial-heading">Who We <br>Are</h2>
+        <p class="editorial-caption">We are not what you expect. And that's exactly why we built this.</p>
+      </div>
+
+      <div class="content-block">
+        <div class="content-block-header">
+          <h3 class="content-block-title">Origins</h3>
+          <span class="content-block-meta">Team</span>
+        </div>
+        <p class="editorial-body"><span class="drop-cap">W</span>e come from elsewhere. From <strong>archaeological digs</strong>, Alpine hotels, <strong>brief therapies</strong>, and unexpected turns. From the worlds of <strong>motherhood</strong>, tourism, fashion, <strong>subconscious rewiring</strong>, and quiet revolutions.</p>
+        
+        <p class="editorial-body">We are <strong>French and Italian</strong>, shaped by migrations, intuitions, and everything that doesn't fit in a LinkedIn profile.</p>
+      </div>
+
+      <div class="content-block">
+        <p class="pullquote">What makes us different is not what we do, <br>but how we think: we create from the <strong>bottom of the iceberg</strong>, not the tip.</p>
+      </div>
+
+      <div class="content-block">
+        <div class="content-block-header">
+          <h3 class="content-block-title">Experience</h3>
+          <span class="content-block-meta">Background</span>
+        </div>
+        <p class="editorial-body">We've taught at universities, welcomed guests at high altitudes, guided travelers, accompanied births — and yet we converge on the same question:</p>
+        
+        <p class="pullquote"><em>How do you grow a <strong>mind</strong> in a world <br> that changes faster than we can name it?</em></p>
+      </div>
+
+      <div class="content-block">
+        <p class="editorial-body">None of us is a developer or a psychologist. And yet, we build <strong>tools for the future</strong> — because <strong>tools are languages</strong>. And we speak many.</p>
+        
+        <p class="editorial-body">Together, we form a team that believes intelligence isn't always loud, that meaning and real power often lie beneath, and that <strong>play can be the highest form of seriousness</strong>.</p>
+      </div>
+
+  <div class="content-block">
+      <h3 class="content-block-title text-compose no-transforms" style="animation-delay: 0.2s;">We build with <strong>questions</strong>.</h3>
+      <br>
+      <h3 class="content-block-title text-compose no-transforms" style="animation-delay: 0.6s;">We research with <strong>wonder</strong>.</h3>
+      <br>
+      <h3 class="content-block-title text-compose no-transforms" style="animation-delay: 1.0s;">We <strong>learn</strong> as we go.</h3>
+    </div>
+</div>
+</section>
+
+<!-- ETHICS Section -->
+<section class="parallax-section editorial-section" id="ethics">
+    <!-- MOBILE BLUR OVERLAY (solo dopo la subsection) -->
+<div class="mobile-blur-overlay"></div>
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="section-header-editorial">
+        <div class="section-number">※</div>
+        <h2 class="editorial-heading">Ethics</h2>
+        <p class="editorial-caption">Our <strong>responsibility tree</strong>: where innovation meets conscience</p>
+      </div>
+
+      <div class="content-block">
+        <div class="content-block-header">
+          <h3 class="content-block-title">Values in Practice</h3>
+          <span class="content-block-meta">Responsibility</span>
+        </div>
+
+        <div class="ethics-cards-grid">
+          <div class="ethics-card reforestation" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Reforestation</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M8 12h8"/>
+                <path d="M12 8v8"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">We give back through certified <strong>tree-planting partners</strong> like Tree-Nation and Freedom, creating <strong>symbolic forests</strong> that restore balance to our digital footprint.</p>
+              <div class="ethics-card-meta">Environmental Impact</div>
+            </div>
+          </div>
+
+          <div class="ethics-card privacy" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Privacy by Design</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <circle cx="12" cy="16" r="1"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">We collect only what's necessary, store locally when possible, and believe that <strong>data dignity</strong> is not negotiable.</p>
+              <div class="ethics-card-meta">Data Protection</div>
+            </div>
+          </div>
+
+          <div class="ethics-card accessibility" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Accessibility</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                <line x1="15" y1="9" x2="15.01" y2="9"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">We design for <strong>everyone</strong>, ensuring our tools are usable by people of all abilities and backgrounds.</p>
+              <div class="ethics-card-meta">Inclusive Design</div>
+            </div>
+          </div>
+
+          <div class="ethics-card transparency" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Transparency</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v6m0 6v6"/>
+                <path d="M21 12h-6m-6 0H3"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">We openly share our processes, decisions, and the <strong>reasoning behind our choices</strong>.</p>
+              <div class="ethics-card-meta">Open Communication</div>
+            </div>
+          </div>
+
+          <div class="ethics-card sustainability" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Sustainability</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">Every digital choice we make considers its <strong>environmental impact</strong> and long-term consequences.</p>
+              <div class="ethics-card-meta">Long-term Thinking</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer class="site-footer" id="blog">
+  <div class="footer-container">
+    <!-- Logo on left -->
+    <div class="footer-logo">
+  <img src="/logo/AIceberg_mind_logo_gray.svg" alt="AICEBERG MIND" class="footer-logo-img">
+    </div>
+    
+    <!-- Links on right -->
+    <div class="footer-links">
+      <div class="footer-column">
+        <a href="#faq" class="footer-link">FAQ</a>
+        <a href="/blog" class="footer-link">Blog</a>
+        <a href="/about" class="footer-link">About</a>
+        <a href="#projects" class="footer-link">Projects</a>
+        <a href="#team" class="footer-link">Team</a>
+        <a href="#ethics" class="footer-link">Ethics</a>
+        <a href="/contact" class="footer-link">Contact</a>
+        <a href="/legal-notices" class="footer-link">Legal notices</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- FAQ Expandable Section - Editorial Style -->
+  <div class="faq-section" id="faqSection">
+    <div class="faq-container">
+      <div class="faq-header">
+        <h3>FAQ - You Might Be Wondering...</h3>
+        <button class="faq-close-btn" id="faqCloseBtn">×</button>
+      </div>
+      
+      <div class="faq-content">
+        <div class="faq-item">
+          <button class="faq-question">Do we speak different languages?</button>
+          <div class="faq-answer">
+            <p>Yes. We create content in English, French and Italian, designed to be culturally flexible and pedagogically relevant across different contexts.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What's our relationship with AI companies?</button>
+          <div class="faq-answer">
+            <p>We focus on the foundational years – from prenatal life through age 12 – when the brain and inner world are most plastic and programmable.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What makes our approach different?</button>
+          <div class="faq-answer">
+            <p>Absolutely. Every story, app or printable has a foundation in neuroscience, developmental psychology, or cognitive education theory – blended with creativity and care.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Do we collaborate with educators?</button>
+          <div class="faq-answer">
+            <p>Yes. We welcome educators, therapists, researchers and conscious companies to co-create meaningful content and distribution formats.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What's our environmental approach?</button>
+          <div class="faq-answer">
+            <p>Through a mix of design choices (minimalist code, green hosting), ethical tech use (smart APIs only), and environmental partnerships (tree planting, renewable energy offsets). See our section on <strong>ai responsibility</strong> to learn more.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Are we preparing our public release?</button>
+          <div class="faq-answer">
+            <p>We are preparing our public release. Subscribe to be the first to explore the Aiceberg world!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bottom copyright row -->
+  <div class="footer-bottom" style="text-align: center;">
+    <p>&copy; 2025 AICEBERG MIND. Depth is our nature.</p>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" class="cookie-banner hidden">
+  <div class="cookie-content">
+    <div class="cookie-icon">""</div>
+    <div class="cookie-text">
+      <h3>Experience & Analytics</h3>
+      <p>We use cookies to enhance your experience and improve our service. By continuing, you accept our cookie use for analytics and performance optimization.</p>
+    </div>
+    <div class="cookie-actions">
+      <button id="cookie-accept" class="cookie-btn cookie-accept">Accept All</button>
+      <button id="cookie-decline" class="cookie-btn cookie-decline">Decline</button>
+    </div>
+  </div>
+</div>
+
+<!-- Support Sticky Button -->
+<div id="supportStickyButton" class="support-sticky-button hidden">
+  <div class="support-progress-container">
+    <div class="support-progress-bar"></div>
+  </div>
+  <button class="support-button" type="button" onclick="window.location.href='#marketplace'">
+    <span class="support-icon">▣</span>
+    <span class="support-text">Support Us</span>
+  </button>
+</div>
+
+<!-- Projects Bounce System -->
+  <script src="/js/projects-bounce.js" defer is:inline></script>
+  
+  <!-- Scripts Base -->
+  <script src="/js/minimal-breadcrumb-clean.js" defer is:inline></script> <!-- Breadcrumb Logic -->
+  <script src="/js/components/breadcrumb-component.js" defer is:inline></script> <!-- Breadcrumb HTML -->
+  <script src="/js/components/follow-us-sticky.js" defer is:inline></script> <!-- Follow Us Sticky -->
+  
+  <script src="/js/animations.js" defer is:inline></script>
+  <script src="/js/video-animations.js" defer is:inline></script>
+   <script src="/js/main.js" type="module" defer is:inline></script>
+  <script src="/js/project-navigation-simple.js" defer is:inline></script>
+  <script src="/js/modules/iceberg.js" type="module" defer is:inline></script>
+  <script src="/js/modules/iceberg-effects.js" type="module" defer is:inline></script>
+  <script src="/js/modules/neural-network.js" type="module" defer is:inline></script>
+  <script src="/js/modules/navigation.js" type="module" defer is:inline></script>
+  
+<script>
+// JS base per accordion mobile progetti
+document.querySelectorAll('.projects-accordion .accordion-header').forEach(header => {
+  header.addEventListener('click', function() {
+    const item = this.parentElement;
+    item.classList.toggle('open');
+    // Chiudi gli altri (opzionale)
+    document.querySelectorAll('.projects-accordion .accordion-item').forEach(other => {
+      if (other !== item) other.classList.remove('open');
+    });
+  });
+});
+
+// Animazione puntini progress
+document.querySelectorAll('.accordion-progress .progress-dots').forEach(dots => {
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % 4;
+    dots.textContent = '.'.repeat(i);
+  }, 500);
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="/js/cookie-banner.js" is:inline></script>
+
+<!-- Placeholder per il menu mobile generato da JS hybrid -->
+  <div id="hamburger-menu-placeholder"></div>
+  <script src="/js/components/breadcrumb-component_hybrid.js" is:inline></script>
+
+  <script src="/js/hero-logo-scroll.js" defer is:inline></script>
 	</body>
 </html>
+
+

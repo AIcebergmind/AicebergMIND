@@ -1,0 +1,204 @@
+/* Hamburger Menu Component CSS */
+/* Componente menu hamburger per mobile con animazioni fluide */
+
+.hamburger-menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hamburger-menu-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Menu button trigger */
+.hamburger-trigger {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10000;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hamburger-trigger:hover {
+  background: #f8f9fa;
+  transform: scale(1.05);
+}
+
+.hamburger-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #333;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-line:nth-child(1) { top: 4px; }
+.hamburger-line:nth-child(2) { top: 9px; }
+.hamburger-line:nth-child(3) { top: 14px; }
+
+/* Active states */
+.hamburger-menu-container.active {
+  pointer-events: all;
+}
+
+.hamburger-menu-container.active .hamburger-menu-overlay {
+  opacity: 1;
+}
+
+.hamburger-menu-container.active .hamburger-menu-panel {
+  transform: translateX(0);
+}
+
+.hamburger-trigger.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 9px;
+}
+
+.hamburger-trigger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-trigger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 9px;
+}
+
+/* Menu content */
+.hamburger-menu-header {
+  padding: 2rem 1.5rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.hamburger-menu-logo {
+  height: 32px;
+}
+
+.hamburger-menu-nav {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.hamburger-menu-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hamburger-menu-links li {
+  margin: 0;
+}
+
+.hamburger-menu-links a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.hamburger-menu-links a:hover,
+.hamburger-menu-links a.active {
+  background: #f8f9fa;
+  border-left-color: #007bff;
+  color: #007bff;
+}
+
+.hamburger-menu-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  background: #f8f9fa;
+}
+
+.hamburger-social-links {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.hamburger-social-links a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.hamburger-social-links a:hover {
+  background: white;
+  color: #333;
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .hamburger-trigger {
+    display: none;
+  }
+  
+  .hamburger-menu-container {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-menu-container,
+  .hamburger-menu-overlay,
+  .hamburger-menu-panel,
+  .hamburger-trigger,
+  .hamburger-line,
+  .hamburger-menu-links a {
+    transition: none;
+  }
+}

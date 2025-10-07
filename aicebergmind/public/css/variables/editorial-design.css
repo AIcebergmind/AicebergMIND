@@ -1,0 +1,1260 @@
+/* === EDITORIAL DESIGN - MASTER CSS === */
+/* Integra variables, typography, layout, utilities e components */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* === DESIGN SYSTEM VARIABLES === */
+:root {
+  /* Color System */
+  --bg-primary: #0a0a0a;
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-tertiary: rgba(255, 255, 255, 0.6);
+  --accent-subtle: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.08);
+  
+  /* Typography System */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Crimson Text', Georgia, serif;
+  --font-primary: 'Inter', 'IBM Plex Sans', sans-serif;
+  --font-body: 'Inter', 'IBM Plex Sans', sans-serif;
+  --font-display: 'Inter', sans-serif;
+  
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Spacing System */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --spacing-xxl: 6rem;
+
+  /* Gradients & Effects */
+  --gradient-main: linear-gradient(135deg, #5EE4C3, #00D4FF);
+  --gradient-soft: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(94,228,195,0.03) 50%, rgba(0,212,255,0.05) 100%);
+  --gradient-hover-line: linear-gradient(90deg, transparent, rgba(94, 228, 195, 0.5), transparent);
+  --gradient-glow: linear-gradient(90deg, transparent, rgba(94, 228, 195, 0.1), transparent);
+  
+  /* Animation System */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+  
+  /* Z-Index Scale */
+  --z-background: -1;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-overlay: 50;
+  --z-modal: 100;
+  --z-tooltip: 1000;
+}
+
+/* === BASE SETUP === */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-snap-type: y mandatory;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 100;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-weight: 200;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5em;
+}
+
+p {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  margin-bottom: 1.8em;
+  max-width: 65ch;
+}
+
+strong {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  background: var(--gradient-main);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === UTILITY CLASSES === */
+/* Flexbox Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+/* Grid Utilities */
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+
+/* Spacing Utilities */
+.m-0 { margin: 0; }
+.mt-auto { margin-top: auto; }
+.mb-auto { margin-bottom: auto; }
+.p-0 { padding: 0; }
+
+/* Text Utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.font-display { font-family: var(--font-display); }
+
+/* Visibility Utilities */
+.hidden { display: none; }
+.invisible { visibility: hidden; }
+.visible { visibility: visible; }
+
+/* Interaction Utilities */
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+/* Container Utilities */
+.container-wide {
+  max-width: min(1400px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.container-narrow {
+  max-width: min(800px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Scroll Snap utility */
+.horizontal-scroll-wrapper {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: block;
+}
+
+/* Animation Utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+  }
+  50% { 
+    opacity: 0.7; 
+  }
+}
+
+/* ===== OVERRIDE GLOBALE PER STRONG IN ANIMAZIONI ===== */
+.text-compose strong,
+.text-collapse strong,
+.line-compose strong {
+  color: rgba(0, 212, 255, 0.9) !important;
+  background: none !important;
+  -webkit-text-fill-color: rgba(0, 212, 255, 0.9) !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Editorial Typography */
+.editorial-heading,
+.editorial-subheading,
+.editorial-caption,
+.editorial-body {
+  font-family: var(--font-sans);
+}
+
+.editorial-heading {
+  font-weight: 300;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.editorial-subheading {
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.editorial-body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  text-align: justify;
+  hyphens: auto;
+}
+
+.editorial-caption {
+  font-weight: 400;
+  font-size: clamp(0.875rem, 1.5vw, 0.95rem);
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  letter-spacing: 0.01em;
+}
+
+
+
+/* Layout */
+.editorial-section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.editorial-container {
+  display: grid;
+  grid-template-columns: 1fr min(50ch, 100%) 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.editorial-content {
+  grid-column: 2;
+}
+
+.editorial-sidebar {
+  grid-column: 3;
+  padding-left: var(--spacing-md);
+}
+
+.gradient-text {
+  background: var(--gradient-main);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 200;
+}
+
+/* Buttons */
+.btn-editorial,
+.project-btn,
+.read-more-btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-editorial:hover,
+.project-btn:hover,
+.read-more-btn:hover {
+  border-color: var(--text-tertiary);
+  background: var(--accent-subtle);
+}
+
+/* Content Blocks */
+.content-block {
+  margin-bottom: var(--spacing-xl);
+
+}
+
+.content-block-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.content-block-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.content-block-meta {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: none;
+}
+
+/* Drop Cap & Pullquote */
+.drop-cap,
+.editorial-body .drop-cap,
+.content-block .drop-cap,
+p .drop-cap {
+  float: left;
+  font-family: var(--font-sans);
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--text-primary);
+  background: none;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: var(--text-primary);
+  margin: 0 0.1em 0 0;
+}
+
+.pullquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  text-align: center;
+}
+/* Navigation */
+.nav-editorial {
+  position: fixed;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 100;
+}
+
+.nav-editorial a {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: var(--spacing-md);
+  transition: color 0.2s ease;
+}
+
+.nav-editorial a:hover {
+  color: var(--text-primary);
+}
+
+/* Lists */
+.editorial-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.editorial-list li {
+  position: relative;
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.editorial-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--text-tertiary);
+}
+
+/* Ethics Cards */
+.ethics-list {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.ethics-item {
+  padding: var(--spacing-md);
+  border-left: 2px solid var(--border-light);
+  background: var(--accent-subtle);
+}
+
+.ethics-item h4 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.ethics-item p {
+  margin: 0;
+}
+
+/* Details/Summary */
+details {
+  margin: var(--spacing-md) 0;
+}
+
+summary {
+  cursor: pointer;
+  outline: none;
+  margin-bottom: var(--spacing-sm);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Flex-2col Layout */
+.flex-2col {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2rem, 8vw, 8rem);
+  align-items: start;
+  margin: clamp(4rem, 10vh, 8rem) 0;
+}
+
+.flex-2col.reverse {
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
+/* === SECTION NUMBERS (from special-layouts.css) === */
+.section-number {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 300;
+  color: var(--text-tertiary);
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+/* Higher specificity for section numbers in editorial contexts */
+.editorial-section .section-header-editorial .section-number {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 300;
+  color: var(--text-tertiary);
+}
+
+.content-column {
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(94, 228, 195, 0.1);
+  border-radius: 0 2rem 0 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.image-column {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3rem 0 3rem 0;
+}
+
+
+
+/* Quote Block - About */
+.about-quote h3 {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 200;
+  line-height: 1.4;
+  text-align: center;
+  margin: clamp(3rem, 8vh, 6rem) auto;
+  max-width: 80%;
+  position: relative;
+}
+
+.about-quote h3::before {
+  content: '"';
+  font-size: 6rem;
+  color: rgba(94, 228, 195, 0.2);
+  position: absolute;
+  top: -2rem;
+  left: -3rem;
+  font-family: serif;
+}
+
+/* No Tech Effects */
+.no-tech-effects {
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+/* Project / Card Hover Effects */
+.ethics-card,
+.card-scroll {
+  background: var(--gradient-soft);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 2rem 0 2rem;
+  backdrop-filter: blur(20px);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.ethics-card::before,
+.card-scroll::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-hover-line);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.ethics-card:hover::before,
+.card-scroll:hover::before {
+  transform: translateX(100%);
+}
+
+.ethics-card:hover,
+.card-scroll:hover {
+  transform: translateY(-8px);
+  border-color: rgba(94, 228, 195, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Parallax Animations */
+.parallax-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.parallax-text.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.parallax-image {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.parallax-image.in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ========================================
+   VIDEO CONTROLS (Always Available)
+   ======================================== */
+
+/* Video Controls */
+.video-controls {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 0.75rem;
+  z-index: 10;
+  opacity: 0.7; /* 🔧 Sempre visibili con opacità ridotta */
+  transform: translateY(0); /* 🔧 Sempre in posizione normale */
+  transition: all 0.3s ease;
+}
+
+.video-section:hover .video-controls {
+  opacity: 1; /* Al hover diventano completamente opachi */
+  transform: translateY(0);
+}
+
+.video-control-btn {
+  min-width: 80px;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: transparent;
+  backdrop-filter: blur(5px);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  outline: none;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  position: relative;
+}
+
+.video-control-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 1);
+  transform: none;
+  box-shadow: none;
+}
+
+.video-control-btn:focus {
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: none;
+}
+
+/* Text states - seguono la logica delle icone originali */
+.video-control-btn .video-off-text {
+  display: none;
+}
+
+.video-control-btn.video-paused .video-on-text {
+  display: none;
+}
+
+.video-control-btn.video-paused .video-off-text {
+  display: block;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .video-controls {
+    bottom: 1rem;
+    right: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .video-control-btn {
+    min-width: 60px;
+    height: auto;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.75rem;
+    border-width: 1px;
+  }
+  
+  /* Always show controls on mobile for better usability */
+  .video-controls {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+  
+  .video-section:hover .video-controls {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+.hero.hero-editorial .hero-title-editorial,
+.hero.hero-editorial .hero-title {
+  font-family: var(--font-display);
+  color: #ffffff;
+  position: relative;
+  z-index: 7;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+  /* Add subtle floating to the title */
+  animation: titleFloat 8s ease-in-out infinite;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+  animation-play-state: running;
+}
+
+/* 🎯 TEXT FRAME - Animated border frame for text blocks */
+.text-frame {
+  position: relative;
+  padding: var(--spacing-md);
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Frame border elements */
+.text-frame::before,
+.text-frame::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Frame borders */
+.text-frame-border-top,
+.text-frame-border-right,
+.text-frame-border-bottom,
+.text-frame-border-left {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Border positioning */
+.text-frame-border-top,
+.text-frame-border-bottom {
+  height: 1px;
+  left: 0;
+  right: 0;
+}
+
+.text-frame-border-left,
+.text-frame-border-right {
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  transform-origin: center top;
+  transform: scaleY(0);
+}
+
+.text-frame-border-top {
+  top: 0;
+}
+
+.text-frame-border-right {
+  right: 0;
+}
+
+.text-frame-border-bottom {
+  bottom: 0;
+  transform-origin: right center;
+}
+
+.text-frame-border-left {
+  left: 0;
+}
+
+/* Hover animation - sequential border appearance */
+.text-frame:hover .text-frame-border-top {
+  transform: scaleX(1);
+  transition-delay: 0s;
+}
+
+.text-frame:hover .text-frame-border-right {
+  transform: scaleY(1);
+  transition-delay: 0.1s;
+}
+
+.text-frame:hover .text-frame-border-bottom {
+  transform: scaleX(1);
+  transition-delay: 0.2s;
+}
+
+.text-frame:hover .text-frame-border-left {
+  transform: scaleY(1);
+  transition-delay: 0.3s;
+}
+
+/* Scroll animation - triggered when element comes into view */
+.text-frame.animate-in .text-frame-border-top {
+  transform: scaleX(1);
+  transition-delay: 0s;
+}
+
+.text-frame.animate-in .text-frame-border-right {
+  transform: scaleY(1);
+  transition-delay: 0.1s;
+}
+
+.text-frame.animate-in .text-frame-border-bottom {
+  transform: scaleX(1);
+  transition-delay: 0.2s;
+}
+
+.text-frame.animate-in .text-frame-border-left {
+  transform: scaleY(1);
+  transition-delay: 0.3s;
+}
+
+/* Responsive padding variants */
+.text-frame.text-frame-sm {
+  padding: var(--spacing-sm);
+}
+
+.text-frame.text-frame-lg {
+  padding: var(--spacing-lg);
+}
+
+.text-frame.text-frame-xl {
+  padding: var(--spacing-xl);
+}
+
+/* ===== TEXT COLLAPSE SYSTEM ===== */
+.text-collapse {
+  position: relative;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  isolation: isolate; /* Isola da conflitti con altri elementi */
+}
+
+.text-collapse:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.text-collapse .collapse-header {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.text-collapse .collapse-header::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 212, 255, 0.7);
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.text-collapse.expanded .collapse-header::after {
+  transform: rotate(-135deg);
+  border-color: rgba(0, 212, 255, 1);
+}
+
+.text-collapse .collapse-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease-in-out, padding 0.6s ease-in-out;
+  padding: 0 1.5rem;
+  isolation: isolate; /* Isola da conflitti con elementi parent */
+}
+
+.text-collapse:hover .collapse-content,
+.text-collapse.expanded .collapse-content {
+  max-height: 1000px;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+/* ===== TEXT COMPOSE ANIMATION SYSTEM ===== */
+.text-compose .editorial-body,
+.text-compose .pullquote,
+.text-compose .editorial-heading,
+.text-compose .editorial-subheading {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Variante senza movimento per heading */
+.text-compose .editorial-heading.no-transforms,
+.text-compose .editorial-subheading.no-transforms,
+.text-compose .editorial-caption.no-transforms,
+.text-compose .editorial-body.no-transforms,
+.text-compose p.no-transforms,
+.text-compose .pullquote.no-transforms,
+.text-compose .content-block-title.no-transforms {
+  transform: none !important;
+}
+
+.text-compose .editorial-body.composed,
+.text-compose .pullquote.composed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Classe composed per heading senza transform */
+.text-compose .editorial-heading.composed.no-transform,
+.text-compose .editorial-subheading.composed.no-transform {
+  opacity: 1;
+  transform: none !important;
+}
+
+/* ===== ELEMENTI STRONG SEMPRE VISIBILI ===== */
+.content-block .text-compose .editorial-body strong,
+.content-block .text-compose .pullquote strong, 
+.content-block .text-compose p strong,
+.content-block .text-compose .content-block-title strong,
+.content-block .text-collapse .editorial-body strong, 
+.content-block .text-collapse .pullquote strong,
+.content-block .text-collapse p strong,
+.content-block .text-collapse .collapse-content strong,
+.content-block .content-block-title .text-compose strong,
+.content-block .content-block-title .text-collapse strong,
+.text-compose .editorial-body strong,
+.text-compose .pullquote strong, 
+.text-compose p strong,
+.text-compose .content-block-title strong,
+.text-collapse .editorial-body strong, 
+.text-collapse .pullquote strong,
+.text-collapse p strong,
+.text-collapse .collapse-content strong,
+.content-block-title .text-compose strong,
+.content-block-title .text-collapse strong {
+  opacity: 1 !important;
+  color: rgba(0, 212, 255, 0.9) !important;
+  font-weight: 600 !important;
+  visibility: visible !important;
+  background: none !important;
+  -webkit-text-fill-color: rgba(0, 212, 255, 0.9) !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+
+/* Assicura che gli strong siano visibili anche durante le animazioni */
+.content-block .text-compose .editorial-body strong,
+.content-block .text-compose .pullquote strong, 
+.content-block .text-compose p strong,
+.content-block .text-compose .content-block-title strong,
+.content-block .text-collapse .editorial-body strong, 
+.content-block .text-collapse .pullquote strong,
+.content-block .text-collapse p strong,
+.content-block .text-collapse .collapse-content strong,
+.content-block .content-block-title .text-compose strong,
+.content-block .content-block-title .text-collapse strong,
+.text-compose .editorial-body strong,
+.text-compose .pullquote strong, 
+.text-compose p strong,
+.text-compose .content-block-title strong,
+.text-collapse .editorial-body strong, 
+.text-collapse .pullquote strong,
+.text-collapse p strong,
+.text-collapse .collapse-content strong,
+.content-block-title .text-compose strong,
+.content-block-title .text-collapse strong {
+  opacity: 1 !important;
+  color: rgba(0, 212, 255, 0.9) !important;
+  background: none !important;
+  -webkit-text-fill-color: rgba(0, 212, 255, 0.9) !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+
+/* ===== LINE COMPOSE ANIMATION SYSTEM ===== */
+.line-compose .editorial-body,
+.line-compose .pullquote,
+.line-compose .editorial-heading,
+.line-compose .editorial-subheading,
+.line-compose p {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease; /* 🎯 Cambia qui per velocità diversa */
+}
+
+.line-compose .editorial-body.line-visible,
+.line-compose .pullquote.line-visible,
+.line-compose .editorial-heading.line-visible,
+.line-compose .editorial-subheading.line-visible,
+.line-compose p.line-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== ELEMENTI STRONG SEMPRE VISIBILI PER LINE-COMPOSE ===== */
+.line-compose strong,
+.line-compose .editorial-body strong,
+.line-compose .pullquote strong,
+.line-compose p strong,
+.line-compose .content-block-title strong {
+  opacity: 1;
+  color: rgba(0, 212, 255, 0.9);
+  font-weight: 600;
+  visibility: visible;
+  background: none;
+  -webkit-text-fill-color: rgba(0, 212, 255, 0.9);
+}
+
+/* Assicura che gli strong siano visibili anche durante le animazioni line-compose */
+.line-compose .editorial-body strong,
+.line-compose .pullquote strong,
+.line-compose p strong,
+.line-compose .content-block-title strong {
+  opacity: 1;
+  color: rgba(0, 212, 255, 0.9);
+  background: none;
+  -webkit-text-fill-color: rgba(0, 212, 255, 0.9);
+}
+
+/* === CANVAS & INTERACTIVE ELEMENTS === */
+/* Iceberg Canvas - Hero positioning ESTESO per strasbordare */
+section.hero #iceberg.hero-canvas,
+#iceberg.hero-canvas,
+#iceberg {
+  width: 100%;
+  height: 150vh; /* Esteso per strasbordare nel subhero */
+  max-width: 100vw;
+  max-height: none; /* Rimuoviamo il limite di altezza */
+  display: block;
+  transform-origin: center center;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: visible; /* Permette strasbordamento visibile */
+  pointer-events: none; /* Evita interferenze con interazioni sotto */
+}
+
+/* About section - assicura che appaia sopra l'iceberg overflow */
+#about {
+  position: relative;
+  z-index: 10;
+  background: var(--bg-primary);
+}
+
+/* Particles Background Canvas */
+#particles-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 15;
+  pointer-events: none;
+  background: transparent;
+  
+  /* Leggeri effetti di animazione */
+  animation: 
+    particles-pulse 8s ease-in-out infinite,
+    particles-opacity 12s ease-in-out infinite,
+    particles-glow 15s ease-in-out infinite;
+}
+
+/* Penguin Canvas - Editorial Clean */
+#penguin-canvas {
+  width: 400px;     
+  height: auto;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 300;
+  cursor: grab;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+#penguin-canvas.dragging {
+  cursor: grabbing;
+}
+
+/* Logo transition styles */
+.logo {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+}
+
+/* === PARTICLE ANIMATIONS === */
+/* Animazione di pulse molto leggera */
+@keyframes particles-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% { 
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+}
+
+/* Variazioni di opacità molto sottili */
+@keyframes particles-opacity {
+  0%, 100% { 
+    opacity: 0.8;
+  }
+  33% { 
+    opacity: 0.9;
+  }
+  66% { 
+    opacity: 0.85;
+  }
+}
+
+/* Leggeri cambi di colore attraverso filtri */
+@keyframes particles-glow {
+  0%, 100% { 
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+  }
+  25% { 
+    filter: hue-rotate(5deg) saturate(1.1) brightness(1.05);
+  }
+  50% { 
+    filter: hue-rotate(-3deg) saturate(0.9) brightness(0.95);
+  }
+  75% { 
+    filter: hue-rotate(8deg) saturate(1.05) brightness(1.02);
+  }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .container-wide,
+  .container-narrow,
+  .editorial-container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-editorial,
+  .project-btn,
+  .read-more-btn {
+    padding: 0.625rem 1.25rem;
+    font-size: var(--font-size-xs);
+  }
+  
+  #penguin-canvas {
+    width: 300px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+  }
+  
+  .container-wide,
+  .container-narrow,
+  .editorial-container {
+    padding: 0 var(--spacing-xs);
+  }
+  
+  #penguin-canvas {
+    width: 250px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* === ACCESSIBILITY & PERFORMANCE === */
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .parallax-image {
+    transform: none !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .ethics-card,
+  .card-scroll {
+    background: white;
+    border: 1px solid black;
+    box-shadow: none;
+  }
+  
+  .btn-editorial,
+  .project-btn,
+  .read-more-btn {
+    display: none;
+  }
+}
+
