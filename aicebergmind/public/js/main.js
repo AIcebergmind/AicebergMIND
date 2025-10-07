@@ -111,13 +111,28 @@ class AicebergMain {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          // Debug log
+          console.log('Animating element:', entry.target);
+          // Usa le classi CSS esistenti per parallax
+          entry.target.classList.add('in-view');
           entry.target.classList.add('animate-in');
         }
       });
     }, observerOptions);
     
-    // Observe elements with animation classes
-    const animatedElements = document.querySelectorAll('.text-compose, .content-block, .ethics-card');
+    // Observe elements with animation classes - ampliato per includere più elementi
+    const animatedElements = document.querySelectorAll(`
+      .text-compose, 
+      .content-block, 
+      .ethics-card, 
+      .parallax-text,
+      .parallax-image,
+      .pullquote,
+      section[class*="parallax-section"],
+      .editorial-section h2,
+      .editorial-section p,
+      .projects-container
+    `);
     animatedElements.forEach(el => observer.observe(el));
   }
 }

@@ -401,3 +401,139 @@
 .hero-logo-scroll {
   transform: translateZ(0);
 }
+
+/* ========================================
+   ZOOM ENTRANCE EFFECT - ULTRA SMOOTH
+   ======================================== */
+.zoom-entrance {
+  animation: zoomEntranceUltraSmooth 6s ease-out forwards !important;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+@keyframes zoomEntranceUltraSmooth {
+  0% {
+    transform: scale3d(0.2, 0.2, 1) translateZ(0);
+    opacity: 0;
+  }
+  
+  5% {
+    transform: scale3d(0.3, 0.3, 1) translateZ(0);
+    opacity: 0.1;
+  }
+  
+  10% {
+    transform: scale3d(0.5, 0.5, 1) translateZ(0);
+    opacity: 0.2;
+  }
+  
+  20% {
+    transform: scale3d(1.2, 1.2, 1) translateZ(0);
+    opacity: 0.4;
+  }
+  
+  30% {
+    transform: scale3d(2.0, 2.0, 1) translateZ(0);
+    opacity: 0.6;
+  }
+  
+  40% {
+    transform: scale3d(3.5, 3.5, 1) translateZ(0);
+    opacity: 0.7;
+  }
+  
+  50% {
+    transform: scale3d(6.0, 6.0, 1) translateZ(0);
+    opacity: 0.5;
+  }
+  
+  60% {
+    transform: scale3d(9.0, 9.0, 1) translateZ(0);
+    opacity: 0.3;
+  }
+  
+  70% {
+    transform: scale3d(13.0, 13.0, 1) translateZ(0);
+    opacity: 0.15;
+  }
+  
+  80% {
+    transform: scale3d(17.0, 17.0, 1) translateZ(0);
+    opacity: 0.05;
+  }
+  
+  85% {
+    transform: scale3d(20.0, 20.0, 1) translateZ(0);
+    opacity: 0;
+  }
+  
+  90% {
+    transform: scale3d(1.05, 1.05, 1) translateZ(0);
+    opacity: 0.5;
+  }
+  
+  95% {
+    transform: scale3d(1.02, 1.02, 1) translateZ(0);
+    opacity: 0.8;
+  }
+  
+  100% {
+    transform: scale3d(1.0, 1.0, 1) translateZ(0);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   LOGO ZOOM ENTRANCE EFFECT - 200%
+   ======================================== */
+.logo-zoom-entrance {
+  animation: logoZoomEntrance 4s ease-out 0.5s forwards !important;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+@keyframes logoZoomEntrance {
+  0% {
+    transform: scale3d(0.3, 0.3, 1) translateZ(0);
+    opacity: 0;
+  }
+  
+  15% {
+    transform: scale3d(1.0, 1.0, 1) translateZ(0);
+    opacity: 0.3;
+  }
+  
+  30% {
+    transform: scale3d(2.5, 2.5, 1) translateZ(0);
+    opacity: 0.6;
+  }
+  
+  45% {
+    transform: scale3d(4.0, 4.0, 1) translateZ(0);
+    opacity: 0.8;
+  }
+  
+  60% {
+    transform: scale3d(6.0, 6.0, 1) translateZ(0);
+    opacity: 1;
+  }
+  
+  75% {
+    transform: scale3d(5.0, 5.0, 1) translateZ(0);
+    opacity: 0.9;
+  }
+  
+  90% {
+    transform: scale3d(1.1, 1.1, 1) translateZ(0);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: scale3d(1.0, 1.0, 1) translateZ(0);
+    opacity: 1;
+  }
+}

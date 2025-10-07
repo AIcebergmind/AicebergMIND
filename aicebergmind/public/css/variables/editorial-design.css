@@ -282,6 +282,18 @@ strong {
   margin: 0 auto;
 }
 
+/* Riduce lo spazio sopra la sezione Projects - molto vicino */
+#projects.editorial-section {
+  padding-top: 0;
+  margin-top: -30px; /* Alza la sezione di 30px in più */
+}
+
+/* Riduce lo spazio sopra la sezione Ethics - molto vicino */
+#ethics.editorial-section {
+  padding-top: 0;
+  margin-top: -30px; /* Alza la sezione di 30px in più */
+}
+
 .editorial-container {
   display: grid;
   grid-template-columns: 1fr min(50ch, 100%) 1fr;

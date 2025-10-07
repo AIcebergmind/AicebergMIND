@@ -245,9 +245,9 @@ details div {
 }
 
 .line-compose {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  opacity: 1;
+  transform: translateY(0);
+  /* Nessuna animazione - sempre visibile */
 }
 
 .text-collapse.expanded .line-compose {
@@ -255,14 +255,25 @@ details div {
   transform: translateY(0);
 }
 
+/* Disable all text animations inside expandable - always visible */
+.text-collapse .line-compose .editorial-body,
+.text-collapse .line-compose p,
+.text-collapse .collapse-content .editorial-body,
+.text-collapse .collapse-content p {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+
 /* =======================
    7) EMAIL LINK STYLING
    ======================= */
 .email-link {
-  color: var(--brand-cyan);
+  color: rgba(0, 212, 255, 0.9) !important;
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .email-link::after {
@@ -281,7 +292,8 @@ details div {
 }
 
 .email-link:hover {
-  color: var(--text-primary);
+  color: rgba(94, 228, 195, 0.9) !important;
+  transform: translateY(-1px);
 }
 
 /* =======================

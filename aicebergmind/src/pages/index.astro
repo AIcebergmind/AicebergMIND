@@ -25,9 +25,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
   <section class="hero hero-editorial" id="hero">
     <div class="hero-content-editorial">
       <canvas id="iceberg" class="hero-canvas"></canvas>
-  <img src="/logo/AIceberg_mind_logo_gray.svg" alt="AIceberg Mind Logo" class="AicebergMindLogo hero-logo-scroll">
+  <img src="/logo/AIceberg_mind_logo_gray.svg" alt="AIceberg Mind Logo" class="AicebergMindLogo hero-logo-scroll logo-zoom-entrance">
       <p class="editorial-caption">※</p>
-      <h1 class="hero-title-editorial"><strong>AI</strong>CEBERG<br>MIND</h1>
+      <h1 class="hero-title-editorial zoom-entrance"><strong>AI</strong>CEBERG<br>MIND</h1>
   <p class="hero-subtitle-editorial text-compose">Depth is not a feature.<br class="subtitle-break">It is our nature</p>
     </div>
 
@@ -107,8 +107,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
     <div class="editorial-content">
       <div class="section-header-editorial">
         <div class="section-number">※</div>
-        <h2 class="editorial-heading ">Behind the <br>Surface</h2>
-        <p class="editorial-caption">Where digital tools meet human depth</p>
+        <h2 class="editorial-heading parallax-text">Behind the <br>Surface</h2>
+        <p class="editorial-caption parallax-text">Where digital tools meet human depth</p>
       </div>
 
       <div class="content-block">
@@ -116,15 +116,11 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
           <h3 class="content-block-title">Our Story</h3>
           <span class="content-block-meta">About</span>
         </div>
-        <p class="editorial-body"><span class="drop-cap">A</span>Iceberg Mind is a deep dive into the <strong>joy of discovery</strong> and the <strong>beauty of thinking</strong>, from the earliest spark to the lifelong wonder of the mind.</p>
+        <p class="editorial-body parallax-text"><span class="drop-cap">A</span>Iceberg Mind is a deep dive into the <strong>joy of discovery</strong> and the <strong>beauty of thinking</strong>, from the earliest spark to the lifelong wonder of the mind.</p>
       </div>
 
       <div class="content-block" style="position: relative;">
-        <p class="pullquote">It's a space where <strong>science meets imagination</strong>, where <strong>learning becomes play</strong>, and where artificial intelligence helps reveal what lies beneath the surface — not by teaching what to think, but by opening <strong>paths to think differently</strong>.</p>
-        <div class="hotspot hotspot-adjacent-right" style="right: -2rem; top: 75%;">
-          <div class="hotspot-dot"></div>
-          <span class="hotspot-label">AI Thinking</span>
-        </div>
+        <p class="pullquote parallax-image">It's a space where <strong>science meets imagination</strong>, where <strong>learning becomes play</strong>, and where artificial intelligence helps reveal what lies beneath the surface — not by teaching what to think, but by opening <strong>paths to think differently</strong>.</p>
       </div>
 
       <div class="content-block">
@@ -132,16 +128,11 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
           <h3 class="content-block-title">Manifesto</h3>
           <span class="content-block-meta">Philosophy</span>
         </div>
-        <p class="editorial-body">AIceberg Mind was born from a simple belief: that intelligence is not a race to the top, but a <strong>journey below the surface</strong>. In a world flooded with fast content and noisy knowledge, we wanted to create something different.</p>
+        <p class="editorial-body parallax-text">AIceberg Mind was born from a simple belief: that intelligence is not a race to the top, but a <strong>journey below the surface</strong>. In a world flooded with fast content and noisy knowledge, we wanted to create something different.</p>
         
         
         <!-- Hotspot Demo -->
-        <div class="hotspot hotspot-right" 
-             data-image="/images/image_placeholder_about.png" 
-             data-caption="Digital Objects Preview">
-          <div class="hotspot-dot"></div>
-          <div class="hotspot-label">ASK THE <br>PENGUIN</div>
-        </div>
+
         
         <details>
           <summary class="btn-editorial">Read our full manifesto →</summary>
@@ -203,7 +194,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
           <div class="text-frame-border-bottom"></div>
           <div class="text-frame-border-left"></div>
           
-          <p class="editorial-body">And if you'd like to share your voice, your vision, or simply say hello, you're welcome to reach out: <strong><a href="mailto:hello@aicebergmind.com" class="email-link">hello@aicebergmind.com</a></strong></p>
+          <p class="editorial-body">And if you'd like to share your voice, your vision, or simply say hello, you're welcome to reach out: <a href="mailto:hello@aicebergmind.com" class="email-link" style="color: rgba(0, 212, 255, 0.9) !important; text-decoration: none; font-weight: 600;">hello@aicebergmind.com</a></p>
         </div>
 
       </div>
@@ -1030,6 +1021,45 @@ document.querySelectorAll('.accordion-progress .progress-dots').forEach(dots => 
   <script src="/js/components/breadcrumb-component_hybrid.js" is:inline></script>
 
   <script src="/js/hero-logo-scroll.js" defer is:inline></script>
+  
+  <!-- Parallax Scroll Test -->
+  <script is:inline>
+    console.log('🚀 Parallax System Loading...');
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('✅ DOM Ready - Initializing Parallax');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            console.log('✨ Element entering view:', entry.target.textContent.substring(0, 50) + '...');
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      // Find all parallax elements
+      const parallaxElements = document.querySelectorAll('.parallax-text, .parallax-image');
+      console.log(`👀 Found ${parallaxElements.length} parallax elements`);
+      
+      parallaxElements.forEach((el, index) => {
+        console.log(`🎯 Element ${index + 1}:`, el.className);
+        observer.observe(el);
+      });
+      
+      // Force check if any are already in view
+      setTimeout(() => {
+        const rect = document.querySelector('.parallax-text')?.getBoundingClientRect();
+        if (rect) {
+          console.log('📍 First parallax element position:', rect.top, rect.bottom);
+        }
+      }, 100);
+    });
+  </script>
+  
 	</body>
 </html>
 

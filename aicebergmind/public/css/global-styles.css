@@ -21,6 +21,7 @@
 /* ========================================
    CORE DESIGN SYSTEM
    ======================================== */
+@import url('variables/editorial-design.css');
 @import url('variables/editorial-astro.css');
 
 
@@ -45,7 +46,7 @@
    LAYOUTS & VARIABLES
    ======================================== */
 
-   @import url('variables/gsap-parallax.css');
+   /* @import url('variables/gsap-parallax.css'); - Disabilitato per usare CSS transitions */
 
 
 
