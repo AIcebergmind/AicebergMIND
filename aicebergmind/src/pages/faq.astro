@@ -1,0 +1,75 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HamburgerMenu from '../components/HamburgerMenu.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <BaseHead title="FAQ - AIceberg Mind" description="Frequently Asked Questions about AIceberg Mind." />
+</head>
+<body>
+  <canvas id="particles-background"></canvas>
+
+  <Header />
+  <HamburgerMenu />
+
+  <section class="hero hero-editorial">
+    <div class="iceberg-animation">
+      <div class="iceberg-shape iceberg-1"></div>
+      <div class="iceberg-shape iceberg-2"></div>
+      <div class="iceberg-shape iceberg-3"></div>
+      <div class="geometric-shape geo-triangle-1"></div>
+      <div class="geometric-shape geo-triangle-2"></div>
+      <div class="geometric-shape geo-circle-1"></div>
+      <div class="geometric-shape geo-circle-2"></div>
+      <div class="geometric-shape geo-line-1"></div>
+      <div class="geometric-shape geo-line-2"></div>
+      <div class="geometric-shape geo-diamond"></div>
+    </div>
+
+    <div class="hero-content-editorial">
+      <h1 class="hero-title-editorial">Frequently Asked Questions</h1>
+      <p class="hero-subtitle-editorial">Find answers to common questions about AIceberg Mind</p>
+    </div>
+  </section>
+
+  <section class="parallax-section editorial-section">
+    <div class="editorial-container">
+      <div class="editorial-content">
+        <div class="content-block">
+          <h2 class="editorial-heading">What is AIceberg Mind?</h2>
+          <p class="editorial-body">
+            AIceberg Mind is a platform dedicated to exploring the intersection of artificial intelligence, design, and innovation. We aim to provide insights, tools, and resources for AI enthusiasts and professionals.
+          </p>
+        </div>
+
+        <div class="content-block">
+          <h2 class="editorial-heading">How can I contribute to AIceberg Mind?</h2>
+          <p class="editorial-body">
+            We welcome contributions from the community! You can contribute by sharing your ideas, writing articles, or collaborating on projects. Reach out to us at contact@aicebergmind.com for more details.
+          </p>
+        </div>
+
+        <div class="content-block">
+          <h2 class="editorial-heading">Is AIceberg Mind free to use?</h2>
+          <p class="editorial-body">
+            Yes, AIceberg Mind is free to access. Some premium resources or tools may require a subscription, but the majority of our content is available to everyone.
+          </p>
+        </div>
+
+        <div class="content-block">
+          <h2 class="editorial-heading">How do I stay updated with AIceberg Mind?</h2>
+          <p class="editorial-body">
+            You can subscribe to our newsletter, follow us on social media, or check our website regularly for updates and new content.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</body>
+</html>

@@ -1,0 +1,79 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HamburgerMenu from '../components/HamburgerMenu.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <BaseHead title="Credits - AIceberg Mind" description="Acknowledgments and credits for the AIceberg Mind project." />
+</head>
+<body>
+  <canvas id="particles-background"></canvas>
+
+  <Header />
+  <HamburgerMenu />
+
+  <section class="hero hero-editorial">
+    <div class="iceberg-animation">
+      <div class="iceberg-shape iceberg-1"></div>
+      <div class="iceberg-shape iceberg-2"></div>
+      <div class="iceberg-shape iceberg-3"></div>
+      <div class="geometric-shape geo-triangle-1"></div>
+      <div class="geometric-shape geo-triangle-2"></div>
+      <div class="geometric-shape geo-circle-1"></div>
+      <div class="geometric-shape geo-circle-2"></div>
+      <div class="geometric-shape geo-line-1"></div>
+      <div class="geometric-shape geo-line-2"></div>
+      <div class="geometric-shape geo-diamond"></div>
+    </div>
+
+    <div class="hero-content-editorial">
+      <h1 class="hero-title-editorial">Credits</h1>
+      <p class="hero-subtitle-editorial">Acknowledgments and Contributions</p>
+    </div>
+  </section>
+
+  <section class="parallax-section editorial-section">
+    <div class="editorial-container">
+      <div class="editorial-content">
+        <div class="content-block">
+          <h2 class="editorial-heading">Project Team</h2>
+          <p class="editorial-body">
+            The AIceberg Mind project was brought to life by a dedicated team of developers, designers, and researchers. Special thanks to:
+          </p>
+          <ul class="editorial-list">
+            <li>John Doe - Lead Developer</li>
+            <li>Jane Smith - UX/UI Designer</li>
+            <li>Emily Johnson - Content Strategist</li>
+            <li>Michael Brown - Data Scientist</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h2 class="editorial-heading">Acknowledgments</h2>
+          <p class="editorial-body">
+            We would like to thank the following organizations and individuals for their invaluable support and contributions:
+          </p>
+          <ul class="editorial-list">
+            <li>Open Source Community</li>
+            <li>Astro Framework Team</li>
+            <li>Friends and Family</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h2 class="editorial-heading">Special Mentions</h2>
+          <p class="editorial-body">
+            A heartfelt thanks to everyone who believed in this project and helped make it a reality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</body>
+</html>
