@@ -25,7 +25,6 @@ class BreadcrumbHybrid {
           <nav class="hamburger-menu-nav">
             <ul class="hamburger-menu-links">
               <li><a href="/" class="hamburger-link">Home</a></li>
-              <li><a href="#about" class="hamburger-link">About</a></li>
               <li><a href="#projects" class="hamburger-link">Projects</a></li>
               <li><a href="#team" class="hamburger-link">Team</a></li>
               <li><a href="#ethics" class="hamburger-link">Ethics</a></li>

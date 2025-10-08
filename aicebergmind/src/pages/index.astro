@@ -23,6 +23,20 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		<Header />
 
   <section class="hero hero-editorial" id="hero">
+    <!-- Iceberg Animation Background -->
+    <div class="iceberg-animation">
+      <div class="iceberg-shape iceberg-1"></div>
+      <div class="iceberg-shape iceberg-2"></div>
+      <div class="iceberg-shape iceberg-3"></div>
+      <div class="geometric-shape geo-triangle-1"></div>
+      <div class="geometric-shape geo-triangle-2"></div>
+      <div class="geometric-shape geo-circle-1"></div>
+      <div class="geometric-shape geo-circle-2"></div>
+      <div class="geometric-shape geo-line-1"></div>
+      <div class="geometric-shape geo-line-2"></div>
+      <div class="geometric-shape geo-diamond"></div>
+    </div>
+    
     <div class="hero-content-editorial">
       <canvas id="iceberg" class="hero-canvas"></canvas>
   <img src="/logo/AIceberg_mind_logo_gray.svg" alt="AIceberg Mind Logo" class="AicebergMindLogo hero-logo-scroll logo-zoom-entrance">
@@ -128,7 +142,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
           <h3 class="content-block-title">Manifesto</h3>
           <span class="content-block-meta">Philosophy</span>
         </div>
-        <p class="editorial-body parallax-text">AIceberg Mind was born from a simple belief: that intelligence is not a race to the top, but a <strong>journey below the surface</strong>. In a world flooded with fast content and noisy knowledge, we wanted to create something different.</p>
+        <p class="editorial-body parallax-text"><span class="drop-cap">A</span>Iceberg Mind was born from a simple belief: that intelligence is not a race to the top, but a <strong>journey below the surface</strong>. In a world flooded with fast content and noisy knowledge, we wanted to create something different.</p>
         
         
         <!-- Hotspot Demo -->
@@ -743,7 +757,7 @@ document.querySelectorAll('.accordion-progress .progress-dots').forEach(dots => 
           <h3 class="content-block-title">Experience</h3>
           <span class="content-block-meta">Background</span>
         </div>
-        <p class="editorial-body">We've taught at universities, welcomed guests at high altitudes, guided travelers, accompanied births — and yet we converge on the same question:</p>
+        <p class="editorial-body"><span class="drop-cap">W</span>e've taught at universities, welcomed guests at high altitudes, guided travelers, accompanied births — and yet we converge on the same question:</p>
         
         <p class="pullquote"><em>How do you grow a <strong>mind</strong> in a world <br> that changes faster than we can name it?</em></p>
       </div>
@@ -875,7 +889,6 @@ document.querySelectorAll('.accordion-progress .progress-dots').forEach(dots => 
       <div class="footer-column">
         <a href="#faq" class="footer-link">FAQ</a>
         <a href="/blog" class="footer-link">Blog</a>
-        <a href="/about" class="footer-link">About</a>
         <a href="#projects" class="footer-link">Projects</a>
         <a href="#team" class="footer-link">Team</a>
         <a href="#ethics" class="footer-link">Ethics</a>
