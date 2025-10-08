@@ -1,5 +1,5 @@
 // Main JavaScript - AIceberg Mind
-// Gestione interazioni principali, scroll e animazioni
+// Main interactions management, scroll and animations
 
 class AicebergMain {
   constructor() {
@@ -14,7 +14,7 @@ class AicebergMain {
     this.initIntersectionObserver();
   }
   
-  // Scroll effects per hero logo e altri elementi
+  // Scroll effects for hero logo and other elements
   initScrollEffects() {
     let ticking = false;
     
@@ -113,14 +113,14 @@ class AicebergMain {
         if (entry.isIntersecting) {
           // Debug log
           console.log('Animating element:', entry.target);
-          // Usa le classi CSS esistenti per parallax
+          // Use existing CSS classes for parallax
           entry.target.classList.add('in-view');
           entry.target.classList.add('animate-in');
         }
       });
     }, observerOptions);
     
-    // Observe elements with animation classes - ampliato per includere più elementi
+    // Observe elements with animation classes - expanded to include more elements
     const animatedElements = document.querySelectorAll(`
       .text-compose, 
       .content-block, 

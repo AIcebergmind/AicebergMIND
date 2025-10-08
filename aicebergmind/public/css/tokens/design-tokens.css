@@ -1,17 +1,17 @@
 /* =========================================================
    AICEBERG MIND - DESIGN TOKENS SYSTEM
-   Sistema centralizzato di token per coerenza e performance
+   Centralized token system for consistency and performance
    ========================================================= */
 
 :root {
   /* ================================
-     BRAND COLORS - Identità visiva
+     BRAND COLORS - Visual identity
      ================================ */
   --brand-cyan: #00D4FF;
   --brand-mint: #5EE4C3;
 
   /* ================================
-     BASE COLORS - Palette fondamentale
+     BASE COLORS - Foundation palette
      ================================ */
   --bg-primary: #0a0a0a;
   --text-primary: rgba(255, 255, 255, 0.95);
@@ -21,14 +21,14 @@
   --border-light: rgba(255, 255, 255, 0.08);
 
   /* ================================
-     TYPOGRAPHY SYSTEM - Font stack e dimensioni
+     TYPOGRAPHY SYSTEM - Font stack and sizes
      ================================ */
   --font-display: 'Inter', sans-serif;
   --font-body: 'IBM Plex Sans', sans-serif; system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'IBM Plex Sans', sans-serif;
   --font-serif: 'Crimson Text', Georgia, serif;
 
-  /* Font Sizes - Sistema scalabile */
+  /* Font Sizes - Scalable system */
   --font-size-xs: 0.75rem;    /* 12px */
   --font-size-sm: 0.875rem;   /* 14px */
   --font-size-base: 1rem;     /* 16px */
@@ -46,7 +46,7 @@
   --font-weight-semibold: 600;
 
   /* ================================
-     SPACING SYSTEM - Spaziature coerenti
+     SPACING SYSTEM - Consistent spacing
      ================================ */
   --space-xs: 0.5rem;    /* 8px */
   --space-sm: 1rem;      /* 16px */
@@ -56,7 +56,7 @@
   --space-xxl: 6rem;     /* 96px */
 
   /* ================================
-     ANIMATION SYSTEM - Timing e durate
+     ANIMATION SYSTEM - Timing and duration
      ================================ */
   /* Base Timing */
   --timing-fast: 0.15s;
@@ -96,7 +96,7 @@
   --logo-delay-zoom: 0.5s;
 
   /* ================================
-     GRADIENTS - Sistema di gradienti
+     GRADIENTS - Gradient system
      ================================ */
   --gradient-brand: linear-gradient(135deg, var(--brand-mint), var(--brand-cyan));
   --gradient-soft: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(94,228,195,0.03) 50%, rgba(0,212,255,0.05) 100%);
@@ -109,7 +109,7 @@
   --gradient-iceberg-3: linear-gradient(225deg, rgba(0, 212, 255, 0.2) 0%, rgba(94, 228, 195, 0.3) 40%, transparent 100%);
 
   /* ================================
-     Z-INDEX SYSTEM - Layering coerente
+     Z-INDEX SYSTEM - Consistent layering
      ================================ */
   --z-background: -1;
   --z-base: 0;
@@ -120,7 +120,7 @@
   --z-tooltip: 1000;
 
   /* ================================
-     RESPONSIVE BREAKPOINTS - Media queries
+     RESPONSIVE BREAKPOINTS
      ================================ */
   --breakpoint-mobile: 480px;
   --breakpoint-tablet: 768px;

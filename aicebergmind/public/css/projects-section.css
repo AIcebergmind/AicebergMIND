@@ -1,6 +1,6 @@
 /* =========================================================
    PROJECTS SECTION CSS - AIceberg Mind
-   CSS per progetti carousel, accordion mobile e cards
+   Styles for project carousel, mobile accordion and cards
    ========================================================= */
 
 /* =======================
@@ -86,11 +86,11 @@
 }
 
 .projects-row-1 {
-  /* Prima riga: centrata */
+  /* First row: centered */
 }
 
 .projects-row-2 {
-  /* Seconda riga: allineata con la prima */
+  /* Second row: aligned with first */
 }
 
 /* =======================
@@ -452,7 +452,7 @@
     display: block !important;
   }
   
-  /* Rimuovi staggered effect su mobile */
+  /* Remove staggered effect on mobile */
   .projects-row-2 {
     margin-left: 0;
     margin-top: 0;

@@ -1,7 +1,7 @@
 /* =========================================================
    AICEBERG MIND - CSS IMPORTS
-   Import centralizzato per il sistema di design token
+   Centralized import for design token system
    ========================================================= */
 
-/* Import Design Tokens - DEVE essere sempre primo */
+/* Import Design Tokens - MUST always be first */
 @import url('./tokens/design-tokens.css');

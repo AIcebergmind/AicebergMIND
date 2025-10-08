@@ -1,5 +1,5 @@
 // Projects Bounce System - AIceberg Mind
-// Animazioni per le project cards con bounce effects
+// Animations for project cards with bounce effects
 
 class ProjectsBounce {
   constructor() {

@@ -1,8 +1,7 @@
+// Hamburger Menu Component - AIceberg Mind
+// Dynamic hamburger menu with scroll behavior
 
-// Breadcrumb Component Hybrid - AIceberg Mind
-// Versione ibrida del breadcrumb con hamburger menu
-
-class BreadcrumbHybrid {
+class HamburgerMenu {
   constructor() {
     this.placeholder = document.getElementById('hamburger-menu-placeholder');
     this.lastScrollY = 0;
@@ -124,15 +123,15 @@ class BreadcrumbHybrid {
     const updateHamburgerVisibility = () => {
       const currentScrollY = window.scrollY;
       
-      // Mostra hamburger all'inizio
+      // Show hamburger at the beginning
       if (currentScrollY <= 100) {
         this.showHamburger();
       }
-      // Mostra hamburger quando si scrolla verso l'alto
+      // Show hamburger when scrolling up
       else if (currentScrollY < this.lastScrollY && !this.isMenuVisible) {
         this.showHamburger();
       }
-      // Nasconde hamburger quando si scrolla verso il basso
+      // Hide hamburger when scrolling down
       else if (currentScrollY > this.lastScrollY && currentScrollY > 200 && this.isMenuVisible) {
         this.hideHamburger();
       }
@@ -140,7 +139,7 @@ class BreadcrumbHybrid {
       this.lastScrollY = currentScrollY;
     };
 
-    // Throttle per performance
+    // Throttle for performance
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
@@ -152,7 +151,7 @@ class BreadcrumbHybrid {
 
     window.addEventListener('scroll', handleScroll);
     
-    // Mostra hamburger all'inizio
+    // Show hamburger at the beginning
     this.showHamburger();
   }
 
@@ -187,5 +186,5 @@ class BreadcrumbHybrid {
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  new BreadcrumbHybrid();
+  new HamburgerMenu();
 });

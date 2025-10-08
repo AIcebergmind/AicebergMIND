@@ -4,33 +4,25 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-/* Variabili legacy Bear Blog - mantenute per compatibilità ma sostituendo con design tokens */
+/* Blog-specific variables - consolidated for blog pages only */
 :root {
-	/* Legacy colors sostituiti con design tokens */
-	--accent: var(--brand-cyan);
-	--accent-dark: var(--brand-mint);
-	
-	/* Colori convertiti dai design tokens */
-	--black: 10, 10, 10; /* Derivato da --bg-primary */
-	--gray: 128, 128, 128; /* Grigio neutro */
-	--gray-light: 245, 245, 245; /* Light gray */
-	--gray-dark: 64, 64, 64; /* Dark gray */
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	
-	/* Box shadow usando design tokens */
-	--box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+	--blog-accent: var(--brand-cyan);
+	--blog-gray: 64, 64, 64;
+	--blog-gray-light: 245, 245, 245;
+	--blog-gradient: rgba(245, 245, 245, 50%), #fff;
+	--blog-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 body {
 	font-family: var(--font-body);
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	background: linear-gradient(var(--blog-gradient)) no-repeat;
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: var(--font-size-xl); /* 20px -> design token */
+	color: rgb(var(--blog-gray));
+	font-size: var(--font-size-xl);
 	line-height: 1.7;
 }
 html {
@@ -43,7 +35,7 @@ main {
 	padding: var(--space-xxl) var(--space-sm); /* 3rem 1rem -> design tokens */
 }
 
-/* Override per le pagine blog - rimuove constrains del main generico */
+/* Blog page overrides - removes generic main constraints */
 .blog-page main,
 .blog-post-page main {
 	width: auto;
@@ -57,43 +49,43 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 var(--space-xs) 0; /* 0.5rem -> design token */
-	color: rgb(var(--black));
+	margin: 0 0 var(--space-xs) 0;
+	color: var(--text-primary);
 	line-height: 1.2;
 	font-family: var(--font-heading);
 }
 h1 {
-	font-size: var(--font-size-4xl); /* ~36px */
+	font-size: var(--font-size-4xl);
 }
 h2 {
-	font-size: var(--font-size-3xl); /* ~30px */
+	font-size: var(--font-size-3xl);
 }
 h3 {
-	font-size: var(--font-size-2xl); /* ~24px */
+	font-size: var(--font-size-2xl);
 }
 h4 {
-	font-size: var(--font-size-xl); /* ~20px */
+	font-size: var(--font-size-xl);
 }
 h5 {
-	font-size: var(--font-size-lg); /* ~18px */
+	font-size: var(--font-size-lg);
 }
 strong,
 b {
 	font-weight: var(--font-weight-semibold);
 }
 a {
-	color: var(--accent);
+	color: var(--blog-accent);
 	transition: color var(--timing-base) var(--easing-smooth);
 }
 a:hover {
-	color: var(--accent);
+	color: var(--blog-accent);
 }
 p {
-	margin-bottom: var(--space-sm); /* 1rem -> design token */
-	font-weight: var(--font-weight-light); /* 200 - testo più leggero */
+	margin-bottom: var(--space-sm);
+	font-weight: var(--font-weight-light);
 }
 .prose p {
-	margin-bottom: var(--space-md); /* 2rem -> design token */
+	margin-bottom: var(--space-md);
 }
 textarea {
 	width: 100%;
@@ -112,7 +104,7 @@ img {
 }
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	background-color: rgb(var(--blog-gray-light));
 	border-radius: 2px;
 }
 pre {
@@ -123,24 +115,24 @@ pre > code {
 	all: unset;
 }
 blockquote {
-	border-left: 4px solid var(--accent);
+	border-left: 4px solid var(--blog-accent);
 	padding: 0 0 0 20px;
 	margin: 0px;
 	font-size: 1.333em;
 }
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid rgb(var(--blog-gray-light));
 }
 @media (max-width: 720px) {
 	body {
-		font-size: var(--font-size-lg); /* 18px -> design token */
+		font-size: var(--font-size-lg);
 	}
 	main {
-		padding: var(--space-sm); /* 1rem -> design token */
+		padding: var(--space-sm);
 	}
 	
-	/* Override per blog - mantiene padding a 0 anche su mobile */
+	/* Blog mobile overrides - maintains zero padding */
 	.blog-page main,
 	.blog-post-page main {
 		padding: 0;

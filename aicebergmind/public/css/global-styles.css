@@ -2,8 +2,6 @@
  * GLOBAL STYLES - AIceberg Mind
  * Master CSS file that imports all stylesheets in the correct loading order
  * This is the only CSS file that should be linked in HTML pages
- * 
- * NOTA: main.css è stato consolidato in editorial-design.css per eliminare duplicazioni
  */
 
 /* ========================================
@@ -39,14 +37,20 @@
 @import url('hero-section.css');
 @import url('subhero-section.css');
 @import url('content-sections.css');
+@import url('core-pillars.css');
 @import url('projects-section.css');
 @import url('ethics-faq.css');
+
+/* ========================================
+   UTILITIES & HELPERS
+   ======================================== */
+@import url('utilities.css');
 
 /* ========================================
    LAYOUTS & VARIABLES
    ======================================== */
 
-   /* @import url('variables/gsap-parallax.css'); - Disabilitato per usare CSS transitions */
+
 
 
 

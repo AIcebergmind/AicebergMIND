@@ -1,6 +1,6 @@
 /* =========================================================
    CONTENT SECTIONS CSS - AIceberg Mind
-   CSS per About, Projects, Team, Ethics sections
+   CSS for About, Projects, Team, Ethics sections
    ========================================================= */
 
 /* =======================
@@ -244,7 +244,6 @@ details div {
 .line-compose {
   opacity: 1;
   transform: translateY(0);
-  /* Nessuna animazione - sempre visibile */
 }
 
 .text-collapse.expanded .line-compose {

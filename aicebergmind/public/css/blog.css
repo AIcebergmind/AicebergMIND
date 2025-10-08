@@ -3,15 +3,7 @@
    Inherits design system from editorial-design.css
    ======================================== */
 
-/* Blog Variables - Extend the main system */
-:root {
-  /* Blog-specific spacing */
-  --blog-header-spacing: 8rem;
-  --blog-section-spacing: 6rem;
-  --blog-card-spacing: 2rem;
-  --blog-title-spacing: 4rem;
-  --blog-filters-spacing: 5rem;
-}
+/* Blog-specific spacing variables - inherited from design tokens */
 
 /* ========================================
    BLOG PAGE STYLES - REDESIGNED
@@ -42,6 +34,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: var(--bg-primary);
 }
 
 /* ========================================
@@ -379,10 +372,7 @@
   transform: scale(1.05);
 }
 
-/* Blog Post Content */
-.blog-post-content {
-  padding: 1.5rem;
-}
+/* Blog Post Content - consolidated */
 
 .blog-post-title {
   font-family: var(--font-heading);
@@ -402,15 +392,6 @@
   color: var(--brand-cyan);
 }
 
-.blog-post-date {
-  font-size: 0.875rem;
-  color: var(--text-tertiary);
-  margin: 0 0 1rem 0;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 400;
-}
-
 .blog-post-excerpt {
   font-size: 0.95rem;
   color: var(--text-secondary);
@@ -423,8 +404,8 @@
 }
 
 /* ========================================
-   REGOLE SPECIFICHE PER PAGINE BLOG
-   Override del container-narrow per layout più ampio
+   BLOG PAGES SPECIFIC RULES
+   Override container-narrow for wider layout
    ======================================== */
 .blog-page .container-narrow,
 .blog-post-page .container-narrow {
@@ -560,6 +541,7 @@
   color: var(--text-primary);
   max-width: 65ch;
   margin: 0 auto;
+  padding: 1.5rem;
 }
 
 /* Typography within post content */
@@ -615,7 +597,6 @@
 
 .blog-post-content blockquote {
   border-left: 3px solid var(--brand-cyan);
-  padding-left: 2rem;
   margin: 2rem 0;
   color: var(--text-secondary);
   font-style: italic;
@@ -709,7 +690,7 @@ section {
 
 /* SPACING OPTIMIZATION */
 .parallax-section + .parallax-section {
-  margin-top: -3rem; /* Riduce spazio tra sezioni */
+  margin-top: -3rem; /* Reduce space between sections */
 }
 
 
@@ -926,10 +907,6 @@ section {
   transform: scale(1.05);
 }
 
-.article-content {
-  padding: var(--spacing-md);
-}
-
 .article-category {
   display: inline-block;
   padding: 0.2rem 0.6rem;
@@ -1036,7 +1013,7 @@ section {
   margin-bottom: var(--spacing-lg);
 }
 
-.article-title {
+.article-title--hero {
   font-size: 3rem;
   font-weight: 300;
   color: #ffffff;
@@ -1130,6 +1107,7 @@ section {
 .article-content {
   max-width: 800px;
   margin: 0 auto;
+  padding: var(--space-md);
 }
 
 .article-intro {
@@ -1607,9 +1585,9 @@ section {
 .bibliography-list {
   list-style: none;
   padding: 0;
-  margin: 0;
   max-width: 800px;
   margin: 0 auto;
+  counter-reset: bibliography-counter;
 }
 
 .bibliography-item {
@@ -1643,9 +1621,7 @@ section {
   font-weight: 500;
 }
 
-.bibliography-list {
-  counter-reset: bibliography-counter;
-}
+
 
 /* Author names in bibliography */
 .bib-author {
@@ -1794,14 +1770,6 @@ section {
   
   .featured-card {
     height: 400px;
-  }
-  
-  .featured-overlay {
-    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
-  }
-  
-  .featured-title {
-    font-size: 1.5rem;
   }
   
   .featured-overlay {

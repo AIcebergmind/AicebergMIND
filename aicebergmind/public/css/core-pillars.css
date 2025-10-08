@@ -1,8 +1,8 @@
 /* =============================================
-   CORE PILLARS - DESIGN ARCHITETTONICO SEMPLIFICATO
+   CORE PILLARS - ARCHITECTURAL DESIGN
    ============================================= */
 
-/* Grid container per i pilastri */
+/* Pillars grid container */
 .pillars-cards-grid {
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@
   height: 320px;
 }
 
-/* Pilastro base */
+/* Base pillar card */
 .pillar-card {
   width: 70px;
   height: 280px;
@@ -29,25 +29,25 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Colori distintivi per ogni pilastro */
+/* Distinctive colors for each pillar */
 .pillar-card.sobriety:hover, .pillar-card.sobriety.expanded { border-color: rgba(150, 200, 255, 0.8); }
 .pillar-card.hygiene:hover, .pillar-card.hygiene.expanded { border-color: rgba(100, 255, 200, 0.8); }
 .pillar-card.sovereignty:hover, .pillar-card.sovereignty.expanded { border-color: rgba(255, 180, 100, 0.8); }
 .pillar-card.integrity:hover, .pillar-card.integrity.expanded { border-color: rgba(200, 100, 255, 0.8); }
 
-/* Stati del pilastro */
+/* Pillar states */
 .pillar-card:hover {
   transform: skewY(-2deg) scaleY(1.02);
-  width: 350px; /* Espande al hover */
+  width: 350px;
 }
 
 .pillar-card.expanded {
-  width: 480px; /* Espande al click */
-  transform: skewY(0deg); /* Raddrizza */
+  width: 480px;
+  transform: skewY(0deg);
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* Titolo verticale che parte dal margine basso uniforme */
+/* Vertical title header */
 .pillar-card-header {
   position: absolute;
   top: -20px; 
@@ -62,18 +62,18 @@
 
 .pillar-card.expanded .pillar-card-header,
 .pillar-card:hover .pillar-card-header {
-  top: 20px; /* Più spazio dall'alto */
+  top: 20px;
   left: 20px;
   bottom: auto;
   right: auto;
   transform: rotate(0deg);
-  margin-bottom: 16px; /* Spazio tra titolo e contenuto */
+  margin-bottom: 16px;
 }
 
 .pillar-card-title {
-  font-size: 28px; /* Titolo proporzionato per essere visibile nel pilastro stretto */
-  font-weight: 400; /* Più bold */
-  color: var(--text-white); /* Bianco per visibilità sul dark */
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text-white);
   margin: 0;
   white-space: nowrap;
   text-transform: uppercase;
@@ -82,51 +82,51 @@
 
 .pillar-card.expanded .pillar-card-title,
 .pillar-card:hover .pillar-card-title {
-  font-size: 22px; /* Ancora più grande quando espanso */
-  color: #ffffff; /* Bianco completo non semitrasparente */
+  font-size: 22px;
+  color: #ffffff;
 }
 
-/* Icone rimosse su desktop, visibili su mobile */
+/* Icons hidden on desktop, visible on mobile */
 .pillar-card-icon {
   display: none;
 }
 
 @media (max-width: 768px) {
   .pillar-card-icon {
-    display: block !important; /* Forza la visualizzazione su mobile */
+    display: block !important;
   }
 }
 
-/* Icona ben visibile quando pilastro chiuso */
+/* Icon visible when pillar closed */
 .pillar-card:not(.expanded):not(:hover) .pillar-card-icon {
   opacity: 1;
-  color: rgba(255, 255, 255, 0.3); /* Leggermente più visibile */
+  color: rgba(255, 255, 255, 0.3);
 }
 
-/* Icona si dissolve quando pilastro aperto */
+/* Icon fades when pillar opened */
 .pillar-card.expanded .pillar-card-icon,
 .pillar-card:hover .pillar-card-icon {
   opacity: 0;
   transform: translateX(-50%) scale(0.7);
 }
 
-/* Contenuto nascosto */
+/* Hidden content */
 .pillar-card-content,
 .pillar-card-expanded {
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  top: 65px; /* Più spazio dal titolo */
-  left: 20px; /* Allineato con il titolo */
+  top: 65px;
+  left: 20px;
   right: 20px;
   transition: all 0.3s ease;
 }
 
 .pillar-card-expanded {
-  top: 140px; /* Più spazio per il meta tag */
+  top: 140px;
 }
 
-/* Contenuto visibile quando espanso */
+/* Visible content when expanded */
 .pillar-card.expanded .pillar-card-content,
 .pillar-card.expanded .pillar-card-expanded,
 .pillar-card:hover .pillar-card-content,
@@ -135,29 +135,29 @@
   visibility: visible;
 }
 
-/* Styling del testo */
+/* Text styling */
 .pillar-card-description {
-  font-size: 13px; /* Testo più grande per migliore leggibilità */
-  line-height: 1.5; /* Interlinea più generosa */
+  font-size: 13px;
+  line-height: 1.5;
   color: var(--text-secondary);
-  margin-bottom: 12px; /* Più spazio tra paragrafi */
+  margin-bottom: 12px;
   word-wrap: break-word;
 }
 
 .pillar-card-meta {
-  font-size: 10px; /* Leggermente più grande */
+  font-size: 10px;
   color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 20px; /* Ancora più spazio prima del contenuto principale */
-  display: block; /* Assicura che abbia il suo spazio */
+  margin-bottom: 20px;
+  display: block;
 }
 
 .pillar-card-details p {
-  font-size: 12px; /* Testo più leggibile */
-  line-height: 1.4; /* Migliore spaziatura */
+  font-size: 12px;
+  line-height: 1.4;
   color: var(--text-secondary);
-  margin-bottom: 8px; /* Più spazio tra i paragrafi */
+  margin-bottom: 8px;
   word-wrap: break-word;
 }
 
@@ -166,7 +166,7 @@
   font-weight: 600;
 }
 
-/* Mobile - Accordion semplificato */
+/* Mobile - Simplified accordion */
 @media (max-width: 768px) {
   .pillars-cards-grid {
     flex-direction: column;
@@ -179,13 +179,13 @@
   .pillar-card {
     width: 90%;
     max-width: 350px;
-    min-height: 55px; /* Altezza minima per contenere il titolo */
-    height: auto; /* Altezza automatica per evitare tagli */
-    transform: none; /* Nessuna rotazione su mobile */
+    min-height: 55px;
+    height: auto;
+    transform: none;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    overflow: visible; /* Evita il taglio del contenuto */
+    overflow: visible;
   }
   
   .pillar-card-header {
@@ -194,30 +194,30 @@
     left: auto;
     bottom: auto;
     right: auto;
-    transform: none; /* Nessuna rotazione su mobile */
+    transform: none;
     padding: 15px 20px;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Allineamento a sinistra */
+    justify-content: flex-start;
     margin-bottom: 0;
   }
   
   .pillar-card-title {
     font-size: 14px;
     font-weight: 600;
-    color: #ffffff !important; /* Bianco puro da subito su mobile */
-    letter-spacing: 0.1em; /* Ridotto per evitare overflow */
+    color: #ffffff !important;
+    letter-spacing: 0.1em;
     white-space: nowrap;
-    overflow: visible; /* Evita il taglio */
-    text-overflow: clip; /* Non taglia il testo */
-    flex-shrink: 0; /* Impedisce al titolo di ridursi */
-    text-align: left !important; /* Forza allineamento a sinistra */
-    text-transform: lowercase !important; /* Lowercase solo su mobile */
+    overflow: visible;
+    text-overflow: clip;
+    flex-shrink: 0;
+    text-align: left !important;
+    text-transform: lowercase !important;
     margin: 0;
     width: 100%;
   }
   
-  /* Icona visibile nell'angolo in alto a destra su mobile */
+  /* Icon visible in top right corner on mobile */
   .pillar-card-icon {
     display: block;
     position: absolute;
@@ -227,7 +227,7 @@
     height: 20px;
     color: rgba(255, 255, 255, 0.6);
     z-index: 4;
-    transition: all 0.3s ease; /* Transizione smooth per rotazione e colore */
+    transition: all 0.3s ease;
   }
   
   .pillar-card-content,
@@ -243,16 +243,16 @@
     transition: all 0.3s ease;
   }
   
-  /* Disabilita hover su mobile */
+  /* Disable hover on mobile */
   .pillar-card:hover {
     width: 90%;
     transform: none;
-    min-height: 55px; /* Mantiene altezza minima anche in hover */
+    min-height: 55px;
   }
   
   .pillar-card:hover .pillar-card-title {
     color: #ffffff;
-    overflow: visible; /* Assicura che il titolo non venga tagliato in hover */
+    overflow: visible;
   }
   
   .pillar-card:hover .pillar-card-content,
@@ -261,7 +261,7 @@
     max-height: 0;
   }
   
-  /* Accordion espanso su mobile */
+  /* Expanded accordion on mobile */
   .pillar-card.expanded {
     width: 90%;
     height: auto;
@@ -271,23 +271,23 @@
   }
   
   .pillar-card.expanded .pillar-card-header {
-    justify-content: flex-start; /* Titolo allineato a sinistra quando espanso */
-    top: auto !important; /* Sovrascrive regole desktop */
-    left: auto !important; /* Sovrascrive regole desktop */
+    justify-content: flex-start;
+    top: auto !important;
+    left: auto !important;
     bottom: auto !important;
     right: auto !important;
-    transform: none !important; /* Nessuna trasformazione su mobile */
+    transform: none !important;
   }
   
   .pillar-card.expanded .pillar-card-title,
   .pillar-card:hover .pillar-card-title {
-    text-align: left !important; /* Forza allineamento a sinistra anche in hover/expanded */
-    transform: none !important; /* Nessuna trasformazione */
+    text-align: left !important;
+    transform: none !important;
   }
   
   .pillar-card.expanded .pillar-card-icon {
-    transform: rotate(180deg); /* Ruota per indicare che è aperto */
-    color: rgba(255, 255, 255, 1); /* Completamente bianco quando aperto */
+    transform: rotate(180deg);
+    color: rgba(255, 255, 255, 1);
   }
   
   .pillar-card.expanded .pillar-card-content,

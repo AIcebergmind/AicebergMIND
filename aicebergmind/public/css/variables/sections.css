@@ -30,6 +30,6 @@ section {
 
 /* SPACING OPTIMIZATION */
 .parallax-section + .parallax-section {
-  margin-top: -3rem; /* Riduce spazio tra sezioni */
+  margin-top: -3rem; 
 }
 

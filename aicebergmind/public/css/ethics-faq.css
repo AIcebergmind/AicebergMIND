@@ -1,6 +1,6 @@
 /* =========================================================
    ETHICS & FAQ CSS - AIceberg Mind
-   CSS per ethics cards grid e FAQ component
+   CSS for ethics cards grid and FAQ component
    ========================================================= */
 
 /* =======================
@@ -11,36 +11,35 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin: 3rem 0;
-  align-items: start; /* Previene lo slittamento verticale */
+  align-items: start;
 }
 
 .ethics-card {
   position: relative;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--space-sm); /* 16px -> design token */
-  padding: var(--space-md); /* 32px -> design token */
+  border-radius: var(--space-sm);
+  padding: var(--space-md);
   cursor: pointer;
-  transition: all var(--timing-slow) var(--easing-smooth); /* Design tokens */
+  transition: all var(--timing-slow) var(--easing-smooth);
   overflow: hidden;
-  min-height: 180px; /* Altezza minima per layout consistente */
-  position: relative; /* Per contenere eventuali transform */
+  min-height: 180px;
+  position: relative;
 }
 
 .ethics-card:hover,
 .ethics-card:focus {
   background: rgba(255, 255, 255, 0.05);
   border-color: var(--brand-cyan);
-  transform: scale(1.01); /* Solo hover effect leggero */
+  transform: scale(1.01);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
 
-/* Stato espanso senza movimento */
+/* Expanded state */
 .ethics-card.expanded {
   background: rgba(255, 255, 255, 0.05);
   border-color: var(--brand-cyan);
-  /* Nessun transform per evitare slittamento */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   z-index: 5;
 }
@@ -104,13 +103,13 @@
   transition: all var(--timing-base) var(--easing-smooth);
 }
 
-/* Contenuto base sempre visibile */
+/* Base content always visible */
 .ethics-card-description {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--text-secondary);
   margin-bottom: var(--space-sm);
-  font-weight: var(--font-weight-light); /* 200 */
+  font-weight: var(--font-weight-light);
 }
 
 .ethics-card-meta {
@@ -122,7 +121,7 @@
   margin-bottom: var(--space-sm);
 }
 
-/* Su desktop: contenuto base visibile, espanso nascosto */
+/* Desktop: base content visible, expanded content hidden */
 .ethics-card-content {
   opacity: 1;
   max-height: none;
@@ -136,7 +135,7 @@
   transition: all var(--timing-slow) var(--easing-smooth);
 }
 
-/* Mostra contenuto espanso al hover su desktop */
+/* Show expanded content on desktop hover */
 .ethics-card:hover .ethics-card-expanded,
 .ethics-card:focus .ethics-card-expanded {
   max-height: 200px;
@@ -144,7 +143,7 @@
   margin-top: var(--space-sm);
 }
 
-/* Contenuto espanso styling */
+/* Expanded content styling */
 .ethics-card-details {
   padding: var(--space-sm) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -519,7 +518,7 @@
   
   .ethics-card {
     padding: var(--space-md);
-    min-height: 140px; /* Ridotto su mobile */
+    min-height: 140px;
   }
   
   .ethics-card-title {
@@ -531,7 +530,7 @@
     height: 28px;
   }
   
-  /* Su mobile: solo titolo visibile di default */
+  /* Mobile: only title visible by default */
   .ethics-card-content,
   .ethics-card-expanded {
     max-height: 0;
@@ -539,14 +538,14 @@
     overflow: hidden;
   }
   
-  /* Su mobile: hover disabilitato */
+  /* Mobile: hover disabled */
   .ethics-card:hover .ethics-card-content,
   .ethics-card:hover .ethics-card-expanded {
     max-height: 0;
     opacity: 0;
   }
   
-  /* Solo con classe .expanded su mobile - mostra tutto il contenuto */
+  /* Mobile: only with .expanded class - show full content */
   .ethics-card.expanded .ethics-card-content,
   .ethics-card.expanded .ethics-card-expanded {
     max-height: 300px;
@@ -554,9 +553,9 @@
     margin-top: var(--space-sm);
   }
   
-  /* Riduce l'altezza minima delle card su mobile */
+  /* Reduce minimum card height on mobile */
   .ethics-card {
-    min-height: 80px; /* Solo per titolo + icona */
+    min-height: 80px;
   }
 }
   

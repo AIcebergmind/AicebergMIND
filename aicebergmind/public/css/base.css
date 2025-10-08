@@ -1,5 +1,5 @@
 /* === CSS RESET & ACCESSIBILITY === */
-/* Base reset and utilities - variables moved to editorial-design.css */
+/* Base reset and utilities */
 
 *,
 *::before,
@@ -55,4 +55,3 @@ body {
   backface-visibility: hidden;
   perspective: 1000px;
 }
-

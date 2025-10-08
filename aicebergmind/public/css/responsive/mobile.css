@@ -90,7 +90,7 @@
 }
 
 
-/* === MOBILE BLUR OVERLAY CON BORDO SFUMATO === */
+/* === MOBILE BLUR OVERLAY === */
 @media (max-width: 768px) {
   .parallax-section {
     position: relative;

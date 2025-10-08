@@ -1,6 +1,6 @@
 /* =========================================================
    HERO SECTION CSS - AIceberg Mind
-   Sezione hero con canvas iceberg, animazioni e design editoriale
+   Hero section with iceberg canvas, animations and editorial design
    ========================================================= */
 
 /* =======================
@@ -21,7 +21,7 @@
   background: #0a0a0a;
 }
 
-/* Container centrale del contenuto hero */
+/* Hero content container */
 .hero-content-editorial {
   position: relative;
   z-index: var(--z-content);
@@ -336,7 +336,6 @@
     height: 28px;
   }
   
-  /* Iceberg Animation Mobile Scaling */
   .iceberg-1, .iceberg-2, .iceberg-3 {
     transform: scale(0.6);
     opacity: 0.1;
@@ -924,6 +923,3 @@
     opacity: 0.06;
   }
 }
-
-
-
