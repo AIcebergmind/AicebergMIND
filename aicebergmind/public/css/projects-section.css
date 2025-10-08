@@ -153,7 +153,6 @@
 .frame-border-right { right: 0; }
 .frame-border-bottom { bottom: 0; }
 .frame-border-left { left: 0; }
-
 .frame-content {
   position: relative;
   z-index: 2;
