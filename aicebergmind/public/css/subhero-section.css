@@ -32,17 +32,21 @@
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .video-container iframe {
-  width: 100vw;
-  height: 56.25vw; /* 16:9 aspect ratio */
-  min-width: 100%;
-  min-height: 100vh;
-  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 177.77vh; /* 16:9 aspect ratio calculation */
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 56.25vw; /* 16:9 aspect ratio */
   border: none;
   pointer-events: none;
 }
@@ -60,46 +64,44 @@
 }
 
 /* =======================
-   3) VIDEO CONTROLS
+   3) VIDEO CONTROLS - SubHero Top Right
    ======================= */
-.video-controls {
+.subhero-controls {
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 10;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 1000;
 }
 
-.video-control-btn {
-  background: rgba(255, 255, 255, 0.1);
+.control-btn {
+  background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-  padding: 0.75rem 1.5rem;
-  color: white;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
-.video-control-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
 
-.video-off-text {
-  display: none;
+.control-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.3s ease;
 }
 
-.video-paused .video-on-text {
-  display: none;
-}
-
-.video-paused .video-off-text {
-  display: inline;
-}
+/* Video Controls - Clean Design (merged with existing) */
 
 /* =======================
    4) SUBHERO CONTENT LAYOUT
@@ -325,14 +327,20 @@
     text-align: center;
   }
   
-  .video-controls {
-    bottom: 1rem;
-    right: 1rem;
+  .subhero-controls {
+    top: 20px;
+    right: 20px;
+    gap: 10px;
   }
   
-  .video-control-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.8rem;
+  .control-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .control-btn svg {
+    width: 16px;
+    height: 16px;
   }
 }
 

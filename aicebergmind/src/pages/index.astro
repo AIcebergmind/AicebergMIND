@@ -62,7 +62,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
     <div class="video-container">
       <iframe id="heroVideo" 
               title="AIceberg Mind Introduction Video"
-              src="https://www.youtube.com/embed/CHuR-hwqrRc?autoplay=1&mute=1&loop=1&playlist=CHuR-hwqrRc&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
+              src="https://www.youtube.com/embed/CHuR-hwqrRc?autoplay=1&mute=1&loop=1&playlist=CHuR-hwqrRc&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0"
               allow="autoplay; encrypted-media" 
               allowfullscreen>
       </iframe>
@@ -72,12 +72,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
     <div class="video-overlay"></div>
     
     <!-- VideoControls -->
-    <div class="video-controls">
-      <button class="video-control-btn" id="videoToggle" aria-label="Toggle video">
-        <span class="video-on-text">PAUSE</span>
-        <span class="video-off-text">PLAY</span>
-      </button>
-    </div>
+
   </div>
 
 
@@ -85,6 +80,31 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
   <div class="editorial-container">
     <div class="editorial-content subhero-asymmetric">
+      <!-- Video Controls in SubHero - Top Right -->
+      <div class="subhero-controls">
+        <button class="control-btn" id="playPauseBtn" aria-label="Play/Pause video">
+          <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5,3 19,12 5,21"/>
+          </svg>
+          <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+            <rect x="6" y="4" width="4" height="16"/>
+            <rect x="14" y="4" width="4" height="16"/>
+          </svg>
+        </button>
+        
+        <button class="control-btn" id="audioToggle" aria-label="Toggle audio">
+          <svg class="audio-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+          <svg class="audio-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="22" y1="9" x2="16" y2="15"/>
+            <line x1="16" y1="9" x2="22" y2="15"/>
+          </svg>
+        </button>
+      </div>
+      
       <div class="subhero-left-column">
         <div class="section-header-editorial">
           <div class="section-number">※</div>
@@ -255,7 +275,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
             <div class="frame-border-bottom"></div>
             <div class="frame-border-left"></div>
             
-            <div class="project-header">
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-1.jpg');">
               <h3 class="project-title">Audio Rituals</h3>
               <p class="project-subtitle">Evening hypnosis for deep rest</p>
             </div>
@@ -284,7 +304,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
             <div class="frame-border-bottom"></div>
             <div class="frame-border-left"></div>
             
-            <div class="project-header">
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-2.jpg');">
               <h3 class="project-title">Nursery Rhymes</h3>
               <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
             </div>
@@ -313,7 +333,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
             <div class="frame-border-bottom"></div>
             <div class="frame-border-left"></div>
             
-            <div class="project-header">
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-3.jpg');">
               <h3 class="project-title">Specialized Channels</h3>
               <p class="project-subtitle">Mindfulness, history & subconscious</p>
             </div>
@@ -345,7 +365,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
             <div class="frame-border-bottom"></div>
             <div class="frame-border-left"></div>
             
-            <div class="project-header">
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-4.jpg');">
               <h3 class="project-title">Birth Prep Program</h3>
               <p class="project-subtitle">Holistic care for expectant families</p>
             </div>
@@ -374,7 +394,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
             <div class="frame-border-bottom"></div>
             <div class="frame-border-left"></div>
             
-            <div class="project-header">
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-5.jpg');">
               <h3 class="project-title">Family Finance Ed.</h3>
               <p class="project-subtitle">Playful tools for conscious money</p>
             </div>
@@ -403,7 +423,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
             <div class="frame-border-bottom"></div>
             <div class="frame-border-left"></div>
             
-            <div class="project-header">
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-about.jpg');">
               <h3 class="project-title">Parent 360 App</h3>
               <p class="project-subtitle">All-in-one parenting toolkit</p>
             </div>
@@ -437,15 +457,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
   <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>60%</span>
       </div>
       <div class="accordion-content">
-        <div class="project-header">
-          <h3 class="project-title">Audio Rituals</h3>
-          <p class="project-subtitle">Evening hypnosis for deep rest</p>
-        </div>
-        <div class="project-description">
-          <div class="project-features">
-            <span class="feature-tag">Sleep Stories</span>
-            <span class="feature-tag">Mindfulness</span>
-            <span class="feature-tag">Family Bonding</span>
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-1.jpg" alt="Audio Rituals Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Audio Rituals</h3>
+              <p class="project-subtitle">Evening hypnosis for deep rest</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Sleep Stories</span>
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">Family Bonding</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-progress">
@@ -464,15 +491,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
   <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>50%</span>
       </div>
       <div class="accordion-content">
-        <div class="project-header">
-          <h3 class="project-title">Nursery Rhymes</h3>
-          <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
-        </div>
-        <div class="project-description">
-          <div class="project-features">
-            <span class="feature-tag">Interactive Music</span>
-            <span class="feature-tag">AI Characters</span>
-            <span class="feature-tag">Language Learning</span>
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-2.jpg" alt="Nursery Rhymes Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Nursery Rhymes</h3>
+              <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Interactive Music</span>
+                <span class="feature-tag">AI Characters</span>
+                <span class="feature-tag">Language Learning</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-progress">
@@ -491,15 +525,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
   <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>90%</span>
       </div>
       <div class="accordion-content">
-        <div class="project-header">
-          <h3 class="project-title">Specialized Channels</h3>
-          <p class="project-subtitle">Mindfulness, history & subconscious</p>
-        </div>
-        <div class="project-description">
-          <div class="project-features">
-            <span class="feature-tag">Mindfulness</span>
-            <span class="feature-tag">History</span>
-            <span class="feature-tag">Neuroscience</span>
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-3.jpg" alt="Specialized Channels Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Specialized Channels</h3>
+              <p class="project-subtitle">Mindfulness, history & subconscious</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">History</span>
+                <span class="feature-tag">Neuroscience</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-progress">
@@ -525,15 +566,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>60%</span>
       </div>
       <div class="accordion-content">
-        <div class="project-header">
-          <h3 class="project-title">Audio Rituals</h3>
-          <p class="project-subtitle">Evening hypnosis for deep rest</p>
-        </div>
-        <div class="project-description">
-          <div class="project-features">
-            <span class="feature-tag">Sleep Stories</span>
-            <span class="feature-tag">Mindfulness</span>
-            <span class="feature-tag">Family Bonding</span>
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-1.jpg" alt="Audio Rituals Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Audio Rituals</h3>
+              <p class="project-subtitle">Evening hypnosis for deep rest</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Sleep Stories</span>
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">Family Bonding</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-progress">
@@ -553,15 +601,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>50%</span>
       </div>
       <div class="accordion-content">
-        <div class="project-header">
-          <h3 class="project-title">Nursery Rhymes</h3>
-          <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
-        </div>
-        <div class="project-description">
-          <div class="project-features">
-            <span class="feature-tag">Interactive Music</span>
-            <span class="feature-tag">AI Characters</span>
-            <span class="feature-tag">Language Learning</span>
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-2.jpg" alt="Nursery Rhymes Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Nursery Rhymes</h3>
+              <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Interactive Music</span>
+                <span class="feature-tag">AI Characters</span>
+                <span class="feature-tag">Language Learning</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-progress">
@@ -581,15 +636,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>90%</span>
       </div>
       <div class="accordion-content">
-        <div class="project-header">
-          <h3 class="project-title">Specialized Channels</h3>
-          <p class="project-subtitle">Mindfulness, history & subconscious</p>
-        </div>
-        <div class="project-description">
-          <div class="project-features">
-            <span class="feature-tag">Mindfulness</span>
-            <span class="feature-tag">History</span>
-            <span class="feature-tag">Neuroscience</span>
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-3.jpg" alt="Specialized Channels Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Specialized Channels</h3>
+              <p class="project-subtitle">Mindfulness, history & subconscious</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">History</span>
+                <span class="feature-tag">Neuroscience</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-progress">
@@ -609,15 +671,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
   <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>50%</span>
       </div>
       <div class="accordion-content">
-        <div class="project-header">
-          <h3 class="project-title">Birth Prep Program</h3>
-          <p class="project-subtitle">Holistic care for expectant families</p>
-        </div>
-        <div class="project-description">
-          <div class="project-features">
-            <span class="feature-tag">Prenatal Care</span>
-            <span class="feature-tag">Mindful Parenting</span>
-            <span class="feature-tag">Family Wellness</span>
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-4.jpg" alt="Birth Prep Program Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Birth Prep Program</h3>
+              <p class="project-subtitle">Holistic care for expectant families</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Prenatal Care</span>
+                <span class="feature-tag">Mindful Parenting</span>
+                <span class="feature-tag">Family Wellness</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-progress">
@@ -636,15 +705,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
   <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>75%</span>
       </div>
       <div class="accordion-content">
-        <div class="project-header">
-          <h3 class="project-title">Family Finance Ed.</h3>
-          <p class="project-subtitle">Playful tools for conscious money</p>
-        </div>
-        <div class="project-description">
-          <div class="project-features">
-            <span class="feature-tag">Financial Literacy</span>
-            <span class="feature-tag">Interactive Games</span>
-            <span class="feature-tag">Family Learning</span>
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-5.jpg" alt="Family Finance Education Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Family Finance Ed.</h3>
+              <p class="project-subtitle">Playful tools for conscious money</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Financial Literacy</span>
+                <span class="feature-tag">Interactive Games</span>
+                <span class="feature-tag">Family Learning</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-progress">
@@ -663,15 +739,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
   <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>30%</span>
       </div>
       <div class="accordion-content">
-        <div class="project-header">
-          <h3 class="project-title">Parent 360 App</h3>
-          <p class="project-subtitle">All-in-one parenting toolkit</p>
-        </div>
-        <div class="project-description">
-          <div class="project-features">
-            <span class="feature-tag">Mobile App</span>
-            <span class="feature-tag">Integrated Tools</span>
-            <span class="feature-tag">Growth Tracking</span>
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-about.jpg" alt="Parent 360 App Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Parent 360 App</h3>
+              <p class="project-subtitle">All-in-one parenting toolkit</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Mobile App</span>
+                <span class="feature-tag">Integrated Tools</span>
+                <span class="feature-tag">Growth Tracking</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-progress">
@@ -1256,6 +1339,65 @@ document.querySelectorAll('.accordion-progress .progress-dots').forEach(dots => 
         }
       }, 100);
     });
+  </script>
+
+  <script>
+  // YouTube Video Controls
+  document.addEventListener('DOMContentLoaded', function() {
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const audioToggle = document.getElementById('audioToggle');
+    const heroVideo = document.getElementById('heroVideo');
+    let isPlaying = true;
+    let isAudioMuted = true;
+    
+    // Play/Pause control
+    if (playPauseBtn && heroVideo) {
+      playPauseBtn.addEventListener('click', function() {
+        const iframe = heroVideo;
+        const src = iframe.src;
+        
+        if (isPlaying) {
+          // Pause - change autoplay=1 to autoplay=0
+          iframe.src = src.replace('autoplay=1', 'autoplay=0');
+          playPauseBtn.querySelector('.play-icon').style.display = 'block';
+          playPauseBtn.querySelector('.pause-icon').style.display = 'none';
+          isPlaying = false;
+        } else {
+          // Play - change autoplay=0 to autoplay=1
+          iframe.src = src.replace('autoplay=0', 'autoplay=1');
+          playPauseBtn.querySelector('.play-icon').style.display = 'none';
+          playPauseBtn.querySelector('.pause-icon').style.display = 'block';
+          isPlaying = true;
+        }
+      });
+      
+      // Set initial state (playing)
+      playPauseBtn.querySelector('.play-icon').style.display = 'none';
+      playPauseBtn.querySelector('.pause-icon').style.display = 'block';
+    }
+    
+    // Audio control
+    if (audioToggle && heroVideo) {
+      audioToggle.addEventListener('click', function() {
+        const iframe = heroVideo;
+        const src = iframe.src;
+        
+        if (isAudioMuted) {
+          // Unmute
+          iframe.src = src.replace('mute=1', 'mute=0');
+          audioToggle.querySelector('.audio-on').style.display = 'block';
+          audioToggle.querySelector('.audio-off').style.display = 'none';
+          isAudioMuted = false;
+        } else {
+          // Mute
+          iframe.src = src.replace('mute=0', 'mute=1');
+          audioToggle.querySelector('.audio-on').style.display = 'none';
+          audioToggle.querySelector('.audio-off').style.display = 'block';
+          isAudioMuted = true;
+        }
+      });
+    }
+  });
   </script>
   
 	</body>
