@@ -173,6 +173,21 @@ strong {
   padding: 0 var(--spacing-md);
 }
 
+/* Mobile override for container-narrow - balanced padding */
+@media (max-width: 768px) {
+  .container-narrow {
+    max-width: calc(100vw - 2rem);
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-narrow {
+    max-width: calc(100vw - 1.5rem);
+    padding: 0 1rem;
+  }
+}
+
 /* Scroll Snap utility */
 .horizontal-scroll-wrapper {
   scroll-snap-align: start;

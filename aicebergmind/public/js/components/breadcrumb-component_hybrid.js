@@ -4,6 +4,9 @@
 class BreadcrumbHybrid {
   constructor() {
     this.placeholder = document.getElementById('hamburger-menu-placeholder');
+    this.lastScrollY = 0;
+    this.isMenuVisible = true;
+    this.hamburgerTrigger = null;
     this.init();
   }
   
@@ -12,6 +15,7 @@ class BreadcrumbHybrid {
     
     this.createHamburgerMenu();
     this.bindEvents();
+    this.initScrollBehavior();
   }
   
   createHamburgerMenu() {
@@ -63,27 +67,27 @@ class BreadcrumbHybrid {
   
   bindEvents() {
     const hamburgerMenu = document.getElementById('hamburgerMenu');
-    const hamburgerTrigger = document.getElementById('hamburgerTrigger');
+    this.hamburgerTrigger = document.getElementById('hamburgerTrigger');
     const overlay = hamburgerMenu?.querySelector('.hamburger-menu-overlay');
     const links = document.querySelectorAll('.hamburger-link');
     
-    if (!hamburgerMenu || !hamburgerTrigger) return;
+    if (!hamburgerMenu || !this.hamburgerTrigger) return;
     
     // Toggle menu
-    hamburgerTrigger.addEventListener('click', () => {
+    this.hamburgerTrigger.addEventListener('click', () => {
       const isActive = hamburgerMenu.classList.contains('active');
       
       if (isActive) {
-        this.closeMenu(hamburgerMenu, hamburgerTrigger);
+        this.closeMenu(hamburgerMenu, this.hamburgerTrigger);
       } else {
-        this.openMenu(hamburgerMenu, hamburgerTrigger);
+        this.openMenu(hamburgerMenu, this.hamburgerTrigger);
       }
     });
     
     // Close on overlay click
     if (overlay) {
       overlay.addEventListener('click', () => {
-        this.closeMenu(hamburgerMenu, hamburgerTrigger);
+        this.closeMenu(hamburgerMenu, this.hamburgerTrigger);
       });
     }
     
@@ -101,16 +105,70 @@ class BreadcrumbHybrid {
           }
         }
         
-        this.closeMenu(hamburgerMenu, hamburgerTrigger);
+        this.closeMenu(hamburgerMenu, this.hamburgerTrigger);
       });
     });
     
     // Close on escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && hamburgerMenu.classList.contains('active')) {
-        this.closeMenu(hamburgerMenu, hamburgerTrigger);
+        this.closeMenu(hamburgerMenu, this.hamburgerTrigger);
       }
     });
+  }
+
+  initScrollBehavior() {
+    if (!this.hamburgerTrigger) return;
+
+    const updateHamburgerVisibility = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Mostra hamburger all'inizio
+      if (currentScrollY <= 100) {
+        this.showHamburger();
+      }
+      // Mostra hamburger quando si scrolla verso l'alto
+      else if (currentScrollY < this.lastScrollY && !this.isMenuVisible) {
+        this.showHamburger();
+      }
+      // Nasconde hamburger quando si scrolla verso il basso
+      else if (currentScrollY > this.lastScrollY && currentScrollY > 200 && this.isMenuVisible) {
+        this.hideHamburger();
+      }
+      
+      this.lastScrollY = currentScrollY;
+    };
+
+    // Throttle per performance
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateHamburgerVisibility);
+        ticking = true;
+        setTimeout(() => { ticking = false; }, 10);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    // Mostra hamburger all'inizio
+    this.showHamburger();
+  }
+
+  showHamburger() {
+    if (this.hamburgerTrigger) {
+      this.hamburgerTrigger.style.transform = 'translateY(0)';
+      this.hamburgerTrigger.style.opacity = '1';
+      this.isMenuVisible = true;
+    }
+  }
+
+  hideHamburger() {
+    if (this.hamburgerTrigger) {
+      this.hamburgerTrigger.style.transform = 'translateY(-100px)';
+      this.hamburgerTrigger.style.opacity = '0';
+      this.isMenuVisible = false;
+    }
   }
   
   openMenu(menu, trigger) {

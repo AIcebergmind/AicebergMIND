@@ -17,9 +17,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<link rel="stylesheet" href="/css/global-styles.css">
 		<link rel="stylesheet" href="/css/hero-section.css">
 		<link rel="stylesheet" href="/css/blog.css">
+		<link rel="stylesheet" href="/css/components/hamburger-menu.css">
 	</head>
 
 	<body class="blog-post-page">
+		<!-- Placeholder per il menu mobile generato da JS -->
+		<div id="hamburger-menu-placeholder"></div>
+		
 		<Header />
 		<main class="blog-post-main">
 			<div class="container-narrow">
@@ -51,5 +55,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			</div>
 		</main>
 		<Footer />
+		
+		<script src="/js/components/breadcrumb-component_hybrid.js" is:inline></script>
 	</body>
 </html>

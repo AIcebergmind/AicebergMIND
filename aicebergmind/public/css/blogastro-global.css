@@ -187,14 +187,38 @@ a {
 
 /* Container scales */
 .container,
-.container-narrow,
 .container-wide {
   margin-inline: auto;
   padding-inline: clamp(1rem, 3vw, 2rem);
+  max-width: min(1440px, 96vw);
 }
-.container       { max-width: 1200px; }
-.container-narrow{ max-width: 860px; }
-.container-wide  { max-width: min(1440px, 96vw); }
+
+.container { 
+  max-width: 1200px; 
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.container-narrow{ 
+  max-width: min(800px, calc(100vw - 2rem)); 
+  margin: 0 auto; 
+  padding: 0 1.5rem; 
+}
+
+/* Mobile override for container-narrow */
+@media (max-width: 768px) {
+  .container-narrow {
+    max-width: calc(100vw - 2rem);
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-narrow {
+    max-width: calc(100vw - 1.5rem);
+    padding: 0 1rem;
+  }
+}
 
 /* Section rhythm */
 .section {
