@@ -138,9 +138,20 @@
 /* Show expanded content on desktop hover */
 .ethics-card:hover .ethics-card-expanded,
 .ethics-card:focus .ethics-card-expanded {
-  max-height: 200px;
+  max-height: 500px;
   opacity: 1;
   margin-top: var(--space-sm);
+}
+
+/* Desktop large screens - ensure full expansion with smooth animation */
+@media (min-width: 769px) {
+  .ethics-card:hover .ethics-card-expanded,
+  .ethics-card:focus .ethics-card-expanded {
+    max-height: 1000px;
+    opacity: 1;
+    margin-top: var(--space-sm);
+    transition: max-height var(--timing-slow) var(--easing-smooth), opacity var(--timing-base) var(--easing-smooth);
+  }
 }
 
 /* Expanded content styling */

@@ -2,12 +2,42 @@
    CORE PILLARS - ARCHITECTURAL DESIGN
    ============================================= */
 
+/* Greek Temple Roof - Only outline */
+.greek-roof {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -55px;
+}
+
+.roof-triangle {
+  width: 0;
+  height: 0;
+  border-left: 220px solid transparent;
+  border-right: 220px solid transparent;
+  border-bottom: 45px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+/* Create outline effect */
+.roof-triangle::after {
+  content: '';
+  position: absolute;
+  bottom: -43px;
+  left: -212px;
+  width: 0;
+  height: 0;
+  border-left: 210px solid transparent;
+  border-right: 210px solid transparent;
+  border-bottom: 40px solid #1a1a1a;
+  z-index: 1;
+}
+
 /* Pillars grid container */
 .pillars-cards-grid {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 16px;
+  gap: 48px;
   margin: 3rem 0;
   height: 320px;
 }
@@ -15,7 +45,7 @@
 /* Base pillar card */
 .pillar-card {
   width: 70px;
-  height: 280px;
+  height: 300px;
   background: linear-gradient(180deg, 
     rgba(255, 255, 255, 0.08) 0%, 
     rgba(255, 255, 255, 0.02) 100%);
@@ -166,8 +196,38 @@
   font-weight: 600;
 }
 
+/* Tablet responsive adjustments - pediment removed */
+
 /* Mobile - Simplified accordion */
 @media (max-width: 768px) {
+  /* Responsive roof for mobile */
+  .greek-roof {
+    display:none;
+    margin-bottom: -25px;
+  }
+  
+  .roof-triangle {
+    border-left-width: 150px;
+    border-right-width: 150px;
+    border-bottom-width: 30px;
+  }
+  
+  .roof-triangle::after {
+    bottom: -28px;
+    left: -145px;
+    border-left-width: 145px;
+    border-right-width: 145px;
+    border-bottom-width: 28px;
+  }
+  
+  .roof-logo {
+    top: -18px;
+  }
+  
+  .roof-logo img {
+    width: 35px;
+  }
+
   .pillars-cards-grid {
     flex-direction: column;
     align-items: center;
