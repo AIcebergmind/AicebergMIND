@@ -14,72 +14,41 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
+		<link rel="stylesheet" href="/css/global-styles.css">
+		<link rel="stylesheet" href="/css/hero-section.css">
+		<link rel="stylesheet" href="/css/blog.css">
 	</head>
 
-	<body>
+	<body class="blog-post-page">
 		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
+		<main class="blog-post-main">
+			<div class="container-narrow">
+				<article class="blog-post-article">
+					{heroImage && (
+						<div class="blog-post-hero">
+							<Image width={1020} height={510} src={heroImage} alt="" class="blog-post-hero-img" />
 						</div>
-						<h1>{title}</h1>
-						<hr />
+					)}
+					
+					<header class="blog-post-header">
+						<div class="blog-post-meta">
+							<time class="blog-post-date">
+								<FormattedDate date={pubDate} />
+							</time>
+							{updatedDate && (
+								<time class="blog-post-updated">
+									Updated on <FormattedDate date={updatedDate} />
+								</time>
+							)}
+						</div>
+						<h1 class="blog-post-title-main zoom-entrance">{title}</h1>
+					</header>
+
+					<div class="blog-post-content">
+						<slot />
 					</div>
-					<slot />
-				</div>
-			</article>
+				</article>
+			</div>
 		</main>
 		<Footer />
 	</body>
