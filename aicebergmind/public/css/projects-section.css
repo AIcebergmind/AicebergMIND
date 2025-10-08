@@ -4,6 +4,40 @@
    ========================================================= */
 
 /* =======================
+   VIEW TOGGLE (Desktop only)
+   ======================= */
+.projects-view-toggle {
+  display: flex;
+  gap: 0;
+  margin-top: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.toggle-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.toggle-btn.active {
+  background: var(--brand-cyan);
+  color: #000;
+}
+
+/* =======================
    1) PROJECTS WRAPPER
    ======================= */
 .projects-wrapper {
@@ -42,41 +76,21 @@
 }
 
 /* =======================
-   3) PROJECT ROWS
+   3) PROJECT ROWS - STAGGERED LAYOUT
    ======================= */
 .projects-row-1,
 .projects-row-2 {
   display: flex;
   gap: 2rem;
   justify-content: center;
-  animation-duration: 4s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
 
 .projects-row-1 {
-  animation-name: scrollLeft;
+  /* Prima riga: centrata */
 }
 
 .projects-row-2 {
-  animation-name: scrollRight;
-}
-
-/* Pause animation on hover */
-.projects-wrapper:hover .projects-row-1,
-.projects-wrapper:hover .projects-row-2 {
-  animation-play-state: paused;
-}
-
-@keyframes scrollLeft {
-  0% { transform: translateX(-20px); }
-  100% { transform: translateX(20px); }
-}
-
-@keyframes scrollRight {
-  0% { transform: translateX(20px); }
-  100% { transform: translateX(-20px); }
+  /* Seconda riga: allineata con la prima */
 }
 
 /* =======================
@@ -96,9 +110,16 @@
   cursor: pointer;
 }
 
+/* Staggered individual cards */
+.project-card:nth-child(1) { transform: translateY(-10px); }
+.project-card:nth-child(2) { transform: translateY(15px); }
+.project-card:nth-child(3) { transform: translateY(-5px); }
+
 .project-card:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--brand-cyan);
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 3px;
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
@@ -354,7 +375,6 @@
 .channels-track {
   display: flex;
   gap: 3rem;
-  animation: channelsScroll 30s linear infinite;
   width: max-content;
 }
 
@@ -384,14 +404,21 @@
   text-align: center;
 }
 
-@keyframes channelsScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
+
 
 /* =======================
    10) RESPONSIVE PROJECTS
    ======================= */
+
+/* Desktop only - Stack view alignment with grid */
+@media (min-width: 1025px) {
+  .projects-stack-view {
+    padding: 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 1024px) {
   .horizontal-scroll-wrapper {
     display: none;
@@ -410,6 +437,31 @@
 @media (max-width: 768px) {
   .projects-wrapper {
     margin: 2rem 0;
+  }
+  
+  /* Hide toggle on mobile - force stack view */
+  .projects-view-toggle {
+    display: none;
+  }
+  
+  .projects-grid-view {
+    display: none !important;
+  }
+  
+  .projects-stack-view {
+    display: block !important;
+  }
+  
+  /* Rimuovi staggered effect su mobile */
+  .projects-row-2 {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  
+  .project-card:nth-child(1),
+  .project-card:nth-child(2), 
+  .project-card:nth-child(3) {
+    transform: translateY(0);
   }
   
   .accordion-header {

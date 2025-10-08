@@ -1,0 +1,300 @@
+/* =============================================
+   CORE PILLARS - DESIGN ARCHITETTONICO SEMPLIFICATO
+   ============================================= */
+
+/* Grid container per i pilastri */
+.pillars-cards-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 3rem 0;
+  height: 320px;
+}
+
+/* Pilastro base */
+.pillar-card {
+  width: 70px;
+  height: 280px;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0.02) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px 6px 3px 3px;
+  cursor: pointer;
+  position: relative;
+  transform: skewY(-2deg);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Colori distintivi per ogni pilastro */
+.pillar-card.sobriety:hover, .pillar-card.sobriety.expanded { border-color: rgba(150, 200, 255, 0.8); }
+.pillar-card.hygiene:hover, .pillar-card.hygiene.expanded { border-color: rgba(100, 255, 200, 0.8); }
+.pillar-card.sovereignty:hover, .pillar-card.sovereignty.expanded { border-color: rgba(255, 180, 100, 0.8); }
+.pillar-card.integrity:hover, .pillar-card.integrity.expanded { border-color: rgba(200, 100, 255, 0.8); }
+
+/* Stati del pilastro */
+.pillar-card:hover {
+  transform: skewY(-2deg) scaleY(1.02);
+  width: 350px; /* Espande al hover */
+}
+
+.pillar-card.expanded {
+  width: 480px; /* Espande al click */
+  transform: skewY(0deg); /* Raddrizza */
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Titolo verticale che parte dal margine basso uniforme */
+.pillar-card-header {
+  position: absolute;
+  top: -20px; 
+  right: 25px;
+  transform-origin: bottom right;
+  transform: rotate(-90deg);
+  transition: all 0.3s ease;
+  z-index: 3; 
+  width: auto;
+  height: auto;
+}
+
+.pillar-card.expanded .pillar-card-header,
+.pillar-card:hover .pillar-card-header {
+  top: 20px; /* Più spazio dall'alto */
+  left: 20px;
+  bottom: auto;
+  right: auto;
+  transform: rotate(0deg);
+  margin-bottom: 16px; /* Spazio tra titolo e contenuto */
+}
+
+.pillar-card-title {
+  font-size: 28px; /* Titolo proporzionato per essere visibile nel pilastro stretto */
+  font-weight: 400; /* Più bold */
+  color: var(--text-white); /* Bianco per visibilità sul dark */
+  margin: 0;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.pillar-card.expanded .pillar-card-title,
+.pillar-card:hover .pillar-card-title {
+  font-size: 22px; /* Ancora più grande quando espanso */
+  color: #ffffff; /* Bianco completo non semitrasparente */
+}
+
+/* Icone rimosse su desktop, visibili su mobile */
+.pillar-card-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .pillar-card-icon {
+    display: block !important; /* Forza la visualizzazione su mobile */
+  }
+}
+
+/* Icona ben visibile quando pilastro chiuso */
+.pillar-card:not(.expanded):not(:hover) .pillar-card-icon {
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.3); /* Leggermente più visibile */
+}
+
+/* Icona si dissolve quando pilastro aperto */
+.pillar-card.expanded .pillar-card-icon,
+.pillar-card:hover .pillar-card-icon {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.7);
+}
+
+/* Contenuto nascosto */
+.pillar-card-content,
+.pillar-card-expanded {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 65px; /* Più spazio dal titolo */
+  left: 20px; /* Allineato con il titolo */
+  right: 20px;
+  transition: all 0.3s ease;
+}
+
+.pillar-card-expanded {
+  top: 140px; /* Più spazio per il meta tag */
+}
+
+/* Contenuto visibile quando espanso */
+.pillar-card.expanded .pillar-card-content,
+.pillar-card.expanded .pillar-card-expanded,
+.pillar-card:hover .pillar-card-content,
+.pillar-card:hover .pillar-card-expanded {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styling del testo */
+.pillar-card-description {
+  font-size: 13px; /* Testo più grande per migliore leggibilità */
+  line-height: 1.5; /* Interlinea più generosa */
+  color: var(--text-secondary);
+  margin-bottom: 12px; /* Più spazio tra paragrafi */
+  word-wrap: break-word;
+}
+
+.pillar-card-meta {
+  font-size: 10px; /* Leggermente più grande */
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px; /* Ancora più spazio prima del contenuto principale */
+  display: block; /* Assicura che abbia il suo spazio */
+}
+
+.pillar-card-details p {
+  font-size: 12px; /* Testo più leggibile */
+  line-height: 1.4; /* Migliore spaziatura */
+  color: var(--text-secondary);
+  margin-bottom: 8px; /* Più spazio tra i paragrafi */
+  word-wrap: break-word;
+}
+
+.pillar-card-details strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Mobile - Accordion semplificato */
+@media (max-width: 768px) {
+  .pillars-cards-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    height: auto;
+    margin: 2rem 0;
+  }
+  
+  .pillar-card {
+    width: 90%;
+    max-width: 350px;
+    min-height: 55px; /* Altezza minima per contenere il titolo */
+    height: auto; /* Altezza automatica per evitare tagli */
+    transform: none; /* Nessuna rotazione su mobile */
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: visible; /* Evita il taglio del contenuto */
+  }
+  
+  .pillar-card-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    right: auto;
+    transform: none; /* Nessuna rotazione su mobile */
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Allineamento a sinistra */
+    margin-bottom: 0;
+  }
+  
+  .pillar-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff !important; /* Bianco puro da subito su mobile */
+    letter-spacing: 0.1em; /* Ridotto per evitare overflow */
+    white-space: nowrap;
+    overflow: visible; /* Evita il taglio */
+    text-overflow: clip; /* Non taglia il testo */
+    flex-shrink: 0; /* Impedisce al titolo di ridursi */
+    text-align: left !important; /* Forza allineamento a sinistra */
+    text-transform: lowercase !important; /* Lowercase solo su mobile */
+    margin: 0;
+    width: 100%;
+  }
+  
+  /* Icona visibile nell'angolo in alto a destra su mobile */
+  .pillar-card-icon {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    z-index: 4;
+    transition: all 0.3s ease; /* Transizione smooth per rotazione e colore */
+  }
+  
+  .pillar-card-content,
+  .pillar-card-expanded {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Disabilita hover su mobile */
+  .pillar-card:hover {
+    width: 90%;
+    transform: none;
+    min-height: 55px; /* Mantiene altezza minima anche in hover */
+  }
+  
+  .pillar-card:hover .pillar-card-title {
+    color: #ffffff;
+    overflow: visible; /* Assicura che il titolo non venga tagliato in hover */
+  }
+  
+  .pillar-card:hover .pillar-card-content,
+  .pillar-card:hover .pillar-card-expanded {
+    opacity: 0;
+    max-height: 0;
+  }
+  
+  /* Accordion espanso su mobile */
+  .pillar-card.expanded {
+    width: 90%;
+    height: auto;
+    min-height: auto;
+    transform: none;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .pillar-card.expanded .pillar-card-header {
+    justify-content: flex-start; /* Titolo allineato a sinistra quando espanso */
+    top: auto !important; /* Sovrascrive regole desktop */
+    left: auto !important; /* Sovrascrive regole desktop */
+    bottom: auto !important;
+    right: auto !important;
+    transform: none !important; /* Nessuna trasformazione su mobile */
+  }
+  
+  .pillar-card.expanded .pillar-card-title,
+  .pillar-card:hover .pillar-card-title {
+    text-align: left !important; /* Forza allineamento a sinistra anche in hover/expanded */
+    transform: none !important; /* Nessuna trasformazione */
+  }
+  
+  .pillar-card.expanded .pillar-card-icon {
+    transform: rotate(180deg); /* Ruota per indicare che è aperto */
+    color: rgba(255, 255, 255, 1); /* Completamente bianco quando aperto */
+  }
+  
+  .pillar-card.expanded .pillar-card-content,
+  .pillar-card.expanded .pillar-card-expanded {
+    opacity: 1;
+    visibility: visible;
+    max-height: 300px;
+    padding: 0 20px 20px 20px;
+  }
+}

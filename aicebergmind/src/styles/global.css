@@ -4,34 +4,24 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+/* Variabili legacy Bear Blog - mantenute per compatibilità ma sostituendo con design tokens */
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
+	/* Legacy colors sostituiti con design tokens */
+	--accent: var(--brand-cyan);
+	--accent-dark: var(--brand-mint);
+	
+	/* Colori convertiti dai design tokens */
+	--black: 10, 10, 10; /* Derivato da --bg-primary */
+	--gray: 128, 128, 128; /* Grigio neutro */
+	--gray-light: 245, 245, 245; /* Light gray */
+	--gray-dark: 64, 64, 64; /* Dark gray */
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-		rgba(var(--gray), 33%);
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+	
+	/* Box shadow usando design tokens */
+	--box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 body {
-	font-family: "Atkinson", sans-serif;
+	font-family: var(--font-body);
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -40,7 +30,7 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 20px;
+	font-size: var(--font-size-xl); /* 20px -> design token */
 	line-height: 1.7;
 }
 html {
@@ -48,9 +38,18 @@ html {
 }
 main {
 	width: 720px;
-	max-width: calc(100% - 2em);
+	max-width: calc(100% - var(--space-lg)); /* 2rem -> design token */
 	margin: auto;
-	padding: 3em 1em;
+	padding: var(--space-xxl) var(--space-sm); /* 3rem 1rem -> design tokens */
+}
+
+/* Override per le pagine blog - rimuove constrains del main generico */
+.blog-page main,
+.blog-post-page main {
+	width: auto;
+	max-width: none;
+	margin: 0;
+	padding: 0;
 }
 h1,
 h2,
@@ -58,40 +57,43 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 0.5rem 0;
+	margin: 0 0 var(--space-xs) 0; /* 0.5rem -> design token */
 	color: rgb(var(--black));
 	line-height: 1.2;
+	font-family: var(--font-heading);
 }
 h1 {
-	font-size: 3.052em;
+	font-size: var(--font-size-4xl); /* ~36px */
 }
 h2 {
-	font-size: 2.441em;
+	font-size: var(--font-size-3xl); /* ~30px */
 }
 h3 {
-	font-size: 1.953em;
+	font-size: var(--font-size-2xl); /* ~24px */
 }
 h4 {
-	font-size: 1.563em;
+	font-size: var(--font-size-xl); /* ~20px */
 }
 h5 {
-	font-size: 1.25em;
+	font-size: var(--font-size-lg); /* ~18px */
 }
 strong,
 b {
-	font-weight: 700;
+	font-weight: var(--font-weight-semibold);
 }
 a {
 	color: var(--accent);
+	transition: color var(--timing-base) var(--easing-smooth);
 }
 a:hover {
 	color: var(--accent);
 }
 p {
-	margin-bottom: 1em;
+	margin-bottom: var(--space-sm); /* 1rem -> design token */
+	font-weight: var(--font-weight-light); /* 200 - testo più leggero */
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: var(--space-md); /* 2rem -> design token */
 }
 textarea {
 	width: 100%;
@@ -132,10 +134,16 @@ hr {
 }
 @media (max-width: 720px) {
 	body {
-		font-size: 18px;
+		font-size: var(--font-size-lg); /* 18px -> design token */
 	}
 	main {
-		padding: 1em;
+		padding: var(--space-sm); /* 1rem -> design token */
+	}
+	
+	/* Override per blog - mantiene padding a 0 anche su mobile */
+	.blog-page main,
+	.blog-post-page main {
+		padding: 0;
 	}
 }
 

@@ -5,7 +5,7 @@
 
 /* === DESIGN SYSTEM VARIABLES === */
 :root {
-  /* Color System */
+  /* Editorial-specific Colors */
   --bg-primary: #0a0a0a;
   --text-primary: rgba(255, 255, 255, 0.95);
   --text-secondary: rgba(255, 255, 255, 0.75);
@@ -13,15 +13,14 @@
   --accent-subtle: rgba(255, 255, 255, 0.1);
   --border-light: rgba(255, 255, 255, 0.08);
   
-  /* Typography System */
+  /* Editorial-specific Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Crimson Text', Georgia, serif;
-  --font-primary: 'Inter', 'IBM Plex Sans', sans-serif;
-  --font-body: 'Inter', 'IBM Plex Sans', sans-serif;
-  --font-display: 'Inter', sans-serif;
-  --font-heading: 'Inter', sans-serif;
+  --font-primary: var(--font-display);
+  --font-body: var(--font-display);
+  --font-heading: var(--font-display);
   
-  /* Typography Scale */
+  /* Editorial-specific Typography Scale */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -31,32 +30,10 @@
   --font-size-3xl: 1.875rem;
   --font-size-4xl: 2.25rem;
 
-  /* Spacing System */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2.5rem;
-  --spacing-xl: 4rem;
-  --spacing-xxl: 6rem;
-
-  /* Gradients & Effects */
-  --gradient-main: linear-gradient(135deg, #5EE4C3, #00D4FF);
+  /* Editorial-specific Gradients */
   --gradient-soft: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(94,228,195,0.03) 50%, rgba(0,212,255,0.05) 100%);
   --gradient-hover-line: linear-gradient(90deg, transparent, rgba(94, 228, 195, 0.5), transparent);
   --gradient-glow: linear-gradient(90deg, transparent, rgba(94, 228, 195, 0.1), transparent);
-  
-  /* Animation System */
-  --transition-fast: 0.15s ease;
-  --transition-base: 0.3s ease;
-  --transition-slow: 0.6s ease;
-  
-  /* Z-Index Scale */
-  --z-background: -1;
-  --z-base: 0;
-  --z-raised: 10;
-  --z-overlay: 50;
-  --z-modal: 100;
-  --z-tooltip: 1000;
 }
 
 /* === BASE SETUP === */
@@ -589,8 +566,7 @@ details[open] summary {
   background: transparent !important;
 }
 
-/* Project / Card Hover Effects */
-.ethics-card,
+/* Project / Card Hover Effects - Ethics cards moved to ethics-faq.css */
 .card-scroll {
   background: var(--gradient-soft);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -602,7 +578,6 @@ details[open] summary {
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.ethics-card::before,
 .card-scroll::before {
   content: '';
   position: absolute;
@@ -615,12 +590,10 @@ details[open] summary {
   transition: transform 0.8s ease;
 }
 
-.ethics-card:hover::before,
 .card-scroll:hover::before {
   transform: translateX(100%);
 }
 
-.ethics-card:hover,
 .card-scroll:hover {
   transform: translateY(-8px);
   border-color: rgba(94, 228, 195, 0.3);

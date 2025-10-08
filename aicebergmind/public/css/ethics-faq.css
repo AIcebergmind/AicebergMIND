@@ -11,25 +11,38 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin: 3rem 0;
+  align-items: start; /* Previene lo slittamento verticale */
 }
 
 .ethics-card {
   position: relative;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: var(--space-sm); /* 16px -> design token */
+  padding: var(--space-md); /* 32px -> design token */
   cursor: pointer;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--timing-slow) var(--easing-smooth); /* Design tokens */
   overflow: hidden;
+  min-height: 180px; /* Altezza minima per layout consistente */
+  position: relative; /* Per contenere eventuali transform */
 }
 
 .ethics-card:hover,
 .ethics-card:focus {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-color: var(--brand-cyan);
+  transform: scale(1.01); /* Solo hover effect leggero */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* Stato espanso senza movimento */
+.ethics-card.expanded {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--brand-cyan);
+  /* Nessun transform per evitare slittamento */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 5;
 }
 
 /* Ethics card themes */
@@ -88,21 +101,90 @@
 
 .ethics-card-content {
   position: relative;
+  transition: all var(--timing-base) var(--easing-smooth);
 }
 
+/* Contenuto base sempre visibile */
 .ethics-card-description {
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-sm);
+  font-weight: var(--font-weight-light); /* 200 */
 }
 
 .ethics-card-meta {
-  font-size: 0.8rem;
+  font-size: var(--font-size-xs);
   color: var(--text-tertiary);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+/* Su desktop: contenuto base visibile, espanso nascosto */
+.ethics-card-content {
+  opacity: 1;
+  max-height: none;
+  transition: all var(--timing-slow) var(--easing-smooth);
+}
+
+.ethics-card-expanded {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all var(--timing-slow) var(--easing-smooth);
+}
+
+/* Mostra contenuto espanso al hover su desktop */
+.ethics-card:hover .ethics-card-expanded,
+.ethics-card:focus .ethics-card-expanded {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: var(--space-sm);
+}
+
+/* Contenuto espanso styling */
+.ethics-card-details {
+  padding: var(--space-sm) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: var(--space-sm);
+}
+
+.ethics-card-details h5 {
+  font-size: var(--font-size-sm);
+  color: var(--brand-cyan);
+  margin-bottom: var(--space-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.ethics-card-details p {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-xs);
+  font-weight: var(--font-weight-light);
+}
+
+.ethics-card-details ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xs) 0;
+}
+
+.ethics-card-details li {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+  padding-left: var(--space-sm);
+  position: relative;
+}
+
+.ethics-card-details li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--brand-mint);
+  font-weight: var(--font-weight-medium);
 }
 
 /* =======================
@@ -432,21 +514,51 @@
 @media (max-width: 768px) {
   .ethics-cards-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: var(--space-sm);
   }
   
   .ethics-card {
-    padding: 1.5rem;
+    padding: var(--space-md);
+    min-height: 140px; /* Ridotto su mobile */
   }
   
   .ethics-card-title {
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
   }
   
   .ethics-card-icon {
     width: 28px;
     height: 28px;
   }
+  
+  /* Su mobile: solo titolo visibile di default */
+  .ethics-card-content,
+  .ethics-card-expanded {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  /* Su mobile: hover disabilitato */
+  .ethics-card:hover .ethics-card-content,
+  .ethics-card:hover .ethics-card-expanded {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  /* Solo con classe .expanded su mobile - mostra tutto il contenuto */
+  .ethics-card.expanded .ethics-card-content,
+  .ethics-card.expanded .ethics-card-expanded {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: var(--space-sm);
+  }
+  
+  /* Riduce l'altezza minima delle card su mobile */
+  .ethics-card {
+    min-height: 80px; /* Solo per titolo + icona */
+  }
+}
   
   .footer-container {
     flex-direction: column;

@@ -423,16 +423,18 @@
 }
 
 /* ========================================
-   REGOLA SPECIFICA SOLO PER PAGINA BLOG
+   REGOLE SPECIFICHE PER PAGINE BLOG
    Override del container-narrow per layout più ampio
    ======================================== */
-.blog-page .container-narrow {
+.blog-page .container-narrow,
+.blog-post-page .container-narrow {
   max-width: calc(100vw - 1rem) !important;
   padding: 0 1rem !important;
 }
 
 @media (min-width: 769px) {
-  .blog-page .container-narrow {
+  .blog-page .container-narrow,
+  .blog-post-page .container-narrow {
     max-width: 1000px !important;
     padding: 0 2rem !important;
   }

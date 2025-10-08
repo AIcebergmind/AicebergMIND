@@ -24,43 +24,11 @@
   --brand-cyan: #00D4FF;
   --brand-mint: #5EE4C3;
 
-  /* Typography  */
-  --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Astro-specific Typography aliases */
+  --font-body: var(--font-display);
 
-  /* Type scale */
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2.5rem;
-  --spacing-xl: 4rem;
-  --spacing-xxl: 6rem;
-
-  /* Effects */
-  --gradient-main: linear-gradient(135deg, var(--brand-mint), var(--brand-cyan));
+  /* Astro-specific Effects */
   --gradient-soft: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(94,228,195,0.03) 50%, rgba(0,212,255,0.05) 100%);
-
-  /* Motion & Z */
-  --transition-fast: 0.15s ease;
-  --transition-base: 0.3s ease;
-  --transition-slow: 0.6s ease;
-
-  --z-background: -1;
-  --z-base: 0;
-  --z-raised: 10;
-  --z-overlay: 50;
-  --z-modal: 100;
-  --z-tooltip: 1000;
 
   /* Blog spacing compat (se te servono nelle card) */
   --blog-header-spacing: 8rem;
@@ -110,17 +78,17 @@ p {
 strong {
   font-weight: 600;
   letter-spacing: 0.01em;
-  background: var(--gradient-main);
+  background: var(--gradient-brand);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-a { color: var(--brand-cyan); text-decoration: none; transition: color var(--transition-base); }
+a { color: var(--brand-cyan); text-decoration: none; transition: var(--transition-base); }
 a:hover { color: #fff; }
 
 /* Selezione testo */
-::selection { background: rgba(0, 212, 255, 0.25); color: #fff; }
+::selection { background: var(--brand-cyan-alpha-25); color: #fff; }
 
 /* Focus (accessibilità) */
 :focus { outline: none; }
