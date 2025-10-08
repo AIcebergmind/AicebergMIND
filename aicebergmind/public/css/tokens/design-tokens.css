@@ -1,0 +1,191 @@
+/* =========================================================
+   AICEBERG MIND - DESIGN TOKENS SYSTEM
+   Sistema centralizzato di token per coerenza e performance
+   ========================================================= */
+
+:root {
+  /* ================================
+     BRAND COLORS - Identità visiva
+     ================================ */
+  --brand-cyan: #00D4FF;
+  --brand-mint: #5EE4C3;
+
+  /* ================================
+     BASE COLORS - Palette fondamentale
+     ================================ */
+  --bg-primary: #0a0a0a;
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-tertiary: rgba(255, 255, 255, 0.6);
+  --accent-subtle: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.08);
+
+  /* ================================
+     TYPOGRAPHY SYSTEM - Font stack e dimensioni
+     ================================ */
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Inter', sans-serif;
+  --font-serif: 'Crimson Text', Georgia, serif;
+
+  /* Font Sizes - Sistema scalabile */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+
+  /* Font Weights */
+  --font-weight-light: 100;
+  --font-weight-normal: 300;
+  --font-weight-medium: 400;
+  --font-weight-semibold: 600;
+
+  /* ================================
+     SPACING SYSTEM - Spaziature coerenti
+     ================================ */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2.5rem;    /* 40px */
+  --space-xl: 4rem;      /* 64px */
+  --space-xxl: 6rem;     /* 96px */
+
+  /* ================================
+     ANIMATION SYSTEM - Timing e durate
+     ================================ */
+  /* Base Timing */
+  --timing-fast: 0.15s;
+  --timing-base: 0.3s;
+  --timing-slow: 0.6s;
+
+  /* Easing Functions */
+  --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --easing-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Iceberg Animation Tokens */
+  --iceberg-duration-float: 8s;
+  --iceberg-duration-drift: 18s;
+  --iceberg-duration-drift-alt: 22s;
+  --iceberg-easing: ease-in-out;
+  --iceberg-opacity-base: 0.8;
+  --iceberg-opacity-shape: 0.15;
+  --iceberg-blur-canvas: 0.5px;
+  --iceberg-blur-shape: 1px;
+
+  /* Geometric Animation Tokens */
+  --geo-duration-fast: 14s;
+  --geo-duration-medium: 19s;
+  --geo-duration-slow: 24s;
+  --geo-opacity-subtle: 0.08;
+  --geo-opacity-medium: 0.12;
+  --geo-blur-light: 1.5px;
+  --geo-blur-medium: 2px;
+  --geo-blur-heavy: 3px;
+
+  /* Logo Animation Tokens */
+  --logo-duration-appear: 1s;
+  --logo-duration-cinematic: 8s;
+  --logo-duration-zoom: 4s;
+  --logo-delay-appear: 0.3s;
+  --logo-delay-zoom: 0.5s;
+
+  /* ================================
+     GRADIENTS - Sistema di gradienti
+     ================================ */
+  --gradient-brand: linear-gradient(135deg, var(--brand-mint), var(--brand-cyan));
+  --gradient-soft: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(94,228,195,0.03) 50%, rgba(0,212,255,0.05) 100%);
+  --gradient-glow: linear-gradient(90deg, transparent, rgba(94, 228, 195, 0.1), transparent);
+  --gradient-horizon: linear-gradient(90deg, transparent, var(--brand-cyan), transparent);
+
+  /* Iceberg Gradients */
+  --gradient-iceberg-1: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(94, 228, 195, 0.2) 50%, transparent 100%);
+  --gradient-iceberg-2: linear-gradient(45deg, rgba(94, 228, 195, 0.25) 0%, rgba(0, 212, 255, 0.15) 60%, transparent 100%);
+  --gradient-iceberg-3: linear-gradient(225deg, rgba(0, 212, 255, 0.2) 0%, rgba(94, 228, 195, 0.3) 40%, transparent 100%);
+
+  /* ================================
+     Z-INDEX SYSTEM - Layering coerente
+     ================================ */
+  --z-background: -1;
+  --z-base: 0;
+  --z-canvas: 1;
+  --z-content: 10;
+  --z-overlay: 50;
+  --z-modal: 100;
+  --z-tooltip: 1000;
+
+  /* ================================
+     RESPONSIVE BREAKPOINTS - Media queries
+     ================================ */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1440px;
+
+  /* ================================
+     BLOG SPECIFIC TOKENS
+     ================================ */
+  --blog-header-spacing: 8rem;
+  --blog-section-spacing: 6rem;
+  --blog-card-spacing: 2rem;
+  --blog-title-spacing: 4rem;
+  --blog-filters-spacing: 5rem;
+
+  /* ================================
+     PERFORMANCE TOKENS
+     ================================ */
+  --transform-gpu: translateZ(0);
+  --will-change-animation: transform, opacity;
+}
+
+/* ================================
+   RESPONSIVE TOKEN OVERRIDES
+   ================================ */
+@media (max-width: 768px) {
+  :root {
+    /* Mobile Spacing Adjustments */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+
+    /* Mobile Blog Spacing */
+    --blog-header-spacing: 4rem;
+    --blog-section-spacing: 3rem;
+    --blog-card-spacing: 1rem;
+    --blog-title-spacing: 2rem;
+    --blog-filters-spacing: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    /* Mobile Small Adjustments */
+    --space-xs: 0.125rem;
+    --space-sm: 0.25rem;
+    --space-md: 0.5rem;
+    --space-lg: 1rem;
+    --space-xl: 1.5rem;
+    --space-xxl: 2rem;
+  }
+}
+
+/* ================================
+   ACCESSIBILITY TOKENS
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    /* Disable animations for accessibility */
+    --timing-fast: 0s;
+    --timing-base: 0s;
+    --timing-slow: 0s;
+    --iceberg-duration-float: 0s;
+    --logo-duration-cinematic: 0s;
+  }
+}
