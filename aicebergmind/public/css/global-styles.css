@@ -35,7 +35,7 @@
    ======================================== */
 @import url('hero-section.css');
 /* REMOVED: subhero-section.css - obsolete file with 397 lines of dead CSS */
-@import url('content-sections.css');
+/* REMOVED: content-sections.css - refactored into design-tokens.css, editorial-astro.css, and interactive-components.css */
 @import url('core-pillars.css');
 @import url('projects-section.css');
 @import url('ethics-faq.css');

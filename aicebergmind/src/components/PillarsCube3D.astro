@@ -1,0 +1,960 @@
+---
+// PillarsCube3D.astro - 3D Interactive Cube for Core Pillars
+// Experimental alternative to the traditional pillar cards
+---
+
+<!-- 3D PILLARS CUBE Component -->
+<section class="pillars-cube-section" id="pillars-cube">
+  <div class="cube-container">
+
+    
+    <div class="cube-scene">
+      <div class="cube" id="pillarsCube">
+        
+        <!-- Central Rotating Logo -->
+        <div class="cube-logo" id="cubeLogo">
+          <img src="/logo/logo-aim-white.svg" alt="AIM Logo" />
+        </div>
+        
+        <!-- FRONT FACE - SOBRIETY -->
+        <div class="cube-face front sobriety">
+          <div class="face-content">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"/>
+                <circle cx="12" cy="12" r="8"/>
+                <path d="M12 2v4"/>
+                <path d="M12 18v4"/>
+                <path d="M2 12h4"/>
+                <path d="M18 12h4"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">SOBRIETY</h3>
+            <p class="pillar-description">Digital minimalism and <strong class="essence-word">essential technology</strong></p>
+            <div class="pillar-details">
+              <p><strong>Less is More:</strong> Focus on core needs</p>
+              <p><strong>Conscious Design:</strong> Purpose-driven elements</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT FACE - HYGIENE -->
+        <div class="cube-face right hygiene">
+          <div class="face-content">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">HYGIENE</h3>
+            <p class="pillar-description">Clean code and <strong class="essence-word">transparent systems</strong></p>
+            <div class="pillar-details">
+              <p><strong>Clean Architecture:</strong> Maintainable code</p>
+              <p><strong>Security First:</strong> Built-in best practices</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BACK FACE - SOVEREIGNTY -->
+        <div class="cube-face back sovereignty">
+          <div class="face-content">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 1L21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9l9-8z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">SOVEREIGNITY</h3>
+            <p class="pillar-description">Digital independence and <strong class="essence-word">technological autonomy</strong></p>
+            <div class="pillar-details">
+              <p><strong>Data Ownership:</strong> Full user control</p>
+              <p><strong>Open Standards:</strong> No vendor lock-in</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEFT FACE - INTEGRITY -->
+        <div class="cube-face left integrity">
+          <div class="face-content">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">INTEGRITY</h3>
+            <p class="pillar-description">Honest technology and <strong class="essence-word">authentic relationships</strong></p>
+            <div class="pillar-details">
+              <p><strong>Honest Communication:</strong> Clear capabilities</p>
+              <p><strong>Ethical AI:</strong> Transparent technology</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOP FACE - OVERVIEW -->
+        <div class="cube-face top overview">
+          <div class="face-content">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">PILLARS</h3>
+            <p class="pillar-description">Four <strong class="philosophy-word">fundamental principles</strong> of our philosophy</p>
+            <div class="pillars-grid-mini">
+              <span class="mini-pillar sobriety">S</span>
+              <span class="mini-pillar hygiene">H</span>
+              <span class="mini-pillar sovereignty">O</span>
+              <span class="mini-pillar integrity">I</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM FACE - FOUNDATION -->
+        <div class="cube-face bottom foundation">
+          <div class="face-content">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="9" y1="9" x2="15" y2="15"/>
+                <line x1="15" y1="9" x2="9" y2="15"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">FOUNDATION</h3>
+            <p class="pillar-description">Built on <strong class="accent-word">solid principles</strong> for lasting impact</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+        <div class="cube-instructions">
+      <p>Click and drag to explore</p>
+    </div>
+    <div class="cube-controls">
+      <div class="controls-row">
+        <button class="cube-btn overview-btn" data-rotation="-90 0 0">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="btn-label">Pillars</span>
+        </button>
+        <button class="cube-btn pillar-btn" data-rotation="0 0 0">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"/>
+              <circle cx="12" cy="12" r="8"/>
+              <path d="M12 2v4"/>
+              <path d="M12 18v4"/>
+              <path d="M2 12h4"/>
+              <path d="M18 12h4"/>
+            </svg>
+          </div>
+          <span class="btn-label">Sobriety</span>
+        </button>
+        <button class="cube-btn pillar-btn" data-rotation="0 -90 0">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <span class="btn-label">Hygiene</span>
+        </button>
+      </div>
+      <div class="controls-row">
+        <button class="cube-btn pillar-btn" data-rotation="0 -180 0">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 1L21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9l9-8z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <span class="btn-label">Sovereignty</span>
+        </button>
+        <button class="cube-btn pillar-btn" data-rotation="0 90 0">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <span class="btn-label">Integrity</span>
+        </button>
+        <button class="cube-btn foundation-btn" data-rotation="90 0 0">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <line x1="9" y1="9" x2="15" y2="15"/>
+              <line x1="15" y1="9" x2="9" y2="15"/>
+            </svg>
+          </div>
+          <span class="btn-label">Foundation</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3D CUBE CSS -->
+<style>
+/* =============================================
+   3D PILLARS CUBE - EXPERIMENTAL DESIGN
+   ============================================= */
+
+.pillars-cube-section {
+  padding: 4rem 2rem;
+  background: var(--bg-primary);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.cube-container {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cube-instructions {
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.cube-scene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  perspective: 1200px;
+  perspective-origin: center center;
+}
+
+/* THE CUBE */
+.cube {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: grab;
+}
+
+.cube:active {
+  cursor: grabbing;
+}
+
+/* Estendi l'area hover a tutte le facce */
+.cube:hover .cube-face {
+  border-opacity: 0.8;
+  box-shadow: 0 0 30px rgba(94, 228, 195, 0.3);
+}
+
+/* CENTRAL ROTATING LOGO */
+.cube-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  z-index: 100;
+  pointer-events: none;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(-50%, -50%) translateZ(0px);
+}
+
+  .cube-logo img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.3s ease;
+  }
+
+  .cube:hover .cube-logo img {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.5));
+  }/* CUBE FACES */
+.cube-face {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+
+
+/* FACE POSITIONING */
+.cube-face.front { 
+  transform: rotateY(0deg) translateZ(180px); 
+  background: rgba(150, 200, 255, 0.1);
+}
+.cube-face.right { 
+  transform: rotateY(90deg) translateZ(180px); 
+  background: rgba(100, 255, 200, 0.1);
+}
+.cube-face.back { 
+  transform: rotateY(180deg) translateZ(180px); 
+  background: rgba(255, 180, 100, 0.1);
+}
+.cube-face.left { 
+  transform: rotateY(-90deg) translateZ(180px); 
+  background: rgba(200, 100, 255, 0.1);
+}
+.cube-face.top { 
+  transform: rotateX(90deg) translateZ(180px); 
+  background: rgba(255, 255, 255, 0.1);
+}
+.cube-face.bottom { 
+  transform: rotateX(-90deg) translateZ(180px); 
+  background: rgba(100, 100, 100, 0.1);
+}
+
+/* FACE CONTENT */
+.face-content {
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.pillar-icon {
+  width: 45px;
+  height: 45px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.pillar-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+}
+
+.pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 1.5px;
+  flex-shrink: 0;
+}
+
+.pillar-description {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  margin: 0;
+  opacity: 0.9;
+  text-align: center;
+  flex-shrink: 0;
+  padding: 0 0.5rem;
+}
+
+.pillar-details {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  line-height: 1.3;
+  width: 100%;
+  text-align: center;
+}
+
+.pillar-details p {
+  margin: 0.6rem 0;
+  padding: 0 0.5rem;
+}
+
+/* PILLAR COLORS */
+.cube-face.sobriety {
+  border-color: rgba(150, 200, 255, 0.4);
+  color: rgba(150, 200, 255, 1);
+}
+
+.cube-face.sobriety {
+  border-color: rgba(150, 200, 255, 0.4);
+  color: rgba(150, 200, 255, 1);
+}
+
+.cube-face.hygiene {
+  border-color: rgba(100, 255, 200, 0.4);
+  color: rgba(100, 255, 200, 1);
+}
+
+.cube-face.sovereignty {
+  border-color: rgba(255, 180, 100, 0.4);
+  color: rgba(255, 180, 100, 1);
+}
+
+.cube-face.integrity {
+  border-color: rgba(200, 100, 255, 0.4);
+  color: rgba(200, 100, 255, 1);
+}
+
+.cube-face.overview {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 1);
+}
+
+.cube-face.foundation {
+  border-color: rgba(150, 150, 150, 0.4);
+  color: rgba(150, 150, 150, 1);
+}
+
+/* MINI PILLARS GRID */
+.pillars-grid-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+  margin: 0.5rem 0 0 0;
+  flex-shrink: 0;
+}
+
+.mini-pillar {
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.65rem;
+}
+
+.mini-pillar.sobriety { background: rgba(150, 200, 255, 0.3); color: rgb(150, 200, 255); }
+.mini-pillar.hygiene { background: rgba(100, 255, 200, 0.3); color: rgb(100, 255, 200); }
+.mini-pillar.sovereignty { background: rgba(255, 180, 100, 0.3); color: rgb(255, 180, 100); }
+.mini-pillar.integrity { background: rgba(200, 100, 255, 0.3); color: rgb(200, 100, 255); }
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .cube, .cube-face {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .cube-face::before {
+    width: 75%;
+    height: 75%;
+  }
+  
+  .cube-face.front { transform: rotateY(0deg) translateZ(160px); }
+  .cube-face.right { transform: rotateY(90deg) translateZ(160px); }
+  .cube-face.back { transform: rotateY(180deg) translateZ(160px); }
+  .cube-face.left { transform: rotateY(-90deg) translateZ(160px); }
+  .cube-face.top { transform: rotateX(90deg) translateZ(160px); }
+  .cube-face.bottom { transform: rotateX(-90deg) translateZ(160px); }
+  
+  .face-content {
+    padding: 1.8rem;
+    gap: 0.8rem;
+  }
+  
+  .pillar-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .pillar-title {
+    font-size: 1.3rem;
+  }
+  
+  .pillar-description {
+    font-size: 0.8rem;
+  }
+  
+  .pillar-details {
+    font-size: 0.75rem;
+  }
+  
+  .mini-pillar {
+    width: 20px;
+    height: 20px;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cube, .cube-face {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .cube-face::before {
+    width: 70%;
+    height: 70%;
+  }
+  
+  .cube-face.front { transform: rotateY(0deg) translateZ(140px); }
+  .cube-face.right { transform: rotateY(90deg) translateZ(140px); }
+  .cube-face.back { transform: rotateY(180deg) translateZ(140px); }
+  .cube-face.left { transform: rotateY(-90deg) translateZ(140px); }
+  .cube-face.top { transform: rotateX(90deg) translateZ(140px); }
+  .cube-face.bottom { transform: rotateX(-90deg) translateZ(140px); }
+  
+  .face-content {
+    padding: 1.5rem;
+    gap: 0.7rem;
+  }
+  
+  .pillar-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .pillar-title {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .pillar-description {
+    font-size: 0.75rem;
+  }
+  
+  .pillar-details {
+    font-size: 0.7rem;
+  }
+  
+  .cube-controls {
+    gap: 0.5rem;
+  }
+
+  .controls-row {
+    gap: 0.5rem;
+  }
+  
+  .cube-btn {
+    width: 70px;
+    height: 70px;
+    padding: 6px;
+  }
+
+  .btn-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn-label {
+    font-size: 9px;
+  }
+}
+
+/* DESKTOP - Una fila unica */
+@media (min-width: 1025px) {
+  .controls-row {
+    display: contents !important;
+  }
+  
+  .cube-controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+  .cube-controls {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .cube-controls {
+    gap: 0.5rem;
+  }
+
+  .controls-row {
+    gap: 0.5rem;
+  }
+  
+  .cube-btn {
+    width: 70px;
+    height: 70px;
+    padding: 6px;
+  }
+
+  .btn-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn-label {
+    font-size: 9px;
+  }
+}
+
+/* EXTRA SMALL SCREENS */
+@media (max-width: 380px) {
+  .controls-row {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .cube-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .btn-label {
+    font-size: 8px;
+  }
+}
+
+/* CONTROLS */
+.cube-controls {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls-row {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube-btn {
+  padding: 0.75rem 1.2rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+}
+
+.cube-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.cube-btn:hover {
+  color: #000;
+  border-color: var(--brand-cyan);
+}
+
+.cube-btn:hover::before {
+  left: 0;
+}
+
+.cube-btn:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 3px;
+}
+
+.cube-btn.active {
+  color: #000;
+  border-color: var(--brand-cyan);
+  background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
+}
+
+/* SPECIAL BUTTON STYLES */
+/* Overview Button - Distinguished with different colors */
+.overview-btn {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.1), rgba(50, 150, 200, 0.1));
+  border-color: rgba(100, 200, 255, 0.4);
+  color: rgba(100, 200, 255, 0.9);
+}
+
+.overview-btn::before {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.2), rgba(50, 150, 200, 0.2));
+}
+
+.overview-btn:hover {
+  border-color: rgba(100, 200, 255, 0.7);
+  color: rgba(100, 200, 255, 1);
+}
+
+.overview-btn.active {
+  background: linear-gradient(90deg, rgba(100, 200, 255, 0.9), rgba(50, 150, 200, 0.9));
+  border-color: rgba(100, 200, 255, 1);
+  color: #000;
+}
+
+/* Foundation Button - Distinguished as structural base */
+.foundation-btn {
+  background: linear-gradient(135deg, rgba(150, 150, 150, 0.1), rgba(100, 100, 100, 0.1));
+  border-color: rgba(150, 150, 150, 0.4);
+  color: rgba(150, 150, 150, 0.9);
+}
+
+.foundation-btn::before {
+  background: linear-gradient(135deg, rgba(150, 150, 150, 0.2), rgba(100, 100, 100, 0.2));
+}
+
+.foundation-btn:hover {
+  border-color: rgba(150, 150, 150, 0.7);
+  color: rgba(150, 150, 150, 1);
+}
+
+.foundation-btn.active {
+  background: linear-gradient(90deg, rgba(150, 150, 150, 0.9), rgba(120, 120, 120, 0.9));
+  border-color: rgba(150, 150, 150, 1);
+  color: #000;
+}
+
+/* Pillar Buttons - Keep the standard brand styling */
+.pillar-btn {
+  /* Uses default cube-btn styling with brand colors */
+}
+
+/* BUTTON LAYOUT - SQUARE WITH ICON AND LABEL */
+.cube-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  padding: 8px;
+  gap: 6px;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.btn-icon svg {
+  width: 28px;
+  height: 28px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cube-btn:hover .btn-icon svg {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.btn-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  line-height: 1.2;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.cube-btn:hover .btn-label {
+  opacity: 1;
+}
+</style>
+
+<!-- 3D CUBE JAVASCRIPT -->
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🎲 3D Pillars Cube Loading...');
+
+  const cube = document.getElementById('pillarsCube');
+  const cubeLogo = document.getElementById('cubeLogo');
+  
+  if (!cube) {
+    console.warn('⚠️  Pillars cube not found');
+    return;
+  }
+
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let currentRotationX = 0;
+  let currentRotationY = 0;
+
+  // Update both cube and logo transforms
+  function updateCubeAndLogo(rotX, rotY, rotZ = 0, transition = true) {
+    const transitionValue = transition ? 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+    
+    // Update cube
+    cube.style.transition = transitionValue;
+    if (rotZ !== 0) {
+      cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) rotateZ(${rotZ}deg)`;
+    } else {
+      cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    }
+    
+    // Update logo - dynamic rotation and subtle scaling based on cube movement
+    if (cubeLogo) {
+      cubeLogo.style.transition = transitionValue;
+      
+      // Calculate dynamic rotation - logo spins in opposite direction for contrast
+      const logoRotZ = -(rotX + rotY) * 0.3;
+      
+      // Calculate subtle scale based on rotation intensity
+      const rotationIntensity = Math.abs(rotX) + Math.abs(rotY);
+      const scale = 1 + (Math.sin(rotationIntensity * 0.01) * 0.1); // Subtle pulse effect
+      
+      cubeLogo.style.transform = `translate(-50%, -50%) translateZ(5px) rotateZ(${logoRotZ}deg) scale(${scale})`;
+    }
+  }
+
+  // Mouse/Touch interaction
+  function handleStart(e) {
+    isDragging = true;
+    const clientX = e.clientX || e.touches[0].clientX;
+    const clientY = e.clientY || e.touches[0].clientY;
+    startX = clientX;
+    startY = clientY;
+    cube.style.transition = 'none';
+  }
+
+
+
+  function handleMove(e) {
+    if (!isDragging) return;
+    
+    e.preventDefault();
+    const clientX = e.clientX || e.touches[0].clientX;
+    const clientY = e.clientY || e.touches[0].clientY;
+    
+    const deltaX = clientX - startX;
+    const deltaY = clientY - startY;
+    
+    const rotationY = currentRotationY + (deltaX * 0.5);
+    const rotationX = currentRotationX - (deltaY * 0.5);
+    
+    updateCubeAndLogo(rotationX, rotationY, 0, false);
+  }
+
+  function handleEnd() {
+    if (!isDragging) return;
+    
+    isDragging = false;
+    
+    // Update current rotation for next interaction
+    const transform = cube.style.transform;
+    const xMatch = transform.match(/rotateX\(([-\d.]+)deg\)/);
+    const yMatch = transform.match(/rotateY\(([-\d.]+)deg\)/);
+    
+    if (xMatch) currentRotationX = parseFloat(xMatch[1]);
+    if (yMatch) currentRotationY = parseFloat(yMatch[1]);
+  }
+
+  // Event listeners for mouse
+  cube.addEventListener('mousedown', handleStart);
+  document.addEventListener('mousemove', handleMove);
+  document.addEventListener('mouseup', handleEnd);
+
+  // Event listeners for touch
+  cube.addEventListener('touchstart', handleStart);
+  document.addEventListener('touchmove', handleMove);
+  document.addEventListener('touchend', handleEnd);
+
+  // Set initial position to Core Pillars (top face)
+  currentRotationX = -90;
+  currentRotationY = 0;
+  updateCubeAndLogo(currentRotationX, currentRotationY);
+  
+  // Control buttons
+  const buttons = document.querySelectorAll('.cube-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      buttons.forEach(btn => btn.classList.remove('active'));
+      // Add active class to clicked button
+      button.classList.add('active');
+      
+      const rotation = button.getAttribute('data-rotation').split(' ');
+      currentRotationX = parseFloat(rotation[0]);
+      currentRotationY = parseFloat(rotation[1]);
+      const rotationZ = parseFloat(rotation[2]);
+      
+      updateCubeAndLogo(currentRotationX, currentRotationY, rotationZ);
+    });
+  });
+  
+  // Set initial active button
+  const initialButton = document.querySelector('[data-rotation="-90 0 0"]');
+  if (initialButton) initialButton.classList.add('active');
+
+  // Auto-rotation demo (optional)
+  let autoRotateInterval;
+  
+  function startAutoRotate() {
+    autoRotateInterval = setInterval(() => {
+      if (!isDragging) {
+        currentRotationY += 0.5;
+        updateCubeAndLogo(currentRotationX, currentRotationY, 0, false);
+      }
+    }, 50);
+  }
+
+  function stopAutoRotate() {
+    clearInterval(autoRotateInterval);
+  }
+
+  // Start auto-rotation after 3 seconds of inactivity
+  let inactivityTimer;
+  
+  function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    stopAutoRotate();
+    inactivityTimer = setTimeout(startAutoRotate, 3000);
+  }
+
+  cube.addEventListener('mousedown', resetInactivityTimer);
+  cube.addEventListener('touchstart', resetInactivityTimer);
+  buttons.forEach(button => {
+    button.addEventListener('click', resetInactivityTimer);
+  });
+
+  // Start the inactivity timer initially
+  resetInactivityTimer();
+
+  console.log('✅ 3D Pillars Cube loaded successfully');
+});
+</script>

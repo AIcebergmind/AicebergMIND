@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
             
             // Se c'è una sezione già attiva e questa è diversa, cambia
             if (currentActiveSection && currentActiveSection !== sectionId) {
@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
       }, {
-        threshold: [0, 0.3, 0.5, 0.7],
-        rootMargin: '-20% 0px -20% 0px' // Margini per evitare flickering
+        threshold: [0, 0.1, 0.2, 0.3, 0.5],
+        rootMargin: '-10% 0px -10% 0px' // Margini ridotti per transizioni più fluide
       });
       
       observer.observe(section);

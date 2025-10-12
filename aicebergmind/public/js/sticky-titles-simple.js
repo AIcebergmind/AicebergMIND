@@ -1,91 +1,77 @@
 /**
- * Sticky Section Titles - ULTRA SIMPLE & ROBUST VERSION
+ * Sticky Section Titles - Simple & Robust Version
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('🚀 SIMPLE Sticky Titles initializing...');
+  console.log('🚀 Sticky Titles initializing...');
   
-  // PULIZIA ESTREMA: trova e distruggi l'icona dell'occhio ovunque sia!
-  function puliziaEstrema() {
-    console.log('🔥 PULIZIA ESTREMA DELL\'OCCHIO IN CORSO...');
-    
-    // 1. Rimuovi TUTTI i SVG negli sticky titles
+  // Clean up any unwanted SVG elements in sticky titles
+  function cleanupSVGs() {
+    // Remove all SVGs from sticky titles
     document.querySelectorAll('.section-title-sticky svg, .section-title-text svg').forEach(svg => {
-      console.log('🧹 Rimozione SVG sticky:', svg);
       svg.remove();
     });
     
-    // 2. Cerca SVG con path dell'occhio specifico
+    // Find and remove specific eye icon SVGs
     document.querySelectorAll('svg path[d*="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"]').forEach(path => {
       const svg = path.closest('svg');
-      if (svg && !svg.closest('.audience-item')) { // Non toccare quelli dell'audience
-        console.log('🎯 Trovato e rimosso SVG occhio:', svg);
+      if (svg && !svg.closest('.audience-item')) {
         svg.remove();
       }
     });
     
-    // 3. Pulisci innerHTML completo degli sticky titles
+    // Clean innerHTML of sticky title texts
     document.querySelectorAll('.section-title-text').forEach(el => {
       const originalText = el.textContent || el.innerText;
       if (el.innerHTML !== originalText) {
-        console.log('🧹 Prima:', el.innerHTML);
         el.innerHTML = originalText;
-        console.log('🧹 Dopo:', el.innerHTML);
       }
     });
     
-    // 4. Pulisci anche .section-title-sticky completi
+    // Clean up sticky title containers
     document.querySelectorAll('.section-title-sticky').forEach(sticky => {
       const svgs = sticky.querySelectorAll('svg');
-      svgs.forEach(svg => {
-        console.log('🔥 Rimozione SVG da sticky:', svg);
-        svg.remove();
-      });
-    });
-    
-    // 5. Log di debug per vedere cosa c'è negli sticky titles
-    document.querySelectorAll('.section-title-sticky[data-section="about"]').forEach(el => {
-      console.log('📋 Contenuto About sticky:', el.innerHTML);
+      svgs.forEach(svg => svg.remove());
     });
   }
   
-  // Esegui immediatamente
-  puliziaEstrema();
-  
-  // Esegui dopo 100ms
-  setTimeout(puliziaEstrema, 100);
-  
-  // Esegui dopo 500ms per sicurezza
-  setTimeout(puliziaEstrema, 500);
+  // Execute cleanup immediately and with delays
+  cleanupSVGs();
+  setTimeout(cleanupSVGs, 100);
+  setTimeout(cleanupSVGs, 500);
   
   if (window.innerWidth <= 1024) {
     console.log('📱 Mobile detected - skipping sticky titles');
     return;
   }
 
-  // Definizione manuale delle sezioni nell'ordine giusto
+  // Section definitions in correct order
   const sectionsData = [
     { id: 'hero', title: 'Iceberg Mind' },
     { id: 'about', title: 'Behind the Surface' }, 
     { id: 'team', title: 'Who We Are' },
     { id: 'projects', title: 'Living Projects' },
+    { id: 'philosophy', title: 'Philosophy' },
     { id: 'pillars', title: 'Core Pillars' },
-    { id: 'ethics', title: 'Ethics' },
     { id: 'channels', title: 'Channels' }
   ];
 
   let currentVisibleTitle = null;
 
-  // Funzione per aggiornare i titoli
+  // Update sticky titles based on scroll position
   function updateStickyTitles() {
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
     const midPoint = scrollY + (windowHeight / 2);
     
     let activeSection = null;
     let minDistance = Infinity;
 
-    // Trova la sezione più vicina al centro della vista
+    // Check if we're near the bottom of the page
+    const nearBottom = (scrollY + windowHeight) >= (documentHeight - 100);
+
+    // Find the section closest to viewport center
     sectionsData.forEach(({ id }) => {
       const section = document.getElementById(id);
       if (section) {
@@ -93,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const sectionTop = scrollY + rect.top;
         const sectionBottom = sectionTop + rect.height;
         
-        // Se il punto centrale è dentro la sezione
+        // Check if midpoint is within section bounds
         if (midPoint >= sectionTop && midPoint <= sectionBottom) {
           const distanceFromTop = Math.abs(midPoint - sectionTop);
           if (distanceFromTop < minDistance) {
@@ -104,10 +90,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Aggiorna la visualizzazione solo se è cambiato
+    // If near bottom and no active section found, show the last section
+    if (nearBottom && !activeSection) {
+      activeSection = sectionsData[sectionsData.length - 1].id;
+    }
+
+    // Update visibility only if section changed
     if (activeSection && activeSection !== currentVisibleTitle) {
       
-      // Nascondi tutti
+      // Hide all titles
       sectionsData.forEach(({ id }) => {
         const stickyTitle = document.querySelector(`.section-title-sticky[data-section="${id}"]`);
         if (stickyTitle) {
@@ -116,19 +107,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      // Mostra quello attivo
+      // Show active title
       const activeStickyTitle = document.querySelector(`.section-title-sticky[data-section="${activeSection}"]`);
       if (activeStickyTitle) {
         activeStickyTitle.classList.remove('hidden');
         activeStickyTitle.classList.add('active');
         currentVisibleTitle = activeSection;
         
-        console.log(`📍 Sezione ATTIVA: ${activeSection}`);
+        console.log(`📍 Active section: ${activeSection}`);
       }
     }
   }
 
-  // Inizializza e controlla se ci sono elementi
+  // Initialize and check for elements
   let foundElements = 0;
   sectionsData.forEach(({ id, title }) => {
     const section = document.getElementById(id);
@@ -136,30 +127,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (section && stickyTitle) {
       foundElements++;
-      // Assicurati che il titolo sia nascosto all'inizio
+      // Ensure title is hidden initially
       stickyTitle.classList.add('hidden');
       stickyTitle.classList.remove('active');
-      console.log(`✅ ${id}: sezione e sticky title trovati`);
+      console.log(`✅ ${id}: section and sticky title found`);
     } else {
-      console.log(`❌ ${id}: sezione=${!!section}, stickyTitle=${!!stickyTitle}`);
+      console.log(`❌ ${id}: section=${!!section}, stickyTitle=${!!stickyTitle}`);
     }
   });
 
-  console.log(`📊 Trovati ${foundElements} elementi sticky title su ${sectionsData.length} sezioni`);
+  console.log(`📊 Found ${foundElements} sticky title elements out of ${sectionsData.length} sections`);
 
   if (foundElements > 0) {
-    // Aggiorna immediatamente
+    // Update immediately
     updateStickyTitles();
     
-    // Aggiorna durante lo scroll con throttling
+    // Update on scroll with throttling
     let scrollTimeout;
     window.addEventListener('scroll', function() {
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(updateStickyTitles, 50); // 20fps
     });
 
-    console.log('✅ Sistema sticky titles SEMPLICE attivato');
+    console.log('✅ Sticky titles system activated');
   } else {
-    console.log('❌ Nessun elemento sticky title trovato');
+    console.log('❌ No sticky title elements found');
   }
 });

@@ -159,15 +159,7 @@
 /* =======================
    5) EDITORIAL CAPTION
    ======================= */
-.editorial-caption {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 100;
-  color: var(--text-tertiary);
-  margin: 0 0 0.5rem 0;
-  opacity: 0.6;
-  animation: captionFade 2s ease-out 0.8s forwards;
-}
+/* Editorial caption styles moved to editorial-astro.css for global animation system */
 
 /* =======================
    6) HORIZON LINE & SCROLL ARROW

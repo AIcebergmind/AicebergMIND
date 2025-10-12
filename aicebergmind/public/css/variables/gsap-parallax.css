@@ -1,9 +1,5 @@
 /* 🚀 GSAP PARALLAX SUPPORT STYLES */
 
-/* MOVED: Parallax styles moved to global system in design-tokens.css */
-
-/* REMOVED: About section specific styles - now handled by global system in design-tokens.css */
-
 /* Smooth scroll behavior for better GSAP integration */
 html {
   scroll-behavior: auto; /* Let GSAP handle smooth scrolling */

@@ -25,15 +25,15 @@ class HamburgerMenu {
         <div class="hamburger-menu-panel">
           <div class="hamburger-menu-header">
             <img src="/logo/AIceberg_mind_logo_gray.svg" alt="AIceberg Mind" class="hamburger-menu-logo">
+            <div class="hamburger-menu-tagline">AIceberg Mind - AI tools for conscious growth</div>
           </div>
           <nav class="hamburger-menu-nav">
             <ul class="hamburger-menu-links">
-              <li><a href="/" class="hamburger-link">Home</a></li>
+              <li><a href="#about" class="hamburger-link">About</a></li>
               <li><a href="#projects" class="hamburger-link">Projects</a></li>
               <li><a href="#team" class="hamburger-link">Team</a></li>
-              <li><a href="#ethics" class="hamburger-link">Ethics</a></li>
+              <li><a href="#philosophy" class="hamburger-link">Philosophy</a></li>
               <li><a href="/blog" class="hamburger-link">Blog</a></li>
-              <li><a href="#faq" class="hamburger-link">FAQ</a></li>
             </ul>
           </nav>
           <div class="hamburger-menu-footer">
@@ -97,7 +97,7 @@ class HamburgerMenu {
         const href = link.getAttribute('href');
         
         // If it's an anchor link, handle smooth scroll
-        if (href.startsWith('#') && href !== '#faq') {
+        if (href.startsWith('#')) {
           e.preventDefault();
           const target = document.querySelector(href);
           if (target) {

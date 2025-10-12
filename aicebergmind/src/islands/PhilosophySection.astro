@@ -1,0 +1,207 @@
+---
+// PhilosophySection.astro - Unified Philosophy Island (3D Core Pillars + Ethics)
+// Combines the foundational principles with ethical practices
+import PillarsCube3D from '../components/PillarsCube3D.astro';
+import EthicsSection from './EthicsSection.astro';
+---
+
+<!-- UNIFIED PHILOSOPHY Section -->
+<section class="parallax-section editorial-section" id="philosophy">
+  <!-- MOBILE BLUR OVERLAY -->
+  <div class="mobile-blur-overlay"></div>
+  
+  <!-- Sticky Section Title (Desktop only) -->
+  <div class="section-title-sticky" data-section="philosophy">
+    <div class="section-number-sticky">◊</div>
+    <div class="section-title-text">Philosophy</div>
+  </div>
+  
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="section-header-editorial">
+        <div class="section-number parallax-text">◊</div>
+        <h2 class="editorial-heading parallax-text">Our Philosophy</h2>
+        <p class="editorial-caption parallax-text">Where innovation meets conscience</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CORE PILLARS COMPONENT (3D Cube version) -->
+  <div class="philosophy-pillars-container">
+    <div class="editorial-container">
+      <div class="editorial-content">
+        <div class="content-block">
+          <div class="content-block-header parallax-text">
+            <h3 class="content-block-title">Core Pillars</h3>
+            <span class="content-block-meta">Foundation</span>
+          </div>
+          <p class="editorial-body parallax-text"><span class="drop-cap">O</span>ur <strong class="essence-word">architectural foundation</strong> rests on four <strong class="philosophy-word">fundamental pillars</strong> that guide every decision, every line of code, and every <strong class="accent-word">digital solution</strong> we create.</p>
+        </div>
+      </div>
+    </div>
+    <!-- 3D Interactive Cube -->
+    <PillarsCube3D />
+  </div>
+  
+  <!-- ETHICS COMPONENT (without section wrapper) -->
+  <div class="philosophy-ethics-container">
+    <div class="editorial-container">
+      <div class="editorial-content">
+        <div class="content-block">
+          <div class="content-block-header parallax-text">
+            <h3 class="content-block-title">Ethics</h3>
+            <span class="content-block-meta">Responsibility</span>
+                         </div>
+                <p class="editorial-body parallax-text"><span class="drop-cap">E</span>very <strong class="essence-word">technological choice</strong> we make carries weight beyond the digital realm. Our <strong class="philosophy-word">ethical framework</strong> ensures that innovation serves humanity, not the other way around.</p>
+        </div>
+      </div>
+    </div>
+    <EthicsSection />
+  </div>
+</section>
+
+<!-- Philosophy Unified Styles -->
+<style>
+/* ===== PHILOSOPHY SECTION ===== */
+#philosophy {
+  position: relative;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* ===== SUB-COMPONENTS STYLING ===== */
+.philosophy-pillars-container,
+.philosophy-ethics-container {
+  position: relative;
+}
+
+/* Remove section styling from sub-components */
+.philosophy-pillars-container .parallax-section,
+.philosophy-ethics-container .parallax-section {
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+/* Clean sub-components integration */
+
+/* ===== SUBSECTION STYLING ===== */
+.philosophy-pillars-container .content-block,
+.philosophy-ethics-container .content-block {
+  margin-bottom: 3rem;
+}
+
+.philosophy-pillars-container .content-block-header,
+.philosophy-ethics-container .content-block-header {
+  margin-bottom: 2rem;
+}
+
+/* Hide mobile blur overlays from sub-components */
+.philosophy-pillars-container .mobile-blur-overlay,
+.philosophy-ethics-container .mobile-blur-overlay {
+  display: none;
+}
+
+/* ===== VISUAL SEPARATOR ===== */
+.philosophy-separator {
+  margin: 4rem 0;
+  position: relative;
+}
+
+.separator-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(94, 228, 195, 0.3) 20%, 
+    rgba(0, 212, 255, 0.5) 50%, 
+    rgba(94, 228, 195, 0.3) 80%, 
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+/* ===== SPACING ADJUSTMENTS ===== */
+.philosophy-pillars-container {
+  margin-bottom: 2rem;
+}
+
+.philosophy-ethics-container {
+  margin-top: 2rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .philosophy-separator {
+    margin: 3rem 0;
+  }
+  
+  .philosophy-pillars-container,
+  .philosophy-ethics-container {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .philosophy-separator {
+    margin: 2rem 0;
+  }
+  
+  .philosophy-pillars-container,
+  .philosophy-ethics-container {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .philosophy-unified-section .parallax-text {
+    animation: none;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ===== PERFORMANCE ===== */
+.philosophy-unified-section {
+  contain: layout style;
+}
+
+.philosophy-pillars-container,
+.philosophy-ethics-container {
+  will-change: transform;
+  transform: translateZ(0);
+}
+</style>
+
+<!-- Philosophy Unified JavaScript -->
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🏛️ Philosophy Unified Section Loading...');
+  
+  // Intersection Observer for unified parallax
+  const philosophyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        console.log('✨ Philosophy element entering view:', entry.target.className);
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  
+  // Observe parallax elements in unified section
+  const parallaxElements = document.querySelectorAll('#philosophy .parallax-text');
+  console.log(`👀 Found ${parallaxElements.length} parallax elements in Philosophy section`);
+  
+  parallaxElements.forEach(el => {
+    philosophyObserver.observe(el);
+  });
+  
+  console.log('✅ Philosophy Unified Section loaded successfully');
+});
+</script>

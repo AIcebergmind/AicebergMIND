@@ -101,7 +101,6 @@
   width: 320px;
   min-width: 320px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 2rem;
   backdrop-filter: blur(10px);
@@ -115,44 +114,7 @@
 .project-card:nth-child(2) { transform: translateY(15px); }
 .project-card:nth-child(3) { transform: translateY(-5px); }
 
-.project-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: var(--brand-cyan);
-  outline: 2px solid var(--brand-cyan);
-  outline-offset: 3px;
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Animated frame borders */
-.project-card:hover .frame-border-top,
-.project-card:hover .frame-border-right,
-.project-card:hover .frame-border-bottom,
-.project-card:hover .frame-border-left {
-  position: absolute;
-  background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
-  opacity: 0.8;
-  animation: borderGlow 3s ease-in-out infinite alternate;
-}
-
-.frame-border-top,
-.frame-border-bottom {
-  height: 1px;
-  left: 0;
-  right: 0;
-}
-
-.frame-border-left,
-.frame-border-right {
-  width: 1px;
-  top: 0;
-  bottom: 0;
-}
-
-.frame-border-top { top: 0; }
-.frame-border-right { right: 0; }
-.frame-border-bottom { bottom: 0; }
-.frame-border-left { left: 0; }
+/* Project card hover effects removed - clean cards */
 .frame-content {
   position: relative;
   z-index: 2;
@@ -161,11 +123,7 @@
   gap: 1.5rem;
   align-items: flex-start;
 }
-@keyframes borderGlow {
-  0% { opacity: 0.6; filter: blur(0px); }
-  50% { opacity: 1; filter: blur(0.5px); }
-  100% { opacity: 0.8; filter: blur(0px); }
-}
+/* borderGlow animation removed - no longer needed */
 
 /* =======================
    10) PERFORMANCE
@@ -623,8 +581,8 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, 
-        rgba(70, 133, 200, 0.85) 0%, 
-        rgba(48, 89, 134, 0.9) 100%);
+        rgba(0, 212, 255, 0.15) 0%, 
+        rgba(0, 212, 255, 0.25) 100%);
     border-radius: 8px 8px 0 0;
     z-index: 1;
 }

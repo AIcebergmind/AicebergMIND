@@ -243,15 +243,7 @@ a:hover { color: #fff; }
    5) EDITORIAL TITLES & META
    (compat con i tuoi componenti)
    ======================= */
-.editorial-heading {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-md);
-}
+/* editorial-heading moved to content section system below */
 
 .editorial-subheading {
   font-family: var(--font-display);
@@ -262,13 +254,328 @@ a:hover { color: #fff; }
   margin-bottom: var(--spacing-sm);
 }
 
-.editorial-caption {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: clamp(0.875rem, 1.5vw, 0.95rem);
-  line-height: 1.5;
-  color: var(--text-tertiary);
-  letter-spacing: 0.01em;
+/* Editorial Caption - Global Animation System with High Specificity */
+.editorial-caption,
+body .editorial-caption,
+main .editorial-caption,
+section .editorial-caption,
+.projects-section .editorial-caption {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  font-size: clamp(0.85rem, 2vw, 1rem) !important;
+  line-height: 1.6 !important;
+  color: var(--text-tertiary) !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  position: relative !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+}
+
+.editorial-caption::after,
+body .editorial-caption::after,
+main .editorial-caption::after,
+section .editorial-caption::after,
+.projects-section .editorial-caption::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -4px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: #00d4ff !important;
+  transform: scaleX(0) !important;
+  transform-origin: left !important;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.editorial-caption::before,
+body .editorial-caption::before,
+main .editorial-caption::before,
+section .editorial-caption::before,
+.projects-section .editorial-caption::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Typewriter effect animation */
+.editorial-caption.animate-text,
+body .editorial-caption.animate-text,
+main .editorial-caption.animate-text,
+section .editorial-caption.animate-text,
+.projects-section .editorial-caption.animate-text {
+  opacity: 1 !important;
+  animation: textReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.editorial-caption.animate-text::after,
+body .editorial-caption.animate-text::after,
+main .editorial-caption.animate-text::after,
+section .editorial-caption.animate-text::after,
+.projects-section .editorial-caption.animate-text::after {
+  transform: scaleX(1) !important;
+}
+
+/* ::before element disabled - no background overlay */
+
+/* ================================
+   CONTENT SECTION EDITORIAL SYSTEM
+   Moved from content-sections.css for centralization
+   ================================ */
+
+/* Parallax sections base */
+.parallax-section,
+body .parallax-section,
+main .parallax-section {
+  position: relative !important;
+  padding: var(--space-xxl) 0 !important;
+  background: var(--bg-primary) !important;
+  overflow: hidden !important;
+}
+
+.parallax-section:nth-child(even) {
+  background: #0a0a0a !important;
+}
+
+/* Section headers */
+.section-header-editorial {
+  margin-bottom: 4rem !important;
+  position: relative !important;
+}
+
+.section-number {
+  font-family: var(--font-display) !important;
+  font-size: var(--section-number-size) !important;
+  color: var(--section-number-color) !important;
+  opacity: var(--section-number-opacity) !important;
+  margin-bottom: var(--section-number-margin) !important;
+  display: block !important;
+}
+
+.editorial-heading {
+  font-family: var(--font-display) !important;
+  font-size: var(--editorial-heading-size) !important;
+  font-weight: var(--editorial-heading-weight) !important;
+  line-height: var(--editorial-heading-line-height) !important;
+  letter-spacing: var(--editorial-heading-letter-spacing) !important;
+  color: var(--text-primary) !important;
+  margin-bottom: var(--editorial-heading-margin) !important;
+}
+
+/* Content blocks */
+.content-block {
+  position: relative !important;
+  margin-bottom: 4rem !important;
+  max-width: 65ch !important;
+}
+
+.content-block-header {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  margin-bottom: 1.5rem !important;
+  gap: 2rem !important;
+}
+
+.content-block-title {
+  font-family: var(--font-display) !important;
+  font-size: var(--content-title-size) !important;
+  font-weight: var(--content-title-weight) !important;
+  color: var(--text-primary) !important;
+  line-height: var(--content-title-line-height) !important;
+  margin: 0 !important;
+}
+
+.content-block-meta {
+  font-size: var(--content-meta-size) !important;
+  color: var(--text-tertiary) !important;
+  font-weight: var(--content-meta-weight) !important;
+  letter-spacing: var(--content-meta-letter-spacing) !important;
+  text-transform: uppercase !important;
+  flex-shrink: 0 !important;
+}
+
+.editorial-body {
+  font-size: var(--editorial-body-size) !important;
+  line-height: var(--editorial-body-line-height) !important;
+  color: var(--text-primary) !important;
+  margin-bottom: var(--editorial-body-margin) !important;
+  text-wrap: pretty !important;
+}
+
+/* Text animations */
+.text-compose {
+  opacity: 0 !important;
+  transform: translateY(20px) !important;
+  animation: textSlideIn 0.8s ease-out forwards !important;
+}
+
+.no-transforms {
+  transform: none !important;
+}
+
+@keyframes textSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation delays */
+.text-compose:nth-child(1) { animation-delay: 0.1s !important; }
+.text-compose:nth-child(2) { animation-delay: 0.3s !important; }
+.text-compose:nth-child(3) { animation-delay: 0.5s !important; }
+.text-compose:nth-child(4) { animation-delay: 0.7s !important; }
+
+/* Email link styling */
+.email-link {
+  color: rgba(0, 212, 255, 0.9) !important;
+  text-decoration: none !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+}
+
+.email-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 1px !important;
+  background: var(--brand-cyan) !important;
+  transition: width 0.3s ease !important;
+}
+
+.email-link:hover::after {
+  width: 100% !important;
+}
+
+.email-link:hover {
+  color: rgba(94, 228, 195, 0.9) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ================================
+   RESPONSIVE EDITORIAL SYSTEM
+   ================================ */
+@media (max-width: 1024px) {
+  .parallax-section {
+    padding: 4rem 0 !important;
+  }
+  
+  .content-block {
+    margin-bottom: 3rem !important;
+  }
+  
+  .section-header-editorial {
+    margin-bottom: 3rem !important;
+  }
+  
+  .content-block-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .parallax-section {
+    padding: 3rem 0 !important;
+  }
+  
+  .content-block {
+    margin-bottom: 2.5rem !important;
+  }
+  
+  .section-header-editorial {
+    margin-bottom: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax-section {
+    padding: 2rem 0 !important;
+  }
+  
+  .content-block {
+    margin-bottom: 2rem !important;
+  }
+  
+  .section-number {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* ================================
+   ACCESSIBILITY
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+  .text-compose {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =======================
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    filter: blur(5px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(5px) scale(0.98);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes lineExtend {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    width: 1rem;
+    opacity: 0.6;
+  }
+}
+
+@keyframes shimmerPass {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.editorial-caption:hover {
+  opacity: 1 !important;
+  color: #00d4ff;
+  transform: translateY(-1px) scale(1.02);
+}
+
+.editorial-caption:hover::after {
+  background: linear-gradient(90deg, #00d4ff, #00b8e6, #00d4ff);
+  height: 2px;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
 }
 
 /* =======================
@@ -306,3 +613,39 @@ a:hover { color: #fff; }
 
 /* micro-animazioni soft sugli item quando cambia layout */
 .cards-grid > * { transition: transform .25s ease, opacity .25s ease; will-change: transform, opacity; }
+
+/* Editorial Caption - Mobile Responsive Rules */
+@media (max-width: 768px) {
+  .editorial-caption,
+  body .editorial-caption,
+  main .editorial-caption,
+  section .editorial-caption,
+  .projects-section .editorial-caption,
+  .parallax-text.editorial-caption {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem) !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.1em !important;
+    max-width: 100% !important;
+    width: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .editorial-caption,
+  body .editorial-caption,
+  main .editorial-caption,
+  section .editorial-caption,
+  .projects-section .editorial-caption,
+  .parallax-text.editorial-caption {
+    white-space: normal !important;
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.08em !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+}

@@ -4,23 +4,11 @@
 
 <!-- CORE PILLARS Section -->
 <section class="parallax-section editorial-section" id="pillars">
-  <!-- Sticky Section Title (Desktop only) -->
-  <div class="section-title-sticky" data-section="pillars">
-    <div class="section-number-sticky">▲</div>
-    <div class="section-title-text">Core Pillars</div>
-  </div>
-  
   <!-- MOBILE BLUR OVERLAY -->
   <div class="mobile-blur-overlay"></div>
   
   <div class="editorial-container">
     <div class="editorial-content">
-      <div class="section-header-editorial">
-        <div class="section-number parallax-text">▲</div>
-        <h2 class="editorial-heading parallax-text">Core Pillars</h2>
-        <p class="editorial-caption parallax-text">The <strong class="essence-word">digital foundations</strong> of Aiceberg Mind philosophy</p>
-      </div>
-
       <div class="content-block">
         <!-- Greek Temple Roof -->
         <div class="greek-roof parallax-text">
@@ -28,7 +16,7 @@
         </div>
         
         <div class="pillars-cards-grid parallax-text">
-          <div class="pillar-card sobriety hover-simple-card" tabindex="0">
+          <div class="pillar-card sobriety" tabindex="0">
             <div class="pillar-card-header">
               <h4 class="pillar-card-title">SOBRIETY</h4>
               <svg class="pillar-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -53,7 +41,7 @@
             </div>
           </div>
 
-          <div class="pillar-card hygiene hover-simple-card" tabindex="0">
+          <div class="pillar-card hygiene" tabindex="0">
             <div class="pillar-card-header">
               <h4 class="pillar-card-title">HYGIENE</h4>
               <svg class="pillar-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -73,7 +61,7 @@
             </div>
           </div>
 
-          <div class="pillar-card sovereignty hover-simple-card" tabindex="0">
+          <div class="pillar-card sovereignty" tabindex="0">
             <div class="pillar-card-header">
               <h4 class="pillar-card-title">SOVEREIGNITY</h4>
               <svg class="pillar-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -134,6 +122,86 @@
 .parallax-text.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Enhanced Pillar Cards Hover Effects */
+#pillars .pillar-card {
+  cursor: pointer !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+}
+
+/* Enhanced hover effect that works on entire card */
+#pillars .pillar-card:hover {
+  transform: skewY(-2deg) scaleY(1.05) translateY(-8px) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4) !important;
+  z-index: 10;
+}
+
+/* Glow effects for each pillar on hover */
+#pillars .pillar-card.sobriety:hover {
+  box-shadow: 0 15px 40px rgba(150, 200, 255, 0.3), 
+              0 0 30px rgba(150, 200, 255, 0.2) !important;
+}
+
+#pillars .pillar-card.hygiene:hover {
+  box-shadow: 0 15px 40px rgba(100, 255, 200, 0.3), 
+              0 0 30px rgba(100, 255, 200, 0.2) !important;
+}
+
+#pillars .pillar-card.sovereignty:hover {
+  box-shadow: 0 15px 40px rgba(255, 180, 100, 0.3), 
+              0 0 30px rgba(255, 180, 100, 0.2) !important;
+}
+
+#pillars .pillar-card.integrity:hover {
+  box-shadow: 0 15px 40px rgba(200, 100, 255, 0.3), 
+              0 0 30px rgba(200, 100, 255, 0.2) !important;
+}
+
+/* Icon animations on hover */
+#pillars .pillar-card:hover .pillar-card-icon {
+  transform: scale(1.1) rotate(5deg) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Title glow on hover */
+#pillars .pillar-card:hover .pillar-card-title {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Content appears more prominently on hover */
+#pillars .pillar-card:hover .pillar-card-content {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Pulse animation for enhanced interactivity */
+@keyframes pillarPulse {
+  0%, 100% { 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+  50% { 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Additional visual enhancements */
+#pillars .pillar-card {
+  backdrop-filter: blur(10px) !important;
+  border-radius: 8px 8px 4px 4px !important;
+}
+
+#pillars .pillar-card:hover {
+  backdrop-filter: blur(15px) !important;
+}
+
+/* Improve mobile hover behavior */
+@media (max-width: 768px) {
+  #pillars .pillar-card:hover {
+    transform: scale(1.02) translateY(-4px) !important;
+  }
 }
 
 /* Pillar Cards Enhanced Animation */
@@ -247,15 +315,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
       
-      // Hover effects
+      // Enhanced hover effects - let CSS handle the hover animation
       card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-3px)';
+        // Add a subtle pulse effect
+        this.style.animationName = 'pillarPulse';
+        this.style.animationDuration = '2s';
+        this.style.animationIterationCount = 'infinite';
       });
       
       card.addEventListener('mouseleave', function() {
-        if (!this.classList.contains('expanded')) {
-          this.style.transform = 'translateY(0)';
-        }
+        // Remove pulse animation when not hovering
+        this.style.animationName = '';
       });
     });
     

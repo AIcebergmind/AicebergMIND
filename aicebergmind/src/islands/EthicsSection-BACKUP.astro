@@ -1,5 +1,6 @@
 ---
 // EthicsSection.astro - Ethics Island with Expandable Cards
+// BACKUP VERSION - Original working version before Ripple Effect implementation
 ---
 
 <!-- ETHICS Section -->
@@ -9,14 +10,32 @@
   
   <div class="editorial-container">
     <div class="editorial-content">
-
+      <p class="editorial-body parallax-text"><span class="drop-cap">E</span>very <strong class="essence-word">technological choice</strong> we make carries weight beyond the digital realm. Our <strong class="philosophy-word">ethical framework</strong> ensures that innovation serves humanity, not the other way around.</p>
+      
       <div class="ethics-cards-grid parallax-text">
-          <div class="ethics-card privacy ethics-ripple-card" tabindex="0">
-            <div class="ethics-ripple-container">
-              <div class="ethics-ripple-effect"></div>
-              <div class="ethics-ripple-effect"></div>
-              <div class="ethics-ripple-effect"></div>
+          <div class="ethics-card reforestation hover-simple-card" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Reforestation</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M8 12h8"/>
+                <path d="M12 8v8"/>
+              </svg>
             </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">We give back through certified <strong class="philosophy-word">tree-planting partners</strong> like Tree-Nation and Freedom, creating <strong class="essence-word">symbolic forests</strong> that restore balance to our digital footprint.</p>
+              <div class="ethics-card-meta">Environmental Impact</div>
+            </div>
+            <div class="ethics-card-expanded">
+              <div class="ethics-card-details">
+                <p><strong>Our Impact:</strong> For every project delivered, we plant 50+ trees through verified reforestation programs in areas affected by deforestation.</p>
+                <p><strong>Partners:</strong> We work with Tree-Nation and Freedom Forest to ensure transparent tracking and real environmental impact.</p>
+                <p><strong>Carbon Offset:</strong> Our tree-planting initiatives offset approximately 120% of our digital operations' carbon footprint.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ethics-card privacy hover-simple-card" tabindex="0">
             <div class="ethics-card-header">
               <h4 class="ethics-card-title">Privacy by Design</h4>
               <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -38,12 +57,7 @@
             </div>
           </div>
 
-          <div class="ethics-card accessibility ethics-ripple-card" tabindex="0">
-            <div class="ethics-ripple-container">
-              <div class="ethics-ripple-effect"></div>
-              <div class="ethics-ripple-effect"></div>
-              <div class="ethics-ripple-effect"></div>
-            </div>
+          <div class="ethics-card accessibility hover-simple-card" tabindex="0">
             <div class="ethics-card-header">
               <h4 class="ethics-card-title">Accessibility</h4>
               <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -66,12 +80,7 @@
             </div>
           </div>
 
-          <div class="ethics-card transparency ethics-ripple-card" tabindex="0">
-            <div class="ethics-ripple-container">
-              <div class="ethics-ripple-effect"></div>
-              <div class="ethics-ripple-effect"></div>
-              <div class="ethics-ripple-effect"></div>
-            </div>
+          <div class="ethics-card transparency hover-simple-card" tabindex="0">
             <div class="ethics-card-header">
               <h4 class="ethics-card-title">Transparency</h4>
               <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -93,12 +102,7 @@
             </div>
           </div>
 
-          <div class="ethics-card sustainability ethics-ripple-card" tabindex="0">
-            <div class="ethics-ripple-container">
-              <div class="ethics-ripple-effect"></div>
-              <div class="ethics-ripple-effect"></div>
-              <div class="ethics-ripple-effect"></div>
-            </div>
+          <div class="ethics-card sustainability hover-simple-card" tabindex="0">
             <div class="ethics-card-header">
               <h4 class="ethics-card-title">Sustainability</h4>
               <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -163,13 +167,12 @@
   transform: translateY(0) !important;
 }
 
-/* Removed: Using unified hover system instead */
-
 /* Staggered animation delays for ethics cards */
-.ethics-card.privacy { transition-delay: 0ms; }
-.ethics-card.accessibility { transition-delay: 100ms; }
-.ethics-card.transparency { transition-delay: 200ms; }
-.ethics-card.sustainability { transition-delay: 300ms; }
+.ethics-card.reforestation { transition-delay: 0ms; }
+.ethics-card.privacy { transition-delay: 100ms; }
+.ethics-card.accessibility { transition-delay: 200ms; }
+.ethics-card.transparency { transition-delay: 300ms; }
+.ethics-card.sustainability { transition-delay: 400ms; }
 
 /* Focus enhancement */
 .ethics-card:focus {
@@ -184,61 +187,7 @@
               padding 0.3s ease;
 }
 
-/* Desktop staggered layout for movement */
-@media (min-width: 1025px) {
-  .ethics-cards-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: none;
-  }
-  
-  /* Staggered positioning for desktop */
-  .ethics-card.privacy {
-    align-self: flex-start;
-    margin-left: 0;
-    transform: translateY(0);
-  }
-  
-  .ethics-card.accessibility {
-    align-self: flex-end;
-    margin-right: 0;
-    transform: translateY(-20px);
-  }
-  
-  .ethics-card.transparency {
-    align-self: flex-start;
-    margin-left: 10%;
-    transform: translateY(-10px);
-  }
-  
-  .ethics-card.sustainability {
-    align-self: flex-end;
-    margin-right: 5%;
-    transform: translateY(-30px);
-  }
-  
-  /* Ensure cards have consistent width */
-  .ethics-card {
-    width: 65%;
-    max-width: 450px;
-  }
-}
-
-/* Tablet layout */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .ethics-cards-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  
-  .ethics-card {
-    width: 100%;
-  }
-}
-
-/* Mobile layout */
+/* Grid responsiveness enhanced */
 @media (max-width: 768px) {
   .ethics-cards-grid {
     grid-template-columns: 1fr;
@@ -251,6 +200,10 @@
 }
 
 /* Special ethics card effects */
+.ethics-card.reforestation .ethics-card-icon {
+  color: #22c55e;
+}
+
 .ethics-card.privacy .ethics-card-icon {
   color: #3b82f6;
 }
@@ -271,141 +224,6 @@
 .ethics-card-header {
   transition: transform 0.2s ease;
 }
-
-/* =======================
-   RIPPLE EFFECT SYSTEM
-   ======================= */
-
-.ethics-ripple-card {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.ethics-ripple-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.ethics-ripple-effect {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, 
-    rgba(255, 255, 255, 0.3) 0%, 
-    rgba(255, 255, 255, 0.1) 50%, 
-    transparent 100%);
-  transform: scale(0);
-  opacity: 0;
-  pointer-events: none;
-  animation-fill-mode: forwards;
-}
-
-/* Ripple animations */
-@keyframes ripple-expand {
-  0% {
-    transform: scale(0);
-    opacity: 1;
-  }
-  70% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-@keyframes ripple-pulse {
-  0% {
-    transform: scale(0.8);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.4;
-  }
-  100% {
-    transform: scale(0.8);
-    opacity: 0.8;
-  }
-}
-
-/* Card-specific ripple colors */
-.ethics-card.privacy .ethics-ripple-effect {
-  background: radial-gradient(circle, 
-    rgba(59, 130, 246, 0.4) 0%, 
-    rgba(59, 130, 246, 0.2) 50%, 
-    transparent 100%);
-}
-
-.ethics-card.accessibility .ethics-ripple-effect {
-  background: radial-gradient(circle, 
-    rgba(245, 158, 11, 0.4) 0%, 
-    rgba(245, 158, 11, 0.2) 50%, 
-    transparent 100%);
-}
-
-.ethics-card.transparency .ethics-ripple-effect {
-  background: radial-gradient(circle, 
-    rgba(139, 92, 246, 0.4) 0%, 
-    rgba(139, 92, 246, 0.2) 50%, 
-    transparent 100%);
-}
-
-.ethics-card.sustainability .ethics-ripple-effect {
-  background: radial-gradient(circle, 
-    rgba(16, 185, 129, 0.4) 0%, 
-    rgba(16, 185, 129, 0.2) 50%, 
-    transparent 100%);
-}
-
-/* Ripple card content layering */
-.ethics-ripple-card .ethics-card-header,
-.ethics-ripple-card .ethics-card-content,
-.ethics-ripple-card .ethics-card-expanded {
-  position: relative;
-  z-index: 2;
-}
-
-/* Enhanced hover effects with ripples */
-.ethics-ripple-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.ethics-ripple-card:hover .ethics-card-icon {
-  transform: scale(1.15) rotate(10deg);
-}
-
-/* Desktop staggered hover enhancements */
-@media (min-width: 1025px) {
-  .ethics-card.privacy:hover {
-    transform: translateY(-8px) scale(1.03) rotate(1deg);
-  }
-  
-  .ethics-card.accessibility:hover {
-    transform: translateY(-28px) scale(1.03) rotate(-1deg);
-  }
-  
-  .ethics-card.transparency:hover {
-    transform: translateY(-18px) scale(1.03) rotate(0.5deg);
-  }
-  
-  .ethics-card.sustainability:hover {
-    transform: translateY(-38px) scale(1.03) rotate(-0.5deg);
-  }
-}
-
-/* Active/expanded state */
-.ethics-ripple-card.expanded {
-  transform: translateY(0) scale(1);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
 </style>
 
 <!-- Ethics JavaScript -->
@@ -413,73 +231,21 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('🌱 Ethics Island Loading...');
 
-  // Ripple Effect System
-  function createRipple(card, x, y) {
-    const rippleContainer = card.querySelector('.ethics-ripple-container');
-    const ripples = rippleContainer.querySelectorAll('.ethics-ripple-effect');
-    
-    // Find an available ripple element
-    let availableRipple = null;
-    for (let ripple of ripples) {
-      if (ripple.style.animationName !== 'ripple-expand') {
-        availableRipple = ripple;
-        break;
-      }
-    }
-    
-    if (!availableRipple) return;
-    
-    const rect = card.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const rippleX = x - rect.left - size / 2;
-    const rippleY = y - rect.top - size / 2;
-    
-    availableRipple.style.width = size + 'px';
-    availableRipple.style.height = size + 'px';
-    availableRipple.style.left = rippleX + 'px';
-    availableRipple.style.top = rippleY + 'px';
-    availableRipple.style.animation = 'ripple-expand 0.8s ease-out';
-    
-    setTimeout(() => {
-      availableRipple.style.animation = '';
-    }, 800);
-  }
-
-  function createConnectedRipples(targetCard) {
-    const allCards = document.querySelectorAll('#ethics .ethics-ripple-card');
-    allCards.forEach((card, index) => {
-      if (card !== targetCard) {
-        setTimeout(() => {
-          const rect = card.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          createRipple(card, centerX, centerY);
-        }, index * 100);
-      }
-    });
-  }
-
   // Ethics Cards Interactive System
   function initEthicsCards() {
-    console.log('🎯 Initializing Ethics Cards with Ripple Effects...');
+    console.log('🎯 Initializing Ethics Cards...');
     
     const ethicsCards = document.querySelectorAll('#ethics .ethics-card');
     console.log(`📦 Found ${ethicsCards.length} ethics cards`);
 
     ethicsCards.forEach((card, index) => {
-      // Click handler for card expansion with ripple effect
+      // Click handler for card expansion
       card.addEventListener('click', function(e) {
         // Don't expand if clicking on a button or link
         if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
         
-        // Create ripple at click position
-        createRipple(this, e.clientX, e.clientY);
-        
-        // Create connected ripples on other cards
-        createConnectedRipples(this);
-        
         const isExpanded = this.classList.contains('expanded');
-        console.log(`🌊 Ethics card ${index + 1} ${isExpanded ? 'collapsing' : 'expanding'} with ripple effect`);
+        console.log(`🔄 Ethics card ${index + 1} ${isExpanded ? 'collapsing' : 'expanding'}`);
         
         // Close all other cards first
         ethicsCards.forEach(otherCard => {
@@ -513,41 +279,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
       
-      // Enhanced hover effects with ripple animation
-      card.addEventListener('mouseenter', function(e) {
-        // Create subtle ripple on hover
-        const rect = this.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        createRipple(this, centerX, centerY);
-        
+      // Enhanced hover effects with icon animation
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px)';
         const icon = this.querySelector('.ethics-card-icon');
         if (icon) {
+          icon.style.transform = 'scale(1.1) rotate(5deg)';
           icon.style.transition = 'transform 0.3s ease';
         }
       });
       
       card.addEventListener('mouseleave', function() {
+        if (!this.classList.contains('expanded')) {
+          this.style.transform = 'translateY(0)';
+        }
         const icon = this.querySelector('.ethics-card-icon');
         if (icon) {
           icon.style.transform = 'scale(1) rotate(0deg)';
         }
       });
 
-      // Focus effects with ripple
+      // Focus effects
       card.addEventListener('focus', function() {
-        const rect = this.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        createRipple(this, centerX, centerY);
+        this.style.transform = 'translateY(-2px)';
       });
 
       card.addEventListener('blur', function() {
-        // Focus blur handled by CSS
+        if (!this.classList.contains('expanded')) {
+          this.style.transform = 'translateY(0)';
+        }
       });
     });
     
-    console.log('✅ Ethics Cards with Ripple Effect initialized');
+    console.log('✅ Ethics Cards initialized');
   }
 
   // Parallax System for Ethics Section

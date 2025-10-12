@@ -112,12 +112,22 @@
 
 /* Menu content */
 .hamburger-menu-header {
-  padding: 2rem 1.5rem 1rem;
-  border-bottom: 1px solid #333;
+  padding: 2rem 1.5rem 1.5rem;
 }
 
 .hamburger-menu-logo {
-  height: 32px;
+  height: 48px;
+  /* Effetto CSS per rendere il logo grigio bianco */
+  filter: brightness(0) invert(1);
+  margin-bottom: 0.75rem;
+}
+
+.hamburger-menu-tagline {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  line-height: 1.3;
+  font-family: var(--font-display);
 }
 
 .hamburger-menu-nav {

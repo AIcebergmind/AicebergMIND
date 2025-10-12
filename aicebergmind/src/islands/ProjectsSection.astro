@@ -18,7 +18,7 @@
       <div class="section-header-editorial">
         <div class="section-number">◉</div>
         <h2 class="editorial-heading parallax-text">Our Living <br>Projects</h2>
-        <h3 class="content-block-title parallax-text">...work in progress</h3>
+        <p class="editorial-caption parallax-text">Crafting experiences for conscious growth</p>
         
         <!-- View toggle (desktop only) -->
         <div class="projects-view-toggle">
@@ -37,7 +37,7 @@
         <!-- FIRST ROW -->
         <div class="projects-row-1">
           <!-- Audio Rituals -->
-          <div class="project-card project-audio hover-border-compose">
+          <div class="project-card project-audio hover-border-compose hover-subtle">
             <div class="text-frame-border-top"></div>
             <div class="text-frame-border-right"></div>
             <div class="text-frame-border-bottom"></div>
@@ -63,20 +63,20 @@
           </div>
 
           <!-- Nursery Rhymes -->
-          <div class="project-card project-music hover-border-compose">
+          <div class="project-card project-music hover-border-compose hover-subtle">
             <div class="text-frame-border-top"></div>
             <div class="text-frame-border-right"></div>
             <div class="text-frame-border-bottom"></div>
             <div class="text-frame-border-left"></div>
             <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-2.jpg');">
               <h3 class="project-title">Nursery Rhymes</h3>
-              <p class="project-subtitle">Educational rhymes with <span class="essence-word">Lumi & Nova</span></p>
+              <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
             </div>
             <div class="project-description">
               <div class="project-features">
-                <span class="feature-tag philosophy-word">Interactive Music</span>
-                <span class="feature-tag essence-word">AI Characters</span>
-                <span class="feature-tag philosophy-word">Language Learning</span>
+                <span class="feature-tag">Interactive Music</span>
+                <span class="feature-tag">AI Characters</span>
+                <span class="feature-tag">Language Learning</span>
               </div>
             </div>
             <div class="project-progress">
@@ -89,20 +89,20 @@
           </div>
 
           <!-- Specialized Channels -->
-          <div class="project-card project-channels hover-border-compose">
+          <div class="project-card project-channels hover-border-compose hover-subtle">
             <div class="text-frame-border-top"></div>
             <div class="text-frame-border-right"></div>
             <div class="text-frame-border-bottom"></div>
             <div class="text-frame-border-left"></div>
             <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-3.jpg');">
               <h3 class="project-title">Specialized Channels</h3>
-              <p class="project-subtitle">Mindfulness, history & <span class="essence-word">subconscious</span></p>
+              <p class="project-subtitle">Mindfulness, history & subconscious</p>
             </div>
             <div class="project-description">
               <div class="project-features">
-                <span class="feature-tag philosophy-word">Mindfulness</span>
-                <span class="feature-tag philosophy-word">History</span>
-                <span class="feature-tag essence-word">Neuroscience</span>
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">History</span>
+                <span class="feature-tag">Neuroscience</span>
               </div>
             </div>
             <div class="project-progress">
@@ -118,7 +118,7 @@
         <!-- SECOND ROW -->
         <div class="projects-row-2">
           <!-- Birth Prep Program -->
-          <div class="project-card project-birth hover-border-compose">
+          <div class="project-card project-birth hover-border-compose hover-subtle">
             <div class="text-frame-border-top"></div>
             <div class="text-frame-border-right"></div>
             <div class="text-frame-border-bottom"></div>
@@ -144,7 +144,7 @@
           </div>
 
           <!-- Family Finance Ed. -->
-          <div class="project-card project-finance hover-border-compose">
+          <div class="project-card project-finance hover-border-compose hover-subtle">
             <div class="text-frame-border-top"></div>
             <div class="text-frame-border-right"></div>
             <div class="text-frame-border-bottom"></div>
@@ -170,7 +170,11 @@
           </div>
 
           <!-- Parent 360 App -->
-          <div class="project-card project-app hover-border-compose">
+          <div class="project-card project-app hover-border-compose hover-subtle">
+            <div class="text-frame-border-top"></div>
+            <div class="text-frame-border-right"></div>
+            <div class="text-frame-border-bottom"></div>
+            <div class="text-frame-border-left"></div>
             <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-about.jpg');">
               <h3 class="project-title">Parent 360 App</h3>
               <p class="project-subtitle">All-in-one parenting toolkit</p>
@@ -720,7 +724,12 @@
 
 /* Project Cards Parallax Animation */
 .project-card {
-  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, scale 0.3s ease;
+  scale: 1;
+}
+
+.project-card:hover {
+  scale: 1.02;
 }
 
 .project-card.in-view {

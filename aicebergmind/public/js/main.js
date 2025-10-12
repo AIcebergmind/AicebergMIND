@@ -13,6 +13,7 @@ class AicebergMain {
     this.initSmoothScroll();
     this.initIntersectionObserver();
     this.initGlobalDropCapAnimation();
+    this.initEditorialCaptionAnimation();
   }
   
   // Scroll effects for hero logo and other elements
@@ -311,6 +312,46 @@ class ScrollProgress {
         }
       );
     });
+  }
+
+  // Editorial Caption Animation System
+  initEditorialCaptionAnimation() {
+    const initCaptions = () => {
+      const captionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const caption = entry.target;
+            
+            // Add staggered delay based on position
+            const delay = Array.from(document.querySelectorAll('.editorial-caption')).indexOf(caption) * 200;
+            
+            setTimeout(() => {
+              caption.classList.add('animate-text');
+              console.log('✨ Editorial caption animated:', caption.textContent.slice(0, 30) + '...');
+              console.log('🎯 Added animate-text class to:', caption.className);
+            }, delay);
+            
+            // Unobserve after animation
+            captionObserver.unobserve(caption);
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -20px 0px'
+      });
+
+      // Observe all editorial captions
+      const captions = document.querySelectorAll('.editorial-caption');
+      captions.forEach(caption => {
+        captionObserver.observe(caption);
+      });
+
+      console.log(`🎭 Editorial Caption Animation System initialized - Found ${captions.length} captions`);
+    };
+
+    // Initialize immediately and after a short delay to catch dynamically loaded content
+    initCaptions();
+    setTimeout(initCaptions, 500);
   }
 }
 
