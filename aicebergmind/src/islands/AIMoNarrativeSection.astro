@@ -1,0 +1,220 @@
+---
+// AIMo Narrative Role Section - Poetic Agent Philosophy
+---
+
+<section class="parallax-section editorial-section" id="aimo-narrative">
+  <div class="editorial-container">
+    <div class="editorial-content">
+        <div class="section-header">
+          <span class="editorial-symbol">💬</span>
+          <h2 class="editorial-heading">Narrative Role</h2>
+          <p class="editorial-caption parallax-text">AIMo is not a mascot, but a poetic agent</p>
+        </div>
+
+        <div class="narrative-grid">
+          <div class="narrative-card observer">
+            <div class="card-icon">👁️</div>
+            <h3 class="narrative-title">The Observer</h3>
+            <p class="narrative-description">
+              It observes rather than speaks.
+            </p>
+          </div>
+
+          <div class="narrative-card guide">
+            <div class="card-icon">🌊</div>
+            <h3 class="narrative-title">The Guide</h3>
+            <p class="narrative-description">
+              It guides the visitor through the immersive experience of the site — like a thought taking shape.
+            </p>
+          </div>
+
+          <div class="narrative-card transformer">
+            <div class="card-icon">🔮</div>
+            <h3 class="narrative-title">The Transformer</h3>
+            <p class="narrative-description">
+              At times it transforms or "deconstructs" into nodes and connections, mirroring the activity of a collective mind.
+            </p>
+          </div>
+        </div>
+
+        <div class="poetic-statement">
+          <div class="statement-content">
+            <h3 class="statement-title">A Living Philosophy</h3>
+            <p class="statement-text">
+              AIMo represents the constant dance between structure and fluidity, between the analytical precision of AI 
+              and the intuitive flow of creative consciousness. It is both the observer and the observed, 
+              the question and the methodology of inquiry.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .narrative-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .narrative-card {
+    background: linear-gradient(145deg, rgba(0, 212, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .narrative-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.6s ease;
+  }
+
+  .narrative-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 
+      0 20px 60px rgba(0, 212, 255, 0.15),
+      0 0 0 1px rgba(0, 212, 255, 0.1);
+  }
+
+  .narrative-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .observer .card-icon { filter: hue-rotate(0deg); }
+  .guide .card-icon { filter: hue-rotate(120deg); }
+  .transformer .card-icon { filter: hue-rotate(240deg); }
+
+  .narrative-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #00D4FF;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .narrative-description {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .poetic-statement {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 2px solid rgba(0, 212, 255, 0.2);
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .poetic-statement::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .statement-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .statement-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: #00D4FF;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+
+  .statement-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .narrative-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .narrative-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .poetic-statement {
+      padding: 2rem;
+    }
+
+    .statement-title {
+      font-size: 1.6rem;
+    }
+
+    .statement-text {
+      font-size: 1rem;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card-icon {
+      font-size: 2.5rem;
+    }
+
+    .narrative-title {
+      font-size: 1.3rem;
+    }
+
+    .poetic-statement {
+      padding: 1.5rem;
+    }
+  }
+</style>

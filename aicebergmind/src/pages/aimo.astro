@@ -1,0 +1,152 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HamburgerMenu from '../components/HamburgerMenu.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+// Import AIMo Islands
+import AIMoHeroSection from '../islands/AIMoHeroSection.astro';
+import AIMoIdentitySection from '../islands/AIMoIdentitySection.astro';
+import AIMoValuesSection from '../islands/AIMoValuesSection.astro';
+import AIMoReferencesSection from '../islands/AIMoReferencesSection.astro';
+import AIMoNarrativeSection from '../islands/AIMoNarrativeSection.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <BaseHead title="AIMo - Our Brand Identity | AIceberg Mind" description="Meet AIMo, the penguin mascot of AIceberg Mind. Discover our brand identity, values, and what our beloved penguin represents in our journey of conscious AI development." />
+  
+  <!-- AIMo page-specific SEO enhancements -->
+  <meta property="og:title" content="AIMo - Meet Our Brand Identity | AIceberg Mind" />
+  <meta property="og:description" content="Discover AIMo, the penguin mascot that embodies AIceberg Mind's values of curiosity, resilience, and thoughtful innovation in AI development." />
+  
+  <meta name="twitter:title" content="AIMo - Our Penguin Mascot & Brand Identity" />
+  <meta name="twitter:description" content="Meet AIMo, the heart of AIceberg Mind's brand identity. Learn about our mascot's symbolism and our approach to conscious AI development." />
+  
+  <!-- Additional structured data for AIMo page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AIMo - Brand Identity & Mascot",
+    "description": "Meet AIMo, the penguin mascot of AIceberg Mind, and discover our brand identity and values.",
+    "url": "https://aicebergmind.com/aimo",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "AIceberg Mind",
+      "url": "https://aicebergmind.com"
+    },
+    "about": {
+      "@type": "Organization",
+      "name": "AIceberg Mind",
+      "mascot": "AIMo the Penguin",
+      "description": "Brand identity centered around conscious AI development and thoughtful innovation"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <Header />
+  <HamburgerMenu />
+
+  <section class="hero hero-editorial">
+    <div class="iceberg-animation">
+      <div class="iceberg-shape iceberg-1"></div>
+      <div class="iceberg-shape iceberg-2"></div>
+      <div class="iceberg-shape iceberg-3"></div>
+      <div class="geometric-shape geo-triangle-1"></div>
+      <div class="geometric-shape geo-triangle-2"></div>
+      <div class="geometric-shape geo-circle-1"></div>
+      <div class="geometric-shape geo-circle-2"></div>
+      <div class="geometric-shape geo-line-1"></div>
+      <div class="geometric-shape geo-line-2"></div>
+      <div class="geometric-shape geo-diamond"></div>
+    </div>
+
+    <div class="hero-content-editorial">
+      <span class="hero-symbol">🧠</span>
+      <h1 class="hero-title-editorial">AIMo</h1>
+      <p class="hero-subtitle-editorial">The Penguin of AIceberg Mind</p>
+    </div>
+  </section>
+
+  <!-- AIMo Introduction -->
+  <AIMoHeroSection />
+
+  <!-- AIMo Identity Section -->
+  <AIMoIdentitySection />
+
+  <!-- AIMo Values Section -->
+  <AIMoValuesSection />
+
+  <!-- AIMo Artistic References & Symbol Section -->
+  <AIMoReferencesSection />
+
+  <!-- AIMo Narrative Role Section -->
+  <AIMoNarrativeSection />
+
+  <Footer />
+
+  <!-- Global UI Components -->
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner hidden">
+    <div class="cookie-content">
+      <div class="cookie-icon">🍪</div>
+      <div class="cookie-text">
+        <h3>Experience & Analytics</h3>
+        <p>We use cookies to enhance your experience and improve our service. By continuing, you accept our cookie use for analytics and performance optimization.</p>
+      </div>
+      <div class="cookie-actions">
+        <button id="cookie-accept" class="cookie-btn cookie-accept">Accept All</button>
+        <button id="cookie-decline" class="cookie-btn cookie-decline">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Support Sticky Button -->
+  <div id="supportStickyButton" class="support-sticky-button hidden">
+    <div class="support-progress-container">
+      <div class="support-progress-bar"></div>
+    </div>
+    <button class="support-button" type="button" onclick="window.location.href='#marketplace'">
+      <span class="support-icon">▣</span>
+      <span class="support-text">Support Us</span>
+    </button>
+  </div>
+
+  <!-- Global Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  
+  <!-- Component Scripts -->
+  <script src="/js/main.js" type="module" defer is:inline></script>
+  <script src="/js/cookie-banner.js" is:inline></script>
+  <script src="/js/components/hamburger-menu-component.js" is:inline></script>
+  <script src="/js/sticky-titles-new.js" is:inline></script>
+
+  <style>
+    .hero-symbol {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-symbol {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</body>
+</html>

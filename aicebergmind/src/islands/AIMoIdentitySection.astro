@@ -1,0 +1,162 @@
+---
+// AIMo Identity Section - Name Origin & Meaning
+---
+
+<section class="parallax-section editorial-section" id="aimo-identity">
+  <div class="editorial-container">
+    <div class="editorial-content">
+        <div class="section-header">
+          <span class="editorial-symbol">🌍</span>
+          <h2 class="editorial-heading">Identity</h2>
+          <p class="editorial-caption parallax-text">The meaning behind the name</p>
+        </div>
+
+        <div class="editorial-grid-2">
+          <div class="editorial-card">
+            <div class="card-content">
+              <h3 class="card-title">Name Origin</h3>
+              <p class="editorial-text">
+                Its name combines:
+              </p>
+              
+              <div class="name-breakdown">
+                <div class="name-part">
+                  <span class="name-component">AI</span>
+                  <span class="name-arrow">→</span>
+                  <span class="name-meaning">artificial intelligence, synthetic consciousness</span>
+                </div>
+                
+                <div class="name-part">
+                  <span class="name-component">Mo</span>
+                  <span class="name-arrow">→</span>
+                  <span class="name-meaning">a Japanese root evoking thought, intention, inner movement</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="editorial-card">
+            <div class="card-content">
+              <h3 class="card-title">Synthesis</h3>
+              <div class="synthesis-display">
+                <span class="synthesis-result">AIMo</span>
+                <p class="synthesis-description">the mind that moves and thinks</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .editorial-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .editorial-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .editorial-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 212, 255, 0.3);
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #00D4FF;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .name-breakdown {
+    margin-top: 2rem;
+  }
+
+  .name-part {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+
+  .name-component {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #00D4FF;
+    min-width: 60px;
+  }
+
+  .name-arrow {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+  }
+
+  .name-meaning {
+    flex: 1;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .synthesis-display {
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .synthesis-result {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 600;
+    color: #00D4FF;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+
+  .synthesis-description {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    .editorial-grid-2 {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .editorial-card {
+      padding: 1.5rem;
+    }
+
+    .name-part {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .name-arrow {
+      display: none;
+    }
+
+    .synthesis-result {
+      font-size: 2.5rem;
+    }
+  }
+</style>

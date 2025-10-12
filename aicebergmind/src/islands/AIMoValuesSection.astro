@@ -1,0 +1,160 @@
+---
+// AIMo Values Section - Core Values & Philosophy
+---
+
+<section class="parallax-section editorial-section" id="aimo-values">
+  <div class="editorial-container">
+    <div class="editorial-content">
+        <div class="section-header">
+          <span class="editorial-symbol">🎨</span>
+          <h2 class="editorial-heading">Values</h2>
+          <p class="editorial-caption parallax-text">AIMo embodies the core values of AIceberg Mind</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-header">
+              <h3 class="value-title">Digital Awareness</h3>
+            </div>
+            <p class="value-description">thinking before generating, understanding before creating</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-header">
+              <h3 class="value-title">Balance</h3>
+            </div>
+            <p class="value-description">like an iceberg: the visible part (creation) and the hidden part (reflection)</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-header">
+              <h3 class="value-title">Artificial Empathy</h3>
+            </div>
+            <p class="value-description">connecting technology with human sensibility</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-header">
+              <h3 class="value-title">Infinite Curiosity</h3>
+            </div>
+            <p class="value-description">exploring, observing, understanding</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-header">
+              <h3 class="value-title">Ethics of Form</h3>
+            </div>
+            <p class="value-description">every line, color, or sound arises from conscious choice</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .value-card {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 
+      0 10px 40px rgba(0, 212, 255, 0.15),
+      0 0 0 1px rgba(0, 212, 255, 0.1);
+  }
+
+  .value-card:hover::before {
+    left: 100%;
+  }
+
+  .value-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .value-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #00D4FF;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .value-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #00D4FF, transparent);
+  }
+
+  .value-description {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      padding: 1.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .values-grid {
+      gap: 1rem;
+    }
+
+    .value-card {
+      padding: 1.2rem;
+    }
+
+    .value-title {
+      font-size: 1.1rem;
+    }
+  }
+</style>
