@@ -161,7 +161,7 @@
   
   /* Interactive elements touch-friendly */
   .btn-editorial,
-  .project-btn,
+  .btn-explore,
   .cookie-btn {
     min-height: 48px !important;
     padding: 0.8rem 1.5rem !important;
@@ -212,7 +212,7 @@
   
   /* Better focus visibility */
   .btn-editorial:focus-visible,
-  .project-btn:focus-visible {
+  .btn-explore:focus-visible {
     outline: 3px solid var(--brand-cyan) !important;
     outline-offset: 4px !important;
   }

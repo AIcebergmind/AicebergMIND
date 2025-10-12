@@ -53,25 +53,23 @@
           <span class="title-emphasis">Humans</span>
         </h2>
         <p class="section-description parallax-text">
-          Through <strong>playful education</strong> and science-crafted AI. 
-          We explore what lies beneath the <strong>surface of thinking</strong>.
+          Through <strong class="accent-word">playful education</strong> and <strong class="accent-word">science-crafted</strong> AI. 
+          We explore what lies <strong class="accent-word">beneath</strong> the <strong class="highlight-word">surface</strong> of <strong class="accent-word">thinking</strong>.
         </p>
       </header>
       
       <div class="cta-container parallax-text">
-        <div class="cta-card">
-          <div class="card-glow"></div>
-          <div class="card-content">
-            <p class="cta-question">
-              What lies beneath the surface of <strong>your thinking</strong>?
-            </p>
-            <a href="#about" class="cta-button hover-border-compose">
-              <span class="button-text">JOIN US</span>
-              <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path d="M5 12h14"/>
-                <path d="M12 5l7 7-7 7"/>
-              </svg>
-            </a>
+        <div class="text-frame hover-border-compose hover-subtle">
+          <div class="text-frame-border-top"></div>
+          <div class="text-frame-border-right"></div>
+          <div class="text-frame-border-bottom"></div>
+          <div class="text-frame-border-left"></div>
+          
+          <p class="editorial-body" style="text-align: center; margin-bottom: 1.5rem;">
+            What lies beneath the <span class="highlight-word">surface</span> of <strong class="accent-word">your thinking</strong>?
+          </p>
+          <div style="display: flex; justify-content: center;">
+            <a href="#about" class="btn-explore" style="color: white; text-decoration: none;">JOIN US →</a>
           </div>
         </div>
       </div>
@@ -238,88 +236,14 @@
 }
 
 /* ===== CTA CONTAINER ===== */
+/* CTA Container - usando sistema text-frame globale */
 .cta-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.cta-card {
-  position: relative;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 16px;
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.6s var(--transition-smooth);
-  overflow: hidden;
-}
-
-.cta-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
-}
-
-.card-glow {
-  position: absolute;
-  inset: -1px;
-  background: linear-gradient(135deg, var(--glow-primary), var(--glow-secondary));
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  z-index: -1;
-}
-
-.cta-card:hover .card-glow {
-  opacity: 0.3;
-}
-
-.card-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-  text-align: center;
-}
-
-.cta-question {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-secondary, #ccc);
-  margin: 0;
-  max-width: 35ch;
-}
-
-/* ===== CTA BUTTON ===== */
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  background: transparent;
-  border: 2px solid rgba(0, 212, 255, 0.3);
-  border-radius: 8px;
-  color: rgba(0, 212, 255, 0.9);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: var(--hover-transition-smooth, all 0.3s ease);
-  /* Allow unified hover system to work */
-}
-
-/* CTA Button - Let unified hover system handle everything */
-
-.button-arrow {
-  width: 1rem;
-  height: 1rem;
-  /* Arrow movement handled by unified hover system */
-}
+/* Button styling ora gestito dal sistema btn-editorial globale */
 
 /* ===== PARALLAX EFFECTS ===== */
 .parallax-text {
@@ -383,31 +307,18 @@
     height: 1rem;
   }
   
-  .cta-card {
-    padding: 1.5rem;
-  }
+
 }
 
 @media (max-width: 480px) {
   .section-title {
     font-size: clamp(2rem, 8vw, 2.5rem);
   }
-  
-  .cta-card {
-    padding: 1.25rem;
-  }
-  
-  .cta-button {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.8rem;
-  }
 }
 
 /* ===== ACCESSIBILITY ===== */
 @media (prefers-reduced-motion: reduce) {
   .parallax-text,
-  .cta-card,
-  .cta-button,
   .control-button {
     animation: none;
     transform: none !important;
@@ -418,8 +329,7 @@
 
 /* ===== PERFORMANCE OPTIMIZATIONS ===== */
 .video-backdrop,
-.subhero-content,
-.cta-card {
+.subhero-content {
   will-change: transform;
   backface-visibility: hidden;
 }

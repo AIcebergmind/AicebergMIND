@@ -3,12 +3,18 @@
 ---
 
 <section class="parallax-section editorial-section" id="team">
+  <!-- Sticky Section Title (Desktop only) -->
+  <div class="section-title-sticky" data-section="team">
+    <div class="section-number-sticky">◈</div>
+    <div class="section-title-text">Who We Are</div>
+  </div>
+  
     <!-- MOBILE BLUR OVERLAY (solo dopo la subsection) -->
 <div class="mobile-blur-overlay"></div>
   <div class="editorial-container">
     <div class="editorial-content">
       <div class="section-header-editorial">
-        <div class="section-number parallax-text">※</div>
+        <div class="section-number parallax-text">◈</div>
         <h2 class="editorial-heading parallax-text">Who We <br>Are</h2>
         <p class="editorial-caption parallax-text">We are not what you expect. And that's exactly why we built this.</p>
       </div>
@@ -18,38 +24,47 @@
           <h3 class="content-block-title">Origins</h3>
           <span class="content-block-meta">Team</span>
         </div>
-        <p class="editorial-body"><span class="drop-cap">W</span>e come from elsewhere. From <strong>archaeological digs</strong>, Alpine hotels, <strong>brief therapies</strong>, and unexpected turns. From the worlds of <strong>motherhood</strong>, tourism, fashion, <strong>subconscious rewiring</strong>, and quiet revolutions.</p>
+        <p class="editorial-body"><span class="drop-cap">W</span>e come from <strong class="accent-word">elsewhere</strong>. From <strong class="accent-word">archaeological digs</strong>, Alpine hotels, <strong class="accent-word">brief therapies</strong>, and <strong class="accent-word">unexpected turns</strong>. From the worlds of <strong class="accent-word">motherhood</strong>, tourism, fashion, <strong class="accent-word">subconscious rewiring</strong>, and <strong class="accent-word">quiet revolutions</strong>.</p>
         
-        <p class="editorial-body">We are <strong>French and Italian</strong>, shaped by migrations, intuitions, and everything that doesn't fit in a LinkedIn profile.</p>
+        <p class="editorial-body">We are <strong>French and Italian</strong>, shaped by <strong class="accent-word">migrations</strong>, <strong class="accent-word">intuitions</strong>, and everything that doesn't fit in a <strong class="highlight-word">LinkedIn profile</strong>.</p>
       </div>
 
       <div class="content-block parallax-text">
-        <p class="pullquote">What makes us different is not what we do, <br>but how we think: we create from the <strong>bottom of the iceberg</strong>, not the tip.</p>
+        <p class="pullquote">What makes us different is not what we do, <br>but how we think: we create from the <strong class="accent-word">bottom of the iceberg</strong>, not the <strong class="highlight-word">tip</strong>.</p>
       </div>
 
-      <div class="content-block parallax-text hover-border-compose hover-subtle">
+      <div class="content-block parallax-text">
         <div class="content-block-header">
           <h3 class="content-block-title">Experience</h3>
           <span class="content-block-meta">Background</span>
         </div>
-        <p class="editorial-body"><span class="drop-cap">W</span>e've taught at universities, welcomed guests at high altitudes, guided travelers, accompanied births — and yet we converge on the same question:</p>
+        <p class="editorial-body"><span class="drop-cap">W</span>e've taught at universities, welcomed guests at high altitudes, guided travelers, accompanied births — and yet we converge on the same <strong class="accent-word">question</strong>:</p>
         
-        <p class="pullquote"><em>How do you grow a <strong>mind</strong> in a world <br> that changes faster than we can name it?</em></p>
+        <p class="pullquote"><em>How do you grow a <strong class="accent-word">mind</strong> in a world <br> that changes <strong class="highlight-word">faster than we can name it</strong>?</em></p>
       </div>
 
       <div class="content-block parallax-text">
-        <p class="editorial-body">None of us is a developer or a psychologist. And yet, we build <strong>tools for the future</strong> — because <strong>tools are languages</strong>. And we speak many.</p>
+        <p class="editorial-body">None of us is a <strong class="highlight-word">developer</strong> or a <strong class="highlight-word">psychologist</strong>. And yet, we build <strong class="accent-word">tools for the future</strong> — because <strong class="accent-word">tools are languages</strong>. And we speak many.</p>
         
-        <p class="editorial-body">Together, we form a team that believes intelligence isn't always loud, that meaning and real power often lie beneath, and that <strong>play can be the highest form of seriousness</strong>.</p>
+        <p class="editorial-body">Together, we form a team that believes intelligence isn't always <strong class="highlight-word">loud</strong>, that meaning and real power often lie <strong class="accent-word">beneath</strong>, and that <strong class="accent-word">play can be the highest form of seriousness</strong>.</p>
       </div>
 
   <div class="content-block parallax-text">
-      <h3 class="content-block-title text-compose no-transforms team-manifesto-line" style="animation-delay: 0.2s;">We build with <strong>questions</strong>.</h3>
-      <br>
-      <h3 class="content-block-title text-compose no-transforms team-manifesto-line" style="animation-delay: 0.6s;">We research with <strong>wonder</strong>.</h3>
-      <br>
-      <h3 class="content-block-title text-compose no-transforms team-manifesto-line" style="animation-delay: 1.0s;">We <strong>learn</strong> as we go.</h3>
+    <div class="text-frame hover-border-compose hover-subtle">
+      <div class="text-frame-border-top"></div>
+      <div class="text-frame-border-right"></div>
+      <div class="text-frame-border-bottom"></div>
+      <div class="text-frame-border-left"></div>
+      
+      <div class="manifesto-content">
+        <h3 class="content-block-title text-compose no-transforms team-manifesto-line" style="animation-delay: 0.2s;">We build with <strong class="philosophy-word">questions</strong>.</h3>
+        <br>
+        <h3 class="content-block-title text-compose no-transforms team-manifesto-line" style="animation-delay: 0.6s;">We research with <strong class="essence-word essence-glow">wonder</strong>.</h3>
+        <br>
+        <h3 class="content-block-title text-compose no-transforms team-manifesto-line" style="animation-delay: 1.0s;">We <strong class="philosophy-word">learn</strong> as we go.</h3>
+      </div>
     </div>
+  </div>
 </div>
 </div>
 </section>
@@ -142,14 +157,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Removed: Using unified hover system instead */
 
-#team .pullquote::before {
-  content: '"';
-  font-size: 4rem;
-  position: absolute;
-  left: -2rem;
-  top: -1rem;
-  opacity: 0.3;
-  font-family: serif;
+/* Removed local pullquote override - using global unified system from design-tokens.css */
+
+/* Manifesto content styling - padding managed by global .text-frame */
+.manifesto-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.manifesto-content br {
+  display: block;
+  margin: 1.5rem 0;
 }
 
 /* Team section content blocks enhanced spacing */

@@ -67,7 +67,7 @@
   line-height: 0.85;
   letter-spacing: -0.05em;
   color: var(--text-primary);
-  margin: 1.5rem 0 1rem 0;
+  margin: -2.5rem 0 1rem 0;
   text-transform: uppercase;
   position: relative;
 }
@@ -102,19 +102,21 @@
    4) HERO LOGO
    ======================= */
 .hero-logo-scroll {
-  width: clamp(150px, 25vw, 250px);
+  width: clamp(200px, 35vw, 350px);
   height: auto;
+  margin-top: clamp(60px, 8vh, 120px);
   margin-bottom: 1rem;
   opacity: 0;
   transform: translateY(20px) scale(0.9);
   animation: logoAppear 1s ease-out 0.3s forwards, logoCinematic 8s ease-in-out;
-  filter: drop-shadow(0 10px 30px rgba(0, 212, 255, 0.2));
+  filter: drop-shadow(0 15px 40px rgba(0, 212, 255, 0.4)) brightness(1.2) contrast(1.1);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  mix-blend-mode: screen;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  mix-blend-mode: normal;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
   border-radius: 50%;
-  padding: 20px;
+  padding: 25px;
+  backdrop-filter: blur(2px);
 }
 
 .hero-logo-scroll::before {
@@ -150,8 +152,8 @@
 }
 
 .hero-logo-scroll:hover {
-  transform: translateY(-5px) scale(1.02);
-  filter: drop-shadow(0 15px 40px rgba(0, 212, 255, 0.3));
+  transform: translateY(-8px) scale(1.05);
+  filter: drop-shadow(0 20px 50px rgba(0, 212, 255, 0.5)) brightness(1.3) contrast(1.2);
 }
 
 /* =======================
@@ -239,10 +241,17 @@
   from {
     opacity: 0;
     transform: translateY(20px) scale(0.9);
+    filter: brightness(0.8) contrast(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-5px) scale(1.02);
+    filter: brightness(1.3) contrast(1.2);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+    filter: brightness(1.2) contrast(1.1);
   }
 }
 
@@ -318,7 +327,7 @@
   
   .hero-title-editorial {
     font-size: clamp(3.5rem, 14vw, 6rem);
-    margin: 1rem 0 0.8rem 0;
+    margin: -3rem 0 0.8rem 0;
   }
   
   .hero-subtitle-editorial {
@@ -327,7 +336,10 @@
   }
   
   .hero-logo-scroll {
-    width: clamp(100px, 18vw, 150px);
+    width: clamp(280px, 50vw, 400px);
+    margin-top: clamp(80px, 12vh, 140px);
+    filter: drop-shadow(0 10px 30px rgba(0, 212, 255, 0.5)) brightness(1.3) contrast(1.2);
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
   }
   
   .horizon-line {
@@ -926,5 +938,264 @@
   100% { 
     transform: rotate(405deg) scale(1);
     opacity: 0.06;
+  }
+}
+
+/* =======================
+   LETTER EXPLOSION ANIMATION
+   ======================= */
+.letter-explosion .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(
+    calc(var(--random-x, 0) * 200px), 
+    calc(var(--random-y, 0) * 200px), 
+    calc(var(--random-z, 0) * 100px)
+  ) 
+  rotate3d(1, 1, 1, calc(var(--random-rotation, 0) * 720deg)) 
+  scale3d(0.1, 0.1, 0.1);
+  animation: letterExplode 3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation-delay: calc(var(--delay, 0) * 0.1s + 1s);
+  will-change: transform, opacity, color, font-weight;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.letter-explosion .letter:nth-child(1) { --random-x: -2; --random-y: -1.5; --random-z: 0.8; --random-rotation: 2.2; }
+.letter-explosion .letter:nth-child(2) { --random-x: 1.8; --random-y: -2.1; --random-z: -0.5; --random-rotation: -1.8; }
+.letter-explosion .letter:nth-child(3) { --random-x: -1.2; --random-y: 2.3; --random-z: 1.2; --random-rotation: 3.1; }
+.letter-explosion .letter:nth-child(4) { --random-x: 2.5; --random-y: 1.1; --random-z: -0.8; --random-rotation: -2.5; }
+.letter-explosion .letter:nth-child(5) { --random-x: -3.1; --random-y: -0.8; --random-z: 0.6; --random-rotation: 1.9; }
+.letter-explosion .letter:nth-child(6) { --random-x: 1.4; --random-y: 2.8; --random-z: -1.1; --random-rotation: -3.2; }
+.letter-explosion .letter:nth-child(7) { --random-x: -0.9; --random-y: -2.6; --random-z: 0.9; --random-rotation: 2.7; }
+.letter-explosion .letter:nth-child(8) { --random-x: 2.8; --random-y: 0.4; --random-z: -0.3; --random-rotation: -1.6; }
+.letter-explosion .letter:nth-child(9) { --random-x: -2.3; --random-y: 1.9; --random-z: 1.4; --random-rotation: 3.4; }
+.letter-explosion .letter:nth-child(10) { --random-x: 1.1; --random-y: -1.3; --random-z: -0.7; --random-rotation: -2.1; }
+.letter-explosion .letter:nth-child(11) { --random-x: 0.7; --random-y: 2.2; --random-z: 0.5; --random-rotation: 1.7; }
+.letter-explosion .letter:nth-child(12) { --random-x: -1.6; --random-y: -0.5; --random-z: -1.3; --random-rotation: -2.9; }
+
+@keyframes letterExplode {
+  0% {
+    opacity: 0;
+    transform: translate3d(
+      calc(var(--random-x, 0) * 200px), 
+      calc(var(--random-y, 0) * 200px), 
+      calc(var(--random-z, 0) * 100px)
+    ) 
+    rotate3d(1, 1, 1, calc(var(--random-rotation, 0) * 720deg)) 
+    scale3d(0.1, 0.1, 0.1);
+    filter: blur(3px) brightness(1.4);
+  }
+  
+  15% {
+    opacity: 0.4;
+    transform: translate3d(
+      calc(var(--random-x, 0) * 120px), 
+      calc(var(--random-y, 0) * 120px), 
+      calc(var(--random-z, 0) * 60px)
+    ) 
+    rotate3d(1, 1, 1, calc(var(--random-rotation, 0) * 540deg)) 
+    scale3d(0.3, 0.3, 0.3);
+    filter: blur(2px) brightness(1.3);
+  }
+  
+  30% {
+    opacity: 0.8;
+    transform: translate3d(
+      calc(var(--random-x, 0) * 80px), 
+      calc(var(--random-y, 0) * 80px), 
+      calc(var(--random-z, 0) * 40px)
+    ) 
+    rotate3d(1, 1, 1, calc(var(--random-rotation, 0) * 360deg)) 
+    scale3d(0.75, 0.75, 0.75);
+    filter: blur(1px) brightness(1.15);
+  }
+  
+  50% {
+    opacity: 0.95;
+    transform: translate3d(
+      calc(var(--random-x, 0) * 40px), 
+      calc(var(--random-y, 0) * 40px), 
+      calc(var(--random-z, 0) * 20px)
+    ) 
+    rotate3d(1, 1, 1, calc(var(--random-rotation, 0) * 270deg)) 
+    scale3d(1.1, 1.1, 1.1);
+    filter: blur(0.5px) brightness(1.1);
+  }
+  
+  75% {
+    opacity: 1;
+    transform: translate3d(
+      calc(var(--random-x, 0) * 10px), 
+      calc(var(--random-y, 0) * 10px), 
+      calc(var(--random-z, 0) * 5px)
+    ) 
+    rotate3d(1, 1, 1, calc(var(--random-rotation, 0) * 90deg)) 
+    scale3d(1.08, 1.08, 1.08);
+    filter: blur(0px) brightness(1.05);
+  }
+  
+  90% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) 
+    rotate3d(1, 1, 1, calc(var(--random-rotation, 0) * 15deg)) 
+    scale3d(1.03, 1.03, 1.03);
+    filter: none;
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) 
+    rotate3d(0, 0, 0, 0deg) 
+    scale3d(1, 1, 1);
+    filter: none;
+  }
+}
+
+/* =======================
+   AI LETTERS ACCENT EFFECT
+   ======================= */
+.letter-explosion .ai-letter.activated {
+  font-weight: 900 !important;
+  color: var(--brand-cyan) !important;
+  text-shadow: 
+    0 0 20px var(--brand-cyan),
+    0 0 40px rgba(0, 212, 255, 0.5),
+    0 0 60px rgba(0, 212, 255, 0.3) !important;
+  filter: brightness(1.2) saturate(1.3) !important;
+  transform: scale(1.15) translateZ(15px) !important;
+  animation: letterExplode 3s cubic-bezier(0.23, 1, 0.32, 1) forwards, aiZoomPulse 3s ease-in-out 4.5s infinite !important;
+  opacity: 1 !important;
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+}
+
+@keyframes aiZoomPulse {
+  0%, 100% {
+    transform: scale(1.15) translateZ(15px) rotateY(0deg);
+    text-shadow: 
+      0 0 20px var(--brand-cyan),
+      0 0 40px rgba(0, 212, 255, 0.5),
+      0 0 60px rgba(0, 212, 255, 0.3);
+    filter: brightness(1.2) saturate(1.3);
+  }
+  25% {
+    transform: scale(1.25) translateZ(20px) rotateY(5deg);
+    text-shadow: 
+      0 0 30px var(--brand-cyan),
+      0 0 60px rgba(0, 212, 255, 0.7),
+      0 0 90px rgba(0, 212, 255, 0.5);
+    filter: brightness(1.4) saturate(1.5);
+  }
+  50% {
+    transform: scale(1.3) translateZ(25px) rotateY(0deg);
+    text-shadow: 
+      0 0 40px var(--brand-cyan),
+      0 0 80px rgba(0, 212, 255, 0.8),
+      0 0 120px rgba(0, 212, 255, 0.6);
+    filter: brightness(1.6) saturate(1.7);
+  }
+  75% {
+    transform: scale(1.25) translateZ(20px) rotateY(-5deg);
+    text-shadow: 
+      0 0 30px var(--brand-cyan),
+      0 0 60px rgba(0, 212, 255, 0.7),
+      0 0 90px rgba(0, 212, 255, 0.5);
+    filter: brightness(1.4) saturate(1.5);
+  }
+}
+
+/* =======================
+   SUBTITLE REVEAL ANIMATION
+   ======================= */
+.subtitle-reveal .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) rotateX(-20deg);
+  animation: wordReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(var(--delay, 0) * 0.15s + 5.5s);
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+}
+
+.subtitle-reveal .highlight-word {
+  position: relative;
+  font-weight: 600;
+}
+
+.subtitle-reveal .accent-word {
+  color: var(--brand-cyan);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.subtitle-reveal .punctuation {
+  display: inline-block;
+  opacity: 0;
+  animation: punctuationPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  animation-delay: 6.4s;
+}
+
+@keyframes wordReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) rotateX(-20deg) scale(0.8);
+    filter: blur(2px);
+  }
+  40% {
+    opacity: 0.7;
+    transform: translateY(-5px) rotateX(5deg) scale(1.05);
+    filter: blur(0.5px);
+  }
+  70% {
+    opacity: 0.9;
+    transform: translateY(2px) rotateX(-2deg) scale(1.02);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) scale(1);
+    filter: none;
+  }
+}
+
+@keyframes punctuationPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-180deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.3) rotate(20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Effetto typewriter per "feature" */
+.subtitle-reveal .highlight-word::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-cyan), var(--brand-mint));
+  animation: underlineGrow 0.6s ease-out forwards;
+  animation-delay: 6.2s;
+}
+
+@keyframes underlineGrow {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.6), 0 0 30px rgba(0, 212, 255, 0.4);
   }
 }

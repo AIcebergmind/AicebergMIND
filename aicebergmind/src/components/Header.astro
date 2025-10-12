@@ -5,9 +5,21 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<div class="logo-container">
+			<div class="logo-display" id="logoDisplay">
+				<a href="/">
+					<img src="/logo/AIceberg_mind_logo_color.svg" alt="AIceberg Mind" class="header-logo" />
+				</a>
+			</div>
+			<div class="title-display" id="titleDisplay" style="display: none;">
+				<a href="/">
+					<div class="title-line-1">AIceberg Mind</div>
+					<div class="title-line-2">AI Tools for Deep Thinking & Discovery</div>
+				</a>
+			</div>
+		</div>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="#about">About</HeaderLink>
 			<HeaderLink href="#projects">Projects</HeaderLink>
 			<HeaderLink href="#team">Team</HeaderLink>
 			<HeaderLink href="#pillars">Core Pillars</HeaderLink>
@@ -91,6 +103,25 @@ import HeaderLink from './HeaderLink.astro';
 		if (header && window.innerWidth > 768) {
 			header.style.transform = 'translateY(0)';
 		}
+		
+		// Logo/Title hover functionality
+		const logoContainer = document.querySelector('.logo-container');
+		const logoDisplay = document.getElementById('logoDisplay');
+		const titleDisplay = document.getElementById('titleDisplay');
+		
+		if (logoContainer && logoDisplay && titleDisplay) {
+			logoContainer.addEventListener('mouseenter', () => {
+				// Show title on hover
+				logoDisplay.style.display = 'none';
+				titleDisplay.style.display = 'block';
+			});
+			
+			logoContainer.addEventListener('mouseleave', () => {
+				// Show logo when not hovering
+				logoDisplay.style.display = 'block';
+				titleDisplay.style.display = 'none';
+			});
+		}
 	});
 </script>
 <style>
@@ -112,32 +143,74 @@ import HeaderLink from './HeaderLink.astro';
 		/* Ensure no layout influence */
 		box-sizing: border-box;
 	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
+	.logo-container {
+		cursor: pointer;
+		transition: all 0.3s ease;
+		position: relative;
 	}
-
-	h2 a,
-	h2 a.active {
+	
+	.logo-display,
+	.title-display {
+		transition: opacity 0.3s ease, transform 0.3s ease;
+	}
+	
+	.header-logo {
+		height: 40px;
+		width: auto;
+		transition: all 0.3s ease;
+		filter: brightness(0) invert(1);
+		/* Forza il logo a essere bianco */
+	}
+	
+	.title-display a {
 		text-decoration: none;
+		transition: all 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+	}
+	
+	.title-line-1 {
 		color: rgba(255, 255, 255, 0.95);
-		font-weight: 300;
-		font-size: 1.1rem;
+		font-weight: 500;
+		font-size: 1.2rem;
 		letter-spacing: 0.02em;
 	}
+	
+	.title-line-2 {
+		color: rgba(255, 255, 255, 0.75);
+		font-weight: 300;
+		font-size: 0.85rem;
+		letter-spacing: 0.01em;
+	}
+	
+	.title-display a:hover .title-line-1 {
+		color: rgba(0, 212, 255, 0.9);
+	}
+	
+	.title-display a:hover .title-line-2 {
+		color: rgba(0, 212, 255, 0.7);
+	}
 	nav {
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
 		align-items: center;
-		justify-content: space-between;
+		width: 100%;
+	}
+	
+	.logo-container {
+		justify-self: start;
 	}
 	
 	.internal-links {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
+		justify-self: center;
+	}
+	
+	.social-links {
+		justify-self: end;
 	}
 	
 	nav a {

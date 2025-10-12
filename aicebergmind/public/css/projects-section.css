@@ -267,43 +267,8 @@
 }
 
 /* =======================
-   7) PROJECT BUTTONS
+   7) PROJECT BUTTONS - Now using global .btn-explore
    ======================= */
-.project-btn {
-  width: 100%;
-  padding: 0.75rem 1.5rem;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.project-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
-  transition: left 0.4s ease;
-  z-index: -1;
-}
-
-.project-btn:hover {
-  color: #000;
-  border-color: var(--brand-cyan);
-}
-
-.project-btn:hover::before {
-  left: 0;
-}
 
 /* =======================
    8) MOBILE ACCORDION
@@ -456,6 +421,14 @@
     padding: 2rem;
     max-width: 100%;
     margin: 0 auto;
+    /* Match the horizontal-scroll-wrapper container margins */
+  }
+  
+  /* Ensure grid and stack views have same lateral spacing */
+  .projects-grid-view,
+  .projects-stack-view {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
@@ -586,8 +559,7 @@
 
 /* Focus states */
 .project-card:focus-visible,
-.accordion-header:focus-visible,
-.project-btn:focus-visible {
+.accordion-header:focus-visible {
   outline: 2px solid var(--brand-cyan);
   outline-offset: 3px;
 }
