@@ -381,6 +381,16 @@
   display: flex;
   gap: 3rem;
   width: max-content;
+  animation: channelsScroll 25s linear infinite;
+}
+
+@keyframes channelsScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .channel-logo {
@@ -492,6 +502,7 @@
   
   .channels-track {
     gap: 2rem;
+    animation-duration: 15s; /* Più veloce su mobile */
   }
   
   .channel-logo {
