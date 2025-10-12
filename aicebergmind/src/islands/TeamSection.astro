@@ -1,0 +1,163 @@
+---
+// TeamSection.astro - Team Island with parallax effects and team presentation
+---
+
+<section class="parallax-section editorial-section" id="team">
+    <!-- MOBILE BLUR OVERLAY (solo dopo la subsection) -->
+<div class="mobile-blur-overlay"></div>
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="section-header-editorial">
+        <div class="section-number parallax-text">※</div>
+        <h2 class="editorial-heading parallax-text">Who We <br>Are</h2>
+        <p class="editorial-caption parallax-text">We are not what you expect. And that's exactly why we built this.</p>
+      </div>
+
+      <div class="content-block parallax-text">
+        <div class="content-block-header">
+          <h3 class="content-block-title">Origins</h3>
+          <span class="content-block-meta">Team</span>
+        </div>
+        <p class="editorial-body"><span class="drop-cap">W</span>e come from elsewhere. From <strong>archaeological digs</strong>, Alpine hotels, <strong>brief therapies</strong>, and unexpected turns. From the worlds of <strong>motherhood</strong>, tourism, fashion, <strong>subconscious rewiring</strong>, and quiet revolutions.</p>
+        
+        <p class="editorial-body">We are <strong>French and Italian</strong>, shaped by migrations, intuitions, and everything that doesn't fit in a LinkedIn profile.</p>
+      </div>
+
+      <div class="content-block parallax-text">
+        <p class="pullquote">What makes us different is not what we do, <br>but how we think: we create from the <strong>bottom of the iceberg</strong>, not the tip.</p>
+      </div>
+
+      <div class="content-block parallax-text hover-border-compose hover-subtle">
+        <div class="content-block-header">
+          <h3 class="content-block-title">Experience</h3>
+          <span class="content-block-meta">Background</span>
+        </div>
+        <p class="editorial-body"><span class="drop-cap">W</span>e've taught at universities, welcomed guests at high altitudes, guided travelers, accompanied births — and yet we converge on the same question:</p>
+        
+        <p class="pullquote"><em>How do you grow a <strong>mind</strong> in a world <br> that changes faster than we can name it?</em></p>
+      </div>
+
+      <div class="content-block parallax-text">
+        <p class="editorial-body">None of us is a developer or a psychologist. And yet, we build <strong>tools for the future</strong> — because <strong>tools are languages</strong>. And we speak many.</p>
+        
+        <p class="editorial-body">Together, we form a team that believes intelligence isn't always loud, that meaning and real power often lie beneath, and that <strong>play can be the highest form of seriousness</strong>.</p>
+      </div>
+
+  <div class="content-block parallax-text">
+      <h3 class="content-block-title text-compose no-transforms team-manifesto-line" style="animation-delay: 0.2s;">We build with <strong>questions</strong>.</h3>
+      <br>
+      <h3 class="content-block-title text-compose no-transforms team-manifesto-line" style="animation-delay: 0.6s;">We research with <strong>wonder</strong>.</h3>
+      <br>
+      <h3 class="content-block-title text-compose no-transforms team-manifesto-line" style="animation-delay: 1.0s;">We <strong>learn</strong> as we go.</h3>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- Team Island JavaScript -->
+<script>
+// Team manifesto lines animation on scroll
+document.addEventListener('DOMContentLoaded', function() {
+  const manifestoLines = document.querySelectorAll('.team-manifesto-line');
+  
+  // Intersection Observer for manifesto lines animation
+  const manifestoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        
+        // Add stagger delay based on order
+        const delay = parseFloat(entry.target.style.animationDelay) || 0;
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, delay * 1000);
+      }
+    });
+  }, {
+    threshold: 0.3,
+    rootMargin: '-50px'
+  });
+  
+  // Observe all manifesto lines
+  manifestoLines.forEach((line) => {
+    // Set initial state
+    line.style.opacity = '0';
+    line.style.transform = 'translateY(20px)';
+    line.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+    
+    manifestoObserver.observe(line);
+  });
+  
+  // Enhanced text reveal animation for drop caps
+  const dropCaps = document.querySelectorAll('#team .drop-cap');
+  dropCaps.forEach((cap) => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'dropCapReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    observer.observe(cap);
+  });
+  
+  console.log('✅ Team Island JavaScript loaded successfully');
+});
+</script>
+
+<style>
+/* Team section specific animations */
+.team-manifesto-line {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-manifesto-line.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Drop cap animation */
+@keyframes dropCapReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Enhanced pullquote styling for team section */
+#team .pullquote {
+  position: relative;
+  font-style: italic;
+  transition: all 0.6s ease;
+}
+
+/* Removed: Using unified hover system instead */
+
+#team .pullquote::before {
+  content: '"';
+  font-size: 4rem;
+  position: absolute;
+  left: -2rem;
+  top: -1rem;
+  opacity: 0.3;
+  font-family: serif;
+}
+
+/* Team section content blocks enhanced spacing */
+#team .content-block {
+  margin-bottom: 3rem;
+}
+
+#team .content-block:last-child {
+  margin-bottom: 0;
+}
+</style>

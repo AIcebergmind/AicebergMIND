@@ -12,6 +12,7 @@ class AicebergMain {
     this.initTextCollapseToggle();
     this.initSmoothScroll();
     this.initIntersectionObserver();
+    this.initGlobalDropCapAnimation();
   }
   
   // Scroll effects for hero logo and other elements
@@ -230,6 +231,86 @@ class ScrollProgress {
     };
     
     window.addEventListener('scroll', updateProgress, { passive: true });
+  }
+
+  // Global animation system - unified for parallax and drop-cap
+  initGlobalDropCapAnimation() {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Use GSAP ScrollTrigger for unified animations across the entire site
+    console.log('Initializing GSAP ScrollTrigger animations...');
+    
+    // Parallax Text Animation
+    gsap.utils.toArray('.parallax-text').forEach((element) => {
+      gsap.fromTo(element, 
+        {
+          opacity: 0,
+          y: 30
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    // Drop Cap Animation - GSAP version
+    gsap.utils.toArray('.drop-cap').forEach((element) => {
+      gsap.fromTo(element,
+        {
+          opacity: 0,
+          scale: 0.8,
+          rotation: -5
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 1.2,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+      console.log('GSAP Drop-cap animation applied to:', element);
+    });
+
+    // Parallax Image Animation
+    gsap.utils.toArray('.parallax-image').forEach((element) => {
+      gsap.fromTo(element,
+        {
+          opacity: 0,
+          scale: 0.95,
+          y: 20
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
   }
 }
 

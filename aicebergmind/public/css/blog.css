@@ -1120,15 +1120,7 @@ section {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.drop-cap {
-  float: left;
-  font-size: 2.5rem;
-  line-height: 3rem;
-  margin-right: var(--spacing-xs);
-  margin-top: 0.2rem;
-  color: #00D4FF;
-  font-weight: 100;
-}
+/* Drop-cap styles moved to global system in design-tokens.css */
 
 .content-block {
   margin-bottom: 3rem;

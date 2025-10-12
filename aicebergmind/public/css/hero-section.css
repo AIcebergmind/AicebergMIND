@@ -15,6 +15,11 @@
   justify-content: center;
   overflow: hidden;
   background: var(--bg-primary);
+  /* Ensure no top spacing */
+  margin-top: 0;
+  padding-top: 0;
+  /* Make it stick to top */
+  top: 0;
 }
 
 .hero-editorial {

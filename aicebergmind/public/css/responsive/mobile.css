@@ -32,9 +32,7 @@
     gap: var(--spacing-xs);
   }
 
-  .drop-cap {
-    font-size: 3rem;
-  }
+  /* Drop-cap styles moved to global design-tokens.css with responsive sizing */
 
   .flex-2col {
     grid-template-columns: 1fr;
@@ -221,9 +219,10 @@
   
   /* Improved readability */
   .pullquote {
-    font-size: clamp(1.2rem, 4vw, 1.5rem) !important;
-    padding: 1.5rem 0 !important;
-    margin: 2rem 0 !important;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    padding: 1.5rem 2rem;
+    margin: 2rem auto;
+    text-align: center;
   }
 }
 

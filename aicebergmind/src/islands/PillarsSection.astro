@@ -1,0 +1,303 @@
+---
+// PillarsSection.astro - Pillars Island with Interactive Cards
+---
+
+<!-- CORE PILLARS Section -->
+<section class="parallax-section editorial-section" id="pillars">
+  <!-- MOBILE BLUR OVERLAY -->
+  <div class="mobile-blur-overlay"></div>
+  
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="section-header-editorial">
+        <div class="section-number parallax-text">◇</div>
+        <h2 class="editorial-heading parallax-text">Core Pillars</h2>
+        <p class="editorial-caption parallax-text">The <strong>digital foundations</strong> of Aiceberg Mind philosophy</p>
+      </div>
+
+      <div class="content-block">
+        <!-- Greek Temple Roof -->
+        <div class="greek-roof parallax-text">
+          <div class="roof-triangle"></div>
+        </div>
+        
+        <div class="pillars-cards-grid parallax-text">
+          <div class="pillar-card sobriety hover-simple-card" tabindex="0">
+            <div class="pillar-card-header">
+              <h4 class="pillar-card-title">SOBRIETY</h4>
+              <svg class="pillar-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"/>
+                <circle cx="12" cy="12" r="8"/>
+                <path d="M12 2v4"/>
+                <path d="M12 18v4"/>
+                <path d="M2 12h4"/>
+                <path d="M18 12h4"/>
+              </svg>
+            </div>
+            <div class="pillar-card-content">
+              <p class="pillar-card-description">Digital minimalism and <strong>essential technology</strong>: we create only what adds genuine value.</p>
+              <div class="pillar-card-meta">Digital Sobriety</div>
+            </div>
+            <div class="pillar-card-expanded">
+              <div class="pillar-card-details">
+                <p><strong>Less is More:</strong> We prioritize functionality over features, focusing on core needs rather than digital excess.</p>
+                <p><strong>Conscious Design:</strong> Every element serves a purpose - no bloat, no unnecessary complexity.</p>
+                <p><strong>Sustainable Choices:</strong> We question every digital decision: does this truly improve the user experience?</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pillar-card hygiene hover-simple-card" tabindex="0">
+            <div class="pillar-card-header">
+              <h4 class="pillar-card-title">HYGIENE</h4>
+              <svg class="pillar-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <div class="pillar-card-content">
+              <p class="pillar-card-description">Clean code, clear processes, and <strong>transparent systems</strong> that maintain digital wellness.</p>
+              <div class="pillar-card-meta">Digital Hygiene</div>
+            </div>
+            <div class="pillar-card-expanded">
+              <div class="pillar-card-details">
+                <p><strong>Clean Architecture:</strong> Well-structured, maintainable code that stands the test of time.</p>
+                <p><strong>Clear Documentation:</strong> Every project includes comprehensive, accessible documentation.</p>
+                <p><strong>Security First:</strong> We implement security best practices from the ground up, not as an afterthought.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pillar-card sovereignty hover-simple-card" tabindex="0">
+            <div class="pillar-card-header">
+              <h4 class="pillar-card-title">SOVEREIGNITY</h4>
+              <svg class="pillar-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 1L21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9l9-8z"/>
+                <polyline points="9,9 9,21 15,21 15,9"/>
+              </svg>
+            </div>
+            <div class="pillar-card-content">
+              <p class="pillar-card-description">Digital independence and <strong>technological autonomy</strong> for individuals and organizations.</p>
+              <div class="pillar-card-meta">Digital Sovereignty</div>
+            </div>
+            <div class="pillar-card-expanded">
+              <div class="pillar-card-details">
+                <p><strong>Data Ownership:</strong> Users maintain full control and ownership of their data and digital assets.</p>
+                <p><strong>Platform Independence:</strong> Solutions that don't lock users into proprietary ecosystems.</p>
+                <p><strong>Open Standards:</strong> We prioritize open-source technologies and interoperable systems.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pillar-card integrity" tabindex="0">
+            <div class="pillar-card-header">
+              <h4 class="pillar-card-title">INTEGRITY</h4>
+              <svg class="pillar-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/>
+                <line x1="12" y1="8" x2="12" y2="16"/>
+                <line x1="8" y1="12" x2="16" y2="12"/>
+              </svg>
+            </div>
+            <div class="pillar-card-content">
+              <p class="pillar-card-description">Honest technology and <strong>authentic digital relationships</strong> built on trust and transparency.</p>
+              <div class="pillar-card-meta">Digital Integrity</div>
+            </div>
+            <div class="pillar-card-expanded">
+              <div class="pillar-card-details">
+                <p><strong>Honest Communication:</strong> We speak plainly about capabilities, limitations, and challenges.</p>
+                <p><strong>Authentic Relationships:</strong> Building genuine partnerships based on mutual respect and understanding.</p>
+                <p><strong>Ethical AI:</strong> When we use AI, it's transparent, explainable, and serves human interests first.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pillars Island CSS -->
+<style>
+/* Parallax Effects for Pillars */
+.parallax-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.parallax-text.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pillar Cards Enhanced Animation */
+.pillar-card {
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.pillar-card.in-view {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Removed: Using unified hover system instead */
+
+/* Greek Roof Animation */
+.greek-roof {
+  opacity: 0;
+  transform: translateY(15px) scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.greek-roof.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered animation delays for pillar cards */
+.pillar-card.sobriety { transition-delay: 0ms; }
+.pillar-card.hygiene { transition-delay: 100ms; }
+.pillar-card.sovereignty { transition-delay: 200ms; }
+.pillar-card.integrity { transition-delay: 300ms; }
+
+/* Focus enhancement */
+.pillar-card:focus {
+  outline: 2px solid var(--accent-color, #007acc);
+  outline-offset: 2px;
+}
+
+/* Card expansion animation improvements */
+.pillar-card-expanded {
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              padding 0.3s ease;
+}
+
+/* Grid responsiveness enhanced */
+@media (max-width: 768px) {
+  .pillars-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .pillar-card {
+    margin-bottom: 0.5rem;
+  }
+}
+</style>
+
+<!-- Pillars JavaScript -->
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🏛️ Pillars Island Loading...');
+
+  // Core Pillars Interactive Cards System
+  function initPillarsCards() {
+    console.log('🎯 Initializing Pillars Cards...');
+    
+    const pillarCards = document.querySelectorAll('#pillars .pillar-card');
+    console.log(`📦 Found ${pillarCards.length} pillar cards`);
+
+    pillarCards.forEach((card, index) => {
+      // Click handler for card expansion
+      card.addEventListener('click', function(e) {
+        // Don't expand if clicking on a button or link
+        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
+        
+        const isExpanded = this.classList.contains('expanded');
+        console.log(`🔄 Card ${index + 1} ${isExpanded ? 'collapsing' : 'expanding'}`);
+        
+        // Close all other cards first
+        pillarCards.forEach(otherCard => {
+          if (otherCard !== this) {
+            otherCard.classList.remove('expanded');
+          }
+        });
+        
+        // Toggle this card
+        this.classList.toggle('expanded');
+      });
+
+      // Keyboard accessibility
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+        
+        // Arrow key navigation
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          const nextCard = pillarCards[Math.min(index + 1, pillarCards.length - 1)];
+          nextCard.focus();
+        }
+        
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prevCard = pillarCards[Math.max(index - 1, 0)];
+          prevCard.focus();
+        }
+      });
+      
+      // Hover effects
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        if (!this.classList.contains('expanded')) {
+          this.style.transform = 'translateY(0)';
+        }
+      });
+    });
+    
+    console.log('✅ Pillars Cards initialized');
+  }
+
+  // Parallax System for Pillars Section
+  function initPillarsParallax() {
+    console.log('🌊 Initializing Pillars Parallax System');
+    
+    // Intersection Observer for parallax elements
+    const parallaxObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('✨ Pillars parallax element entering view:', entry.target.className);
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Find all parallax elements in this section
+    const parallaxElements = document.querySelectorAll('#pillars .parallax-text, #pillars .pillar-card, #pillars .greek-roof');
+    console.log(`👀 Found ${parallaxElements.length} parallax elements in Pillars section`);
+    
+    // Set initial state for cards
+    const pillarCards = document.querySelectorAll('#pillars .pillar-card');
+    pillarCards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease';
+      card.style.transitionDelay = `${index * 100}ms`;
+    });
+    
+    // Observe all parallax elements
+    parallaxElements.forEach(el => {
+      parallaxObserver.observe(el);
+    });
+    
+    console.log('✅ Pillars Parallax System initialized');
+  }
+
+  // Initialize all systems
+  initPillarsCards();
+  setTimeout(initPillarsParallax, 100);
+  
+  console.log('✅ Pillars Island loaded successfully');
+});
+</script>

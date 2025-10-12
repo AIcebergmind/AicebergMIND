@@ -178,6 +178,174 @@
 }
 
 /* ================================
+   GLOBAL ANIMATION SYSTEM
+   ================================ */
+
+/* Parallax Text - Global unified system */
+.parallax-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.parallax-text.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Drop Cap - Global unified system with GSAP */
+.drop-cap,
+.editorial-body .drop-cap,
+.content-block .drop-cap,
+p .drop-cap {
+  float: left;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3rem);
+  font-weight: 100;
+  line-height: 1;
+  color: var(--brand-cyan);
+  background: var(--gradient-main);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0.1em 0 0;
+  /* GSAP will handle initial state */
+  will-change: transform, opacity;
+}
+
+/* Drop cap ::first-letter alternative for backward compatibility */
+.drop-cap::first-letter {
+  font-size: 2.5em;
+  font-weight: 100;
+  line-height: 0.8;
+  float: left;
+  margin: 0.1em 0.1em 0 0;
+  background: var(--gradient-main);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pullquote - Global unified system with serif font */
+.pullquote {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 4rem auto;
+  padding: 3rem 4rem 3rem 3rem;
+  text-align: center !important;
+  position: relative;
+  max-width: 65ch;
+  
+  /* Elegant borders with gradient effect */
+  border-image: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--brand-cyan) 25%, 
+    var(--brand-mint) 50%, 
+    var(--brand-cyan) 75%, 
+    transparent 100%) 1;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  
+  /* Subtle text shadow for depth */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  
+  /* Letter spacing for elegance */
+  letter-spacing: 0.02em;
+  
+  /* Smooth animations */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.pullquote:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 2px 8px rgba(0, 212, 255, 0.15);
+  letter-spacing: 0.03em;
+}
+
+.pullquote::before {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-weight: 400;
+  font-style: italic;
+  content: '"';
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  transform: translateY(-0.2em);
+  font-size: clamp(6rem, 12vw, 10rem);
+  background: var(--gradient-main);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.4;
+  line-height: 1;
+  z-index: 0;
+  
+  /* Editorial style shadow */
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+  
+  /* Smooth animation */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pullquote:hover::before {
+  opacity: 0.7;
+  transform: translateY(-0.2em) translateX(-0.2rem);
+  filter: drop-shadow(3px 3px 8px rgba(0, 212, 255, 0.2));
+}
+
+/* Remove the closing quote */
+.pullquote::after {
+  display: none;
+}
+
+/* Pullquote responsive adjustments */
+@media (max-width: 768px) {
+  .pullquote {
+    margin: 2rem auto;
+    padding: 2rem 3rem 2rem 2rem;
+    text-align: center;
+  }
+  
+  .pullquote::before {
+    left: -1.5rem;
+    font-size: clamp(4rem, 15vw, 6rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .pullquote {
+    padding: 1.5rem 2rem 1.5rem 1.5rem !important;
+    text-align: center !important;
+  }
+  
+  .pullquote::before {
+    left: -1rem;
+    font-size: 4rem;
+  }
+}
+
+/* Parallax Image system */
+.parallax-image {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+
+.parallax-image.in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ================================
    ACCESSIBILITY TOKENS
    ================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -188,5 +356,12 @@
     --timing-slow: 0s;
     --iceberg-duration-float: 0s;
     --logo-duration-cinematic: 0s;
+  }
+}
+
+/* High contrast support for pullquotes */
+@media (prefers-contrast: high) {
+  .pullquote {
+    border-color: rgba(255, 255, 255, 0.5);
   }
 }

@@ -23,12 +23,31 @@
   /* Brand */
   --brand-cyan: #00D4FF;
   --brand-mint: #5EE4C3;
+  --brand-cyan-alpha-25: rgba(0, 212, 255, 0.25);
+
+  /* Transitions */
+  --transition-base: 0.3s ease;
+
+  /* Gradients */
+  --gradient-main: linear-gradient(135deg, var(--brand-mint), var(--brand-cyan));
+
+  /* Typography system */
+  --font-size-body: clamp(1rem, 2.2vw, 1.1rem);
+  --line-height-body: 1.7;
 
   /* Astro-specific Typography aliases */
   --font-body: var(--font-display);
 
   /* Astro-specific Effects */
   --gradient-soft: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(94,228,195,0.03) 50%, rgba(0,212,255,0.05) 100%);
+
+  /* Spacing system (alias to design-tokens --space-*) */
+  --spacing-xs: var(--space-xs, 0.5rem);
+  --spacing-sm: var(--space-sm, 1rem);
+  --spacing-md: var(--space-md, 1.5rem);
+  --spacing-lg: var(--space-lg, 2.5rem);
+  --spacing-xl: var(--space-xl, 4rem);
+  --spacing-xxl: var(--space-xxl, 6rem);
 
   /* Blog spacing compat (se te servono nelle card) */
   --blog-header-spacing: 8rem;
@@ -254,14 +273,8 @@ a:hover { color: #fff; }
 
 /* =======================
    6) HOOKS PER GSAP/PARALLAX
-   (gli stili specifici restano nel tuo gsap-parallax.css)
+   (MOVED: Parallax styles moved to global design-tokens.css)
    ======================= */
-.parallax-text,
-.parallax-image {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
 
 /* =======================
    7) VARIE

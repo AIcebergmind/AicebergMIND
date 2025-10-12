@@ -114,49 +114,7 @@
   text-wrap: pretty;
 }
 
-/* Drop cap effect */
-.drop-cap::first-letter {
-  font-size: 2.5em;
-  font-weight: 100;
-  line-height: 0.8;
-  float: left;
-  margin: 0.1em 0.1em 0 0;
-  background: var(--gradient-main);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
-/* =======================
-   4) PULLQUOTES
-   ======================= */
-.pullquote {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 3.5vw, 1.4rem);
-  font-weight: 200;
-  line-height: 1.4;
-  color: var(--text-primary);
-  margin: 3rem 0;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  position: relative;
-}
-
-.pullquote::before {
-  font-family: var(--font-display);
-  font-weight: 100;
-  content: '"';
-  position: absolute;
-  top: -0.5rem;
-  left: 0%;
-  transform: translateX(-50%);
-  font-size: 15rem;
-  color: var(--brand-cyan);
-  opacity: 0.3;
-  line-height: 1;
-}
 
 /* =======================
    5) COLLAPSIBLE CONTENT
@@ -354,15 +312,7 @@ details div {
     margin-bottom: 2rem;
   }
   
-  .pullquote {
-    margin: 2rem 0;
-    padding: 1.5rem 0;
-  }
-  
-  .pullquote::before {
-    font-size: 3rem;
-    top: -0.3rem;
-  }
+  /* Pullquote styles moved to global design-tokens.css */
   
   details div,
   summary {
@@ -388,11 +338,7 @@ details div {
     font-size: 1.5rem;
   }
   
-  .drop-cap::first-letter {
-    font-size: 2em;
-    font-weight: 100;
-    margin-right: 0.05em;
-  }
+  /* Drop cap styles moved to global design-tokens.css */
 }
 
 /* =======================
@@ -428,7 +374,5 @@ summary:focus-visible,
     border-radius: 8px;
   }
   
-  .pullquote {
-    border-color: rgba(255, 255, 255, 0.5);
-  }
+  /* Pullquote high contrast styles moved to global design-tokens.css */
 }

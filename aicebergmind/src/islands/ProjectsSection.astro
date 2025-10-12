@@ -1,0 +1,887 @@
+---
+// ProjectsSection.astro - Projects Island - Simple Working Version
+---
+
+<section class="parallax-section editorial-section" id="projects">
+  <!-- MOBILE BLUR OVERLAY -->
+  <div class="mobile-blur-overlay"></div>
+  
+  <!-- Header Section -->
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="section-header-editorial">
+        <div class="section-number">※</div>
+        <h2 class="editorial-heading parallax-text">Our Living <br>Projects</h2>
+        <h3 class="content-block-title parallax-text">...work in progress</h3>
+        
+        <!-- View toggle (desktop only) -->
+        <div class="projects-view-toggle">
+          <button class="toggle-btn active" data-view="stack">Stack</button>
+          <button class="toggle-btn" data-view="grid">Grid</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS GRID VIEW (hidden by default) -->
+  <div class="projects-grid-view parallax-text" style="display: none;">
+    <div class="horizontal-scroll-wrapper projects-wrapper">
+      <div class="horizontal-scroll-content projects-grid parallax-text">
+        
+        <!-- FIRST ROW -->
+        <div class="projects-row-1">
+          <!-- Audio Rituals -->
+          <div class="project-card project-audio hover-border-compose">
+            <div class="text-frame-border-top"></div>
+            <div class="text-frame-border-right"></div>
+            <div class="text-frame-border-bottom"></div>
+            <div class="text-frame-border-left"></div>
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-1.jpg');">
+              <h3 class="project-title">Audio Rituals</h3>
+              <p class="project-subtitle">Evening hypnosis for deep rest</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Sleep Stories</span>
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">Family Bonding</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 60%"></div>
+              </div>
+              <span class="progress-text">60% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+
+          <!-- Nursery Rhymes -->
+          <div class="project-card project-music hover-border-compose">
+            <div class="text-frame-border-top"></div>
+            <div class="text-frame-border-right"></div>
+            <div class="text-frame-border-bottom"></div>
+            <div class="text-frame-border-left"></div>
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-2.jpg');">
+              <h3 class="project-title">Nursery Rhymes</h3>
+              <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Interactive Music</span>
+                <span class="feature-tag">AI Characters</span>
+                <span class="feature-tag">Language Learning</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%"></div>
+              </div>
+              <span class="progress-text">50% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+
+          <!-- Specialized Channels -->
+          <div class="project-card project-channels hover-border-compose">
+            <div class="text-frame-border-top"></div>
+            <div class="text-frame-border-right"></div>
+            <div class="text-frame-border-bottom"></div>
+            <div class="text-frame-border-left"></div>
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-3.jpg');">
+              <h3 class="project-title">Specialized Channels</h3>
+              <p class="project-subtitle">Mindfulness, history & subconscious</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">History</span>
+                <span class="feature-tag">Neuroscience</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%"></div>
+              </div>
+              <span class="progress-text">90% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+        </div>
+        
+        <!-- SECOND ROW -->
+        <div class="projects-row-2">
+          <!-- Birth Prep Program -->
+          <div class="project-card project-birth hover-border-compose">
+            <div class="text-frame-border-top"></div>
+            <div class="text-frame-border-right"></div>
+            <div class="text-frame-border-bottom"></div>
+            <div class="text-frame-border-left"></div>
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-4.jpg');">
+              <h3 class="project-title">Birth Prep Program</h3>
+              <p class="project-subtitle">Holistic care for expectant families</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Prenatal Care</span>
+                <span class="feature-tag">Mindful Parenting</span>
+                <span class="feature-tag">Family Wellness</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%"></div>
+              </div>
+              <span class="progress-text">50% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+
+          <!-- Family Finance Ed. -->
+          <div class="project-card project-finance hover-border-compose">
+            <div class="text-frame-border-top"></div>
+            <div class="text-frame-border-right"></div>
+            <div class="text-frame-border-bottom"></div>
+            <div class="text-frame-border-left"></div>
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-5.jpg');">
+              <h3 class="project-title">Family Finance Ed.</h3>
+              <p class="project-subtitle">Playful tools for conscious money</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Financial Literacy</span>
+                <span class="feature-tag">Interactive Games</span>
+                <span class="feature-tag">Family Learning</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+              </div>
+              <span class="progress-text">75% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+
+          <!-- Parent 360 App -->
+          <div class="project-card project-app hover-border-compose">
+            <div class="project-header" style="background-image: url('/src/assets/blog-placeholder-about.jpg');">
+              <h3 class="project-title">Parent 360 App</h3>
+              <p class="project-subtitle">All-in-one parenting toolkit</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Mobile App</span>
+                <span class="feature-tag">Integrated Tools</span>
+                <span class="feature-tag">Growth Tracking</span>
+              </div>
+            </div>
+            <div class="project-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 30%"></div>
+              </div>
+              <span class="progress-text">30% Complete</span>
+            </div>
+            <button class="project-btn">Explore →</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS STACK VIEW (default) -->
+  <div class="projects-stack-view parallax-text">
+    
+    <!-- Audio Rituals -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Audio Rituals</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>60%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-1.jpg" alt="Audio Rituals Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Audio Rituals</h3>
+              <p class="project-subtitle">Evening hypnosis for deep rest</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Sleep Stories</span>
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">Family Bonding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%"></div>
+          </div>
+          <span class="progress-text">60% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Nursery Rhymes -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Nursery Rhymes</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>50%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-2.jpg" alt="Nursery Rhymes Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Nursery Rhymes</h3>
+              <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Interactive Music</span>
+                <span class="feature-tag">AI Characters</span>
+                <span class="feature-tag">Language Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 50%"></div>
+          </div>
+          <span class="progress-text">50% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Specialized Channels -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Specialized Channels</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>90%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-3.jpg" alt="Specialized Channels Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Specialized Channels</h3>
+              <p class="project-subtitle">Mindfulness, history & subconscious</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">History</span>
+                <span class="feature-tag">Neuroscience</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 90%"></div>
+          </div>
+          <span class="progress-text">90% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Birth Prep Program -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Birth Prep Program</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>50%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-4.jpg" alt="Birth Prep Program Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Birth Prep Program</h3>
+              <p class="project-subtitle">Holistic care for expectant families</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Prenatal Care</span>
+                <span class="feature-tag">Mindful Parenting</span>
+                <span class="feature-tag">Family Wellness</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 50%"></div>
+          </div>
+          <span class="progress-text">50% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Family Finance Ed. -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Family Finance Ed.</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>75%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-5.jpg" alt="Family Finance Education Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Family Finance Ed.</h3>
+              <p class="project-subtitle">Playful tools for conscious money</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Financial Literacy</span>
+                <span class="feature-tag">Interactive Games</span>
+                <span class="feature-tag">Family Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 75%"></div>
+          </div>
+          <span class="progress-text">75% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Parent 360 App -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Parent 360 App</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>30%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-about.jpg" alt="Parent 360 App Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Parent 360 App</h3>
+              <p class="project-subtitle">All-in-one parenting toolkit</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Mobile App</span>
+                <span class="feature-tag">Integrated Tools</span>
+                <span class="feature-tag">Growth Tracking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 30%"></div>
+          </div>
+          <span class="progress-text">30% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- End projects-stack-view -->
+
+  <!-- PROJECTS ACCORDION MOBILE -->
+  <div class="projects-accordion parallax-text">
+    <!-- Audio Rituals -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Audio Rituals</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>60%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-1.jpg" alt="Audio Rituals Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Audio Rituals</h3>
+              <p class="project-subtitle">Evening hypnosis for deep rest</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Sleep Stories</span>
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">Family Bonding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%"></div>
+          </div>
+          <span class="progress-text">60% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Nursery Rhymes -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Nursery Rhymes</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>50%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-2.jpg" alt="Nursery Rhymes Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Nursery Rhymes</h3>
+              <p class="project-subtitle">Educational rhymes with Lumi & Nova</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Interactive Music</span>
+                <span class="feature-tag">AI Characters</span>
+                <span class="feature-tag">Language Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 50%"></div>
+          </div>
+          <span class="progress-text">50% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Specialized Channels -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Specialized Channels</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>90%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-3.jpg" alt="Specialized Channels Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Specialized Channels</h3>
+              <p class="project-subtitle">Mindfulness, history & subconscious</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Mindfulness</span>
+                <span class="feature-tag">History</span>
+                <span class="feature-tag">Neuroscience</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 90%"></div>
+          </div>
+          <span class="progress-text">90% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Birth Prep Program -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Birth Prep Program</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>50%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-4.jpg" alt="Birth Prep Program Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Birth Prep Program</h3>
+              <p class="project-subtitle">Holistic care for expectant families</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Prenatal Care</span>
+                <span class="feature-tag">Mindful Parenting</span>
+                <span class="feature-tag">Family Wellness</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 50%"></div>
+          </div>
+          <span class="progress-text">50% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Family Finance Ed. -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Family Finance Ed.</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>75%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-5.jpg" alt="Family Finance Education Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Family Finance Ed.</h3>
+              <p class="project-subtitle">Playful tools for conscious money</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Financial Literacy</span>
+                <span class="feature-tag">Interactive Games</span>
+                <span class="feature-tag">Family Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 75%"></div>
+          </div>
+          <span class="progress-text">75% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Parent 360 App -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-title">Parent 360 App</span>
+        <span class="accordion-progress"><span class="progress-dots" aria-hidden="true"></span>30%</span>
+      </div>
+      <div class="accordion-content">
+        <div class="project-content-wrapper">
+          <div class="project-image">
+            <img src="/src/assets/blog-placeholder-about.jpg" alt="Parent 360 App Project" />
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3 class="project-title">Parent 360 App</h3>
+              <p class="project-subtitle">All-in-one parenting toolkit</p>
+            </div>
+            <div class="project-description">
+              <div class="project-features">
+                <span class="feature-tag">Mobile App</span>
+                <span class="feature-tag">Integrated Tools</span>
+                <span class="feature-tag">Growth Tracking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 30%"></div>
+          </div>
+          <span class="progress-text">30% Complete</span>
+        </div>
+        <button class="project-btn">Explore →</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- End projects-accordion mobile -->
+
+</section>
+
+<!-- Projects Island CSS -->
+<style>
+/* Gestione visualizzazione responsive per evitare duplicati */
+.projects-grid-view {
+  display: none; /* Hidden by default */
+}
+
+.projects-stack-view {
+  display: block; /* Visible by default */
+}
+
+.projects-accordion {
+  display: none; /* Hidden by default on desktop */
+}
+
+/* Mobile: mostra solo accordion, nascondi desktop views */
+@media (max-width: 768px) {
+  .projects-grid-view {
+    display: none !important;
+  }
+  
+  .projects-stack-view {
+    display: none !important;
+  }
+  
+  .projects-accordion {
+    display: block !important;
+  }
+  
+  .projects-view-toggle {
+    display: none !important;
+  }
+}
+
+/* Desktop: mostra stack di default, toggle per grid */
+@media (min-width: 769px) {
+  .projects-accordion {
+    display: none !important;
+  }
+}
+
+/* Parallax Effects for Projects */
+.parallax-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.parallax-text.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project Cards Parallax Animation */
+.project-card {
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.project-card.in-view {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Removed: Using unified hover system instead */
+
+/* Accordion Items Parallax */
+.accordion-item {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.accordion-item.in-view {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Staggered animation delays */
+.projects-row-1 .project-card:nth-child(1) { transition-delay: 0ms; }
+.projects-row-1 .project-card:nth-child(2) { transition-delay: 100ms; }
+.projects-row-1 .project-card:nth-child(3) { transition-delay: 200ms; }
+
+.projects-row-2 .project-card:nth-child(1) { transition-delay: 300ms; }
+.projects-row-2 .project-card:nth-child(2) { transition-delay: 400ms; }
+.projects-row-2 .project-card:nth-child(3) { transition-delay: 500ms; }
+
+/* Stack view accordion stagger */
+.projects-stack-view .accordion-item:nth-child(1) { transition-delay: 0ms; }
+.projects-stack-view .accordion-item:nth-child(2) { transition-delay: 100ms; }
+.projects-stack-view .accordion-item:nth-child(3) { transition-delay: 200ms; }
+.projects-stack-view .accordion-item:nth-child(4) { transition-delay: 300ms; }
+.projects-stack-view .accordion-item:nth-child(5) { transition-delay: 400ms; }
+.projects-stack-view .accordion-item:nth-child(6) { transition-delay: 500ms; }
+</style>
+
+<!-- Projects JavaScript - Simple and Working -->
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🚀 Projects Island Loading - Clean Version');
+  
+  // View toggle functionality (Grid/Stack)
+  const toggleBtns = document.querySelectorAll('.toggle-btn');
+  const gridView = document.querySelector('.projects-grid-view');
+  const stackView = document.querySelector('.projects-stack-view');
+  
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const view = this.getAttribute('data-view');
+      
+      // Update button states
+      toggleBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Switch views
+      if (view === 'grid') {
+        if (gridView && stackView) {
+          gridView.style.display = 'block';
+          stackView.style.display = 'none';
+          console.log('🔲 Grid view activated');
+        }
+      } else {
+        if (gridView && stackView) {
+          gridView.style.display = 'none';
+          stackView.style.display = 'block';
+          console.log('📚 Stack view activated');
+        }
+      }
+    });
+  });
+
+  // Accordion functionality - BOTH Stack and Mobile
+  function setupAccordions(containerSelector) {
+    const accordionHeaders = document.querySelectorAll(`${containerSelector} .accordion-header`);
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+        const item = this.parentElement;
+        const isOpen = item.classList.contains('open');
+        
+        // Close all accordions in this container first
+        document.querySelectorAll(`${containerSelector} .accordion-item`).forEach(other => {
+          other.classList.remove('open');
+        });
+        
+        // If it wasn't open, open it now
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+  }
+  
+  // Setup accordions for both desktop stack and mobile
+  setupAccordions('.projects-stack-view');
+  setupAccordions('.projects-accordion');
+
+  // Responsive management to prevent duplicates
+  function manageResponsiveDisplay() {
+    const isMobile = window.innerWidth <= 768;
+    const gridView = document.querySelector('.projects-grid-view');
+    const stackView = document.querySelector('.projects-stack-view');
+    const accordion = document.querySelector('.projects-accordion');
+    const toggle = document.querySelector('.projects-view-toggle');
+    
+    if (isMobile) {
+      // Mobile: show only accordion
+      if (gridView) gridView.style.display = 'none';
+      if (stackView) stackView.style.display = 'none';
+      if (accordion) accordion.style.display = 'block';
+      if (toggle) toggle.style.display = 'none';
+      console.log('📱 Mobile view: accordion only');
+    } else {
+      // Desktop: show stack by default, hide accordion
+      if (accordion) accordion.style.display = 'none';
+      if (toggle) toggle.style.display = 'flex';
+      
+      // Check current toggle state
+      const activeBtn = document.querySelector('.toggle-btn.active');
+      const currentView = activeBtn ? activeBtn.getAttribute('data-view') : 'stack';
+      
+      if (currentView === 'grid') {
+        if (gridView) gridView.style.display = 'block';
+        if (stackView) stackView.style.display = 'none';
+      } else {
+        if (gridView) gridView.style.display = 'none';
+        if (stackView) stackView.style.display = 'block';
+      }
+      console.log('🖥️ Desktop view:', currentView);
+    }
+  }
+  
+  // Initialize responsive display
+  manageResponsiveDisplay();
+  
+  // Re-check on window resize
+  window.addEventListener('resize', manageResponsiveDisplay);
+
+  // Progress dots animation
+  document.querySelectorAll('.accordion-progress .progress-dots').forEach(dots => {
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % 4;
+      dots.textContent = '.'.repeat(i);
+    }, 500);
+  });
+
+  // Parallax System for Projects Section
+  function initProjectsParallax() {
+    console.log('🌊 Initializing Projects Parallax System');
+    
+    // Intersection Observer for parallax elements
+    const parallaxObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('✨ Projects parallax element entering view:', entry.target.className);
+          entry.target.classList.add('in-view');
+          
+          // Add special animation for project cards
+          if (entry.target.classList.contains('project-card') || 
+              entry.target.classList.contains('accordion-item')) {
+            setTimeout(() => {
+              entry.target.style.transform = 'translateY(0)';
+              entry.target.style.opacity = '1';
+            }, 100);
+          }
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Find all parallax elements in this section
+    const parallaxElements = document.querySelectorAll('#projects .parallax-text, #projects .project-card, #projects .accordion-item');
+    console.log(`👀 Found ${parallaxElements.length} parallax elements in Projects section`);
+    
+    // Initial state for project cards
+    parallaxElements.forEach((el, index) => {
+      if (el.classList.contains('project-card') || el.classList.contains('accordion-item')) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      }
+      parallaxObserver.observe(el);
+    });
+    
+    // Staggered animation for project rows
+    const projectRows = document.querySelectorAll('.projects-row-1, .projects-row-2');
+    projectRows.forEach((row, index) => {
+      const cards = row.querySelectorAll('.project-card');
+      cards.forEach((card, cardIndex) => {
+        card.style.transitionDelay = `${(index * 200) + (cardIndex * 100)}ms`;
+      });
+    });
+    
+    console.log('✅ Projects Parallax System initialized');
+  }
+  
+  // Initialize parallax after DOM setup
+  setTimeout(initProjectsParallax, 100);
+  
+  console.log('✅ Projects Island loaded successfully - With Parallax System');
+});
+</script>

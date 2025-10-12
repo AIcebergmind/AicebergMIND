@@ -61,6 +61,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Additional CSS -->
 <link rel="stylesheet" href="/css/global-styles.css">
+<link rel="stylesheet" href="/css/components/unified-hover-system.css">
 <link rel="stylesheet" href="/css/components/hamburger-menu.css">
 <link rel="stylesheet" href="/css/core-pillars.css">
 
@@ -71,6 +72,9 @@ const { title, description, image = FallbackImage } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content="AI, artificial intelligence, cognitive development, interactive learning, educational tools, deep thinking, creative exploration, child development, family education" />
+<meta name="author" content="AIceberg Mind" />
+<meta name="robots" content="index, follow" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -78,6 +82,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:site_name" content="AIcebergMind" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />

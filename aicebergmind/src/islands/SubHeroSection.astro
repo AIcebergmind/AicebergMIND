@@ -1,0 +1,556 @@
+---
+// SubHero Section Island - Refactored & Optimized
+// Clean video section with modern controls and responsive design
+---
+
+<!-- SubHero Section -->
+<section class="subhero-section parallax-section" id="subhero">
+  <!-- Video Background Container -->
+  <div class="video-backdrop">
+    <iframe 
+      id="subhero-video"
+      class="background-video"
+      title="AIceberg Mind Introduction Video"
+      src="https://www.youtube.com/embed/CHuR-hwqrRc?autoplay=1&mute=1&loop=1&playlist=CHuR-hwqrRc&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0"
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+    <div class="video-overlay" aria-hidden="true"></div>
+  </div>
+
+  <!-- Video Controls -->
+  <div class="video-controls">
+    <button class="control-button" id="play-pause" aria-label="Play or pause video" data-playing="true">
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <polygon points="5,3 19,12 5,21"/>
+      </svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <rect x="6" y="4" width="4" height="16"/>
+        <rect x="14" y="4" width="4" height="16"/>
+      </svg>
+    </button>
+    
+    <button class="control-button" id="audio-toggle" aria-label="Toggle audio" data-muted="true">
+      <svg class="icon-volume-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      </svg>
+      <svg class="icon-volume-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <line x1="22" y1="9" x2="16" y2="15"/>
+        <line x1="16" y1="9" x2="22" y2="15"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Content Container -->
+  <div class="subhero-content">
+    <div class="content-grid">
+      <header class="section-header parallax-text">
+        <div class="section-number">※</div>
+        <h2 class="section-title parallax-text">
+          Empowering <br>
+          <span class="title-emphasis">Humans</span>
+        </h2>
+        <p class="section-description parallax-text">
+          Through <strong>playful education</strong> and science-crafted AI. 
+          We explore what lies beneath the <strong>surface of thinking</strong>.
+        </p>
+      </header>
+      
+      <div class="cta-container parallax-text">
+        <div class="cta-card">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <p class="cta-question">
+              What lies beneath the surface of <strong>your thinking</strong>?
+            </p>
+            <a href="#about" class="cta-button hover-border-compose">
+              <span class="button-text">JOIN US</span>
+              <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SubHero Styles -->
+<style>
+/* ===== CSS CUSTOM PROPERTIES ===== */
+:root {
+  --subhero-overlay: rgba(0, 0, 0, 0.6);
+  --control-bg: rgba(0, 0, 0, 0.7);
+  --control-border: rgba(255, 255, 255, 0.2);
+  --control-hover: rgba(255, 255, 255, 0.1);
+  --glow-primary: #00d4ff;
+  --glow-secondary: #00ff88;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== MAIN CONTAINER ===== */
+.subhero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+/* ===== VIDEO BACKGROUND ===== */
+.video-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 177.77vh;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 56.25vw;
+  border: none;
+  pointer-events: none;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--subhero-overlay);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ===== VIDEO CONTROLS ===== */
+.video-controls {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.control-button {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--transition-smooth);
+  backdrop-filter: blur(10px);
+}
+
+.control-button:hover {
+  background: var(--control-hover);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.control-button:focus-visible {
+  outline: 2px solid var(--glow-primary);
+  outline-offset: 3px;
+}
+
+.control-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: opacity 0.3s ease;
+}
+
+/* Icon state management */
+.control-button[data-playing="true"] .icon-play,
+.control-button[data-playing="false"] .icon-pause,
+.control-button[data-muted="true"] .icon-volume-off,
+.control-button[data-muted="false"] .icon-volume-on {
+  display: none;
+}
+
+/* ===== CONTENT LAYOUT ===== */
+.subhero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ===== SECTION HEADER ===== */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-number {
+  font-family: var(--font-display, monospace);
+  font-size: 1.5rem;
+  color: var(--text-tertiary, #666);
+  opacity: 0.6;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary, white);
+  margin: 0;
+}
+
+.title-emphasis {
+  background: linear-gradient(135deg, var(--glow-primary), var(--glow-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-description {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--text-secondary, #ccc);
+  max-width: 50ch;
+  margin: 0;
+}
+
+/* ===== CTA CONTAINER ===== */
+.cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta-card {
+  position: relative;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.6s var(--transition-smooth);
+  overflow: hidden;
+}
+
+.cta-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+}
+
+.card-glow {
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, var(--glow-primary), var(--glow-secondary));
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: -1;
+}
+
+.cta-card:hover .card-glow {
+  opacity: 0.3;
+}
+
+.card-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+.cta-question {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #ccc);
+  margin: 0;
+  max-width: 35ch;
+}
+
+/* ===== CTA BUTTON ===== */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  color: rgba(0, 212, 255, 0.9);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--hover-transition-smooth, all 0.3s ease);
+  /* Allow unified hover system to work */
+}
+
+/* CTA Button - Let unified hover system handle everything */
+
+.button-arrow {
+  width: 1rem;
+  height: 1rem;
+  /* Arrow movement handled by unified hover system */
+}
+
+/* ===== PARALLAX EFFECTS ===== */
+.parallax-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--transition-smooth), 
+              transform 0.8s var(--transition-smooth);
+}
+
+.parallax-text.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.section-number { transition-delay: 0ms; }
+.section-title { transition-delay: 200ms; }
+.section-description { transition-delay: 400ms; }
+.cta-container { transition-delay: 600ms; }
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .section-description {
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .subhero-section {
+    min-height: 80vh;
+  }
+  
+  .subhero-content {
+    padding: 0 1rem;
+  }
+  
+  .content-grid {
+    gap: 2rem;
+  }
+  
+  .video-controls {
+    top: 1rem;
+    right: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .control-button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .control-button svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .cta-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+  
+  .cta-card {
+    padding: 1.25rem;
+  }
+  
+  .cta-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-text,
+  .cta-card,
+  .cta-button,
+  .control-button {
+    animation: none;
+    transform: none !important;
+    opacity: 1 !important;
+    transition-duration: 0.01ms;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+.video-backdrop,
+.subhero-content,
+.cta-card {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+</style>
+
+<!-- SubHero JavaScript -->
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🎬 SubHero Island Loading...');
+
+  // Modern Video Controls System
+  class VideoController {
+    constructor() {
+      this.video = document.getElementById('subhero-video');
+      this.playPauseBtn = document.getElementById('play-pause');
+      this.audioToggleBtn = document.getElementById('audio-toggle');
+      this.isPlaying = true;
+      this.isMuted = true;
+      
+      this.init();
+    }
+    
+    init() {
+      if (!this.video) return;
+      
+      console.log('🎮 Initializing video controls...');
+      
+      // Set initial button states
+      this.updateButtonStates();
+      
+      // Bind event listeners
+      this.playPauseBtn?.addEventListener('click', () => this.togglePlayback());
+      this.audioToggleBtn?.addEventListener('click', () => this.toggleAudio());
+      
+      // Keyboard accessibility
+      document.addEventListener('keydown', (e) => {
+        if (e.target.closest('.subhero-section')) {
+          if (e.code === 'Space' && e.target.classList.contains('control-button')) {
+            e.preventDefault();
+            e.target.click();
+          }
+        }
+      });
+      
+      console.log('✅ Video controls initialized');
+    }
+    
+    togglePlayback() {
+      const currentSrc = this.video.src;
+      
+      if (this.isPlaying) {
+        // Pause video
+        this.video.src = currentSrc.replace('autoplay=1', 'autoplay=0');
+        this.isPlaying = false;
+        console.log('⏸️ Video paused');
+      } else {
+        // Play video
+        this.video.src = currentSrc.replace('autoplay=0', 'autoplay=1');
+        this.isPlaying = true;
+        console.log('▶️ Video playing');
+      }
+      
+      this.updateButtonStates();
+    }
+    
+    toggleAudio() {
+      const currentSrc = this.video.src;
+      
+      if (this.isMuted) {
+        // Unmute audio
+        this.video.src = currentSrc.replace('mute=1', 'mute=0');
+        this.isMuted = false;
+        console.log('🔊 Audio unmuted');
+      } else {
+        // Mute audio
+        this.video.src = currentSrc.replace('mute=0', 'mute=1');
+        this.isMuted = true;
+        console.log('🔇 Audio muted');
+      }
+      
+      this.updateButtonStates();
+    }
+    
+    updateButtonStates() {
+      if (this.playPauseBtn) {
+        this.playPauseBtn.setAttribute('data-playing', this.isPlaying.toString());
+        this.playPauseBtn.setAttribute('aria-label', 
+          this.isPlaying ? 'Pause video' : 'Play video'
+        );
+      }
+      
+      if (this.audioToggleBtn) {
+        this.audioToggleBtn.setAttribute('data-muted', this.isMuted.toString());
+        this.audioToggleBtn.setAttribute('aria-label', 
+          this.isMuted ? 'Unmute audio' : 'Mute audio'
+        );
+      }
+    }
+  }
+
+  // Parallax System for SubHero
+  function initSubHeroParallax() {
+    console.log('🌊 Initializing SubHero Parallax System');
+    
+    const parallaxObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('✨ SubHero parallax element entering view:', entry.target.className);
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Find all parallax elements in this section
+    const parallaxElements = document.querySelectorAll('#subhero .parallax-text');
+    console.log(`👀 Found ${parallaxElements.length} parallax elements in SubHero section`);
+    
+    parallaxElements.forEach(el => {
+      parallaxObserver.observe(el);
+    });
+    
+    console.log('✅ SubHero Parallax System initialized');
+  }
+  
+  // Initialize systems
+  new VideoController();
+  setTimeout(initSubHeroParallax, 100);
+  
+  console.log('✅ SubHero Island loaded successfully');
+});
+</script>

@@ -1,0 +1,362 @@
+---
+// EthicsSection.astro - Ethics Island with Expandable Cards
+---
+
+<!-- ETHICS Section -->
+<section class="parallax-section editorial-section" id="ethics">
+  <!-- MOBILE BLUR OVERLAY -->
+  <div class="mobile-blur-overlay"></div>
+  
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="section-header-editorial">
+        <div class="section-number parallax-text">※</div>
+        <h2 class="editorial-heading parallax-text">Ethics</h2>
+        <p class="editorial-caption parallax-text">Our <strong>responsibility tree</strong>: where innovation meets conscience</p>
+      </div>
+
+      <div class="content-block">
+        <div class="content-block-header">
+          <h3 class="content-block-title parallax-text">Values in Practice</h3>
+          <span class="content-block-meta parallax-text">Responsibility</span>
+        </div>
+
+        <div class="ethics-cards-grid parallax-text">
+          <div class="ethics-card reforestation hover-simple-card" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Reforestation</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M8 12h8"/>
+                <path d="M12 8v8"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">We give back through certified <strong>tree-planting partners</strong> like Tree-Nation and Freedom, creating <strong>symbolic forests</strong> that restore balance to our digital footprint.</p>
+              <div class="ethics-card-meta">Environmental Impact</div>
+            </div>
+            <div class="ethics-card-expanded">
+              <div class="ethics-card-details">
+                <p><strong>Our Impact:</strong> For every project delivered, we plant 50+ trees through verified reforestation programs in areas affected by deforestation.</p>
+                <p><strong>Partners:</strong> We work with Tree-Nation and Freedom Forest to ensure transparent tracking and real environmental impact.</p>
+                <p><strong>Carbon Offset:</strong> Our tree-planting initiatives offset approximately 120% of our digital operations' carbon footprint.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ethics-card privacy hover-simple-card" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Privacy by Design</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <circle cx="12" cy="16" r="1"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">We collect only what's necessary, store locally when possible, and believe that <strong>data dignity</strong> is not negotiable.</p>
+              <div class="ethics-card-meta">Data Protection</div>
+            </div>
+            <div class="ethics-card-expanded">
+              <div class="ethics-card-details">
+                <p><strong>Zero Tracking:</strong> We don't use analytics that track user behavior across sites or collect personal identifiers.</p>
+                <p><strong>Local Storage:</strong> When possible, data is processed and stored locally on your device rather than in the cloud.</p>
+                <p><strong>GDPR Compliance:</strong> We exceed GDPR requirements and give users full control over their data at all times.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ethics-card accessibility hover-simple-card" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Accessibility</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                <line x1="15" y1="9" x2="15.01" y2="9"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">We design for <strong>everyone</strong>, ensuring our tools are usable by people of all abilities and backgrounds.</p>
+              <div class="ethics-card-meta">Inclusive Design</div>
+            </div>
+            <div class="ethics-card-expanded">
+              <div class="ethics-card-details">
+                <p><strong>WCAG AA Standard:</strong> All our interfaces meet or exceed Web Content Accessibility Guidelines 2.1 Level AA.</p>
+                <p><strong>Screen Reader Support:</strong> Semantic HTML and ARIA labels ensure compatibility with assistive technologies.</p>
+                <p><strong>Keyboard Navigation:</strong> Every interactive element is fully accessible via keyboard shortcuts and navigation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ethics-card transparency hover-simple-card" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Transparency</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v6m0 6v6"/>
+                <path d="M21 12h-6m-6 0H3"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">We openly share our processes, decisions, and the <strong>reasoning behind our choices</strong>.</p>
+              <div class="ethics-card-meta">Open Communication</div>
+            </div>
+            <div class="ethics-card-expanded">
+              <div class="ethics-card-details">
+                <p><strong>Open Source:</strong> When possible, we contribute code, methodologies, and insights back to the community.</p>
+                <p><strong>Clear Pricing:</strong> No hidden costs, no surprise charges - everything is documented and explained upfront.</p>
+                <p><strong>Process Documentation:</strong> We document and share our decision-making process, challenges, and learnings.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ethics-card sustainability hover-simple-card" tabindex="0">
+            <div class="ethics-card-header">
+              <h4 class="ethics-card-title">Sustainability</h4>
+              <svg class="ethics-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+              </svg>
+            </div>
+            <div class="ethics-card-content">
+              <p class="ethics-card-description">Every digital choice we make considers its <strong>environmental impact</strong> and long-term consequences.</p>
+              <div class="ethics-card-meta">Long-term Thinking</div>
+            </div>
+            <div class="ethics-card-expanded">
+              <div class="ethics-card-details">
+                <p><strong>Green Hosting:</strong> We use renewable energy hosting providers and optimize code for minimal server resource usage.</p>
+                <p><strong>Efficient Code:</strong> Our development focuses on lightweight, efficient solutions that consume less energy.</p>
+                <p><strong>Lifecycle Thinking:</strong> We consider the full environmental impact from development to deployment to decommission.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ethics Island CSS -->
+<style>
+/* Parallax Effects for Ethics */
+.parallax-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.parallax-text.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ethics Cards Enhanced Animation */
+.ethics-card {
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ethics-card.in-view {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Removed: Using unified hover system instead */
+
+/* Staggered animation delays for ethics cards */
+.ethics-card.reforestation { transition-delay: 0ms; }
+.ethics-card.privacy { transition-delay: 100ms; }
+.ethics-card.accessibility { transition-delay: 200ms; }
+.ethics-card.transparency { transition-delay: 300ms; }
+.ethics-card.sustainability { transition-delay: 400ms; }
+
+/* Focus enhancement */
+.ethics-card:focus {
+  outline: 2px solid var(--accent-color, #007acc);
+  outline-offset: 2px;
+}
+
+/* Card expansion animation improvements */
+.ethics-card-expanded {
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              padding 0.3s ease;
+}
+
+/* Grid responsiveness enhanced */
+@media (max-width: 768px) {
+  .ethics-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .ethics-card {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Special ethics card effects */
+.ethics-card.reforestation .ethics-card-icon {
+  color: #22c55e;
+}
+
+.ethics-card.privacy .ethics-card-icon {
+  color: #3b82f6;
+}
+
+.ethics-card.accessibility .ethics-card-icon {
+  color: #f59e0b;
+}
+
+.ethics-card.transparency .ethics-card-icon {
+  color: #8b5cf6;
+}
+
+.ethics-card.sustainability .ethics-card-icon {
+  color: #10b981;
+}
+
+/* Card header enhancements */
+.ethics-card-header {
+  transition: transform 0.2s ease;
+}
+
+/* Removed: Using unified hover system instead */
+</style>
+
+<!-- Ethics JavaScript -->
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🌱 Ethics Island Loading...');
+
+  // Ethics Cards Interactive System
+  function initEthicsCards() {
+    console.log('🎯 Initializing Ethics Cards...');
+    
+    const ethicsCards = document.querySelectorAll('#ethics .ethics-card');
+    console.log(`📦 Found ${ethicsCards.length} ethics cards`);
+
+    ethicsCards.forEach((card, index) => {
+      // Click handler for card expansion
+      card.addEventListener('click', function(e) {
+        // Don't expand if clicking on a button or link
+        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
+        
+        const isExpanded = this.classList.contains('expanded');
+        console.log(`🔄 Ethics card ${index + 1} ${isExpanded ? 'collapsing' : 'expanding'}`);
+        
+        // Close all other cards first
+        ethicsCards.forEach(otherCard => {
+          if (otherCard !== this) {
+            otherCard.classList.remove('expanded');
+          }
+        });
+        
+        // Toggle this card
+        this.classList.toggle('expanded');
+      });
+
+      // Keyboard accessibility
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+        
+        // Arrow key navigation
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          const nextCard = ethicsCards[Math.min(index + 1, ethicsCards.length - 1)];
+          nextCard.focus();
+        }
+        
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prevCard = ethicsCards[Math.max(index - 1, 0)];
+          prevCard.focus();
+        }
+      });
+      
+      // Enhanced hover effects with icon animation
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px)';
+        const icon = this.querySelector('.ethics-card-icon');
+        if (icon) {
+          icon.style.transform = 'scale(1.1) rotate(5deg)';
+          icon.style.transition = 'transform 0.3s ease';
+        }
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        if (!this.classList.contains('expanded')) {
+          this.style.transform = 'translateY(0)';
+        }
+        const icon = this.querySelector('.ethics-card-icon');
+        if (icon) {
+          icon.style.transform = 'scale(1) rotate(0deg)';
+        }
+      });
+
+      // Focus effects
+      card.addEventListener('focus', function() {
+        this.style.transform = 'translateY(-2px)';
+      });
+
+      card.addEventListener('blur', function() {
+        if (!this.classList.contains('expanded')) {
+          this.style.transform = 'translateY(0)';
+        }
+      });
+    });
+    
+    console.log('✅ Ethics Cards initialized');
+  }
+
+  // Parallax System for Ethics Section
+  function initEthicsParallax() {
+    console.log('🌊 Initializing Ethics Parallax System');
+    
+    // Intersection Observer for parallax elements
+    const parallaxObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('✨ Ethics parallax element entering view:', entry.target.className);
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Find all parallax elements in this section
+    const parallaxElements = document.querySelectorAll('#ethics .parallax-text, #ethics .ethics-card');
+    console.log(`👀 Found ${parallaxElements.length} parallax elements in Ethics section`);
+    
+    // Set initial state for cards
+    const ethicsCards = document.querySelectorAll('#ethics .ethics-card');
+    ethicsCards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease';
+      card.style.transitionDelay = `${index * 100}ms`;
+    });
+    
+    // Observe all parallax elements
+    parallaxElements.forEach(el => {
+      parallaxObserver.observe(el);
+    });
+    
+    console.log('✅ Ethics Parallax System initialized');
+  }
+
+  // Initialize all systems
+  initEthicsCards();
+  setTimeout(initEthicsParallax, 100);
+  
+  console.log('✅ Ethics Island loaded successfully');
+});
+</script>

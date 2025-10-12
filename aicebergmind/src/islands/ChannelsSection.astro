@@ -1,0 +1,207 @@
+---
+// ChannelsSection.astro - Channels Island with mobile hover scroll and parallax effects
+---
+
+<section class="parallax-section editorial-section" id="channels">
+  <div class="mobile-blur-overlay"></div>
+  <div class="editorial-container">
+    <div class="editorial-content">
+      <div class="content-block">
+        <div class="content-block-header parallax-text">
+          <h3 class="content-block-title">Channels</h3>
+          <span class="content-block-meta">Social & more</span>
+        </div>
+        
+        <p class="editorial-body parallax-text">Find our content across multiple platforms, each crafted for its unique audience and format.</p>
+        
+        <div class="channels-slider parallax-text">
+          <div class="channels-track">
+            <!-- First set of logos -->
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+              <span>YouTube</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+              <span>Facebook</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              <span>Instagram</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+              </svg>
+              <span>Twitter</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              <span>LinkedIn</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+              <span>GitHub</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+              <span>TikTok</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="10,8 16,12 10,16"/>
+              </svg>
+              <span>Spotify</span>
+            </div>
+            <!-- Duplicate for infinite loop -->
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+              <span>YouTube</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+              <span>Facebook</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              <span>Instagram</span>
+            </div>
+            <div class="channel-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+              </svg>
+              <span>Twitter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Channels Island JavaScript -->
+<script>
+// Channels mobile hover scroll functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const channelsSlider = document.querySelector('.channels-slider');
+  const channelsTrack = document.querySelector('.channels-track');
+  
+  if (channelsSlider && channelsTrack) {
+    // Detect if device is mobile/touch
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (isTouchDevice) {
+      // Mobile: Enable hover scroll functionality
+      let isScrolling = false;
+      
+      // Touch/hover start
+      const handleStart = () => {
+        isScrolling = true;
+        channelsTrack.style.animationPlayState = 'paused';
+      };
+      
+      // Touch/hover end
+      const handleEnd = () => {
+        isScrolling = false;
+        channelsTrack.style.animationPlayState = 'running';
+      };
+      
+      // Touch/mouse move for scrolling
+      let lastTouchX = 0;
+      const handleMove = (e) => {
+        if (!isScrolling) return;
+        
+        e.preventDefault();
+        const touch = e.touches ? e.touches[0] : e;
+        const currentX = touch.clientX;
+        
+        if (lastTouchX !== 0) {
+          const deltaX = currentX - lastTouchX;
+          const currentScroll = channelsSlider.scrollLeft;
+          channelsSlider.scrollLeft = currentScroll - deltaX;
+        }
+        
+        lastTouchX = currentX;
+      };
+      
+      // Event listeners for mobile
+      channelsSlider.addEventListener('touchstart', handleStart, { passive: false });
+      channelsSlider.addEventListener('touchend', handleEnd);
+      channelsSlider.addEventListener('touchcancel', handleEnd);
+      channelsSlider.addEventListener('touchmove', handleMove, { passive: false });
+      
+      // Also support mouse events for hybrid devices
+      channelsSlider.addEventListener('mousedown', handleStart);
+      channelsSlider.addEventListener('mouseup', handleEnd);
+      channelsSlider.addEventListener('mouseleave', handleEnd);
+      channelsSlider.addEventListener('mousemove', (e) => {
+        if (e.buttons === 1) handleMove(e); // Only if mouse button is pressed
+      });
+      
+      console.log('🎯 Channels mobile hover scroll enabled');
+    } else {
+      // Desktop: Keep automatic scroll animation
+      console.log('🖥️ Channels desktop auto-scroll active');
+    }
+  }
+  
+  console.log('✅ Channels Island JavaScript loaded successfully');
+});
+</script>
+
+<style>
+/* Enhanced mobile hover scroll styles */
+@media (max-width: 768px) {
+  .channels-slider {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    cursor: grab;
+  }
+  
+  .channels-slider:active {
+    cursor: grabbing;
+  }
+  
+  /* Hide scrollbar on mobile while keeping functionality */
+  .channels-slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .channels-slider {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+</style>
