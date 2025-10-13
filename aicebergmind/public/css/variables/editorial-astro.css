@@ -243,7 +243,7 @@ a:hover { color: #fff; }
    5) EDITORIAL TITLES & META
    (compat con i tuoi componenti)
    ======================= */
-/* editorial-heading moved to content section system below */
+
 
 .editorial-subheading {
   font-family: var(--font-display);
@@ -322,10 +322,6 @@ section .editorial-caption.animate-text::after,
 
 /* ::before element disabled - no background overlay */
 
-/* ================================
-   CONTENT SECTION EDITORIAL SYSTEM
-   Moved from content-sections.css for centralization
-   ================================ */
 
 /* Parallax sections base */
 body .parallax-section,

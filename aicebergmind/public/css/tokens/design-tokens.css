@@ -54,11 +54,11 @@
   --section-number-opacity: 0.4;
   --section-number-margin: 1rem;
 
-  /* Editorial headings */
+  /* Editorial headings - Aligned with hero title styling */
   --editorial-heading-size: clamp(2.5rem, 8vw, 6rem);
-  --editorial-heading-weight: 200;
-  --editorial-heading-line-height: 1.1;
-  --editorial-heading-letter-spacing: -0.02em;
+  --editorial-heading-weight: 100;
+  --editorial-heading-line-height: 0.85;
+  --editorial-heading-letter-spacing: -0.05em;
   --editorial-heading-margin: 1rem;
 
   /* Content block titles */
