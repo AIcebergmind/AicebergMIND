@@ -614,14 +614,15 @@ main .parallax-section {
 /* micro-animazioni soft sugli item quando cambia layout */
 .cards-grid > * { transition: transform .25s ease, opacity .25s ease; will-change: transform, opacity; }
 
-/* Editorial Caption - Mobile Responsive Rules */
+/* Editorial Caption - Mobile Responsive Rules - FORCED OVERRIDE */
 @media (max-width: 768px) {
-  .editorial-caption,
-  body .editorial-caption,
-  main .editorial-caption,
-  section .editorial-caption,
-  .projects-section .editorial-caption,
-  .parallax-text.editorial-caption {
+  html .editorial-caption,
+  html body .editorial-caption,
+  html main .editorial-caption,
+  html section .editorial-caption,
+  html .projects-section .editorial-caption,
+  html .parallax-text.editorial-caption,
+  html .editorial-section .editorial-caption {
     white-space: normal !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
@@ -635,12 +636,13 @@ main .parallax-section {
 }
 
 @media (max-width: 480px) {
-  .editorial-caption,
-  body .editorial-caption,
-  main .editorial-caption,
-  section .editorial-caption,
-  .projects-section .editorial-caption,
-  .parallax-text.editorial-caption {
+  html .editorial-caption,
+  html body .editorial-caption,
+  html main .editorial-caption,
+  html section .editorial-caption,
+  html .projects-section .editorial-caption,
+  html .parallax-text.editorial-caption,
+  html .editorial-section .editorial-caption {
     white-space: normal !important;
     font-size: 0.75rem !important;
     line-height: 1.4 !important;
