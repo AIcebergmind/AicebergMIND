@@ -190,11 +190,11 @@ a:hover { color: #fff; }
 .grid-xs-4 { grid-template-columns: repeat(4, 1fr); }
 
 @media (max-width: 1024px) {
-  .grid-md-1 { grid-template-columns: 1fr !important; }
-  .grid-md-2 { grid-template-columns: repeat(2, 1fr) !important; }
+  body .grid-md-1 { grid-template-columns: 1fr; }
+  body .grid-md-2 { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 768px) {
-  .grid-sm-1 { grid-template-columns: 1fr !important; }
+@media (max-width: 640px) {
+  body .grid-sm-1 { grid-template-columns: 1fr; }
 }
 
 .mt-0  { margin-top: 0; }
@@ -257,39 +257,40 @@ a:hover { color: #fff; }
 /* Editorial Caption - Global Animation System with High Specificity */
 .editorial-caption,
 body .editorial-caption,
-main .editorial-caption,
-section .editorial-caption,
-.projects-section .editorial-caption {
-  font-family: var(--font-display) !important;
-  font-weight: 500 !important;
-  font-size: clamp(0.85rem, 2vw, 1rem) !important;
-  line-height: 1.6 !important;
-  color: var(--text-tertiary) !important;
-  letter-spacing: 0.15em !important;
-  text-transform: uppercase !important;
-  position: relative !important;
-  display: inline-block !important;
-  opacity: 1 !important;
-  transition: all 0.3s ease !important;
-  overflow: visible !important;
-  max-width: 100% !important;
+/* Editorial caption with proper specificity */
+body main .editorial-caption,
+body section .editorial-caption,
+body .projects-section .editorial-caption {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  line-height: 1.6;
+  color: var(--text-tertiary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  transition: all 0.3s ease;
+  overflow: visible;
+  max-width: 100%;
 }
 
-.editorial-caption::after,
+/* Editorial caption animation underline */
 body .editorial-caption::after,
-main .editorial-caption::after,
-section .editorial-caption::after,
-.projects-section .editorial-caption::after {
-  content: '' !important;
-  position: absolute !important;
-  bottom: -4px !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 1px !important;
-  background: #00d4ff !important;
-  transform: scaleX(0) !important;
-  transform-origin: left !important;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+body main .editorial-caption::after,
+body section .editorial-caption::after,
+body .projects-section .editorial-caption::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #00d4ff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .editorial-caption::before,
@@ -327,42 +328,50 @@ section .editorial-caption.animate-text::after,
    ================================ */
 
 /* Parallax sections base */
-.parallax-section,
 body .parallax-section,
+body main .parallax-section,
 main .parallax-section {
-  position: relative !important;
-  padding: var(--space-xxl) 0 !important;
-  background: var(--bg-primary) !important;
-  overflow: hidden !important;
+  position: relative;
+  padding: var(--space-xxl) 0;
+  background: var(--bg-primary);
+  overflow: hidden;
 }
 
-.parallax-section:nth-child(even) {
-  background: #0a0a0a !important;
+body .parallax-section:nth-child(even),
+main .parallax-section:nth-child(even) {
+  background: #0a0a0a;
 }
 
 /* Section headers */
-.section-header-editorial {
-  margin-bottom: 4rem !important;
-  position: relative !important;
+body .section-header-editorial,
+main .section-header-editorial {
+  margin-bottom: 4rem;
+  position: relative;
 }
 
-.section-number {
-  font-family: var(--font-display) !important;
-  font-size: var(--section-number-size) !important;
-  color: var(--section-number-color) !important;
-  opacity: var(--section-number-opacity) !important;
-  margin-bottom: var(--section-number-margin) !important;
-  display: block !important;
+/* Section numbers */
+body .section-number,
+main .section-number,
+section .section-number {
+  font-family: var(--font-display);
+  font-size: var(--section-number-size);
+  color: var(--section-number-color);
+  opacity: var(--section-number-opacity);
+  margin-bottom: var(--section-number-margin);
+  display: block;
 }
 
-.editorial-heading {
-  font-family: var(--font-display) !important;
-  font-size: var(--editorial-heading-size) !important;
-  font-weight: var(--editorial-heading-weight) !important;
-  line-height: var(--editorial-heading-line-height) !important;
-  letter-spacing: var(--editorial-heading-letter-spacing) !important;
-  color: var(--text-primary) !important;
-  margin-bottom: var(--editorial-heading-margin) !important;
+/* Editorial section headings */
+body .editorial-heading,
+main .editorial-heading,
+section .editorial-heading {
+  font-family: var(--font-display);
+  font-size: var(--editorial-heading-size);
+  font-weight: var(--editorial-heading-weight);
+  line-height: var(--editorial-heading-line-height);
+  letter-spacing: var(--editorial-heading-letter-spacing);
+  color: var(--text-primary);
+  margin-bottom: var(--editorial-heading-margin);
 }
 
 /* Content blocks */
@@ -613,40 +622,38 @@ main .parallax-section {
 /* micro-animazioni soft sugli item quando cambia layout */
 .cards-grid > * { transition: transform .25s ease, opacity .25s ease; will-change: transform, opacity; }
 
-/* Editorial Caption - Mobile Responsive Rules - FORCED OVERRIDE */
+/* Editorial Caption - Mobile Responsive Rules */
 @media (max-width: 768px) {
-  html .editorial-caption,
   html body .editorial-caption,
-  html main .editorial-caption,
-  html section .editorial-caption,
-  html .projects-section .editorial-caption,
-  html .parallax-text.editorial-caption,
-  html .editorial-section .editorial-caption {
-    white-space: normal !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    hyphens: auto !important;
-    font-size: clamp(0.75rem, 1.5vw, 0.85rem) !important;
-    line-height: 1.5 !important;
-    letter-spacing: 0.1em !important;
-    max-width: 100% !important;
-    width: auto !important;
+  html body main .editorial-caption,
+  html body section .editorial-caption,
+  html body .projects-section .editorial-caption,
+  html body .parallax-text.editorial-caption,
+  html body .editorial-section .editorial-caption {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    max-width: 100%;
+    width: auto;
   }
 }
 
 @media (max-width: 480px) {
-  html .editorial-caption,
   html body .editorial-caption,
-  html main .editorial-caption,
-  html section .editorial-caption,
-  html .projects-section .editorial-caption,
-  html .parallax-text.editorial-caption,
-  html .editorial-section .editorial-caption {
-    white-space: normal !important;
-    font-size: 0.75rem !important;
-    line-height: 1.4 !important;
-    letter-spacing: 0.08em !important;
-    word-break: break-word !important;
-    overflow-wrap: anywhere !important;
+  html body main .editorial-caption,
+  html body section .editorial-caption,
+  html body .projects-section .editorial-caption,
+  html body .parallax-text.editorial-caption,
+  html body .editorial-section .editorial-caption {
+    white-space: normal;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 }
