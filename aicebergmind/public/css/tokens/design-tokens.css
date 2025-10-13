@@ -55,7 +55,7 @@
   --section-number-margin: 1rem;
 
   /* Editorial headings */
-  --editorial-heading-size: clamp(2.5rem, 6vw, 4.5rem);
+  --editorial-heading-size: clamp(2.5rem, 8vw, 6rem);
   --editorial-heading-weight: 200;
   --editorial-heading-line-height: 1.1;
   --editorial-heading-letter-spacing: -0.02em;
