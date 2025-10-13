@@ -272,7 +272,6 @@ section .editorial-caption,
   opacity: 1 !important;
   transition: all 0.3s ease !important;
   overflow: visible !important;
-  white-space: nowrap !important;
   max-width: 100% !important;
 }
 
