@@ -172,69 +172,13 @@ class TextComposer {
   }
 }
 
-// Scroll progress indicator
-class ScrollProgress {
+// Global animation system - unified for parallax and drop-cap
+class GlobalAnimationSystem {
   constructor() {
-    this.createProgressBar();
-    this.initScrollProgress();
-  }
-  
-  createProgressBar() {
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress-bar';
-    progressBar.innerHTML = '<div class="scroll-progress-fill"></div>';
-    
-    // Add styles
-    const style = document.createElement('style');
-    style.textContent = `
-      .scroll-progress-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: rgba(255, 255, 255, 0.1);
-        z-index: 1000;
-        pointer-events: none;
-      }
-      
-      .scroll-progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, var(--brand-mint), var(--brand-cyan));
-        width: 0%;
-        transition: width 0.1s ease;
-      }
-    `;
-    
-    document.head.appendChild(style);
-    document.body.appendChild(progressBar);
-    
-    this.progressFill = progressBar.querySelector('.scroll-progress-fill');
-  }
-  
-  initScrollProgress() {
-    let ticking = false;
-    
-    const updateProgress = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const scrollProgress = (window.scrollY / scrollHeight) * 100;
-          
-          if (this.progressFill) {
-            this.progressFill.style.width = `${Math.min(100, Math.max(0, scrollProgress))}%`;
-          }
-          
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    
-    window.addEventListener('scroll', updateProgress, { passive: true });
+    this.initGlobalDropCapAnimation();
   }
 
-  // Global animation system - unified for parallax and drop-cap
+  initGlobalDropCapAnimation() {
   initGlobalDropCapAnimation() {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
@@ -387,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (!prefersReducedMotion) {
     new TextComposer();
-    new ScrollProgress();
+    new GlobalAnimationSystem();
   }
   
   new AicebergMain();
