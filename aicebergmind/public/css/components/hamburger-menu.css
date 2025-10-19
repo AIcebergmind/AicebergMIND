@@ -46,7 +46,6 @@
   background: #0a0a0a;
   border: 1px solid #333;
   border-radius: 8px;
-  width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
@@ -56,6 +55,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transform: translateY(0);
   opacity: 1;
+  padding: 0 12px;
+  gap: 8px;
+  width: auto;
+  min-width: 80px;
 }
 
 .hamburger-trigger:hover {
@@ -63,10 +66,25 @@
   transform: scale(1.05);
 }
 
+.menu-text {
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.hamburger-trigger:hover .menu-text {
+  color: #00D4FF;
+}
+
 .hamburger-icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   position: relative;
+  flex-shrink: 0;
 }
 
 .hamburger-line {
@@ -79,9 +97,9 @@
   transition: all 0.3s ease;
 }
 
-.hamburger-line:nth-child(1) { top: 4px; }
-.hamburger-line:nth-child(2) { top: 9px; }
-.hamburger-line:nth-child(3) { top: 14px; }
+.hamburger-line:nth-child(1) { top: 2px; }
+.hamburger-line:nth-child(2) { top: 7px; }
+.hamburger-line:nth-child(3) { top: 12px; }
 
 /* Active states */
 .hamburger-menu-container.active {
@@ -98,7 +116,7 @@
 
 .hamburger-trigger.active .hamburger-line:nth-child(1) {
   transform: rotate(45deg);
-  top: 9px;
+  top: 7px;
 }
 
 .hamburger-trigger.active .hamburger-line:nth-child(2) {
@@ -107,7 +125,11 @@
 
 .hamburger-trigger.active .hamburger-line:nth-child(3) {
   transform: rotate(-45deg);
-  top: 9px;
+  top: 7px;
+}
+
+.hamburger-trigger.active .menu-text {
+  color: #00D4FF;
 }
 
 /* Menu content */

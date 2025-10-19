@@ -53,7 +53,8 @@ class HamburgerMenu {
         </div>
       </div>
       
-      <button class="hamburger-trigger" id="hamburgerTrigger" aria-label="Menu">
+      <button class="hamburger-trigger" id="hamburgerTrigger" aria-label="Open navigation menu">
+        <span class="menu-text">MENU</span>
         <div class="hamburger-icon">
           <div class="hamburger-line"></div>
           <div class="hamburger-line"></div>
