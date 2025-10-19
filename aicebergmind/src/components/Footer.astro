@@ -6,16 +6,18 @@ const today = new Date();
 	<div class="footer-content">
 		<!-- Logo centrato -->
 		<div class="footer-logo-section">
-			<img src="/logo/AIceberg_mind_logo_gray.svg" alt="AIceberg Mind" class="footer-logo-minimal">
+			<a href="/">
+				<img src="/logo/AIceberg_mind_logo_gray.svg" alt="AIceberg Mind" class="footer-logo-minimal">
+			</a>
 		</div>
 		
 		<!-- Links essenziali in riga -->
 		<div class="footer-links-minimal">
-			<a href="#about">About</a>
+			<a href="/#about">About</a>
 			<a href="/blog">Blog</a>
-			<a href="#projects">Projects</a>
-			<a href="#team">Team</a>
-			<a href="#philosophy">Philosophy</a>
+			<a href="/#projects">Projects</a>
+			<a href="/#team">Team</a>
+			<a href="/#philosophy">Philosophy</a>
 			<a href="/faq">FAQ</a>
 			<a href="/credits">Credits</a>
 			<a href="/legal-notices">Legal Notices</a>
@@ -58,10 +60,20 @@ const today = new Date();
 	}
 	
 	/* Logo minimo */
+	.footer-logo-section a {
+		display: inline-block;
+		transition: opacity 0.3s ease;
+	}
+	
+	.footer-logo-section a:hover {
+		opacity: 1;
+	}
+	
 	.footer-logo-minimal {
 		height: 24px;
 		width: auto;
 		opacity: 0.7;
+		transition: opacity 0.3s ease;
 	}
 	
 	/* Links in riga orizzontale */

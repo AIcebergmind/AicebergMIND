@@ -24,15 +24,15 @@ class HamburgerMenu {
         <div class="hamburger-menu-overlay"></div>
         <div class="hamburger-menu-panel">
           <div class="hamburger-menu-header">
-            <img src="/logo/AIceberg_mind_logo_gray.svg" alt="AIceberg Mind" class="hamburger-menu-logo">
-            <div class="hamburger-menu-tagline">AIceberg Mind - AI tools for conscious growth</div>
+            <img src="/logo/AIceberg_mind_logo_gray.svg" alt="AIceberg Mind" class="hamburger-menu-logo" id="hamburgerLogo" style="cursor: pointer;">
           </div>
+          <div class="hamburger-menu-tagline" id="hamburgerTagline" style="cursor: pointer;">AI Tools for Deep Thinking & Discovery</div>
           <nav class="hamburger-menu-nav">
             <ul class="hamburger-menu-links">
-              <li><a href="#about" class="hamburger-link">About</a></li>
-              <li><a href="#projects" class="hamburger-link">Projects</a></li>
-              <li><a href="#team" class="hamburger-link">Team</a></li>
-              <li><a href="#philosophy" class="hamburger-link">Philosophy</a></li>
+              <li><a href="/#about" class="hamburger-link">About</a></li>
+              <li><a href="/#projects" class="hamburger-link">Projects</a></li>
+              <li><a href="/#team" class="hamburger-link">Team</a></li>
+              <li><a href="/#philosophy" class="hamburger-link">Philosophy</a></li>
               <li><a href="/blog" class="hamburger-link">Blog</a></li>
             </ul>
           </nav>
@@ -70,8 +70,42 @@ class HamburgerMenu {
     this.hamburgerTrigger = document.getElementById('hamburgerTrigger');
     const overlay = hamburgerMenu?.querySelector('.hamburger-menu-overlay');
     const links = document.querySelectorAll('.hamburger-link');
+    const logo = document.getElementById('hamburgerLogo');
+    const tagline = document.getElementById('hamburgerTagline');
     
     if (!hamburgerMenu || !this.hamburgerTrigger) return;
+    
+    // Logo click - redirect to home when menu is open
+    if (logo) {
+      logo.addEventListener('click', () => {
+        const isActive = hamburgerMenu.classList.contains('active');
+        
+        if (isActive) {
+          // Close menu and redirect to home
+          this.closeMenu(hamburgerMenu, this.hamburgerTrigger);
+          // Small delay to allow menu close animation
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 150);
+        }
+      });
+    }
+    
+    // Tagline click - redirect to home when menu is open
+    if (tagline) {
+      tagline.addEventListener('click', () => {
+        const isActive = hamburgerMenu.classList.contains('active');
+        
+        if (isActive) {
+          // Close menu and redirect to home
+          this.closeMenu(hamburgerMenu, this.hamburgerTrigger);
+          // Small delay to allow menu close animation
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 150);
+        }
+      });
+    }
     
     // Toggle menu
     this.hamburgerTrigger.addEventListener('click', () => {
@@ -93,18 +127,7 @@ class HamburgerMenu {
     
     // Close on link click
     links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        
-        // If it's an anchor link, handle smooth scroll
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-        
+      link.addEventListener('click', () => {
         this.closeMenu(hamburgerMenu, this.hamburgerTrigger);
       });
     });
