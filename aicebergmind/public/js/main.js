@@ -179,7 +179,6 @@ class GlobalAnimationSystem {
   }
 
   initGlobalDropCapAnimation() {
-  initGlobalDropCapAnimation() {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
     

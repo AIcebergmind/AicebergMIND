@@ -53,8 +53,7 @@ class HamburgerMenu {
         </div>
       </div>
       
-      <button class="hamburger-trigger" id="hamburgerTrigger" aria-label="Open navigation menu">
-        <span class="menu-text">MENU</span>
+      <button class="hamburger-trigger" id="hamburgerTrigger" aria-label="Toggle navigation menu">
         <div class="hamburger-icon">
           <div class="hamburger-line"></div>
           <div class="hamburger-line"></div>
@@ -163,14 +162,17 @@ class HamburgerMenu {
       this.lastScrollY = currentScrollY;
     };
 
-    // Use passive scroll listener to avoid conflicts with GSAP
-    let scrollTimeout;
+    // Throttle for performance
+    let ticking = false;
     const handleScroll = () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(updateHamburgerVisibility, 16); // ~60fps
+      if (!ticking) {
+        requestAnimationFrame(updateHamburgerVisibility);
+        ticking = true;
+        setTimeout(() => { ticking = false; }, 10);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     
     // Show hamburger at the beginning
     this.showHamburger();
@@ -178,14 +180,16 @@ class HamburgerMenu {
 
   showHamburger() {
     if (this.hamburgerTrigger) {
-      this.hamburgerTrigger.classList.remove('hamburger-hidden');
+      this.hamburgerTrigger.style.transform = 'translateY(0)';
+      this.hamburgerTrigger.style.opacity = '1';
       this.isMenuVisible = true;
     }
   }
 
   hideHamburger() {
     if (this.hamburgerTrigger) {
-      this.hamburgerTrigger.classList.add('hamburger-hidden');
+      this.hamburgerTrigger.style.transform = 'translateY(-100px)';
+      this.hamburgerTrigger.style.opacity = '0';
       this.isMenuVisible = false;
     }
   }
