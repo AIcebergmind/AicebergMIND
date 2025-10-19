@@ -1,0 +1,88 @@
+🔧 Prompt per GPT - Analisi Breaking Changes Three.js r128 → r164
+
+CONTESTO:
+Ho un progetto Astro con un componente 3D che usa Three.js per renderizzare un pinguino geometrico. Il componente funziona perfettamente con Three.js r128 (2021) ma si rompe completamente quando aggiorno a r164 (2024) - mostra solo il placeholder "Caricamento..." senza mai inizializzare il 3D.
+
+CODICE FUNZIONANTE (r128):
+```javascript
+// Geometry scaling in r128
+const bodyGeometry = new THREE.SphereGeometry(1, 16, 12);
+bodyGeometry.scale(0.8, 1.2, 0.7);  // ✅ Funziona
+
+// Material definition
+const bodyMaterial = new THREE.MeshPhongMaterial({ 
+  color: 0x1a1a1a,
+  shininess: 30,
+  specular: 0x222222
+});
+
+// Renderer setup
+this.renderer = new THREE.WebGLRenderer({ 
+  antialias: true, 
+  alpha: true,
+  powerPreference: "high-performance"
+});
+
+// Fog setup
+this.scene.fog = new THREE.Fog(0x0f2b3a, 5, 15);
+
+// Shadow mapping
+this.renderer.shadowMap.enabled = true;
+this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+```
+
+CODICE CHE NON FUNZIONA (r164):
+```javascript
+// Tentativo di modernizzazione per r164
+bodyGeometry.scale.set(0.8, 1.2, 0.7);  // ❌ Si rompe silenziosamente
+```
+
+CARICAMENTO CDN TESTATO:
+- ✅ https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js - Funziona perfettamente
+- ❌ https://cdnjs.cloudflare.com/ajax/libs/three.js/r164/three.min.js - Si rompe completamente
+- ❌ https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.min.js - Si rompe completamente
+
+AMBIENTE TECNICO:
+- Framework: Astro v5.14.1
+- Context: Browser, caricamento dinamico via script tags
+- Geometrie usate: SphereGeometry, ConeGeometry con scaling personalizzato
+- Materials: MeshPhongMaterial con proprietà shininess/specular
+- Renderer: WebGLRenderer con alpha transparency e antialias
+- Lighting: AmbientLight, DirectionalLight, PointLight
+- Animations: requestAnimationFrame con idle animations (breathing, head bob, wing flap)
+- Events: Mouse tracking, click handling, resize events
+
+SINTOMI SPECIFICI:
+1. Con r128: Pinguino 3D animato perfettamente funzionante
+2. Con r164: Solo placeholder "🐧 Caricamento AIMo..." che non sparisce mai
+3. Nessun errore JavaScript visibile nella console
+4. Il modulo PenguinModule sembra caricarsi ma la inizializzazione fallisce silenziosamente
+
+DOMANDE SPECIFICHE:
+Puoi analizzare quali breaking changes specifici sono avvenuti tra Three.js r128 e r164 che potrebbero causare questo comportamento? Concentrati su:
+
+1. GEOMETRY API CHANGES - Il metodo geometry.scale() è stato deprecato/cambiato?
+2. MATERIAL PROPERTIES - Le proprietà shininess/specular di MeshPhongMaterial sono cambiate?
+3. WEBGL CONTEXT - Cambiamenti nel WebGLRenderer che richiedono parametri diversi?
+4. MODULE LOADING - Problemi di compatibilità ESM/UMD nel caricamento dinamico?
+5. SHADOW MAPPING - Cambiamenti nell'API delle ombre (PCFSoftShadowMap)?
+6. FOG API - Modifiche nel costruttore THREE.Fog?
+
+STRATEGIA RICHIESTA:
+Fornisci una lista delle breaking changes più probabili e suggerisci una strategia di migrazione graduale (es. testare versioni intermedie r140, r150, r158) per identificare esattamente dove si rompe il codice.
+
+OBIETTIVO:
+Capire perché r128 è l'unica versione stabile per questo specifico caso d'uso e come modernizzare in sicurezza senza perdere funzionalità.
+
+CODICE COMPLETO DI RIFERIMENTO:
+Il componente crea un pinguino 3D geometrico con:
+- Corpo: SphereGeometry scalato con bodyGeometry.scale(0.8, 1.2, 0.7)
+- Testa: SphereGeometry standard
+- Occhi: SphereGeometry piccoli 
+- Becco: ConeGeometry colorato con brand colors (#3ac8f5)
+- Ali: SphereGeometry scalate per forma ovale
+- Piedi: SphereGeometry scalate per forma piatta
+
+Tutte le geometrie usano il metodo .scale() direttamente, tutti i materiali sono MeshPhongMaterial con specular/shininess, e il renderer usa alpha transparency per integrarsi in pagine web.
+
+Il fallimento è silenzioso - nessun errore ma il 3D non viene mai renderizzato.

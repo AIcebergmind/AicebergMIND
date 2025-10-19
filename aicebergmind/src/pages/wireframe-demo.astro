@@ -1,0 +1,280 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import PenguinThreeJS from '../components/PenguinThreeJS.astro';
+---
+
+<Layout
+  title="AIMo Wireframe Styles Demo"
+  description="Demo dei tre stili wireframe di AIMo: wireframe semplice, dashed e neon"
+  pubDate={new Date('2024-01-15')}
+  heroImage=""
+>
+  <main>
+    <div class="wireframe-demo-container">
+      <h1>🐧 AIMo Rendering Styles Demo</h1>
+      
+      <section class="demo-section">
+        <h2>1. Solid Rendering</h2>
+        <p>Rendering classico con materiali Phong, luci complete e ombre. Il look originale di AIMo.</p>
+        <div class="penguin-demo-wrapper">
+          <div id="penguin-solid" class="penguin-container penguin-medium penguin-center" 
+               data-interactive="true" data-component-id="solid-demo">
+            <div class="penguin-loading">🐧 Caricamento AIMo Solid...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>2. Wireframe Semplice</h2>
+        <p>Linee pulite con animazione di pulse su opacità. Stile minimalista brand AIceberg Mind.</p>
+        <div class="penguin-demo-wrapper">
+          <div id="penguin-wireframe" class="penguin-container penguin-medium penguin-center" 
+               data-interactive="true" data-component-id="wireframe-demo">
+            <div class="penguin-loading">🐧 Caricamento AIMo Wireframe...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>3. Dashed Wireframe</h2>
+        <p>Linee tratteggiate animate con scroll continuo. Effetto dinamico e tecnologico.</p>
+        <div class="penguin-demo-wrapper">
+          <div id="penguin-dashed" class="penguin-container penguin-medium penguin-center" 
+               data-interactive="true" data-component-id="dashed-demo">
+            <div class="penguin-loading">🐧 Caricamento AIMo Dashed...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>4. Neon Wireframe</h2>
+        <p>Effetto glow con doppi halo e pulse soft. Stile futuristico con brand colors.</p>
+        <div class="penguin-demo-wrapper">
+          <div id="penguin-neon" class="penguin-container penguin-medium penguin-center" 
+               data-interactive="true" data-component-id="neon-demo">
+            <div class="penguin-loading">🐧 Caricamento AIMo Neon...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="config-section">
+        <h2>🎛️ Configurazione</h2>
+        <div class="config-grid">
+          <div class="config-item">
+            <h3>Colori Brand</h3>
+            <ul>
+              <li><span class="color-sample cyan"></span> <code>wireframeAccent: 0x3ac8f5</code> (Cyan)</li>
+              <li><span class="color-sample mint"></span> <code>wireframeAccentAlt: 0x5ee4c3</code> (Mint)</li>
+            </ul>
+          </div>
+          
+          <div class="config-item">
+            <h3>Dashed Options</h3>
+            <ul>
+              <li><code>size: 0.6</code> - Lunghezza trattini</li>
+              <li><code>gap: 0.35</code> - Spazio tra trattini</li>
+              <li><code>speed: 0.003</code> - Velocità scroll</li>
+            </ul>
+          </div>
+          
+          <div class="config-item">
+            <h3>Neon Options</h3>
+            <ul>
+              <li><code>haloScales: [1.03, 1.015]</code> - Dimensioni halo</li>
+              <li><code>pulseSpeed: 0.018</code> - Velocità pulse</li>
+              <li><code>base: 0.78, amp: 0.22</code> - Range pulse</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .wireframe-demo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: var(--font-body);
+  }
+
+  .demo-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: rgba(15, 43, 58, 0.3);
+    border-radius: 16px;
+    border: 1px solid rgba(94, 228, 195, 0.2);
+  }
+
+  .demo-section h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-family: var(--font-display);
+  }
+
+  .demo-section p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .penguin-demo-wrapper {
+    background: 
+      radial-gradient(800px 500px at 50% 20%, rgba(58,200,245,0.08), transparent 60%),
+      linear-gradient(180deg, rgba(10,25,35,0.3), rgba(10,25,35,0));
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid rgba(58,200,245,0.2);
+  }
+
+  .config-section {
+    background: rgba(10, 25, 35, 0.4);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(94, 228, 195, 0.3);
+  }
+
+  .config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .config-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-family: var(--font-display);
+  }
+
+  .config-item ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .config-item li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .config-item code {
+    background: rgba(58,200,245,0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875rem;
+    color: var(--accent-color);
+  }
+
+  .color-sample {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  .color-sample.cyan { background: #3ac8f5; }
+  .color-sample.mint { background: #5ee4c3; }
+
+  /* Override penguin container styles per la demo */
+  .penguin-demo-wrapper .penguin-container {
+    height: 400px;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .wireframe-demo-container {
+      padding: 1rem;
+    }
+    
+    .demo-section {
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .config-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
+
+<script type="module">
+  // Importa Three ESM r164 
+  import * as THREE from 'https://unpkg.com/three@0.164.0/build/three.module.js';
+  window.THREE = THREE;
+
+  // Carica PenguinModule
+  function loadPenguinModule() {
+    return new Promise((resolve, reject) => {
+      if (window.PenguinModule) return resolve();
+      const s = document.createElement('script');
+      s.src = '/js/penguin-module-r164.js';
+      s.defer = true;
+      s.onload = () => window.PenguinModule ? resolve() : reject(new Error('PenguinModule non trovato'));
+      s.onerror = () => reject(new Error('Errore caricamento PenguinModule'));
+      document.head.appendChild(s);
+    });
+  }
+
+  function initDemoInstance(containerId, style, config = {}) {
+    try {
+      const baseConfig = {
+        containerId: containerId,
+        enableInteraction: true,
+        enableAnimation: true,
+        autoRotate: true,
+        enableMobile: false,
+        style: style,
+        wireframeAccent: 0x3ac8f5,
+        wireframeAccentAlt: 0x5ee4c3,
+        dash: { size: 0.6, gap: 0.35, speed: 0.003, scale: 1.0 },
+        neon: { haloScales: [1.03, 1.015], haloOpacities: [0.07, 0.12], pulseSpeed: 0.018, base: 0.78, amp: 0.22 },
+        ...config
+      };
+
+      new window.PenguinModule(baseConfig);
+      
+      const container = document.getElementById(containerId);
+      const loading = container?.querySelector('.penguin-loading');
+      if (loading) loading.style.display = 'none';
+      
+      console.log(`🐧 ${style} Penguin initialized:`, containerId);
+    } catch (err) {
+      console.error(`Errore init pinguino ${style}:`, err);
+      const container = document.getElementById(containerId);
+      const loading = container?.querySelector('.penguin-loading');
+      if (loading) { 
+        loading.textContent = '🐧 AIMo'; 
+        loading.style.fontSize = '2rem'; 
+      }
+    }
+  }
+
+  // Inizializza tutti gli stili
+  async function initDemo() {
+    try {
+      await loadPenguinModule();
+      
+      // Crea le quattro istanze con stili diversi
+      initDemoInstance('penguin-solid', 'solid');
+      initDemoInstance('penguin-wireframe', 'wireframe');
+      initDemoInstance('penguin-dashed', 'dashed');
+      initDemoInstance('penguin-neon', 'neon');
+      
+    } catch (e) {
+      console.error('Errore inizializzazione demo:', e);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDemo);
+  } else {
+    initDemo();
+  }
+</script>

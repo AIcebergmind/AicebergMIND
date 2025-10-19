@@ -11,6 +11,9 @@ import AIMoIdentitySection from '../islands/AIMoIdentitySection.astro';
 import AIMoValuesSection from '../islands/AIMoValuesSection.astro';
 import AIMoReferencesSection from '../islands/AIMoReferencesSection.astro';
 import AIMoNarrativeSection from '../islands/AIMoNarrativeSection.astro';
+
+// Import AIMo 3D Penguin Component
+import PenguinThreeJS from '../components/PenguinThreeJS.astro';
 ---
 
 <!doctype html>
@@ -117,10 +120,22 @@ import AIMoNarrativeSection from '../islands/AIMoNarrativeSection.astro';
     </button>
   </div>
 
-  <!-- Global Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <!-- Global Scripts - GSAP ESM (no UMD crashes) -->
+  <script type="module">
+    import { gsap } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/+esm';
+    import { ScrollTrigger } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollTrigger/+esm';
+    import { ScrollToPlugin } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollToPlugin/+esm';
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    // Esponi per codice legacy
+    window.gsap = gsap;
+    window.ScrollTrigger = ScrollTrigger;
+  </script>
+  
+  <!-- Function Guards (evita crash) -->
+  <script>
+    // evita crash se il markup chiama queste funzioni via onclick / etc.
+    window.renderHybridMobileMenu = window.renderHybridMobileMenu || function(){};
+  </script>
   
   <!-- Component Scripts -->
   <script src="/js/main.js" type="module" defer is:inline></script>
@@ -148,5 +163,25 @@ import AIMoNarrativeSection from '../islands/AIMoNarrativeSection.astro';
       }
     }
   </style>
+
+  <!-- AIMo 3D Interactive Penguin -->
+  <PenguinThreeJS 
+    containerId="aimo-penguin"
+    size="large"
+    placement="bottom-right"
+    autoRotate={true}
+    enableAnimation={true}
+    enableInteraction={true}
+    enableMobile={false}
+    zIndex={400}
+  />
+  
+  <!-- Safe DOM Initialization -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try { window.initStickyTitles?.(); } catch(e){ console.warn('initStickyTitles:', e); }
+      try { window.initLetterExplosion?.(); } catch(e){ console.warn('initLetterExplosion:', e); }
+    });
+  </script>
 </body>
 </html>

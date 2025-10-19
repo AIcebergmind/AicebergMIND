@@ -1,0 +1,861 @@
+---
+import AimoBuilderLayout from '../layouts/AimoBuilderLayout.astro';
+---
+
+<AimoBuilderLayout
+  title="AIMo Builder - Customize Your Penguin"
+  description="Complete customization system to create your personalized AIMo"
+>
+  <div class="aimo-builder-container">
+    <header class="builder-header">
+      <h1>🎨 AIMo Builder</h1>
+      <p>Customize every detail of your AIMo penguin</p>
+    </header>
+
+    <div class="builder-layout">
+      <!-- 🐧 VIEWPORT - LEFT -->
+      <section class="viewport-section">
+        <div class="viewport-square">
+          <!-- 🧭 QUICK ACTION BUTTONS -->
+          <div class="quick-actions">
+            <button id="reset-btn" class="btn btn-secondary">🔄 Reset</button>
+            <button id="export-btn" class="btn btn-primary">📤 Export Config</button>
+            <button id="import-btn" class="btn btn-primary">📥 Import Config</button>
+            <input type="file" id="import-file" accept=".json" style="display: none;">
+          </div>
+
+          <div id="aimo-preview" class="penguin-container penguin-viewport" 
+               data-interactive="true" data-component-id="aimo-builder">
+            <div class="penguin-loading">🐧 Loading AIMo Builder...</div>
+          </div>
+        </div>
+
+        <div class="viewport-info">
+          <p>🖱️ Drag to pan • 🔄 Scroll to zoom • 🎨 Use controls on the right →</p>
+        </div>
+      </section>
+
+      <!-- ⚙️ CONTROLS - RIGHT (TWO COLUMNS) -->
+      <section class="controls-section two-columns">
+        <!-- LEFT COLUMN: Style + Colors -->
+        <div class="controls-column left-column">
+          <!-- Rendering Style -->
+          <div class="control-panel">
+            <h3>🎭 Rendering Style</h3>
+            <div class="control-content">
+              <div class="control-group">
+                <label>Style:</label>
+                <select id="style-select">
+                  <option value="solid">Solid</option>
+                  <option value="wireframe">Wireframe</option>
+                  <option value="dashed">Dashed</option>
+                  <option value="neon">Neon</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Colors -->
+          <div class="control-panel">
+            <h3>🎨 Colors</h3>
+            <div class="control-content">
+              <div class="control-group">
+                <label>Body:</label>
+                <input type="color" id="body-color" value="#1a1a1a">
+              </div>
+              <div class="control-group">
+                <label>Belly:</label>
+                <input type="color" id="belly-color" value="#ffffff">
+              </div>
+              <div class="control-group">
+                <label>Beak & Feet:</label>
+                <input type="color" id="beak-color" value="#3ac8f5">
+              </div>
+              <div class="control-group">
+                <label>Wireframe:</label>
+                <input type="color" id="wireframe-color" value="#3ac8f5">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: All body parts (accordion) -->
+        <div class="controls-column right-column">
+
+          <!-- Body -->
+          <div class="control-panel collapsed">
+            <h3>🍐 Body</h3>
+            <div class="control-content">
+              <div class="control-group">
+                <label>Scale X: <span id="body-scale-x-val">0.70</span></label>
+                <input type="range" id="body-scale-x" min="0.5" max="1.2" step="0.005" value="0.7">
+              </div>
+              <div class="control-group">
+                <label>Scale Y: <span id="body-scale-y-val">0.80</span></label>
+                <input type="range" id="body-scale-y" min="0.5" max="1.4" step="0.005" value="0.8">
+              </div>
+              <div class="control-group">
+                <label>Scale Z: <span id="body-scale-z-val">0.70</span></label>
+                <input type="range" id="body-scale-z" min="0.5" max="1.2" step="0.005" value="0.7">
+              </div>
+              <div class="control-group">
+                <label>Position Y: <span id="body-pos-y-val">0.00</span></label>
+                <input type="range" id="body-pos-y" min="-0.6" max="0.6" step="0.005" value="0.0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Belly -->
+          <div class="control-panel collapsed">
+            <h3>🤍 Belly</h3>
+            <div class="control-content">
+              <div class="control-group">
+                <label>Scale X: <span id="belly-scale-x-val">0.80</span></label>
+                <input type="range" id="belly-scale-x" min="0.4" max="1.5" step="0.005" value="0.8">
+              </div>
+              <div class="control-group">
+                <label>Scale Y: <span id="belly-scale-y-val">1.20</span></label>
+                <input type="range" id="belly-scale-y" min="0.6" max="2.0" step="0.01" value="1.2">
+              </div>
+              <div class="control-group">
+                <label>Scale Z: <span id="belly-scale-z-val">0.60</span></label>
+                <input type="range" id="belly-scale-z" min="0.3" max="1.2" step="0.005" value="0.6">
+              </div>
+              <div class="control-group">
+                <label>Position Y: <span id="belly-pos-y-val">-0.20</span></label>
+                <input type="range" id="belly-pos-y" min="-0.6" max="0.4" step="0.01" value="-0.2">
+              </div>
+              <div class="control-group">
+                <label>Position Z: <span id="belly-pos-z-val">0.65</span></label>
+                <input type="range" id="belly-pos-z" min="0.5" max="0.9" step="0.01" value="0.65">
+              </div>
+            </div>
+          </div>
+
+          <!-- Beak -->
+          <div class="control-panel collapsed">
+            <h3>🐧 Beak</h3>
+            <div class="control-content">
+              <div class="control-group">
+                <label>Scale X: <span id="beak-scale-x-val">1.00</span></label>
+                <input type="range" id="beak-scale-x" min="0.5" max="1.6" step="0.01" value="1.0">
+              </div>
+              <div class="control-group">
+                <label>Scale Y: <span id="beak-scale-y-val">1.00</span></label>
+                <input type="range" id="beak-scale-y" min="0.5" max="1.6" step="0.01" value="1.0">
+              </div>
+              <div class="control-group">
+                <label>Position Y: <span id="beak-pos-y-val">0.60</span></label>
+                <input type="range" id="beak-pos-y" min="0.3" max="1.0" step="0.005" value="0.6">
+              </div>
+              <div class="control-group">
+                <label>Position Z: <span id="beak-pos-z-val">0.70</span></label>
+                <input type="range" id="beak-pos-z" min="0.5" max="1.0" step="0.005" value="0.7">
+              </div>
+            </div>
+          </div>
+
+          <!-- Wings -->
+          <div class="control-panel collapsed">
+            <h3>🪶 Wings</h3>
+            <div class="control-content">
+              <div class="control-group">
+                <label>Scale X: <span id="wing-scale-x-val">0.50</span></label>
+                <input type="range" id="wing-scale-x" min="0.2" max="1.2" step="0.005" value="0.5">
+              </div>
+              <div class="control-group">
+                <label>Scale Y: <span id="wing-scale-y-val">1.40</span></label>
+                <input type="range" id="wing-scale-y" min="0.8" max="2.5" step="0.005" value="1.4">
+              </div>
+              <div class="control-group">
+                <label>Scale Z: <span id="wing-scale-z-val">0.80</span></label>
+                <input type="range" id="wing-scale-z" min="0.4" max="1.5" step="0.005" value="0.8">
+              </div>
+              <div class="control-group">
+                <label>Position X: <span id="wing-pos-x-val">0.65</span></label>
+                <input type="range" id="wing-pos-x" min="0.5" max="1.0" step="0.005" value="0.65">
+              </div>
+              <div class="control-group">
+                <label>Position Y: <span id="wing-pos-y-val">-0.10</span></label>
+                <input type="range" id="wing-pos-y" min="-0.5" max="0.3" step="0.005" value="-0.1">
+              </div>
+              <div class="control-group">
+                <label>Rotation Z: <span id="wing-rot-z-val">0.40</span></label>
+                <input type="range" id="wing-rot-z" min="0.1" max="0.8" step="0.005" value="0.4">
+              </div>
+            </div>
+          </div>
+
+          <!-- Feet -->
+          <div class="control-panel collapsed">
+            <h3>🦶 Feet</h3>
+            <div class="control-content">
+              <div class="control-group">
+                <label>Scale X: <span id="feet-scale-x-val">2.00</span></label>
+                <input type="range" id="feet-scale-x" min="1.2" max="2.8" step="0.01" value="2.0">
+              </div>
+              <div class="control-group">
+                <label>Scale Y: <span id="feet-scale-y-val">0.40</span></label>
+                <input type="range" id="feet-scale-y" min="0.2" max="0.8" step="0.005" value="0.4">
+              </div>
+              <div class="control-group">
+                <label>Scale Z: <span id="feet-scale-z-val">1.20</span></label>
+                <input type="range" id="feet-scale-z" min="0.8" max="1.8" step="0.01" value="1.2">
+              </div>
+              <div class="control-group">
+                <label>Position X: <span id="feet-pos-x-val">0.30</span></label>
+                <input type="range" id="feet-pos-x" min="0.1" max="0.6" step="0.005" value="0.3">
+              </div>
+              <div class="control-group">
+                <label>Position Y: <span id="feet-pos-y-val">-0.90</span></label>
+                <input type="range" id="feet-pos-y" min="-1.4" max="-0.4" step="0.005" value="-0.9">
+              </div>
+              <div class="control-group">
+                <label>Position Z: <span id="feet-pos-z-val">0.00</span></label>
+                <input type="range" id="feet-pos-z" min="-0.5" max="0.8" step="0.005" value="0.0">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </div>
+</AimoBuilderLayout>
+
+<style>
+  .aimo-builder-container { max-width: 1400px; margin: 0 auto; padding: var(--space-lg); min-height: calc(100vh - 120px); background: var(--bg-primary); }
+  .builder-header { text-align: center; margin-bottom: var(--space-lg); }
+  .builder-header h1 { color: var(--text-primary); font-family: var(--font-display); font-size: var(--font-size-4xl); margin-bottom: var(--space-xs); font-weight: var(--font-weight-light); }
+  .builder-header p { color: var(--text-secondary); font-size: var(--font-size-lg); font-family: var(--font-body); }
+
+  .builder-layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: start; }
+  .viewport-section { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .viewport-square { aspect-ratio: 1 / 1; width: 100%; max-width: 500px; margin: 0 auto;
+    background: radial-gradient(600px 400px at 50% 30%, rgba(94,228,195,.12), transparent 70%), linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+    border-radius: var(--details-border-radius); padding: var(--space-lg); border: 1px solid var(--border-light); backdrop-filter: blur(10px); box-shadow: var(--shadow-sm); }
+  .penguin-viewport { width: 100%; height: 100%; border-radius: 8px; overflow: hidden; position: relative; }
+
+  .viewport-info { text-align: center; padding: var(--space-sm); background: rgba(0,212,255,.1); border-radius: 8px; border: 1px solid rgba(0,212,255,.2); }
+  .viewport-info p { color: var(--text-secondary); font-size: var(--font-size-sm); margin: 0; font-family: var(--font-body); }
+  .quick-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xs); padding: var(--space-sm); background: rgba(0,212,255,.05); border-bottom: 1px solid rgba(0,212,255,.15); }
+
+  .controls-section.two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); height: fit-content; }
+  .controls-column { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+
+  .control-panel { background: rgba(255,255,255,.03); border: 1px solid var(--border-light); border-radius: .75rem; overflow: hidden; backdrop-filter: blur(10px); transition: border-color var(--transition-base), background var(--transition-base), transform var(--transition-base); }
+  .control-panel:hover { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.05); transform: translateY(-2px); }
+  .control-panel h3 { color: var(--text-primary); font-family: var(--font-display); font-size: var(--font-size-sm); font-weight: var(--font-weight-normal); margin: 0; padding: var(--space-sm); display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: rgba(255,255,255,.02); border-bottom: 1px solid var(--border-light); user-select: none; }
+  .control-panel h3::after { content: '▼'; font-size: .8rem; transition: transform var(--timing-base) var(--easing-smooth); }
+  .control-panel.collapsed h3::after { transform: rotate(-90deg); }
+  .control-content { padding: var(--space-sm); transition: all var(--timing-base) var(--easing-smooth); max-height: 320px; overflow: hidden; background: rgba(255,255,255,.01); }
+  .control-panel.collapsed .control-content { max-height: 0; padding: 0 var(--space-sm); }
+
+  .control-group { margin-bottom: var(--space-sm); }
+  .control-group:last-child { margin-bottom: 0; }
+  .control-group label { display: block; color: var(--text-secondary); margin-bottom: var(--space-xs); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); font-family: var(--font-body); }
+  .hint { color: var(--text-tertiary, #a0a0a0); font-size: var(--font-size-xs); margin: .25rem 0 0; }
+
+  .control-group input[type="range"] { width: 100%; height: 6px; border-radius: 3px; background: rgba(0,212,255,.2); outline: none; -webkit-appearance: none; }
+  .control-group input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--brand-cyan); cursor: pointer; border: 2px solid var(--bg-primary); box-shadow: 0 0 8px rgba(0,212,255,.4); }
+  .control-group select, .control-group input[type="color"] { width: 100%; padding: var(--space-xs); background: rgba(10,10,10,.8); border: 1px solid rgba(0,212,255,.3); border-radius: 6px; color: var(--text-primary); font-size: var(--font-size-sm); font-family: var(--font-body); }
+  .control-group input[type="color"] { height: 40px; cursor: pointer; }
+
+  .btn { padding: var(--space-xs) var(--space-sm); background: transparent; border: var(--details-border); border-radius: 8px; cursor: pointer; font-family: var(--font-body); font-weight: var(--font-weight-medium); font-size: var(--font-size-xs); transition: all var(--timing-base) var(--easing-smooth); text-align: center; position: relative; overflow: hidden; }
+  .btn-primary { background: var(--gradient-brand); color: var(--bg-primary); border: none; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,212,255,.3); }
+  .btn-secondary { background: var(--details-background); border: var(--details-border); color: var(--brand-cyan); }
+  .btn-secondary:hover { color: var(--bg-primary); }
+
+  @media (max-width: 900px) { .builder-layout { grid-template-columns: 1fr; gap: var(--space-md); } }
+  @media (max-width: 768px) {
+    .aimo-builder-container { padding: var(--space-sm); }
+    .controls-section.two-columns { grid-template-columns: 1fr; }
+    .quick-actions { grid-template-columns: 1fr; gap: var(--space-xs); }
+  }
+
+  .penguin-loading { display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text-secondary); font-family: var(--font-body); font-size: var(--font-size-base); }
+</style>
+
+<script type="module">
+  // === Three ESM r164 ===
+  import * as THREE from 'https://unpkg.com/three@0.164.0/build/three.module.js';
+  window.THREE = THREE;
+
+  let aimoInstance = null;
+  let currentConfig = null;
+
+  // === Config defaults (allineati al modulo) ===
+  const defaultConfig = {
+    // Body
+    bodyScale: { x: 0.7, y: 0.8, z: 0.7 },
+    bodyPosition: { y: 0.0 },
+    // Belly
+    bellyScale: { x: 0.8, y: 1.2, z: 0.6 },
+    bellyPosition: { y: -0.2, z: 0.65 },
+    // Beak
+    beakScale: { x: 1.0, y: 1.0 },
+    beakPosition: { y: 0.6, z: 0.7 },
+    // Wings
+    wingScale: { x: 0.5, y: 1.4, z: 0.8 },
+    wingPosition: { x: 0.65, y: -0.1 },
+    wingRotation: { z: 0.4 },
+    // Feet
+    feetScale: { x: 2.0, y: 0.4, z: 1.2 },
+    feetPosition: { x: 0.3, y: -0.9, z: 0.0 },
+    // Colors
+    bodyColor: '#1a1a1a',
+    bellyColor: '#ffffff',
+    beakColor: '#3ac8f5',
+    wireframeColor: '#3ac8f5',
+    // Style
+    style: 'solid'
+  };
+
+  // === Utils ===
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const fmt = (n) => Number(n).toFixed(2);
+
+  // Small debounce utility
+  function debounce(fn, wait = 16) {
+    let t; 
+    return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
+  }
+
+  // Tween number utility with easeOutQuad
+  function tweenNumber(from, to, duration, onUpdate, onComplete) {
+    const start = performance.now();
+    function step(now) {
+      const t = clamp((now - start) / duration, 0, 1);
+      const eased = 1 - (1 - t) * (1 - t); // easeOutQuad
+      onUpdate(from + (to - from) * eased);
+      if (t < 1) requestAnimationFrame(step);
+      else onComplete && onComplete();
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Tween Vector3-like
+  function tweenTriple(from, to, duration, apply) {
+    const start = performance.now();
+    function step(now) {
+      const t = clamp((now - start) / duration, 0, 1);
+      const e = 1 - (1 - t) * (1 - t);
+      const x = from.x + (to.x - from.x) * e;
+      const y = from.y + (to.y - from.y) * e;
+      const z = from.z + (to.z - from.z) * e;
+      apply(x, y, z);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Load PenguinModule (UMD on window)
+  function loadPenguinModule() {
+    return new Promise((resolve, reject) => {
+      if (window.PenguinModule) return resolve();
+      const s = document.createElement('script');
+      s.src = '/js/penguin-module-r164.js';
+      s.defer = true;
+      s.onload = () => window.PenguinModule ? resolve() : reject(new Error('PenguinModule not found'));
+      s.onerror = () => reject(new Error('PenguinModule load error'));
+      document.head.appendChild(s);
+    });
+  }
+
+  function hexToThreeColor(hex) { return parseInt(hex.replace('#', ''), 16); }
+
+  function initAimoBuilder() {
+    try {
+      const config = {
+        containerId: 'aimo-preview',
+        enableInteraction: true,
+        enableAnimation: true,
+        autoRotate: false,
+        enableMobile: false,
+        style: defaultConfig.style,
+        wireframeAccent: hexToThreeColor(defaultConfig.wireframeColor)
+      };
+
+      aimoInstance = new window.PenguinModule(config);
+      currentConfig = JSON.parse(JSON.stringify(defaultConfig));
+
+      // Fit in square
+      if (aimoInstance?.penguin) {
+        aimoInstance.penguin.position.set(0, 0, 0);
+        aimoInstance.penguin.scale.setScalar(1.0);
+      }
+      if (aimoInstance?.camera) {
+        aimoInstance.camera.position.set(0, 0.5, 3.5);
+        aimoInstance.camera.lookAt(0, 0, 0);
+      }
+
+      setupZoomAndPanControls();
+
+      const container = document.getElementById('aimo-preview');
+      const loading = container?.querySelector('.penguin-loading');
+      if (loading) loading.style.display = 'none';
+
+      initControls();
+      setTimeout(initAccordion, 300);
+
+      console.log('🎨 AIMo Builder initialized');
+    } catch (err) {
+      console.error('Init error:', err);
+    }
+  }
+
+  // Pan & Zoom controls
+  function setupZoomAndPanControls() {
+    const container = document.getElementById('aimo-preview');
+    if (!container || !aimoInstance?.camera) return;
+
+    let isDragging = false;
+    let prev = { x: 0, y: 0 };
+    let target = { x: 0, y: 0 };
+    let zoom = 3.5;
+
+    const panLimits = { x: 1.5, y: 1.0 };
+    const zoomLimits = { min: 2.5, max: 6.0 };
+
+    container.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? 1.08 : 0.92;
+      zoom = clamp(zoom * delta, zoomLimits.min, zoomLimits.max);
+      const dir = new window.THREE.Vector3();
+      aimoInstance.camera.getWorldDirection(dir);
+      aimoInstance.camera.position.copy(dir.multiplyScalar(-zoom).add(new window.THREE.Vector3(target.x, target.y, 0)));
+    }, { passive: false });
+
+    container.addEventListener('mousedown', (e) => {
+      isDragging = true; prev = { x: e.clientX, y: e.clientY }; container.style.cursor = 'grabbing';
+    });
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const dx = (e.clientX - prev.x) * 0.01;
+      const dy = (e.clientY - prev.y) * 0.01;
+      target.x = clamp(target.x - dx, -panLimits.x, panLimits.x);
+      target.y = clamp(target.y + dy, -panLimits.y, panLimits.y);
+      const dir = new window.THREE.Vector3();
+      aimoInstance.camera.getWorldDirection(dir);
+      aimoInstance.camera.position.copy(dir.multiplyScalar(-zoom).add(new window.THREE.Vector3(target.x, target.y, 0)));
+      aimoInstance.camera.lookAt(target.x, target.y, 0);
+      prev = { x: e.clientX, y: e.clientY };
+    });
+    document.addEventListener('mouseup', () => { isDragging = false; container.style.cursor = 'grab'; });
+
+    container.style.cursor = 'grab';
+  }
+
+  // === CONTROLS BINDING (with smooth apply) ===
+  function bindSlider(id, getTarget, setTarget, applyFn, duration = 190) {
+    const el = document.getElementById(id);
+    const readout = document.getElementById(id + '-val');
+    if (!el) return;
+
+    const onInput = () => {
+      const val = parseFloat(el.value);
+      if (readout) readout.textContent = fmt(val);
+      setTarget(val);
+
+      // Smooth apply using current live values from penguin
+      if (!aimoInstance) return;
+
+      applyFn(duration);
+    };
+
+    el.addEventListener('input', onInput);
+    // Initialize readout
+    if (readout) readout.textContent = fmt(el.value);
+  }
+
+  function initControls() {
+    // STYLE
+    const styleSelect = document.getElementById('style-select');
+    if (styleSelect) {
+      styleSelect.value = currentConfig.style;
+      styleSelect.addEventListener('change', (e) => {
+        currentConfig.style = e.target.value;
+        aimoInstance?.changeStyle?.(currentConfig.style);
+      });
+    }
+
+    // ========= BODY =========
+    bindSlider('body-scale-x',
+      () => currentConfig.bodyScale.x,
+      (v) => currentConfig.bodyScale.x = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.body?.scale) return;
+        const cur = aimoInstance.penguinParts.body.scale;
+        const to = { x: currentConfig.bodyScale.x, y: currentConfig.bodyScale.y, z: currentConfig.bodyScale.z };
+        tweenTriple({ x: cur.x, y: cur.y, z: cur.z }, to, duration, (x, y, z) => aimoInstance.updateBodyScale(x, y, z));
+      });
+
+    bindSlider('body-scale-y',
+      () => currentConfig.bodyScale.y,
+      (v) => currentConfig.bodyScale.y = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.body?.scale) return;
+        const cur = aimoInstance.penguinParts.body.scale;
+        const to = { x: currentConfig.bodyScale.x, y: currentConfig.bodyScale.y, z: currentConfig.bodyScale.z };
+        tweenTriple({ x: cur.x, y: cur.y, z: cur.z }, to, duration, (x, y, z) => aimoInstance.updateBodyScale(x, y, z));
+      });
+
+    bindSlider('body-scale-z',
+      () => currentConfig.bodyScale.z,
+      (v) => currentConfig.bodyScale.z = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.body?.scale) return;
+        const cur = aimoInstance.penguinParts.body.scale;
+        const to = { x: currentConfig.bodyScale.x, y: currentConfig.bodyScale.y, z: currentConfig.bodyScale.z };
+        tweenTriple({ x: cur.x, y: cur.y, z: cur.z }, to, duration, (x, y, z) => aimoInstance.updateBodyScale(x, y, z));
+      });
+
+    bindSlider('body-pos-y',
+      () => currentConfig.bodyPosition.y,
+      (v) => currentConfig.bodyPosition.y = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.body?.position) return;
+        const cur = aimoInstance.penguinParts.body.position.y;
+        tweenNumber(cur, currentConfig.bodyPosition.y, duration, (y) => aimoInstance.updateBodyPosition(null, y, null));
+      });
+
+    // ========= BELLY =========
+    bindSlider('belly-scale-x',
+      () => currentConfig.bellyScale.x,
+      (v) => currentConfig.bellyScale.x = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.belly?.scale) return;
+        const cur = aimoInstance.penguinParts.belly.scale;
+        const to = { x: currentConfig.bellyScale.x, y: currentConfig.bellyScale.y, z: currentConfig.bellyScale.z };
+        tweenTriple({ x: cur.x, y: cur.y, z: cur.z }, to, duration, (x, y, z) => aimoInstance.updateBellyScale(x, y, z));
+      });
+
+    bindSlider('belly-scale-y',
+      () => currentConfig.bellyScale.y,
+      (v) => currentConfig.bellyScale.y = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.belly?.scale) return;
+        const cur = aimoInstance.penguinParts.belly.scale;
+        const to = { x: currentConfig.bellyScale.x, y: currentConfig.bellyScale.y, z: currentConfig.bellyScale.z };
+        tweenTriple({ x: cur.x, y: cur.y, z: cur.z }, to, duration, (x, y, z) => aimoInstance.updateBellyScale(x, y, z));
+      });
+
+    bindSlider('belly-scale-z',
+      () => currentConfig.bellyScale.z,
+      (v) => currentConfig.bellyScale.z = v,
+      (duration) => {
+        const cur = aimoInstance.penguinParts.belly.scale;
+        const to = { x: currentConfig.bellyScale.x, y: currentConfig.bellyScale.y, z: currentConfig.bellyScale.z };
+        tweenTriple({ x: cur.x, y: cur.y, z: cur.z }, to, duration, (x, y, z) => aimoInstance.updateBellyScale(x, y, z));
+      });
+
+    bindSlider('belly-pos-y',
+      () => currentConfig.bellyPosition.y,
+      (v) => currentConfig.bellyPosition.y = v,
+      (duration) => {
+        const cur = aimoInstance.penguinParts.belly.position.y;
+        tweenNumber(cur, currentConfig.bellyPosition.y, duration, (y) => aimoInstance.updateBellyPosition(null, y, null));
+      });
+
+    bindSlider('belly-pos-z',
+      () => currentConfig.bellyPosition.z,
+      (v) => currentConfig.bellyPosition.z = v,
+      (duration) => {
+        const cur = aimoInstance.penguinParts.belly.position.z;
+        tweenNumber(cur, currentConfig.bellyPosition.z, duration, (z) => aimoInstance.updateBellyPosition(null, null, z));
+      });
+
+    // ========= BEAK =========
+    bindSlider('beak-scale-x',
+      () => currentConfig.beakScale.x,
+      (v) => currentConfig.beakScale.x = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.beak?.scale) return;
+        const cur = aimoInstance.penguinParts.beak.scale.x;
+        tweenNumber(cur, currentConfig.beakScale.x, duration, (x) => aimoInstance.updateBeakScale(x, currentConfig.beakScale.y));
+      });
+
+    bindSlider('beak-scale-y',
+      () => currentConfig.beakScale.y,
+      (v) => currentConfig.beakScale.y = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.beak?.scale) return;
+        const cur = aimoInstance.penguinParts.beak.scale.y;
+        tweenNumber(cur, currentConfig.beakScale.y, duration, (y) => aimoInstance.updateBeakScale(currentConfig.beakScale.x, y));
+      });
+
+    bindSlider('beak-pos-y',
+      () => currentConfig.beakPosition.y,
+      (v) => currentConfig.beakPosition.y = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.beak?.position) return;
+        const cur = aimoInstance.penguinParts.beak.position.y;
+        tweenNumber(cur, currentConfig.beakPosition.y, duration, (y) => aimoInstance.updateBeakPosition(null, y, null));
+      });
+
+    bindSlider('beak-pos-z',
+      () => currentConfig.beakPosition.z,
+      (v) => currentConfig.beakPosition.z = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.beak?.position) return;
+        const cur = aimoInstance.penguinParts.beak.position.z;
+        tweenNumber(cur, currentConfig.beakPosition.z, duration, (z) => aimoInstance.updateBeakPosition(null, null, z));
+      });
+
+    // ========= WINGS =========
+    bindSlider('wing-scale-x',
+      () => currentConfig.wingScale.x,
+      (v) => currentConfig.wingScale.x = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.leftWing?.scale) return;
+        const cur = aimoInstance.penguinParts.leftWing.scale;
+        const to = { x: currentConfig.wingScale.x, y: currentConfig.wingScale.y, z: currentConfig.wingScale.z };
+        tweenTriple({ x: cur.x, y: cur.y, z: cur.z }, to, duration, (x, y, z) => aimoInstance.updateWingScale(x, y, z));
+      });
+
+    bindSlider('wing-scale-y',
+      () => currentConfig.wingScale.y,
+      (v) => currentConfig.wingScale.y = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.leftWing?.scale) return;
+        const cur = aimoInstance.penguinParts.leftWing.scale;
+        const to = { x: currentConfig.wingScale.x, y: currentConfig.wingScale.y, z: currentConfig.wingScale.z };
+        tweenTriple({ x: cur.x, y: cur.y, z: cur.z }, to, duration, (x, y, z) => aimoInstance.updateWingScale(x, y, z));
+      });
+
+    bindSlider('wing-scale-z',
+      () => currentConfig.wingScale.z,
+      (v) => currentConfig.wingScale.z = v,
+      (duration) => {
+        if (!aimoInstance?.penguinParts?.leftWing?.scale) return;
+        const cur = aimoInstance.penguinParts.leftWing.scale;
+        const to = { x: currentConfig.wingScale.x, y: currentConfig.wingScale.y, z: currentConfig.wingScale.z };
+        tweenTriple({ x: cur.x, y: cur.y, z: cur.z }, to, duration, (x, y, z) => aimoInstance.updateWingScale(x, y, z));
+      });
+
+    bindSlider('wing-pos-x',
+      () => currentConfig.wingPosition.x,
+      (v) => currentConfig.wingPosition.x = v,
+      (duration) => {
+        const cur = Math.abs(aimoInstance.penguinParts.rightWing.position.x);
+        tweenNumber(cur, currentConfig.wingPosition.x, duration, (x) => aimoInstance.updateWingPosition(x, null, null));
+      });
+
+    bindSlider('wing-pos-y',
+      () => currentConfig.wingPosition.y,
+      (v) => currentConfig.wingPosition.y = v,
+      (duration) => {
+        const cur = aimoInstance.penguinParts.rightWing.position.y;
+        tweenNumber(cur, currentConfig.wingPosition.y, duration, (y) => aimoInstance.updateWingPosition(currentConfig.wingPosition.x, y, null));
+      });
+
+    bindSlider('wing-rot-z',
+      () => currentConfig.wingRotation.z,
+      (v) => currentConfig.wingRotation.z = v,
+      (duration) => {
+        const cur = aimoInstance.penguinParts.rightWing.rotation.z;
+        tweenNumber(cur, currentConfig.wingRotation.z, duration, (z) => aimoInstance.updateWingRotation(null, null, z));
+      });
+
+    // ========= FEET =========
+    bindSlider('feet-scale-x',
+      () => currentConfig.feetScale.x,
+      (v) => currentConfig.feetScale.x = v,
+      (duration) => {
+        if (!aimoInstance?.updateFeetScale) return;
+        // read any foot scale.x by inspecting a foot mesh
+        // here we just apply target smoothly
+        const curX = currentConfig.feetScale.x; // not readable easily → animate by updates
+        tweenNumber(curX, currentConfig.feetScale.x, duration, () => aimoInstance.updateFeetScale(currentConfig.feetScale.x, currentConfig.feetScale.y, currentConfig.feetScale.z));
+      });
+
+    bindSlider('feet-scale-y',
+      () => currentConfig.feetScale.y,
+      (v) => currentConfig.feetScale.y = v,
+      (duration) => {
+        if (!aimoInstance?.updateFeetScale) return;
+        tweenNumber(currentConfig.feetScale.y, currentConfig.feetScale.y, duration, () => aimoInstance.updateFeetScale(currentConfig.feetScale.x, currentConfig.feetScale.y, currentConfig.feetScale.z));
+      });
+
+    bindSlider('feet-scale-z',
+      () => currentConfig.feetScale.z,
+      (v) => currentConfig.feetScale.z = v,
+      (duration) => {
+        if (!aimoInstance?.updateFeetScale) return;
+        tweenNumber(currentConfig.feetScale.z, currentConfig.feetScale.z, duration, () => aimoInstance.updateFeetScale(currentConfig.feetScale.x, currentConfig.feetScale.y, currentConfig.feetScale.z));
+      });
+
+    bindSlider('feet-pos-x',
+      () => currentConfig.feetPosition.x,
+      (v) => currentConfig.feetPosition.x = v,
+      (duration) => {
+        if (!aimoInstance?.updateFeetPosition) return;
+        // read current abs x of right foot approx by config; smooth-apply
+        tweenNumber(0, 1, duration, () => aimoInstance.updateFeetPosition(currentConfig.feetPosition.x, null, null));
+      });
+
+    bindSlider('feet-pos-y',
+      () => currentConfig.feetPosition.y,
+      (v) => currentConfig.feetPosition.y = v,
+      (duration) => {
+        if (!aimoInstance?.updateFeetPosition) return;
+        tweenNumber(0, 1, duration, () => aimoInstance.updateFeetPosition(currentConfig.feetPosition.x, currentConfig.feetPosition.y, null));
+      });
+
+    bindSlider('feet-pos-z',
+      () => currentConfig.feetPosition.z,
+      (v) => currentConfig.feetPosition.z = v,
+      (duration) => {
+        tweenNumber(0, 1, duration, () => aimoInstance.updateFeetPosition(currentConfig.feetPosition.x, currentConfig.feetPosition.y, currentConfig.feetPosition.z));
+      });
+
+    // COLORS (realtime)
+    const colorConfigs = [
+      { id: 'body-color', key: 'bodyColor', update: () => aimoInstance.updateBodyColor(currentConfig.bodyColor) },
+      { id: 'belly-color', key: 'bellyColor', update: () => aimoInstance.updateBellyColor(currentConfig.bellyColor) },
+      { id: 'beak-color', key: 'beakColor', update: () => aimoInstance.updateBeakColor(currentConfig.beakColor) },
+      { id: 'wireframe-color', key: 'wireframeColor', update: () => aimoInstance.updateWireframeColor(currentConfig.wireframeColor) }
+    ];
+    colorConfigs.forEach(({ id, key, update }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const onInput = debounce(() => { currentConfig[key] = el.value; update(); }, 12);
+      el.addEventListener('input', onInput);
+      el.addEventListener('change', onInput);
+    });
+
+    // ACTIONS
+    document.getElementById('reset-btn')?.addEventListener('click', resetToDefault);
+    document.getElementById('export-btn')?.addEventListener('click', exportConfig);
+    document.getElementById('import-btn')?.addEventListener('click', () => document.getElementById('import-file').click());
+    document.getElementById('import-file')?.addEventListener('change', importConfig);
+  }
+
+  // Accordion init (all closed)
+  function initAccordion() {
+    const panels = document.querySelectorAll('.control-panel');
+    panels.forEach(panel => {
+      const header = panel.querySelector('h3');
+      const content = panel.querySelector('.control-content');
+      if (!header || !content) return;
+
+      // Start collapsed
+      panel.classList.add('collapsed');
+      content.style.maxHeight = '0px';
+      content.style.paddingTop = '0';
+      content.style.paddingBottom = '0';
+
+      header.addEventListener('click', () => {
+        panel.classList.toggle('collapsed');
+        if (panel.classList.contains('collapsed')) {
+          content.style.maxHeight = '0px';
+          content.style.paddingTop = '0';
+          content.style.paddingBottom = '0';
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.paddingTop = '0.75rem';
+          content.style.paddingBottom = '0.75rem';
+        }
+      });
+    });
+  }
+
+  // Reset / Export / Import
+  function resetToDefault() {
+    currentConfig = JSON.parse(JSON.stringify(defaultConfig));
+
+    // UI sync
+    const set = (id, val) => {
+      const el = document.getElementById(id);
+      const ro = document.getElementById(id + '-val');
+      if (el) el.value = val;
+      if (ro) ro.textContent = fmt(val);
+    };
+
+    set('style-select', currentConfig.style);
+
+    set('body-scale-x', currentConfig.bodyScale.x);
+    set('body-scale-y', currentConfig.bodyScale.y);
+    set('body-scale-z', currentConfig.bodyScale.z);
+    set('body-pos-y', currentConfig.bodyPosition.y);
+
+    set('belly-scale-x', currentConfig.bellyScale.x);
+    set('belly-scale-y', currentConfig.bellyScale.y);
+    set('belly-scale-z', currentConfig.bellyScale.z);
+    set('belly-pos-y', currentConfig.bellyPosition.y);
+    set('belly-pos-z', currentConfig.bellyPosition.z);
+
+    set('beak-scale-x', currentConfig.beakScale.x);
+    set('beak-scale-y', currentConfig.beakScale.y);
+    set('beak-pos-y', currentConfig.beakPosition.y);
+    set('beak-pos-z', currentConfig.beakPosition.z);
+
+    set('wing-scale-x', currentConfig.wingScale.x);
+    set('wing-scale-y', currentConfig.wingScale.y);
+    set('wing-scale-z', currentConfig.wingScale.z);
+    set('wing-pos-x', currentConfig.wingPosition.x);
+    set('wing-pos-y', currentConfig.wingPosition.y);
+    set('wing-rot-z', currentConfig.wingRotation.z);
+
+    set('feet-scale-x', currentConfig.feetScale.x);
+    set('feet-scale-y', currentConfig.feetScale.y);
+    set('feet-scale-z', currentConfig.feetScale.z);
+    set('feet-pos-x', currentConfig.feetPosition.x);
+    set('feet-pos-y', currentConfig.feetPosition.y);
+    set('feet-pos-z', currentConfig.feetPosition.z);
+
+    const setColor = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
+    setColor('body-color', currentConfig.bodyColor);
+    setColor('belly-color', currentConfig.bellyColor);
+    setColor('beak-color', currentConfig.beakColor);
+    setColor('wireframe-color', currentConfig.wireframeColor);
+
+    // Apply to model via module API (smooth-ish)
+    aimoInstance?.importConfig?.(currentConfig);
+  }
+
+  function exportConfig() {
+    const cfg = aimoInstance?.exportConfig?.() || currentConfig;
+    const blob = new Blob([JSON.stringify(cfg, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'aimo-config.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function importConfig(e) {
+    const file = e.target.files?.[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const imported = JSON.parse(ev.target.result);
+        currentConfig = { ...defaultConfig, ...imported };
+        // UI sync + apply
+        resetToDefault();
+      } catch (err) {
+        console.error('Import error:', err);
+        alert('Invalid configuration file');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // === Boot ===
+  async function initBuilder() {
+    try {
+      await loadPenguinModule();
+      initAimoBuilder();
+    } catch (e) {
+      console.error('Builder init error:', e);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBuilder);
+  } else {
+    initBuilder();
+  }
+</script>

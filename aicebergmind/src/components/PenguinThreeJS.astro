@@ -1,0 +1,176 @@
+---
+export interface Props {
+  size?: 'small' | 'medium' | 'large';
+  placement?: 'center' | 'bottom-right' | 'top-left';
+  interactive?: boolean;
+}
+
+const { size = 'medium', placement = 'center', interactive = true } = Astro.props;
+const componentId = `penguin-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+---
+
+<div 
+  id={componentId}
+  class={`penguin-container penguin-${size} penguin-${placement}`}
+  data-interactive={interactive.toString()}
+  data-component-id={componentId}
+>
+  <div class="penguin-loading">🐧 Caricamento AIMo...</div>
+  
+  <!-- Style Controls -->
+  <div class="penguin-style-controls">
+    <button class="style-btn active" data-style="solid">
+      <span class="style-icon">🎨</span>
+      <span class="style-name">Solid</span>
+    </button>
+    <button class="style-btn" data-style="wireframe">
+      <span class="style-icon">📐</span>
+      <span class="style-name">Wire</span>
+    </button>
+    <button class="style-btn" data-style="dashed">
+      <span class="style-icon">⚡</span>
+      <span class="style-name">Dash</span>
+    </button>
+    <button class="style-btn" data-style="neon">
+      <span class="style-icon">✨</span>
+      <span class="style-name">Neon</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  .penguin-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: 
+      radial-gradient(1200px 700px at 50% 20%, rgba(58,200,245,0.10), transparent 55%),
+      linear-gradient(180deg, rgba(10,25,35,0.45), rgba(10,25,35,0));
+  }
+
+  .penguin-small { height: 250px; }
+  .penguin-medium { height: 400px; }
+  .penguin-large { height: 500px; }
+
+  .penguin-bottom-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+    z-index: 1000;
+    background: rgba(15, 43, 58, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(94, 228, 195, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .penguin-top-left {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 150px;
+    height: 150px;
+    z-index: 1000;
+    background: rgba(15, 43, 58, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(94, 228, 195, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .penguin-loading {
+    font-size: 1.1rem;
+    color: var(--text-primary, #333);
+    text-align: center;
+    font-family: var(--font-display, sans-serif);
+  }
+
+  .penguin-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 8px;
+  }
+</style>
+
+<script type="module">
+  // 1) Importa Three ESM r164 (header corretti dal CDN unpkg)
+  import * as THREE from 'https://unpkg.com/three@0.164.0/build/three.module.js';
+  // esponi al mondo legacy (il tuo PenguinModule usa window.THREE)
+  window.THREE = THREE;
+
+  // 2) Carica il PenguinModule (versione patchata che NON autocarica Three)
+  function loadPenguinModule() {
+    return new Promise((resolve, reject) => {
+      if (window.PenguinModule) return resolve();
+      const s = document.createElement('script');
+      s.src = '/js/penguin-module-r164.js'; // versione r164 compatibile
+      s.defer = true;
+      s.onload = () => window.PenguinModule ? resolve() : reject(new Error('PenguinModule non trovato'));
+      s.onerror = () => reject(new Error('Errore caricamento PenguinModule'));
+      document.head.appendChild(s);
+    });
+  }
+
+  function initPenguins() {
+    const containers = document.querySelectorAll('.penguin-container:not(.penguin-initialized)');
+    containers.forEach((container) => {
+      const componentId = container.dataset.componentId;
+      const interactive = container.dataset.interactive === 'true';
+      try {
+        new window.PenguinModule({
+          containerId: componentId,
+          enableInteraction: interactive,
+          enableAnimation: true,
+          autoRotate: true,
+          enableMobile: false,
+
+          // Wireframe styling (seleziona uno):
+          style: 'neon',        // 'wireframe' | 'dashed' | 'neon'
+          
+          // Colori brand AIceberg Mind
+          wireframeAccent: 0x3ac8f5,     // cyan
+          wireframeAccentAlt: 0x5ee4c3,  // mint
+
+          // Tuning opzionale per dashed
+          dash: { size: 0.6, gap: 0.35, speed: 0.003, scale: 1.0 },
+          
+          // Tuning opzionale per neon
+          neon: { 
+            haloScales: [1.03, 1.015], 
+            haloOpacities: [0.07, 0.12], 
+            pulseSpeed: 0.018, 
+            base: 0.78, 
+            amp: 0.22 
+          }
+        });
+        const loading = container.querySelector('.penguin-loading');
+        if (loading) loading.style.display = 'none';
+        container.classList.add('penguin-initialized');
+        console.log('🐧 Penguin initialized (Three r' + (window.THREE?.REVISION || '?') + '):', componentId);
+      } catch (err) {
+        console.error('Errore init pinguino:', err);
+        const loading = container.querySelector('.penguin-loading');
+        if (loading) { loading.textContent = '🐧 AIMo'; loading.style.fontSize = '2rem'; }
+      }
+    });
+  }
+
+  // 3) Orchestrazione
+  try {
+    await loadPenguinModule();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPenguins);
+    } else {
+      initPenguins();
+    }
+  } catch (e) {
+    console.error('Errore inizializzazione AIMo:', e);
+    document.querySelectorAll('.penguin-container .penguin-loading').forEach(el => {
+      el.textContent = '🐧 AIMo'; el.style.fontSize = '2rem';
+    });
+  }
+</script>
