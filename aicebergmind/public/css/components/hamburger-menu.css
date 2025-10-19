@@ -66,6 +66,11 @@
   transform: scale(1.05);
 }
 
+.hamburger-trigger.hamburger-hidden {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+
 .menu-text {
   color: white;
   font-size: 0.75rem;

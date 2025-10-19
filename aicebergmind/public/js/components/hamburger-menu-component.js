@@ -163,17 +163,14 @@ class HamburgerMenu {
       this.lastScrollY = currentScrollY;
     };
 
-    // Throttle for performance
-    let ticking = false;
+    // Use passive scroll listener to avoid conflicts with GSAP
+    let scrollTimeout;
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateHamburgerVisibility);
-        ticking = true;
-        setTimeout(() => { ticking = false; }, 10);
-      }
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(updateHamburgerVisibility, 16); // ~60fps
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Show hamburger at the beginning
     this.showHamburger();
@@ -181,16 +178,14 @@ class HamburgerMenu {
 
   showHamburger() {
     if (this.hamburgerTrigger) {
-      this.hamburgerTrigger.style.transform = 'translateY(0)';
-      this.hamburgerTrigger.style.opacity = '1';
+      this.hamburgerTrigger.classList.remove('hamburger-hidden');
       this.isMenuVisible = true;
     }
   }
 
   hideHamburger() {
     if (this.hamburgerTrigger) {
-      this.hamburgerTrigger.style.transform = 'translateY(-100px)';
-      this.hamburgerTrigger.style.opacity = '0';
+      this.hamburgerTrigger.classList.add('hamburger-hidden');
       this.isMenuVisible = false;
     }
   }
