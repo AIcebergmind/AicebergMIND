@@ -17,11 +17,15 @@ import PhilosophySection from '../islands/PhilosophySection.astro';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead 
+			title={SITE_TITLE} 
+			description={SITE_DESCRIPTION} 
+			ogImage="/logo/AIceberg_mind_logo_color.svg"
+		/>
 		
 		<!-- Homepage-specific SEO enhancements -->
-		<meta property="og:title" content="AIcebergMind — Smart Content, Crafted with AI & Science" />
-		<meta property="og:description" content="From playful stories to thoughtful printables — AIcebergMind creates digital content for kids, teens, students, and seniors. Powered by science, empathy, and mindful AI." />
+		<meta property="og:title" content="AIceberg Mind — AI tools for deep thinking & discovery" />
+		<meta property="og:description" content="Interactive AI tools for cognitive development, creative learning, and thoughtful exploration from early childhood to lifelong wonder." />
 		
 		<meta name="twitter:title" content="AIcebergMind — Smart Content, Crafted with AI & Care" />
 		<meta name="twitter:description" content="Discover stories, printables, and digital tools for curious learners of all ages — crafted with care, inspired by science, and enhanced by ethical AI." />
@@ -31,7 +35,7 @@ import PhilosophySection from '../islands/PhilosophySection.astro';
 		{
 			"@context": "https://schema.org",
 			"@type": "WebPage",
-			"name": "AIcebergMind - AI Tools for Deep Thinking & Discovery",
+			"name": "AIceberg Mind - AI tools for deep thinking & discovery",
 			"description": "Deep dive into discovery and thinking with interactive AI tools for cognitive development and creative learning.",
 			"url": "https://aicebergmind.com",
 			"mainEntity": {

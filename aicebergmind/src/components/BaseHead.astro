@@ -10,17 +10,20 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
+	ogImage?: string; // Allow custom OG image URL
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { title, description, image = FallbackImage, ogImage } = Astro.props;
+const socialImage = ogImage ? new URL(ogImage, Astro.site) : new URL(image.src, Astro.url);
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="/logo/AIceberg_mind_logo_color.svg" />
+<link rel="apple-touch-icon" href="/logo/AIceberg_mind_logo_color.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
 	rel="alternate"
@@ -41,16 +44,16 @@ const { title, description, image = FallbackImage } = Astro.props;
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "AIcebergMind",
-  "description": "Stories, printables, and mindful digital content — crafted with care, powered by AI, for curious learners of all ages.",
+  "description": "AIceberg Mind - AI tools for deep thinking & discovery. Interactive AI tools for cognitive development, creative learning, and thoughtful exploration.",
   "url": "https://aicebergmind.com",
   "sameAs": [],
   "foundingDate": "2025",
   "industry": "Digital Content & Learning Experiences",
-  "keywords": ["AI-enhanced content", "education", "printables", "creative learning", "storytelling", "digital culture", "mindful design"],
+  "keywords": ["AI tools", "deep thinking", "discovery", "cognitive development", "interactive learning", "creative exploration", "mindful design"],
   "mainEntity": {
     "@type": "WebSite",
-    "name": "AIcebergMind",
-    "description": "Digital content for kids, students, and lifelong learners — from stories to tools, powered by science and ethical AI.",
+    "name": "AIceberg Mind",
+    "description": "AI tools for deep thinking & discovery. Interactive tools for cognitive development and creative learning.",
     "url": "https://aicebergmind.com"
   }
 }
@@ -105,12 +108,12 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
-<meta property="og:site_name" content="AIcebergMind" />
+<meta property="og:image" content={socialImage} />
+<meta property="og:site_name" content="AIceberg Mind" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta property="twitter:image" content={socialImage} />
